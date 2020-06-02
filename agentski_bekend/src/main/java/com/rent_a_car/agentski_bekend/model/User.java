@@ -22,6 +22,13 @@ public class User implements Serializable, UserDetails {
     private Integer id;
 
     @NotNull
+    @Column(name="firstname", nullable = false, unique = true)
+    private String firstname;
+
+    @NotNull
+    @Column(name="lastname", nullable = false, unique = true)
+    private String lastname;
+    @NotNull
     @Email    // hybernate validator
     @Column(name="email", nullable = false, unique = true)
     private String email;
@@ -30,6 +37,24 @@ public class User implements Serializable, UserDetails {
     @Size(min = 5, max = 15)
     @Column(name="password", nullable = false, unique = true)
     private String password;
+
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
 
     @ManyToMany
     @JoinTable(

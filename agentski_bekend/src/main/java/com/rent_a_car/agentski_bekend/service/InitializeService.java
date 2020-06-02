@@ -1,9 +1,5 @@
 package com.rent_a_car.agentski_bekend.service;
 
-import com.rent_a_car.agentski_bekend.model.Privilege;
-import com.rent_a_car.agentski_bekend.model.Role;
-import com.rent_a_car.agentski_bekend.model.User;
-import com.rent_a_car.agentski_bekend.repository.PrivilegeRepository;
 import com.rent_a_car.agentski_bekend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,9 +11,6 @@ public class InitializeService {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private PrivilegeRepository privilegeRepository;
 
     @PostConstruct
     public void init(){

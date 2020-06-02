@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@EnableFeignClients
+@EnableEurekaClient
 public class AdmnServiceApplication {
 
 	@RequestMapping("/health")

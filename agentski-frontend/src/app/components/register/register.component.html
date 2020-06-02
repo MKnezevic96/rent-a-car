@@ -49,9 +49,25 @@
                 </div>
             </form> -->
         
+            <input type="text" id="firstname" class="fadeIn second" name="firstname" placeholder="firstname" [(ngModel)]="firstname">
+            <input type="text" id="lastname" class="fadeIn second" name="lastname" placeholder="lastname" [(ngModel)]="lastname">
             <input type="text" id="email" class="fadeIn second" name="email" placeholder="email" [(ngModel)]="email">
             <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" [(ngModel)]="password">
-            <!-- <input type="submit" class="fadeIn fourth" value="Log In" id="submitLogin"> -->
+           <!-- <p>Company</p>
+            <input type="radio" id="firm" class="fadeIn third" name="firm"  (click)="onClick('company')" [(ngModel)]="isCompany"> 
+            <p>Agent</p>
+            <input type="radio" id="firm" class="fadeIn third" name="firm" (click)="onClick('agent')" [(ngModel)]="isAgent"> 
+            <p>Customer</p>
+            <input type="radio" id="firm" class="fadeIn third" name="firm" (click)="onClick('customer')" [(ngModel)]="isCustomer"> 
+             -->
+             <div class="md-form">
+                <select id="firm" name="firm" class="form-control" [(ngModel)]="isSelected">
+                    <option disabled selected value>Choose Role</option>
+                    <option value="isCompany">Company</option>
+                    <option value="isAgent">Agent</option>
+                    <option value="isCustomer">Customer</option>
+                </select>
+            </div>
             <button class="btn btn-primary fadeIn fourth" (click)="onSubmit()">Register</button>
     
         <div id="formFooter">

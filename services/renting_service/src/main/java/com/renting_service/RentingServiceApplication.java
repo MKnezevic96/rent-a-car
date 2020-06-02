@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
+@EnableFeignClients
 public class RentingServiceApplication {
 
 	public static void main(String[] args) {

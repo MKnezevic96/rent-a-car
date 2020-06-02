@@ -1,0 +1,26 @@
+openssl req -new -newkey rsa:4096 -nodes -keyout gateway.dc1.rent-a-car.key -out gateway.dc1.rent-a-car.csr -subj '/CN=gateway.dc1.rent-a-car' 
+
+openssl x509 -req -in gateway.dc1.rent-a-car.csr -CA rent-a-car-ca.pem -CAkey rent-a-car-ca-key.pem -CAcreateserial -out gateway.dc1.rent-a-car.crt
+
+openssl pkcs12 \
+    -export \
+    -name "gateway.dc1.rent-a-car" \
+    -inkey "gateway.dc1.rent-a-car.key" \
+    -in "gateway.dc1.rent-a-car.crt" \
+    -certfile rent-a-car-ca.pem \
+    -passout "pass:739476603727" \
+    -out "gateway.dc1.rent-a-car.keystore.p12"
+
+
+keytool \
+    -importcert \
+    -noprompt \
+    -alias "gateway.dc1.rent-a-car" \
+    -file "gateway.dc1.rent-a-car.crt" \
+    -storepass "739476603727" \
+    -storetype "PKCS12" \
+    -keystore "rent-a-car.truststore.p12"
+
+
+*u truststore ide root-ca + svi sertifikati sa kljucevima
+*keypass: root

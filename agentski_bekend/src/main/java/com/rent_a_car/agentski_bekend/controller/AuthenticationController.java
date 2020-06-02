@@ -1,9 +1,11 @@
 package com.rent_a_car.agentski_bekend.controller;
 
 import com.rent_a_car.agentski_bekend.dto.UserDTO;
+import com.rent_a_car.agentski_bekend.model.UserRequest;
 import com.rent_a_car.agentski_bekend.model.UserTokenState;
 import com.rent_a_car.agentski_bekend.security.TokenUtils;
 import com.rent_a_car.agentski_bekend.service.UserService;
+import com.rent_a_car.agentski_bekend.service.interfaces.UserRequestServiceInterface;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +30,8 @@ public class AuthenticationController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserRequestServiceInterface userRequestService;
 
     @PostMapping(value ="/api/login")
     public ResponseEntity<?> login(@RequestBody JwtAuthenticationRequest authenticationRequest) {
@@ -48,13 +52,26 @@ public class AuthenticationController {
 
     @PostMapping(value = "/api/register")
     public ResponseEntity<?> register(@RequestBody UserDTO dto) {
-        User user = new User();
+        UserRequest user = new UserRequest();
+        user.setFirstname(dto.getFirstname());
+        user.setLastname(dto.getLastname());
         user.setEmail(dto.getEmail());
         user.setPassword(dto.getPassword());
+
+          if(dto.getIsSelected().equals("isCompany")) {
+              user.setCompany(true);
+          }
+          else if(dto.getIsSelected().equals("isAgent")) {
+              user.setAgent(true);
+          }
+          else if(dto.getIsSelected().equals("isCustomer")) {
+              user.setCustomer(true);
+          }
+
         if(!dto.getEmail().matches("[a-zA-Z0-9.']+@(gmail.com)|(yahoo.com)|(uns.ac.rs)")){
             return ResponseEntity.status(400).build();
         }
-        userService.save(user);
+        userRequestService.save(user);
         return ResponseEntity.ok().build();
     }
 

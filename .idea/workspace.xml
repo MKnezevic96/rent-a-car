@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="851a59de-86ea-4e19-abe2-e45a3afd678a" name="Default Changelist" comment="" />
+    <list default="true" id="851a59de-86ea-4e19-abe2-e45a3afd678a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/agentski_bekend/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/agentski_bekend/entrypoint.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agentski_bekend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/agentski_bekend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agentski_bekend/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/agentski_bekend/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consul-server/consul-server.json" beforeDir="false" afterPath="$PROJECT_DIR$/consul-server/consul-server.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/ad_service/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/entrypoint.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/ad_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/ad_service/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/authentication_service/src/main/java/com/auth_service/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/authentication_service/src/main/java/com/auth_service/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/authentication_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/authentication_service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/authentication_service/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/authentication_service/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/gps_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/gps_service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/gps_service/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/gps_service/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/security_service/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/services/security_service/entrypoint.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/security_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/security_service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/security_service/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/security_service/src/main/resources/bootstrap.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

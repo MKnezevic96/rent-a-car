@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ad</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="css/register.css"> -->
+    <!-- <script src="js/Register.js"></script> -->
+   
+
+</head>
+<body>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="" id="icon" />
+        </div>
+       
+        <div class="md-form">
+            <select ng-model="selectedModel" ng-options="x for x in names">
+            </select>
+        </div>
+        <div class="md-form">
+            <select ng-model="selectedFuelType" ng-options="x for x in names">
+            </select>
+        </div> 
+
+        <input type="text" id="distancelimit" class="fadeIn second" name="distancelimit" placeholder="distancelimit" [(ngModel)]="distancelimit">
+        <input type="text" id="regularprice" class="fadeIn second" name="regularprice" placeholder="regularprice" [(ngModel)]="regularprice">
+        <input type="text" id="overuseprice" class="fadeIn second" name="overuseprice" placeholder="overuseprice" [(ngModel)]="overuseprice">
+        <input type="text" id="collisiondamage" class="fadeIn second" name="collisiondamage" placeholder="collisiondamage" [(ngModel)]="collisiondamage">
+        <input type="text" id="discountdays" class="fadeIn second" name="discountdays" placeholder="discountdays" [(ngModel)]="discountdays">
+        <input type="text" id="discountperc" class="fadeIn second" name="discountperc" placeholder="discountperc" [(ngModel)]="discountperc">
+
+
+             
+            <button class="btn btn-primary fadeIn fourth" (click)="onSubmit()">Make an advertisement</button>
+    
+        <div id="formFooter">
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

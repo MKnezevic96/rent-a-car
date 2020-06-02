@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import {User} from '../models/User'
+import { UserRequest } from '../models/UserRequest';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,14 +17,15 @@ const httpOptions = {
 })
 export class RegisterService {
   
-  user:User;
+  user:UserRequest;
   url:string = 'http://localhost:8282/api/register';
 
   constructor(private http:HttpClient) { }
 
-  onRegister(user: User): Observable<User>{
+  onRegister(user: UserRequest): Observable<UserRequest>{
     console.log('sending');
-    return this.http.post<User>(this.url, user, httpOptions);
+    console.log(user);
+    return this.http.post<UserRequest>(this.url, user, httpOptions);
     
 
   }

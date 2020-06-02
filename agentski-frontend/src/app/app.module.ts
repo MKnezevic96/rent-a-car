@@ -9,6 +9,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AlertComponent } from './components/alert.component/alert.component';
 import { HomeComponent } from './components/home/home.component';
+
+//import { AdminPageComponent } from './components/admin-page/admin-page.component';
 //import { AuthGuard } from './helpers/auth.guard';
 
 @NgModule({
@@ -17,7 +19,7 @@ import { HomeComponent } from './components/home/home.component';
     LoginComponent, 
     RegisterComponent,
     AlertComponent, 
-    HomeComponent
+    HomeComponent,// AdminPageComponent
    // AuthGuard
   ],
   imports: [
@@ -25,7 +27,8 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
     
   ],
   providers: [],

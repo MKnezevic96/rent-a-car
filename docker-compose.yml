@@ -1,95 +1,142 @@
 version: '3'
 services:
 
-#  consul-server:
-#    image: consul-server
-#    build:
-#      context: ./consul-server
-#      dockerfile: Dockerfile
-#    tty: true
-#    ports: 
-#      - "8500:8500"
-#    networks:
-#      first-network:
-#        ipv4_address: 172.20.0.2
+
+  eureka:
+    build: ./eureka
+    container name: eureka
+    ports:
+     - "8761:8761"
+    tty: true
+
+  zuul:
+    build: ./zuul
+    container name: zuul
+    ports:
+    - "8083:8083"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+    tty: true
+    depends_on:
+      - eureka
+      - ad-service
+      - admin-service
+      - authentication-service
+      - gps-service
+      - security-service
+      - renting-service
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-server
+    ports:
+      - "80:80"
+      - "443:443"
+      - "444:444"
+      - "445:445"
+      - "446:446"
+      - "447:447"
+      - "448:448"
+    volumes:
+      - /consul-certs:/etc/nginx/certs
+      - ./nginx:/etc/nginx/nginx
 
   admin-service:
     image: admin_service
+    container_name: admin-service
     build:
       context: ./services/admin_service
       dockerfile: Dockerfile
     tty: true
+    environment: 
+      - REGISTRY_HOST=eureka
     ports:
-      - "127.0.0.1:8284:8284"
+      - "8284:444"
     networks:
       - first-network
-#    depends_on:
-#      - consul-server
+    depends_on:
+      - eureka
 
   ad-service:
     image: ad_service
+    container_name: ad-service
+    environment:
+      - REGISTRY_HOST=eureka
+    depends_on:
+      - eureka
     build:
       context: ./services/ad_service
       dockerfile: Dockerfile
     tty: true
     ports:
-      - "127.0.0.1:8283:8283"
+      - "8283:443"
     networks:
       - first-network
-#    depends_on:
-#      - consul-server
 
   renting-service:
     image: renting_service
-    build:
+    container_name: renting-service
+    build: 
       context: ./services/renting_service
       dockerfile: Dockerfile
     tty: true
+    environment:
+      - REGISTRY_HOST=eureka
     ports:
-      - "127.0.0.1:8287:8287"
+      - "8287:447"
     networks:
       - first-network
-#    depends_on:
-#      - consul-server
+    depends_on:
+      - eureka
 
-#  authentication-service:
-#    image: authentication_service
-#    build:
-#      context: ./services/authentication_service
-#      dockerfile: Dockerfile
-#    tty: true
-#    ports:
-#      - "127.0.0.1:8285:8285"
-#    networks:
-#      - static-network
-#    depends_on:
-#      - consul-server
+  authentication-service:
+    image: authentication_service
+    container_name: authentication-service
+    build:
+      context: ./services/authentication_service
+      dockerfile: Dockerfile
+    tty: true
+    environment:
+      - REGISTRY_HOST=eureka
+    ports:
+      - "8285:445"
+    networks:
+      - static-network
+    depends_on:
+      - eureka
 
-#  gps-service:
-#     image: gps_service
-#     build:
-#       context: ./services/gps_service
-#       dockerfile: Dockerfile
-#     tty: true
-#     ports:
-#      - "127.0.0.1:8286:8286"
-#     networks:
-#       - static-network
-#     depends_on:
-#       - consul-server
+  gps-service:
+    image: gps_service
+    container_name: gps-service
+    build:
+      context: ./services/gps_service
+      dockerfile: Dockerfile
+    tty: true
+    environment:
+      - REGISTRY_HOST=eureka
+    ports:
+      - "127.0.0.1:8286:446"
+    networks:
+      - static-network
+    depends_on:
+      - eureka
 
-#  security-service:
-#     image: security_service
-#     build:
-#       context: ./services/security_service
-#       dockerfile: Dockerfile
-#     tty: true
-#     ports:
-#      - "127.0.0.1:8288:8288"
-#     networks:
-#       - static-network
-#     depends_on:
-#       - consul-server
+  security-service:
+    image: security_service
+    container_name: security-service
+    build:
+      context: ./services/security_service
+      dockerfile: Dockerfile
+    tty: true
+    environment:
+      - REGISTRY_HOST=eureka
+    ports:
+      - "127.0.0.1:8288:448"
+    networks:
+      - first-network
+    depends_on:
+      - eureka
+
 
   agentski-bekend:
      image: agentski_bekend
@@ -98,6 +145,7 @@ services:
      build:
        context: ./agentski_bekend
        dockerfile: Dockerfile
+     tty: true
      ports:
       - 127.0.0.1:8282:8282
      environment:
@@ -106,19 +154,8 @@ services:
        DATABASE_DOMAIN: 'agentska-baza'
        DATABASE_PORT: "3306"
      depends_on:
-#       - consul-server
        - agentska-baza
 
-#  gateway:
-#     image: gateway
-#     build:
-#       context: ./gateway
-#       dockerfile: Dockerfile
-#     tty: true
-#     networks:
-#       - static-network
-#     depends_on:
-#       - consul-server
 
   agentski-frontend:
      image: agentski-frontend
@@ -132,6 +169,7 @@ services:
        - first-network
      depends_on:
        - agentski-bekend
+
 
   agentska-baza:
     restart: always
@@ -164,25 +202,6 @@ services:
     image: mysql
     volumes:
       - my-datavolume:/var/lib/docker/mysqlMainDb
-    
-#    healthcheck:
-#      test: "/usr/bin/mysql --user=root --password=password --execute \"SHOW DATABASES;\""
-#      interval: 2s
-#      timeout: 20s
-#      retries: 10
-
-#  mysql:
-#    image: mysql:8.0.19
-#    container_name: mysql
-#    restart: always
-#    environment:
-#      MYSQL_ROOT_PASSWORD: password
-#      MYSQL_USER: sa
-#      MYSQL_PASSWORD: zgadija
-#      MYSQL_DATABASE: servers
-#    volumes:
-#      - mysql-data:/var/lib/mysql
-
 
 networks:
   first-network:

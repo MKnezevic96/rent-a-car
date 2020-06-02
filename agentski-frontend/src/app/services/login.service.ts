@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import {User} from '../models/User'
+import {LoginUser} from '../models/LoginUser'
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,14 +16,14 @@ const httpOptions = {
 })
 export class LoginService {
   
-  loginUser:User;
+  loginUser:LoginUser;
   url:string = 'http://localhost:8282/api/login';
 
   constructor(private http:HttpClient) { }
 
-  onLogin(loginUser: User): Observable<User>{
+  onLogin(loginUser: LoginUser): Observable<LoginUser>{
     console.log('sending');
-    return this.http.post<User>(this.url, loginUser, httpOptions);
+    return this.http.post<LoginUser>(this.url, loginUser, httpOptions);
     
 
   }

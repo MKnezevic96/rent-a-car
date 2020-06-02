@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/User';
 import { config } from 'process';
+import { UserRequest } from '../models/UserRequest';
 
 
 @Injectable({ providedIn: 'root' })
@@ -16,6 +17,7 @@ export class UserService {
         return this.http.post(`https://localhost:8500/users/register`, user);
     }
 
+   
     delete(id: number) {
         return this.http.delete(`https://localhost:8500/users/${id}`);
     }

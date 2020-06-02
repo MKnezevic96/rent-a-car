@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
+@EnableFeignClients
 public class AdServiceApplication {
 
 	public static void main(String[] args) {
