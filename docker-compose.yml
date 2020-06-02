@@ -1,54 +1,54 @@
 version: '3'
 services:
 
-  consul-server:
-    image: consul-server
+#  consul-server:
+#    image: consul-server
+#    build:
+#      context: ./consul-server
+#      dockerfile: Dockerfile
+#    tty: true
+#    ports: 
+#      - "8500:8500"
+#    networks:
+#      first-network:
+#        ipv4_address: 172.20.0.2
+
+  admin-service:
+    image: admin_service
     build:
-      context: ./consul-server
+      context: ./services/admin_service
       dockerfile: Dockerfile
     tty: true
-    ports: 
-      - "8500:8500"
+    ports:
+      - "127.0.0.1:8284:8284"
     networks:
-      first-network:
-        ipv4_address: 172.20.0.2
-
-#  admin-service:
-#   image: admin_service
-#    build:
-#      context: ./services/admin_service
-#      dockerfile: Dockerfile
-#    tty: true
-#    ports:
-#      - "127.0.0.1:8284:8284"
-#    networks:
-#      - static-network
+      - first-network
 #    depends_on:
 #      - consul-server
 
-#  ad-service:
-#    image: ad_service
-#    build:
-#      context: ./services/ad_service
-#      dockerfile: Dockerfile
-#    tty: true
-#    ports:
-#      - "127.0.0.1:8283:8283"
-#    networks:
-#      - static-network
+  ad-service:
+    image: ad_service
+    build:
+      context: ./services/ad_service
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - "127.0.0.1:8283:8283"
+    networks:
+      - first-network
 #    depends_on:
 #      - consul-server
 
-#  renting-service:
-#    image: renting_service
-#    build:
-#      context: ./services/renting_service
-#      dockerfile: Dockerfile
-#    tty: true
-#    ports:
-#      - "127.0.0.1:8287:8287"
-#    networks:
-#      - static-network
+  renting-service:
+    image: renting_service
+    build:
+      context: ./services/renting_service
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - "127.0.0.1:8287:8287"
+    networks:
+      - first-network
 #    depends_on:
 #      - consul-server
 
@@ -102,9 +102,9 @@ services:
       - 127.0.0.1:8282:8282
      environment:
        DATABASE_USERNAME: 'sa'
-       DATABASE_PASSWORD: 'sifra'
+       DATABASE_PASSWORD: 'admin'
        DATABASE_DOMAIN: 'agentska-baza'
-       DATABASE_PORT: '3306'
+       DATABASE_PORT: "3306"
      depends_on:
 #       - consul-server
        - agentska-baza
@@ -120,18 +120,18 @@ services:
 #     depends_on:
 #       - consul-server
 
-#  agentski-frontend:
-#     image: agentski-frontend
-#     build:
-#       context: ./agentski-frontend
-#       dockerfile: Dockerfile
-#     tty: true
-#     ports:
-#      - "127.0.0.1:4200:80"
-#     networks:
-#       - static-network
-#     depends_on:
-#       - agentski-bekend
+  agentski-frontend:
+     image: agentski-frontend
+     build:
+       context: ./agentski-frontend
+       dockerfile: Dockerfile
+     tty: true
+     ports:
+      - "127.0.0.1:4200:80"
+     networks:
+       - first-network
+     depends_on:
+       - agentski-bekend
 
   agentska-baza:
     restart: always
@@ -139,21 +139,31 @@ services:
      - first-network
     container_name: agentska-baza
     ports:
-     - "127.0.0.1:3307:3306"
-#    command: --default-authentication-plugin=mysql_native_password
-##	build:
-##	  context: ./agentska_baza
-##	  dockerfile: Dockerfile
+     - "3307:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: 'sifra'
+      MYSQL_ROOT_PASSWORD: 'password'
       MYSQL_DATABASE: 'agentska-baza'
       MYSQL_USER: 'sa'
-      MYSQL_PASSWORD: 'zgadija'
+      MYSQL_PASSWORD: 'admin'
     image: mysql
-#    ports:
-#      - "6033:3306"
     volumes:
-      - my-datavolume:/var/lib/docker/mysql
+      - my-datavolume:/var/lib/docker/mysqlAgent
+
+  db:
+    restart: always
+    networks: 
+     - first-network
+    container_name: db
+    ports:
+     - "3308:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: 'main_db'
+      MYSQL_USER: 'sa'
+      MYSQL_PASSWORD: 'admin'
+    image: mysql
+    volumes:
+      - my-datavolume:/var/lib/docker/mysqlMainDb
     
 #    healthcheck:
 #      test: "/usr/bin/mysql --user=root --password=password --execute \"SHOW DATABASES;\""
