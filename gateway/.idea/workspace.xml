@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="25e99ce1-274e-4922-8f93-b040404f3d5c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +22,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../agentski_bekend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../zuul" />
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -44,10 +44,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="782" y="325" key="FileChooserDialogImpl" timestamp="1589919668118">
+    <state x="782" y="325" key="FileChooserDialogImpl" timestamp="1591109231803">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="782" y="325" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1589919668118" />
+    <state x="782" y="325" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1591109231803" />
     <state width="1807" height="301" key="GridCell.Tab.0.bottom" timestamp="1589919670827">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
