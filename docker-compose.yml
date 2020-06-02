@@ -10,7 +10,7 @@ services:
     ports: 
       - "8500:8500"
     networks:
-      static-network:
+      first-network:
         ipv4_address: 172.20.0.2
 
 #  admin-service:
@@ -91,24 +91,23 @@ services:
 #     depends_on:
 #       - consul-server
 
-#  agentski-bekend:
-#     image: agentski_bekend
-#     build:
-#       context: ./agentski_bekend
-#       dockerfile: Dockerfile
-#     tty: true
-#     ports:
-#      - "127.0.0.1:8282:8282"
-#     networks:
-#       - static-network
-#     depends_on:
+  agentski-bekend:
+     image: agentski_bekend
+     networks: 
+      - first-network
+     build:
+       context: ./agentski_bekend
+       dockerfile: Dockerfile
+     ports:
+      - 127.0.0.1:8282:8282
+     environment:
+       DATABASE_USERNAME: 'sa'
+       DATABASE_PASSWORD: 'sifra'
+       DATABASE_DOMAIN: 'agentska-baza'
+       DATABASE_PORT: '3306'
+     depends_on:
 #       - consul-server
-#       - agentska-baza
-#     environment:
-#       DATABASE_USERMANE: root
-#       DATABASE_PASSWORD: admin
-#       DATABASE_DOMAIN: mysql
-#       DATABASE_PORT: "127.0.0.1:3306"
+       - agentska-baza
 
 #  gateway:
 #     image: gateway
@@ -134,26 +133,33 @@ services:
 #     depends_on:
 #       - agentski-bekend
 
-#  agentska-baza:
-#    restart: always
-#    image: mysql
+  agentska-baza:
+    restart: always
+    networks: 
+     - first-network
+    container_name: agentska-baza
+    ports:
+     - "127.0.0.1:3307:3306"
+#    command: --default-authentication-plugin=mysql_native_password
 ##	build:
 ##	  context: ./agentska_baza
 ##	  dockerfile: Dockerfile
-#    environment:
-#      MYSQL_DATABASE: agentski_bekend
-#      MYSQL_ROOT_PASSWORD: admin
-#      MYSQL_USER: mysql
-#      MYSQL_PASSWORD: admin
-##    volumes:
-##      - ./sql:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: 'sifra'
+      MYSQL_DATABASE: 'agentska-baza'
+      MYSQL_USER: 'sa'
+      MYSQL_PASSWORD: 'zgadija'
+    image: mysql
 #    ports:
-#      - "127.0.0.1:6033:3306"
-##    healthcheck:
-##      test: "/usr/bin/mysql --user=root --password=root--execute \"SHOW DATABASES;\""
-##      interval: 2s
-##      timeout: 20s
-##      retries: 10
+#      - "6033:3306"
+    volumes:
+      - my-datavolume:/var/lib/docker/mysql
+    
+#    healthcheck:
+#      test: "/usr/bin/mysql --user=root --password=password --execute \"SHOW DATABASES;\""
+#      interval: 2s
+#      timeout: 20s
+#      retries: 10
 
 #  mysql:
 #    image: mysql:8.0.19
@@ -169,7 +175,11 @@ services:
 
 
 networks:
-  static-network:
+  first-network:
     ipam:
       config:
         - subnet: 172.20.0.0/16
+
+
+volumes:
+  my-datavolume:

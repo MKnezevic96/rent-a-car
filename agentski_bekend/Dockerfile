@@ -13,5 +13,6 @@ RUN apk --no-cache add \
     && apk --no-cache del \
     && mkdir consul-data \
     curl \
-    unzip
+    unzip 
+
 CMD ["/entrypoint.sh"]
