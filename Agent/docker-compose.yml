@@ -14,8 +14,8 @@ services:
      ports:
       - "127.0.0.1:8282:8282"
      environment:
-       DATABASE_USERNAME: 'root'
-       DATABASE_PASSWORD: 'password'
+       DATABASE_USERNAME: 'sa'
+       DATABASE_PASSWORD: 'admin'
        DATABASE_DOMAIN: 'agentska-baza'
        DATABASE_PORT: "3306"
      depends_on:
@@ -44,7 +44,7 @@ services:
     ports:
     - "3307:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'admin'
       MYSQL_DATABASE: 'agentska-baza'
       MYSQL_USER: 'sa'
       MYSQL_PASSWORD: 'admin'
@@ -59,7 +59,7 @@ networks:
   second-network:
     ipam:
       config:
-        - subnet: 127.20.0.0/16
+        - subnet: 172.20.0.0/16
 
 
 volumes:
