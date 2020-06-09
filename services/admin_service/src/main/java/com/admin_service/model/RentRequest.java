@@ -1,5 +1,7 @@
 package com.admin_service.model;
 
+import com.admin_service.model.enums.RequestStatus;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -13,23 +15,40 @@ public class RentRequest implements Serializable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="rr_id", nullable=false, unique=true)
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name="user_id", referencedColumnName = "user_id")
+    private User owningUser;
+
     @ManyToOne
     @JoinColumn(name="car_id", referencedColumnName = "cars_id")
     private Cars carId;
+
     @NotNull
     @Column(name="startDate", nullable = false, unique = true)
     private Date startDate;
+
     @NotNull
     @Column(name="endDate", nullable = false, unique = true)
     private Date endDate;
-    @NotNull
+
+    @Enumerated(EnumType.STRING)
     @Column(name="status", nullable = false, unique = true)
-    private boolean status = false;   // false => nije odobren
+    private RequestStatus status;
+
+    @Column (name="request_group_id")
+    private Integer requestGroupId;
+
     @NotNull
     @Column(name="deleted", nullable = false, unique = true)
     private boolean deleted=false;
+
+    @OneToOne(fetch=FetchType.LAZY)
+    private RentingReport rentingReport;
+
     public RentRequest() {
     }
+
     public Integer getId() {
         return id;
     }
@@ -54,10 +73,10 @@ public class RentRequest implements Serializable {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
-    public boolean isStatus() {
+    public RequestStatus getStatus() {
         return status;
     }
-    public void setStatus(boolean status) {
+    public void setStatus(RequestStatus status) {
         this.status = status;
     }
     public boolean isDeleted() {
@@ -65,5 +84,29 @@ public class RentRequest implements Serializable {
     }
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public User getOwningUser() {
+        return owningUser;
+    }
+
+    public void setOwningUser(User owningUser) {
+        this.owningUser = owningUser;
+    }
+
+    public Integer getRequestGroupId() {
+        return requestGroupId;
+    }
+
+    public void setRequestGroupId(Integer requestGroupId) {
+        this.requestGroupId = requestGroupId;
+    }
+
+    public RentingReport getRentingReport() {
+        return rentingReport;
+    }
+
+    public void setRentingReport(RentingReport rentingReport) {
+        this.rentingReport = rentingReport;
     }
 }

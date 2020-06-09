@@ -36,9 +36,6 @@ public class AdminController {
     @Autowired
     private UserServiceInterface userService;
 
-    @Autowired
-    private UserBlockedServiceInterface userBlockedService;
-
     @PostMapping(value="/admin/activateAcc")
     public ResponseEntity<?> activateAcc(@RequestBody String email){
         UserRequest us = userRequestService.findByEmail(email);
@@ -56,13 +53,13 @@ public class AdminController {
     @PostMapping(value="/admin/blockAcc")
     public ResponseEntity<?> blocAcc(@RequestBody String email){
         User u = userService.findByEmail(email);
-        userService.delete(u);
-        UserBlocked ub = new UserBlocked();
-        ub.setFirstname(u.getFirstname());
-        ub.setLastname(u.getLastname());
-        ub.setEmail(u.getEmail());
-        ub.setPassword(u.getPassword());
-        userBlockedService.save(ub);
+//        userService.delete(u);
+//        UserBlocked ub = new UserBlocked();
+//        ub.setFirstname(u.getFirstname());
+//        ub.setLastname(u.getLastname());
+//        ub.setEmail(u.getEmail());
+//        ub.setPassword(u.getPassword());
+//        userBlockedService.save(ub);
 
         return ResponseEntity.ok().build();
     }
@@ -222,18 +219,18 @@ public class AdminController {
     @GetMapping(value="/admin/getBlockedUsers")
     public List<UserRequestDTO> getBlockedUsers(){
 
-        List<UserBlocked> cm = userBlockedService.findAll();
+//        List<UserBlocked> cm = userBlockedService.findAll();
 
         List<UserRequestDTO> dto = new ArrayList<>();
 
-        for(UserBlocked c : cm){
-            UserRequestDTO m = new UserRequestDTO();
-            m.setFirsname(c.getFirstname());
-            m.setLastname(c.getLastname());
-            m.setEmail(c.getEmail());
-            m.setPassword(c.getPassword());
-            dto.add(m);
-        }
+//        for(UserBlocked c : cm){
+//            UserRequestDTO m = new UserRequestDTO();
+//            m.setFirsname(c.getFirstname());
+//            m.setLastname(c.getLastname());
+//            m.setEmail(c.getEmail());
+//            m.setPassword(c.getPassword());
+//            dto.add(m);
+//        }
 
         return dto;
     }

@@ -1,6 +1,8 @@
 package com.rent_a_car.agentski_bekend.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="transmission_type_table")
@@ -15,8 +17,11 @@ public class TransmissionType {
     @Column(name="name", nullable=false, unique=true)
     private String name;
 
-    @Column
+    @Column(name="deleted", nullable=false)
     private boolean deleted;
+
+    @OneToMany(mappedBy="transmission", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private List<CarModels> carModels = new ArrayList<CarModels>();
 
     public TransmissionType() {
     }

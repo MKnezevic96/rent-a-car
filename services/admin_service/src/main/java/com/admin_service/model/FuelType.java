@@ -1,6 +1,9 @@
 package com.admin_service.model;
 
 import javax.persistence.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="fuel_type_table")
@@ -15,8 +18,11 @@ public class FuelType {
     @Column(name="name", nullable=false, unique=true)
     private String name;
 
-    @Column
-    private boolean deleted;
+    @Column(name="deleted", nullable=false)
+    private boolean deleted = false;
+
+    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    private List<Cars> cars = new ArrayList<Cars>();
 
     public FuelType() {
     }
@@ -43,5 +49,14 @@ public class FuelType {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+
+    public List<Cars> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Cars> cars) {
+        this.cars = cars;
     }
 }

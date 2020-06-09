@@ -2,6 +2,7 @@ package com.rent_a_car.agentski_bekend.controller;
 import com.rent_a_car.agentski_bekend.dto.CarDTO;
 import com.rent_a_car.agentski_bekend.dto.RentRequestDTO;
 import com.rent_a_car.agentski_bekend.model.*;
+import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import com.rent_a_car.agentski_bekend.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -59,10 +60,8 @@ public class AdvertisementController {
             c.setFuelType(ft);
             c.setMilage(dto.getMilage());
             c.setName(dto.getName());
-            c.setStartDate(dto.getStartDate());
-            c.setEndDate(dto.getEndDate());
-            c.setHasAndroid(false);
-            c.setCompany(null);
+
+            c.setAndroidGps(null);
             c.setOwner(null);
 
             carsService.save(c);
@@ -85,8 +84,6 @@ public class AdvertisementController {
             d.setFuelType(a.getFuelType().getName());
             d.setMilage(a.getMilage());
             d.setPricing(a.getPricing().getName());
-            d.setStartDate(a.getStartDate());
-            d.setEndDate(a.getEndDate());
 
             dto.add(d);
         }
@@ -103,7 +100,7 @@ public class AdvertisementController {
             rr.setCarId(c);
             rr.setStartDate(dto.getStartDate());
             rr.setEndDate(dto.getEndDate());
-            rr.setStatus(false);
+            rr.setStatus(RequestStatus.PENDING);
             rr.setDeleted(false);
             rentRequestService.save(rr);
             return ResponseEntity.ok().build();

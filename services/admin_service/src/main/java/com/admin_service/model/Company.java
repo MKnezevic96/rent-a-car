@@ -13,12 +13,6 @@ public class Company {
     @Column(name="company_id", nullable=false, unique=true)
     private Integer id;
 
-    @Column(name="email", nullable = false)
-    private String email;
-
-    @Column(name="password", nullable = false)
-    private String password;
-
     @Column(name="name", nullable=false, unique=true)
     private String name;
 
@@ -28,11 +22,28 @@ public class Company {
     @Column(name="number")
     private String bussinessNumber;
 
-    @Column
-    private boolean deleted;
+    @Column(name="deleted", nullable=false)
+    private boolean deleted = false;
+
+    @OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+    private User owner;
+
+
 
     public Company() {
     }
+
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+
+
 
     public Integer getId() {
         return id;
@@ -40,22 +51,6 @@ public class Company {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getName() {

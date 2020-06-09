@@ -1,6 +1,8 @@
 package com.rent_a_car.agentski_bekend.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="car_class_table")
@@ -15,8 +17,11 @@ public class CarClass {
     @Column(name="name", nullable=false, unique=true)
     private String name;
 
-    @Column
-    private boolean deleted;
+    @Column(name="deleted", nullable=false)
+    private boolean deleted = false;
+
+    @OneToMany(mappedBy="carClass", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    private List<CarModels> carModels = new ArrayList<CarModels>();
 
     public CarClass() {
     }
@@ -43,5 +48,13 @@ public class CarClass {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public List<CarModels> getCarModels() {
+        return carModels;
+    }
+
+    public void setCarModels(List<CarModels> carModels) {
+        this.carModels = carModels;
     }
 }

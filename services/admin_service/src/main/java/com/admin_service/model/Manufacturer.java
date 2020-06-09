@@ -1,7 +1,11 @@
 package com.admin_service.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "manufacturer_table")
@@ -16,8 +20,11 @@ public class Manufacturer {
     @Column(name="name", nullable=false, unique=true)
     private String name;
 
-    @Column
-    private boolean deleted;
+    @Column(name="deleted", nullable=false)
+    private boolean deleted = false;
+
+    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    private List<CarModels> cars = new ArrayList<CarModels>();
 
     public Manufacturer() {
     }
@@ -44,5 +51,13 @@ public class Manufacturer {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public List<CarModels> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<CarModels> cars) {
+        this.cars = cars;
     }
 }

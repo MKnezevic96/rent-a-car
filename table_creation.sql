@@ -19,6 +19,8 @@ CREATE TABLE users (
     message_ban DATE, 
     deleted VARCHAR(6), 
     company INTEGER, 
+    firstNname VARCHAR(50), 
+    lastName VARCHAR(50), 
     
     CONSTRAINT pk_user PRIMARY KEY (id), 
     CONSTRAINT chk_userRole CHECK (role IN ('renter', 'admin')), 
@@ -140,6 +142,7 @@ CREATE TABLE cars (
     pricing INTEGER, 
     milage DOUBLE, 
     deleted VARCHAR(6), 
+    name VARCHAR(50), 
     
     CONSTRAINT pk_car PRIMARY KEY (id),
     CONSTRAINT fk_carUser FOREIGN KEY (owner) REFERENCES users(id), 

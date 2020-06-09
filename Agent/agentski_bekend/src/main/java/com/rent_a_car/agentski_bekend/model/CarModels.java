@@ -15,20 +15,20 @@ public class CarModels {
     @Column(name="car_models_name", nullable=false)
     private String name;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="manufacturer_id", referencedColumnName = "manufacturer_id", nullable = false)
     private Manufacturer manufacturer;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="car_class_id", referencedColumnName = "car_class_id", nullable = false)
     private CarClass carClass;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="transmission_type_id", referencedColumnName = "transmission_type_id",nullable = false)
     private TransmissionType transmission;
 
-    @Column
-    private boolean deleted;
+    @Column (name="deleted", nullable=false)
+    private boolean deleted = false;
 
     public CarModels() {
     }

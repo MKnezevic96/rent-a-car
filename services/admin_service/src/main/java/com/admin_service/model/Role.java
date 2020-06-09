@@ -30,6 +30,16 @@ public class Role implements GrantedAuthority {
           name = "privilege_id", referencedColumnName = "id"))
     private Collection<Privilege> privileges;
 
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    @Column(name="deleted", nullable=false)
+    private boolean deleted;
 
     public Role() {
     }

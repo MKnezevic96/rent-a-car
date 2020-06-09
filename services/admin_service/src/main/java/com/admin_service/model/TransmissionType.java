@@ -15,7 +15,7 @@ public class TransmissionType {
     @Column(name="name", nullable=false, unique=true)
     private String name;
 
-    @Column
+    @Column(name="deleted", nullable=false)
     private boolean deleted;
 
     public TransmissionType() {

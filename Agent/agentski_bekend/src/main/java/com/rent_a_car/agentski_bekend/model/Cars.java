@@ -1,8 +1,9 @@
 package com.rent_a_car.agentski_bekend.model;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="cars_table")
@@ -18,15 +19,11 @@ public class Cars {
     @JoinColumn(name="user_id",  referencedColumnName = "user_id")
     private User owner;
 
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name="company_id",  referencedColumnName = "company_id")
-    private Company company;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="car_models_id",  referencedColumnName = "car_models_id",  nullable=false)
     private CarModels model;
 
-    @ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="fuel_type", referencedColumnName = "id",  nullable=false)
     private FuelType fuelType;
 
@@ -40,21 +37,22 @@ public class Cars {
     @Column(name="name", nullable=false)
     private String name;
 
-    @Column
-    private boolean deleted;
+    @Column(name="deleted", nullable=false)
+    private boolean deleted = false;
 
-    @Column
-    private boolean hasAndroid = false;
+    @OneToOne(fetch=FetchType.LAZY)
+    private AndroidGPS androidGps;
 
-    @Column
-
-    private Date startDate;
-
-    @Column
-    private Date endDate;
-
-    @Column
+    @Column(name="town")
     private String town;
+
+    @OneToMany(mappedBy="car", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    private List<CarReview> reviews = new ArrayList<CarReview>();
+
+
+    public Cars() {
+
+    }
 
     public void setTown(String town) {
         this.town = town;
@@ -70,30 +68,6 @@ public class Cars {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public boolean isHasAndroid() {
-        return hasAndroid;
-    }
-
-    public void setHasAndroid(boolean hasAndroid) {
-        this.hasAndroid = hasAndroid;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
     }
 
     public Integer getId() {
@@ -112,12 +86,12 @@ public class Cars {
         this.owner = owner;
     }
 
-    public Company getCompany() {
-        return company;
+    public AndroidGPS getAndroidGps() {
+        return androidGps;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setAndroidGps(AndroidGPS androidGps) {
+        this.androidGps = androidGps;
     }
 
     public CarModels getModel() {
@@ -160,7 +134,12 @@ public class Cars {
         this.deleted = deleted;
     }
 
-    public Cars() {
-
+    public List<CarReview> getReviews() {
+        return reviews;
     }
+
+    public void setReviews(List<CarReview> reviews) {
+        this.reviews = reviews;
+    }
+
 }

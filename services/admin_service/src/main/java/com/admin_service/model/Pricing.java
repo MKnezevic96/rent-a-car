@@ -33,18 +33,15 @@ public class Pricing {
     @Column(name="pricing_name", nullable =false)
     private String name;
 
-    @Column
+    @Column(name="deleted", nullable=false)
     private boolean deleted;
 
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "user_id")
     private User owningUser;
 
-    @ManyToOne
-    @JoinColumn(name="company_id", referencedColumnName = "company_id")
-    private Company owningCompany;
-
     public Pricing() {
+        deleted = false;
     }
 
     public Integer getId() {
@@ -127,11 +124,4 @@ public class Pricing {
         this.owningUser = owningUser;
     }
 
-    public Company getOwningCompany() {
-        return owningCompany;
-    }
-
-    public void setOwningCompany(Company owningCompany) {
-        this.owningCompany = owningCompany;
-    }
 }
