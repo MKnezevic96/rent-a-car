@@ -1,0 +1,21 @@
+<div class="container fluid">
+  <ng-container>
+        <table class="table table-borderless">
+            <thead>
+              <tr>           
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of usersBloc">           
+                <td>{{ user.firsname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.email }}</td>
+                <td><button class="btn btn-primary "(click)="blockAcc(user.email)">Block</button></td>
+            </tr>
+            </tbody>
+          </table>
+    </ng-container>
+</div>

@@ -2,297 +2,32 @@
 <html>
     <head>
         <meta charset="UTF-8">
-
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <!------ Include the above in your HEAD tag ---------->
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" id="home" (click)="home()">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" id="newManufac" (click)="newManufac()">New manufacturer</a>
-                    <a class="nav-item nav-link" id="newCarC" (click)="newCarC()">New car class</a>
-                    <a class="nav-item nav-link" id="newTransmis" (click)="newTransmis()">New transmission type</a>
-                    <a class="nav-item nav-link" id="newTransmis" (click)="newFuelType()">New fuel type</a>
-                    <a class="nav-item nav-link" id="manuf" (click)="showManufac()">Manufacturers</a>
-                    <a class="nav-item nav-link" id="carcl" (click)="showCarC()">Car classes</a>
-                    <a class="nav-item nav-link" id="transmi" (click)="showTransmis()">Transmission types</a>
-                    <a class="nav-item nav-link" id="transmi" (click)="showFuelType()">Fuel types</a>
+      <div class="d-flex" id="wrapper">
 
-                </div>
-            </div>
-        </nav>
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+          <div class="sidebar-heading"> Menu </div>
+          <div class="list-group list-group-flush">
+              <a class="list-group-item list-group-item-action bg-light" (click)=showCodebooks()>Codebooks management</a>
+              <a class="list-group-item list-group-item-action bg-light">Comment management</a>
+              <a class="list-group-item list-group-item-action bg-light" (click)=showUsers()>User management</a>
+              <a class="list-group-item list-group-item-action bg-light">Permission management</a>
+              <a class="list-group-item list-group-item-action bg-light">Agents registration</a>
+          </div>
+      </div>
 
-        <button id="button" (click)="newCarModel()">Add car model</button>
-        <button id="button1" (click)="allCarModels()">All car models</button>
-        <button id="button2" (click)="activateAccounts()">Activate accounts</button>
-        <button id="button3" (click)="blockAccounts()">Block accounts</button>
-        <button id="button4" (click)="accBlocked()">All blocked acc</button>
+      <div id="page-content-wrapper">
+        <router-outlet></router-outlet>
+        
         <button id="button5" (click)="toAdv()">Make Advertisement</button>
         <button id="button6" (click)="rentRequest()">Make rent request</button>
 
-        <ng-container *ngIf="show13">
-          <div id="cModel">
-              <p>Enter car model name: </p>
-              <input type="text" id="nameCM" name="nameCM" [(ngModel)]="nameCM"><p></p>
-            Select car class:
-            <select [(ngModel)]="caarc">
-              <option [ngValue]="caarc" *ngFor="let caarc of carClass" (click)="selectedCarClass(caarc)">{{caarc.name}} </option>
-            </select><p></p>
-            Select transmission type:
-            <select [(ngModel)]="trrans">
-              <option [ngValue]="trrans" *ngFor="let trrans of transmissionType" (click)="selectedTransmission(trrans)">{{trrans.name}}</option>
-            </select><p></p>
-            Select manufacturer:
-            <select [(ngModel)]="maanu">
-              <option [ngValue]="maanu" *ngFor="let maanu of manufacturer" (click)="selectedManufacturer(maanu)">{{maanu.name}}</option>
-            </select><p></p>
-            <button (click)="addCM()">Submit</button>
-          </div>
-        </ng-container>
-
-        <ng-container *ngIf="show1">
-        <div id="manufac">
-            <p>Enter manufacturer name: </p>
-            <input type="text" id="nameM" name="nameM" [(ngModel)]="nameM">
-            <button (click)="addM()">Submit</button>
-        </div>
-        </ng-container>
-        <ng-container *ngIf="show2">
-        <div id="carC">
-            <p>Enter car class name: </p>
-            <input type="text" id="nameCC" name="nameCC" [(ngModel)]="nameCC">
-            <button (click)="addCC()">Submit</button>
-        </div>
-        </ng-container> 
-        <ng-container *ngIf="show3">
-        <div id="transmis">
-            <p>Enter transmission type name: </p>
-            <input type="text" id="nameTT" name="nameTT" [(ngModel)]="nameTT">
-            <button (click)="addTT()">Submit</button>
-        </div>
-        </ng-container>
-        <ng-container *ngIf="show10">
-          <div id="fuelType">
-              <p>Enter fuel type name: </p>
-              <input type="text" id="nameFT" name="nameFT" [(ngModel)]="nameFT">
-              <button (click)="addFT()">Submit</button>
-          </div>
-          </ng-container>
         
-        <ng-container *ngIf="show4">
-            <table>
-                <thead>
-                  <tr>           
-                    <th>Name</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let manufac of manufacturer">           
-                    <td>{{ manufac.name }}</td>
-                    <td *ngIf="!manufac.deleted">Active</td>
-                    <td *ngIf="manufac.deleted">Deleted</td>
-                    <td><button (click)="deleteManufacturer(manufac.name)">Delete</button></td>
-                    <td><button (click)="updateManufacturer(manufac.name)">Update</button></td>
-                </tr>
-                </tbody>
-              </table>
-        </ng-container>
-        <ng-container *ngIf="show16">
-          <table>
-              <thead>
-                <tr>           
-                  <th>First name</th>
-                  <th>Last name</th>
-                  <th>Email</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let user of usersAcc">           
-                  <td>{{ user.firsname }}</td>
-                  <td>{{ user.lastname }}</td>
-                  <td>{{ user.email }}</td>
-                  <td><button (click)="activateAcc(user.email)">Activate</button></td>
-              </tr>
-              </tbody>
-            </table>
-      </ng-container>
-      <ng-container *ngIf="show17">
-        <table>
-            <thead>
-              <tr>           
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let user of usersBloc">           
-                <td>{{ user.firsname }}</td>
-                <td>{{ user.lastname }}</td>
-                <td>{{ user.email }}</td>
-                <td><button (click)="blockAcc(user.email)">Block</button></td>
-            </tr>
-            </tbody>
-          </table>
-    </ng-container>
-    <ng-container *ngIf="show18">
-      <table>
-          <thead>
-            <tr>           
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let user of usersBlocked">           
-              <td>{{ user.firsname }}</td>
-              <td>{{ user.lastname }}</td>
-              <td>{{ user.email }}</td>
-          </tr>
-          </tbody>
-        </table>
-  </ng-container>
-        <ng-container *ngIf="show5">
-            <table>
-                <thead>
-                  <tr>           
-                    <th>Name</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let carc of carClass">           
-                    <td>{{ carc.name }}</td>
-                    <td *ngIf="!carc.deleted">Active</td>
-                    <td *ngIf="carc.deleted">Deleted</td>
-                    <td><button (click)="deleteCarClass(carc.name)">Delete</button></td>
-                    <td><button (click)="updateCarClass(carc.name)">Update</button></td>
-                </tr>
-                </tbody>
-              </table>
-        </ng-container>
-        <ng-container *ngIf="show6">
-           <table>
-                <thead>
-                  <tr>           
-                    <th>Name</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let transmis of transmissionType">           
-                    <td>{{ transmis.name }}</td>
-                    <td *ngIf="!transmis.deleted">Active</td>
-                    <td *ngIf="transmis.deleted">Deleted</td>
-                    <td><button (click)="deleteTransmissionType(transmis.name)">Delete</button></td>
-                    <td><button (click)="updateTransmissionType(transmis.name)">Update</button></td>
-                </tr>
-                </tbody>
-              </table>
-        </ng-container>
-        <ng-container *ngIf="show11">
-          <table>
-               <thead>
-                 <tr>           
-                   <th>Name</th>
-                   <th>Status</th>
-                 </tr>
-               </thead>
-               <tbody>
-                 <tr *ngFor="let fuelT of fuelType">           
-                   <td>{{ fuelT.name }}</td>
-                   <td *ngIf="!fuelT.deleted">Active</td>
-                   <td *ngIf="fuelT.deleted">Deleted</td>
-                   <td><button (click)="deleteFuelType(fuelT.name)">Delete</button></td>
-                   <td><button (click)="updateFuelType(fuelT.name)">Update</button></td>
-               </tr>
-               </tbody>
-             </table>
-       </ng-container>
-       <ng-container *ngIf="show14">
-        <table>
-             <thead>
-               <tr>           
-                 <th>Name</th>
-                 <th>Status</th>
-               </tr>
-             </thead>
-             <tbody>
-               <tr *ngFor="let model of carModels">           
-                 <td>{{ model.name }}</td>
-                 <td *ngIf="!model.deleted">Active</td>
-                 <td *ngIf="model.deleted">Deleted</td>
-                 <td><button (click)="deleteCarModel(model.name)">Delete</button></td>
-                 <td><button (click)="updateCarModel(model.name)">Update</button></td>
-             </tr>
-             </tbody>
-           </table>
-     </ng-container>
 
-
-        <ng-container *ngIf="show7">
-          <div id="manufacU">
-              <p>Update manufacturer name: </p>
-              <input type="text" id="nameMU" name="nameMU" [(ngModel)]="nameM">
-              <p></p>
-              Activate<input type="checkbox" id="actMan" name="actMan" [(ngModel)]="actMan">
-              <p></p>
-              <button (click)="updateM()">Submit</button>
-          </div>
-          </ng-container>
-          <ng-container *ngIf="show8">
-          <div id="carCU">
-              <p>Update car class name: </p>
-              <input type="text" id="nameCCU" name="nameCCU" [(ngModel)]="nameCC">
-              <p></p>
-              Activate<input type="checkbox" id="actCC" name="actCC" [(ngModel)]="actCC">
-              <p></p>
-              <button (click)="updateCC()">Submit</button>
-          </div>
-          </ng-container> 
-          <ng-container *ngIf="show9">
-          <div id="transmisU">
-              <p>Update transmission type name: </p>
-              <input type="text" id="nameTTU" name="nameTTU" [(ngModel)]="nameTT">
-              <p></p>
-              Activate<input type="checkbox" id="actTT" name="actTT" [(ngModel)]="actTT">
-              <p></p>
-              <button (click)="updateTT()">Submit</button>
-          </div>
-          </ng-container>
-          <ng-container *ngIf="show12">
-            <div id="fuelTypT">
-                <p>Update fuel type name: </p>
-                <input type="text" id="nameFTU" name="nameFTU" [(ngModel)]="nameFT">
-                <p></p>
-                Activate<input type="checkbox" id="actFT" name="actFT" [(ngModel)]="actFT">
-                <p></p>
-                <button (click)="updateFT()">Submit</button>
-            </div>
-            </ng-container>
-            <ng-container *ngIf="show15">
-              <div id="carMod">
-                  <p>Update car model name: </p>
-                  <input type="text" id="nameCMU" name="nameCMU" [(ngModel)]="nameCM">
-                  <p></p>
-                  Activate<input type="checkbox" id="actCM" name="actCM" [(ngModel)]="actCM">
-                  <p></p>
-
-
-                  <button (click)="updateCM()">Submit</button>
-              </div>
-              </ng-container>
-
-
+            </div><!-- Page Content Wrapper -->
+          </div><!-- Wrapper -->
     </body>
 </html>

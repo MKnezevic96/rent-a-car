@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link">Manage codebooks <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="showCarModels()">Car models</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="showCarClasses()">Car classes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="showManufactures()">Manufactures</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="showFuelTypes()">Fuel types </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="showTransmissionTypes()">Transmission types</a>
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-primary" style="margin-top: 0 !important;">Log out</button>
+</nav>
+
+<router-outlet></router-outlet>

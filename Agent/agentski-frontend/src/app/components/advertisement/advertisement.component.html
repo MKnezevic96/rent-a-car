@@ -1,63 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Ad</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- <link rel="stylesheet" href="css/register.css"> -->
-    <!-- <script src="js/Register.js"></script> -->
 </head>
+
 <body>
-<div class="wrapper fadeInDown">
-    <div id="formContent">
-        <!-- Tabs Titles -->
-        <!-- Icon -->
-        <div class="fadeIn first">
-            <img src="" id="icon" />
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading"> Menu </div>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action bg-light">All advertisements</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Add advertisement</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Search</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">New renting report</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Sent requests history</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Vehicle tracking</a>
+            </div>
         </div>
-        <!-- <div class="md-form">
+
+        <!-- /#sidebar-wrapper -->
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="advertisement">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 0 !important;">Log out</button>
+            </nav>
+
+            <div class="container fluid">
+                <!-- <div id="formContent"> -->
+                <!-- Tabs Titles -->
+                <!-- Icon -->
+
+                <!-- <div class="md-form">
             <select ng-model="selectedModel" ng-options="x for x in names">
             </select>
         </div> -->
-        <!-- <div class="md-form">
+                <!-- <div class="md-form">
             <select formControlName="orders" id="orders" [(ngModel)]="fuelTyp">
                 <option *ngFor="let x of fuelType let i = index">
                   {{x[i].name}}
             </option>
             </select>
         </div>  -->
-        <div>
-            <select [(ngModel)]="ft">
-                <option [ngValue]="ft" *ngFor="let ft of fuelType" (click)="selectedFuelType(ft)">{{ft.name}}</option>
-            </select>
-        </div> 
-        <div>
-            <select [(ngModel)]="cm">
-                <option [ngValue]="cm" *ngFor="let cm of carModels" (click)="selectedCarModel(cm)">{{cm.name}}</option>
-            </select>
-        </div>  
-        <input type="text" id="name" class="fadeIn second" name="name" placeholder="nameAdvertisemnt" [(ngModel)]="nameAdvertisement">
-        <p></p>
-        <input type="number" id="milage" class="fadeIn second" name="milage" placeholder="milage" [(ngModel)]="milage">
-        <p></p>
-        <input type="text" id="namee" class="fadeIn second" name="name" placeholder="namePricing" [(ngModel)]="namePricing">
-        <p></p>
-        <input type="number" id="distancelimit" class="fadeIn second" name="distancelimit" placeholder="distancelimit" [(ngModel)]="distancelimit"><p></p>
-        <input type="number" id="regularprice" class="fadeIn second" name="regularprice" placeholder="regularprice" [(ngModel)]="regularprice"><p></p>
-        <input type="number" id="overuseprice" class="fadeIn second" name="overuseprice" placeholder="overuseprice" [(ngModel)]="overuseprice"><p></p>
-        <input type="number" id="collisiondamage" class="fadeIn second" name="collisiondamage" placeholder="collisiondamage" [(ngModel)]="collisiondamage"><p></p>
-        <input type="number" id="discountdays" class="fadeIn second" name="discountdays" placeholder="discountdays" [(ngModel)]="discountdays"><p></p>
-        <input type="number" id="discountperc" class="fadeIn second" name="discountperc" placeholder="discountperc" [(ngModel)]="discountperc"><p></p>
-        <input type="date" [(ngModel)]="selectedStartDate" (ngModelChange)="selectStartDate()"> 
-        <!-- <mat-datepicker #startDate></mat-datepicker> -->
-        <input type="date" [(ngModel)]="selectedEndDate" (ngModelChange)="selectEndDate()">
-        
-        <!-- <mat-datepicker #endDate></mat-datepicker> -->
-            <button class="btn btn-primary fadeIn fourth" (click)="onSubmit()">Make an advertisement</button>
-        <div id="formFooter">
-        </div>
-    </div>
-</div>
+
+                <p></p>
+                <form>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label>Car model</label>
+                            <select [(ngModel)]="cm" class="form-control">
+                                <option [ngValue]="cm" *ngFor="let cm of carModels" (click)="selectedCarModel(cm)">
+                                    {{cm.name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Car name</label>
+                            <input type="text" id="name" class="form-control" name="name"
+                                [(ngModel)]="nameAdvertisement" />
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label>Milage</label>
+                            <input type="number" id="milage" class="form-control" name="milage" [(ngModel)]="milage">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Fuel type</label>
+                            <select [(ngModel)]="ft" class="form-control">
+                                <option [ngValue]="ft" *ngFor="let ft of fuelType" (click)="selectedFuelType(ft)">
+                                    {{ft.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-8 mb-3">
+                            <label>Name pricing</label>
+                            <input type="text" id="namee" class="form-control" name="name" [(ngModel)]="namePricing">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label>Distance limit</label>
+                            <input type="number" id="distancelimit" class="form-control" name="distancelimit"
+                                [(ngModel)]="distancelimit">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Regular price</label>
+                            <input type="number" id="regularprice" class="form-control" name="regularprice"
+                                [(ngModel)]="regularprice">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label>Overuse price</label>
+                            <input type="number" id="overuseprice" class="form-control" name="overuseprice"
+                                [(ngModel)]="overuseprice">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Collision damage</label>
+                            <input type="number" id="collisiondamage" class="form-control" name="collisiondamage"
+                                [(ngModel)]="collisiondamage">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label>Discount percentage</label>
+                            <input type="number" id="discountperc" class="form-control" name="discountperc"
+                                [(ngModel)]="discountperc">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>Discount days</label>
+                            <input type="number" id="discountdays" class="form-control" name="discountdays"
+                                [(ngModel)]="discountdays">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label>Start date</label>
+                            <input type="date" [(ngModel)]="selectedStartDate" class="form-control"
+                                (ngModelChange)="selectStartDate()">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>End date</label>
+                            <input type="date" [(ngModel)]="selectedEndDate" class="form-control"
+                                (ngModelChange)="selectEndDate()">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label> </label>
+                        <button class="btn btn-primary btn-lg"
+                            (click)="onSubmit()">Create an advertisement</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div><!-- Page Content Wrapper -->
+    </div><!-- Wrapper -->
 </body>
+
 </html>
