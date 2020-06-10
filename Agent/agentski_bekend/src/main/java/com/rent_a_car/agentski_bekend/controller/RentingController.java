@@ -2,16 +2,21 @@ package com.rent_a_car.agentski_bekend.controller;
 
 import com.rent_a_car.agentski_bekend.dto.CarsDetailsDTO;
 import com.rent_a_car.agentski_bekend.dto.CarsListingDTO;
+import com.rent_a_car.agentski_bekend.dto.RentRequestDTO;
+import com.rent_a_car.agentski_bekend.dto.RentingReportDTO;
 import com.rent_a_car.agentski_bekend.model.Cars;
+import com.rent_a_car.agentski_bekend.model.RentRequest;
+import com.rent_a_car.agentski_bekend.model.RentingReport;
+import com.rent_a_car.agentski_bekend.model.User;
 import com.rent_a_car.agentski_bekend.repository.CarsRepository;
+import com.rent_a_car.agentski_bekend.security.auth.JwtAuthenticationRequest;
 import com.rent_a_car.agentski_bekend.service.CarsService;
+import com.rent_a_car.agentski_bekend.service.RentRequestService;
+import com.rent_a_car.agentski_bekend.service.RentingReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -25,6 +30,12 @@ public class RentingController {
 
     @Autowired
     private CarsService carsService;
+
+    @Autowired
+    private RentRequestService rentRequestService;
+
+    @Autowired
+    private RentingReportService rentingReportService;
 
     @GetMapping(value = "test")
     public String test () {
@@ -58,6 +69,38 @@ public class RentingController {
         CarsDetailsDTO retVal = new CarsDetailsDTO(carsService.getCar(id));
 
         return new ResponseEntity<CarsDetailsDTO>(retVal, HttpStatus.OK);
+
+    }
+
+    @GetMapping(value = "requests")
+    public ResponseEntity<List<RentRequestDTO>> getAllRentRequests () {
+        ArrayList<RentRequestDTO> retVal = new ArrayList<RentRequestDTO>();
+        for (RentRequest rr : rentRequestService.findAll()) {
+            retVal.add(new RentRequestDTO(rr));
+        }
+        return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "requests/group/{id}")
+    public ResponseEntity<List<RentRequestDTO>> getGroupRequests (@PathVariable("id") Integer groupId) {
+        ArrayList<RentRequestDTO> retVal = new ArrayList<RentRequestDTO>();
+        for (RentRequest rr : rentRequestService.findAll()) {
+            if(rr.getRequestGroupId().equals(groupId))
+               retVal.add(new RentRequestDTO(rr));
+        }
+        return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
+    }
+
+    @PostMapping(value ="/report")
+    public ResponseEntity<?> addRentingReport(@RequestBody RentingReportDTO dto) {
+
+        RentingReport report = new RentingReport();
+        report.setAddedMileage(dto.getAddedMileage());
+        report.setDeleted(false);
+        report.setReport(dto.getReport());
+        rentingReportService.save(report);
+
+        return ResponseEntity.status(200).build();
 
     }
 

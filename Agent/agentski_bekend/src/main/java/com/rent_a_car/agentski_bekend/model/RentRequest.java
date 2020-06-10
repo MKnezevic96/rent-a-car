@@ -33,7 +33,7 @@ public class RentRequest implements Serializable {
     private Date endDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="status", nullable = false, unique = true)
+    @Column(name="status", nullable = false)
     private RequestStatus status;
 
     @Column (name="request_group_id")

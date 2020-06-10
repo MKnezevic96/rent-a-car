@@ -1,43 +1,18 @@
-package com.rent_a_car.agentski_bekend.model;
+package com.rent_a_car.agentski_bekend.dto;
 
-import javax.persistence.*;
+import com.rent_a_car.agentski_bekend.model.RentRequest;
 
-@Entity
-@Table(name="renting_report_table")
-@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
-public class RentingReport {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="renting_report_id")
-    private Integer id;
+public class RentingReportDTO {
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="rr_id", referencedColumnName="rr_id")
     private RentRequest rentingInstance;
 
-    @Column(name="report")
     private String report;
-
-    @Column(name="added_milage", nullable=false)
     private Double addedMileage;
-
-    @Column(name="deleted", nullable=false)
     private boolean deleted;
 
+    public RentingReportDTO(){
 
-
-
-    public RentingReport() {
-        deleted = false;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public RentRequest getRentingInstance() {
@@ -71,5 +46,4 @@ public class RentingReport {
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
-
 }

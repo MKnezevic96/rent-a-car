@@ -2,60 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="851a59de-86ea-4e19-abe2-e45a3afd678a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/blocked-users-list/blocked-users-list.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/blocked-users-list/blocked-users-list.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/car-classes/car-classes.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/car-classes/car-classes.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/car-models/car-models.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/car-models/car-models.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/codebook-menagement/codebook-menagement.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/codebook-menagement/codebook-menagement.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/codebook-menagement/codebook-menagement.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/fuel-types/fuel-types.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/fuel-types/fuel-types.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/manufactures/manufactures.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/manufactures/manufactures.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/registration-requests/registration-requests.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/registration-requests/registration-requests.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/transmission-types/transmission-types.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/transmission-types/transmission-types.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/user-menagement/user-menagement.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/user-menagement/user-menagement.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/user-menagement/user-menagement.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/users-list/users-list.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/users-list/users-list.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/users-list/users-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/index/index.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/index/index.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/index/index.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/renting-report/renting-report.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/renting-report/renting-report.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/RentingReport.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/renting-report.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/renting-report.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/RentingReportDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/repository/RentingReportRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/RentingReportService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/interfaces/RentingReportServiceInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/admin-page/admin-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/admin-page/admin-page.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/admin-page/admin-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/admin-page/admin-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/admin-page/admin-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/admin-page/admin-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement/advertisement.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement/advertisement.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement/advertisement.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement/advertisement.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/consul-client.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/entrypoint.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement/advertisement.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement/advertisement.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/RentRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/RentRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/RentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/RentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/RentingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/RentingReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/RentRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/RentRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/interfaces/RentRequestServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/interfaces/RentRequestServiceInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agentski_bekend/.idea/agentski_bekend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/agentski_bekend/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/agentski_bekend/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/agentski_bekend/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -107,6 +93,18 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -134,6 +132,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="service discovery and docker commpose fixed" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="805" y="258" key="#com.intellij.ide.util.MemberChooser" timestamp="1591748728755">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="805" y="258" key="#com.intellij.ide.util.MemberChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1591748728755" />
+    <state x="677" y="400" width="631" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591749368004">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="677" y="400" width="631" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/65.24.1855.1056@65.24.1855.1056" timestamp="1591749368004" />
     <state x="102" y="83" key="CommitChangelistDialog2" timestamp="1591284339909">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -146,29 +152,33 @@
       <screen x="65" y="24" width="1295" height="744" />
     </state>
     <state x="500" y="141" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1588700165152" />
-    <state width="1809" height="469" key="GridCell.Tab.0.bottom" timestamp="1591567247753">
+    <state width="1809" height="416" key="GridCell.Tab.0.bottom" timestamp="1591810080206">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1809" height="469" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1591567247753" />
-    <state width="1809" height="469" key="GridCell.Tab.0.center" timestamp="1591567247751">
+    <state width="1809" height="416" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1591810080206" />
+    <state width="1809" height="416" key="GridCell.Tab.0.center" timestamp="1591810080205">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1809" height="469" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1591567247751" />
-    <state width="1809" height="469" key="GridCell.Tab.0.left" timestamp="1591567247751">
+    <state width="1809" height="416" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1591810080205" />
+    <state width="1809" height="416" key="GridCell.Tab.0.left" timestamp="1591810080204">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1809" height="469" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1591567247751" />
-    <state width="1809" height="469" key="GridCell.Tab.0.right" timestamp="1591567247753">
+    <state width="1809" height="416" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1591810080204" />
+    <state width="1809" height="416" key="GridCell.Tab.0.right" timestamp="1591810080205">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1809" height="469" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1591567247753" />
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1591284469312">
+    <state width="1809" height="416" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1591810080205" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1591675097118">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1591284469312" />
-    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog" timestamp="1591473081136">
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1591675097118" />
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog" timestamp="1591717250467">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1591473081136" />
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1591717250467" />
+    <state x="655" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1591742418832">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="655" y="236" width="672" height="678" key="search.everywhere.popup/65.24.1855.1056@65.24.1855.1056" timestamp="1591742418832" />
   </component>
 </project>

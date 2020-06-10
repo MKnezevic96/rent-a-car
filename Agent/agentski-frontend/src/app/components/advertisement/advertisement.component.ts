@@ -6,6 +6,7 @@ import { AdminService } from 'src/app/services/admin.service';
 import { first } from 'rxjs/operators';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Pricing } from 'src/app/models/Pricing';
+import { ActivatedRoute, Router } from '@angular/router';
 //import * as moment from 'moment';
 // import {ModalDismissReasons, NgbDatepickerConfig, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 // import {faCalendar, faWindowClose, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
@@ -38,6 +39,8 @@ export class AdvertisementComponent implements OnInit {
   constructor(
     private adminService: AdminService, 
     private advertisementService: AdvertisementService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
   }
   selectedFuelType(name:FuelType){
@@ -88,4 +91,6 @@ export class AdvertisementComponent implements OnInit {
         })
 
   }
+
+  
 }
