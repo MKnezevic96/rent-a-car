@@ -16,6 +16,7 @@ import { ManufacturesComponent } from './components/manufactures/manufactures.co
 import { FuelTypesComponent } from './components/fuel-types/fuel-types.component';
 import { CarClassesComponent } from './components/car-classes/car-classes.component';
 import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
+import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
     },
     { path: 'advertisement', component: AdvertisementComponent},
     { path: 'rentRequest', component: RentRequestComponent},
+    { path: 'pricing', component: PricingPageComponent},
     
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
