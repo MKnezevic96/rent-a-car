@@ -28,9 +28,9 @@ public class RentRequestDTO {
         this.endDate=req.getEndDate();
         this.status=req.getStatus().toString();
         this.deleted=req.isDeleted();
-        //this.owningUserId=req.getOwningUser().getId();
-        //this.requestGroupId=req.getRequestGroupId();
-        //this.id=req.getId();
+        this.owningUserId=req.getOwningUser().getId();
+        this.requestGroupId=req.getRequestGroupId();
+        this.id=req.getId();
 
     }
 

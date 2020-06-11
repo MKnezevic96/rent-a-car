@@ -1,24 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { RentingReportService } from 'src/app/services/renting-report.service';
 import { RentRequest } from 'src/app/models/RentRequest';
+import { first } from 'rxjs/internal/operators/first';
+import { RentingReport } from 'src/app/models/RentingReport';
 
 @Component({
   selector: 'app-renting-report',
   template: `
-  <div class="card-header" id="addNew"> Add new </div>
-  <div class="card-body">
-  
+  <div class="form-row">
+     <div class="col-md-6 mb-3">
       <form id="reportForm">
-      <label>Select renting request:</label>
-            <select class="form-control form-control-sm" [(ngModel)]="request">
-              <option [ngValue]="request" *ngFor="let request of rentingRequests" (click)="selectedRequest(request)">{{request.groupId}} </option>
+      <p></p>
+      <label>Select renting request id:</label>
+            <select id="rentingInstanceId" class="form-control" [(ngModel)]="request" name="request">
+              <option [ngValue]="request" *ngFor="let request of rentingRequests"  (click)="selectedRequest(request)">{{request.id}} </option>
             </select><p></p>
           <label>Enter mileage </label>
-          <input class="form-control form-control-sm" type="number" id="milage" name="mileage" [(ngModel)]="mileage"><p></p>
+          <input class="form-control" type="number" min="0" id="milage" name="mileage" [(ngModel)]="mileage"><p></p>
         <label> Input renting report information: </label>
-        <input class="form-control form-control-sm" type="text area" id="report" name="report" [(ngModel)]="report"><p></p>
-        <button class="btn btn-primary" (click)="submitReport()">Submit</button>
+        <textarea rows="15" class="form-control" type="input" id="report" name="report" [(ngModel)]="report"></textarea> 
+        <p></p>
+        <button class="btn btn-primary" (click)="submitReport()">Submit</button> 
       </form>
+       </div> 
       </div>
   `,
   styles: [
@@ -27,9 +31,10 @@ import { RentRequest } from 'src/app/models/RentRequest';
 export class RentingReportComponent implements OnInit {
 
   request:RentRequest;
-  mileage:string;
+  mileage:number;
   report:string;
   rentingRequests:RentRequest[];
+  selectedLevel;
 
   constructor(private rentingReportService: RentingReportService) { }
 
@@ -40,12 +45,20 @@ export class RentingReportComponent implements OnInit {
   }
 
 
-  selectedRequest(groupId:RentRequest){
-    this.request = groupId;
+  selectedRequest(request:RentRequest){
+    this.request = request;
+    console.log('clicked!');
+    console.log(request);
   }
 
   submitReport(){
-
-  }
+    this.rentingReportService.addNewRentingReport(this.mileage,this.report, this.request.id).pipe(first())
+    .subscribe(
+        data => {
+            console.log('Making renting report successful');
+        })
+    }  
+    
+  
 
 }

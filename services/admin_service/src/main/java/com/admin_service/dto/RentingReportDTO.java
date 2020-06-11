@@ -1,7 +1,6 @@
-package com.rent_a_car.agentski_bekend.dto;
+package com.admin_service.dto;
 
-
-import com.rent_a_car.agentski_bekend.model.RentingReport;
+import com.admin_service.model.RentingReport;
 
 public class RentingReportDTO {
 

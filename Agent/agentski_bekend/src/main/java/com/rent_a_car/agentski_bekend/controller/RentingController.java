@@ -8,6 +8,7 @@ import com.rent_a_car.agentski_bekend.model.Cars;
 import com.rent_a_car.agentski_bekend.model.RentRequest;
 import com.rent_a_car.agentski_bekend.model.RentingReport;
 import com.rent_a_car.agentski_bekend.model.User;
+import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import com.rent_a_car.agentski_bekend.repository.CarsRepository;
 import com.rent_a_car.agentski_bekend.security.auth.JwtAuthenticationRequest;
 import com.rent_a_car.agentski_bekend.service.CarsService;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,13 +75,20 @@ public class RentingController {
     }
 
     @GetMapping(value = "requests")
-    public ResponseEntity<List<RentRequestDTO>> getAllRentRequests () {
+    public ResponseEntity<List<RentRequestDTO>> getAllRentRequests (@RequestParam(value = "status", required = false) String status) {
         ArrayList<RentRequestDTO> retVal = new ArrayList<RentRequestDTO>();
+
         for (RentRequest rr : rentRequestService.findAll()) {
-            retVal.add(new RentRequestDTO(rr));
+            if(status == null){
+                retVal.add(new RentRequestDTO(rr));
+            } else if(status.equals("paid")) {
+                if(rr.getStatus() == RequestStatus.PAID)
+                    retVal.add(new RentRequestDTO(rr));
+            }
         }
         return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
     }
+
 
     @GetMapping(value = "requests/group/{id}")
     public ResponseEntity<List<RentRequestDTO>> getGroupRequests (@PathVariable("id") Integer groupId) {
@@ -91,14 +100,22 @@ public class RentingController {
         return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
     }
 
-    @PostMapping(value ="/report")
+    @PostMapping(value ="/report", consumes = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> addRentingReport(@RequestBody RentingReportDTO dto) {
 
         RentingReport report = new RentingReport();
         report.setAddedMileage(dto.getAddedMileage());
         report.setDeleted(false);
         report.setReport(dto.getReport());
+
+        RentRequest req = rentRequestService.findById(dto.getRentingInstanceId());
+
+        report.setRentingInstance(rentRequestService.findById(dto.getRentingInstanceId()));
         rentingReportService.save(report);
+
+        req.setStatus(RequestStatus.RETURNED);
+        req.setRentingReport(report);
+        rentRequestService.save(req);
 
         return ResponseEntity.status(200).build();
 
