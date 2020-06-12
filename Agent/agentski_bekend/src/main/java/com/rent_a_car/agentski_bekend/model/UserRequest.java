@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
+
 @Table(name = "user_request_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class UserRequest implements Serializable, UserDetails {
@@ -124,12 +125,12 @@ public class UserRequest implements Serializable, UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return "";
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return "";
     }
 
     @Override

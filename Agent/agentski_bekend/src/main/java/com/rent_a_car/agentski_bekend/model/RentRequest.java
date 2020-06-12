@@ -4,10 +4,26 @@ import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(
+        name = "RentRequest", propOrder = {
+        "id",
+        "owningUser",
+        "carId",
+        "startDate",
+        "endDate",
+        "status",
+        "requestGroupId",
+        "deleted",
+        "rentingReport"
+}, namespace = "nekiUri/rent_request")
 @Table(name = "rent_request_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class RentRequest implements Serializable {
@@ -39,8 +55,7 @@ public class RentRequest implements Serializable {
     @Column (name="request_group_id")
     private Integer requestGroupId;
 
-    @NotNull
-    @Column(name="deleted", nullable = false, unique = true)
+    @Column(name="deleted", nullable = false)
     private boolean deleted=false;
 
     @OneToOne(fetch=FetchType.LAZY)
