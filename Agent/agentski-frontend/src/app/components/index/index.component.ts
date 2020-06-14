@@ -23,4 +23,8 @@ export class IndexComponent implements OnInit {
   showAddAdvertisementForm() {
     this.router.navigate(['advertisement'], {relativeTo: this.route});
   }
+
+  showAll(){
+    this.router.navigate(['advertisements'], {relativeTo: this.route});
+  }
 }

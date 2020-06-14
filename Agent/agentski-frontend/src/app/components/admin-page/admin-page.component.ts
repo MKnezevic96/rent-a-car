@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { $ } from 'protractor';
 import { AdminService } from 'src/app/services/admin.service';
-import {CarClass} from '../../models/CarClass';
-import {Manufacturer} from '../../models/Manufacturer';
-import {TransmissionType} from '../../models/TransmissionType';
-import {FuelType} from '../../models/FuelType';
-import {CarModels} from '../../models/CarModels';
-import {User} from '../../models/User';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

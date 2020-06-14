@@ -1,19 +1,11 @@
 package com.rent_a_car.agentski_bekend.controller;
 
-import com.rent_a_car.agentski_bekend.dto.CarsDetailsDTO;
-import com.rent_a_car.agentski_bekend.dto.CarsListingDTO;
-import com.rent_a_car.agentski_bekend.dto.RentRequestDTO;
-import com.rent_a_car.agentski_bekend.dto.RentingReportDTO;
-import com.rent_a_car.agentski_bekend.model.Cars;
-import com.rent_a_car.agentski_bekend.model.RentRequest;
-import com.rent_a_car.agentski_bekend.model.RentingReport;
-import com.rent_a_car.agentski_bekend.model.User;
+import com.rent_a_car.agentski_bekend.dto.*;
+import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import com.rent_a_car.agentski_bekend.repository.CarsRepository;
 import com.rent_a_car.agentski_bekend.security.auth.JwtAuthenticationRequest;
-import com.rent_a_car.agentski_bekend.service.CarsService;
-import com.rent_a_car.agentski_bekend.service.RentRequestService;
-import com.rent_a_car.agentski_bekend.service.RentingReportService;
+import com.rent_a_car.agentski_bekend.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +17,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "api/renting/")
@@ -39,12 +32,19 @@ public class RentingController {
     @Autowired
     private RentingReportService rentingReportService;
 
+    @Autowired
+    private CarReviewService carReviewService;
+
+    @Autowired
+    private UserService userService;
+
+
     @GetMapping(value = "test")
     public String test () {
         return "Renting service test";
     }
 
-    @GetMapping(value = "getAllCars")
+    @GetMapping(value = "cars")
     public ResponseEntity<List<CarsListingDTO>> getAllCars () {
         ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
         for (Cars c : carsService.findAll()) {
@@ -66,7 +66,7 @@ public class RentingController {
         return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
     }
 
-    @GetMapping (value = "getOne/{id}")
+    @GetMapping (value = "cars/{id}")
     public ResponseEntity<CarsDetailsDTO> getOneCar (@PathVariable("id") Integer id) {
         CarsDetailsDTO retVal = new CarsDetailsDTO(carsService.getCar(id));
 
@@ -119,6 +119,27 @@ public class RentingController {
 
         return ResponseEntity.status(200).build();
 
+    }
+
+    @PostMapping(value="/review", consumes = MediaType.APPLICATION_JSON)
+    public ResponseEntity<?> addReview(@RequestBody CarReviewDTO dto){
+
+        try{
+            CarReview review = new CarReview();
+            review.setDeleted(false);
+            review.setRating(dto.getRating());
+            review.setReview(dto.getReview());
+            Cars car = carsService.getCar(dto.getCarId());
+            review.setCar(car);
+            //review.setReviewer(userService.findUserById(dto.getReviewerId()));
+            review.setReviewer(userService.findUserById(1));
+            //TODO: promeniti reviewer id kad dodju tokeni
+            carReviewService.save(review);
+            return ResponseEntity.ok().build();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(400).build();
     }
 
 }

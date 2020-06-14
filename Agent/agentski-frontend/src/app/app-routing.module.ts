@@ -18,6 +18,7 @@ import { CarClassesComponent } from './components/car-classes/car-classes.compon
 import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
 import { RentingReportComponent } from './components/renting-report/renting-report.component';
 import { IndexComponent } from './components/index/index.component';
+import { AdvertisementListComponent } from './components/advertisement-list/advertisement-list.component';
 
 
 const routes: Routes = [
@@ -54,10 +55,11 @@ const routes: Routes = [
       component: IndexComponent,
       children: [
         { path: 'advertisement', component: AdvertisementComponent},
-        { path: 'rentingReport', component: RentingReportComponent}
+        { path: 'rentingReport', component: RentingReportComponent},
+        { path: 'advertisements', component: AdvertisementListComponent},
+        
       ]
     },
-    
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 
