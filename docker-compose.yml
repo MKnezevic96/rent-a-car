@@ -53,8 +53,8 @@ services:
       context: ./services/admin_service
       dockerfile: Dockerfile
     tty: true
-    environment: 
-#      - REGISTRY_HOST=eureka
+    environment:
+       REGISTRY_HOST: eureka
        DATABASE_USERNAME: 'sa'
        DATABASE_PASSWORD: 'admin	'
        DATABASE_DOMAIN: 'db'
@@ -81,11 +81,11 @@ services:
       - "8283:443"
     networks:
       - first-network
- 
+
   renting-service:
     image: renting_service
     container_name: renting-service
-    build: 
+    build:
       context: ./services/renting_service
       dockerfile: Dockerfile
     tty: true
@@ -94,7 +94,7 @@ services:
        DATABASE_PASSWORD: 'admin	'
        DATABASE_DOMAIN: 'db'
 #       DATABASE_PORT: "3306"
-#       REGISTRY_HOST: eureka
+       REGISTRY_HOST: eureka
     ports:
      - "127.0.0.1:8287:447"
     networks:
@@ -102,45 +102,7 @@ services:
     depends_on:
        - db
        - eureka
-###################
 
-#  agentski-bekend:
-#     image: agentski_bekend
-#     networks: 
-#      - first-network
-#     build:
-#       context: ./agentski_bekend
-#       dockerfile: Dockerfile
-#     tty: true
-#     ports:
-#      - 127.0.0.1:8282:8282
-#     environment:
-#       DATABASE_USERNAME: 'root'
-#       DATABASE_PASSWORD: 'password'
-#       DATABASE_DOMAIN: 'agentska-baza'
-#       DATABASE_PORT: "3306"
-#     depends_on:
-#       - agentska-baza
-
-
-
-#  renting-service:
-#    image: renting_service
-#    container_name: renting-service
-#    build:
-#      context: ./services/renting_service
-#      dockerfile: Dockerfile
-#    tty: true
-#    environment:
-#      - REGISTRY_HOST=eureka
-#    ports:
-#      - "8287:8287"
-#    networks:
-#      - first-network
-#    depends_on:
-#      - eureka
-
-###################
 
   authentication-service:
     image: authentication_service
@@ -189,116 +151,6 @@ services:
       - first-network
     depends_on:
       - eureka
-
-#=======
-#  admin-service:
-#    image: admin_service
-#    container_name: admin-service
-#    build:
-#      context: ./services/admin_service
-#      dockerfile: Dockerfile
-#    tty: true
-#    environment:
-#      - REGISTRY_HOST=eureka
-#    ports:
-#      - "8284:8284"
-#    networks:
-#      - static-network
-#    depends_on:
-#      - eureka
-
-#  ad-service:
-#    image: ad_service
-#    container_name: ad-service
-#    build:
-#      context: ./services/ad_service
-#      dockerfile: Dockerfile
-#    tty: true
-#    environment:
-#      - REGISTRY_HOST=eureka
-#    ports:
-#      - "8283:8283"
-#    networks:
-#      - static-network
-#    depends_on:
-#      - eureka
-
-
-
-#  authentication-service:
-#    image: authentication_service
-#    container_name: authentication-service
-#    build:
-#      context: ./services/authentication_service
-#      dockerfile: Dockerfile
-#    tty: true
-#    environment:
-#      - REGISTRY_HOST=eureka
-#    ports:
-#      - "8285:8285"
-#    networks:
-#      - static-network
-#    depends_on:
-#      - eureka
-
-#  gps-service:
-#    image: gps_service
-#    container_name: gps-service
-#    build:
-#      context: ./services/gps_service
-#      dockerfile: Dockerfile
-#    tty: true
-#    environment:
-#      - REGISTRY_HOST=eureka
-#    ports:
-#      - "8286:8286"
-#    networks:
-#      - static-network
-#    depends_on:
-#      - eureka
-
-#  security-service:
-#    image: security_service
-#    container_name: security-service
-#    build:
-#     context: ./services/security_service
-#      dockerfile: Dockerfile
-#    tty: true
-#    environment:
-#      - REGISTRY_HOST=eureka
-#    ports:
-#      - "8288:8288"
-#    networks:
-#      - static-network
-#    depends_on:
-#      - eureka
-
-
-#  agentski-bekend:
-#     image: agentski_bekend
-#     container_name: agentski-bekend
-#     build:
-#       context: ./agentski_bekend
-#       dockerfile: Dockerfile
-#     tty: true
-#     ports:
-#     - "8282:8282"
-#     networks:
-#       - static-network
-#     depends_on:
- #      - eureka
-#       - agentska-baza
-#     environment:
-#       - REGISTRY_HOST=eureka
-#       DATABASE_USERMANE: root
-#       DATABASE_PASSWORD: admin
-#       DATABASE_DOMAIN: mysql
-#       DATABASE_PORT: "127.0.0.1:3306"
-#>>>>>>> master
-
-
-
-
 
 
   db:

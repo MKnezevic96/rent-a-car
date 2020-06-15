@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfig
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 //@EntityScan("model")
 //@EnableJpaRepositories(basePackages = "repository")
 @SpringBootApplication//(scanBasePackages = {"model", "service", "repository", "controller"})
+//@ImportResource(locations={
+//		"classpath:log4j2.xml", "classpath:log4j2.xsd"
+//})
 public class AgentskiBekendApplication {
 
 	public static void main(String[] args) {

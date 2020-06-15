@@ -6,18 +6,19 @@ import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import com.rent_a_car.agentski_bekend.repository.CarsRepository;
 import com.rent_a_car.agentski_bekend.security.auth.JwtAuthenticationRequest;
 import com.rent_a_car.agentski_bekend.service.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+
+
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping(value = "api/renting/")
@@ -39,6 +40,9 @@ public class RentingController {
     private UserService userService;
 
 
+    Logger logger = LogManager.getLogger(getClass());
+
+
     @GetMapping(value = "test")
     public String test () {
         return "Renting service test";
@@ -52,6 +56,11 @@ public class RentingController {
                 retVal.add(new CarsListingDTO(c));
             }
         }
+
+        logger.info("This is a simple message at INFO level. " +
+                "It will be hidden.");
+        logger.debug("This is a simple message at ERROR level. " +
+                "This is the minimum visible level.");
         return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
     }
 

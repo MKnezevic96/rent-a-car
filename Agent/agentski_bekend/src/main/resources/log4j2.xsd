@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+         <!-- XML Schema Generated from XML Document on Mon Jun 15 2020 19:47:21 GMT+0200 (Central European Summer Time) -->
+         <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+         <xs:element name="Configuration">
+               <xs:complexType>
+                     <xs:sequence>
+                           <xs:element name="Appenders">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="Console">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="PatternLayout">
+                                                                     <xs:complexType>
+                                                                           <xs:attribute name="pattern" type="xs:string"></xs:attribute>
+                                                                     </xs:complexType>
+                                                               </xs:element>
+                                                         </xs:sequence>
+                                                         <xs:attribute name="name" type="xs:string"></xs:attribute>
+                                                         <xs:attribute name="target" type="xs:string"></xs:attribute>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                           <xs:element name="Loggers">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="Root">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="AppenderRef">
+                                                                     <xs:complexType>
+                                                                           <xs:attribute name="ref" type="xs:string"></xs:attribute>
+                                                                     </xs:complexType>
+                                                               </xs:element>
+                                                         </xs:sequence>
+                                                         <xs:attribute name="level" type="xs:string"></xs:attribute>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                     </xs:sequence>
+                     <xs:attribute name="status" type="xs:string"></xs:attribute>
+                     <xs:attribute name="xmlns:schemaLocation" type="xs:string"></xs:attribute>
+               </xs:complexType>
+         </xs:element>
+   </xs:schema>
