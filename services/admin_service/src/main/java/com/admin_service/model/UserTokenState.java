@@ -1,4 +1,4 @@
-package com.admin_service.model;
+package com.rent_a_car.agentski_bekend.model;
 
 public class UserTokenState {
 

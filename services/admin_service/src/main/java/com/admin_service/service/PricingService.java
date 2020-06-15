@@ -1,31 +1,33 @@
 package com.rent_a_car.agentski_bekend.service;
 
 import com.rent_a_car.agentski_bekend.model.CarModels;
+import com.rent_a_car.agentski_bekend.model.Pricing;
 import com.rent_a_car.agentski_bekend.repository.CarModelsRepository;
-import com.rent_a_car.agentski_bekend.service.interfaces.CarModelsServiceInterface;
+import com.rent_a_car.agentski_bekend.repository.PricingRepository;
+import com.rent_a_car.agentski_bekend.service.interfaces.PricingServicecInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CarModelsService implements CarModelsServiceInterface {
+public class PricingService implements PricingServicecInterface {
 
     @Autowired
-    private CarModelsRepository carModelsRepository;
+    private PricingRepository carModelsRepository;
 
     @Override
-    public CarModels findByName(String name) {
+    public Pricing findByName(String name) {
         return carModelsRepository.findByName(name);
     }
 
     @Override
-    public CarModels save(CarModels carModels) {
+    public Pricing save(Pricing carModels) {
         return carModelsRepository.save(carModels);
     }
 
     @Override
-    public List<CarModels> findAll() {
+    public List<Pricing> findAll() {
         return carModelsRepository.findAll();
     }
 }

@@ -1,9 +1,11 @@
-package com.admin_service.service;
+package com.rent_a_car.agentski_bekend.service;
 
-import com.admin_service.model.User;
-import com.admin_service.repository.UserRepository;
+import com.rent_a_car.agentski_bekend.model.User;
+import com.rent_a_car.agentski_bekend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,12 +17,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+//    @Autowired
+//    private AuthenticationManager authenticationManager;
 
     BCryptPasswordEncoder encoder = passwordEncoder();
 
@@ -57,5 +61,4 @@ public class CustomUserDetailsService implements UserDetailsService {
         grantedAuthority.add(new SimpleGrantedAuthority("ROLE_USER"));
         return grantedAuthority;
     }
-
 }

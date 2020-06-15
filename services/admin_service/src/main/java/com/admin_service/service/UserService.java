@@ -1,9 +1,8 @@
-package com.admin_service.service;
+package com.rent_a_car.agentski_bekend.service;
 
-
-import com.admin_service.model.User;
-import com.admin_service.repository.UserRepository;
-import com.admin_service.service.interfaces.UserServiceInterface;
+import com.rent_a_car.agentski_bekend.model.User;
+import com.rent_a_car.agentski_bekend.repository.UserRepository;
+import com.rent_a_car.agentski_bekend.service.interfaces.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,5 +43,4 @@ public class UserService implements UserServiceInterface {
     public void delete(User user) {
         userRepository.delete(user);
     }
-
 }

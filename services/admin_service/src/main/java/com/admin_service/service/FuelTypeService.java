@@ -1,16 +1,15 @@
-package com.admin_service.service;
+package com.rent_a_car.agentski_bekend.service;
 
-import com.admin_service.model.FuelType;
-import com.admin_service.repository.FuelTypeRepository;
-import com.admin_service.service.interfaces.FuelTypeServiceInterface;
+import com.rent_a_car.agentski_bekend.model.FuelType;
+import com.rent_a_car.agentski_bekend.repository.FuelTypeRepository;
+import com.rent_a_car.agentski_bekend.service.interfaces.FuelTypeServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 @Service
-public class FuelTypeService  implements FuelTypeServiceInterface {
+public class FuelTypeService implements FuelTypeServiceInterface {
 
     @Autowired
     private FuelTypeRepository fuelTypeRepository;
@@ -29,5 +28,4 @@ public class FuelTypeService  implements FuelTypeServiceInterface {
     public List<FuelType> findAll() {
         return fuelTypeRepository.findAll();
     }
-
 }

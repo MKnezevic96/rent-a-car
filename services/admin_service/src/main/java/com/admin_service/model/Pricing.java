@@ -1,8 +1,25 @@
-package com.admin_service.model;
+package com.rent_a_car.agentski_bekend.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
 @Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(
+        name = "Pricing", propOrder = {
+        "id",
+        "distanceLimit",
+        "regularPrice",
+        "overusePrice",
+        "collisionDamage",
+        "discountDays",
+        "discountPercent",
+        "name",
+        "deleted",
+        "owningUser"
+}, namespace = "nekiUri/pricing")
 @Table(name = "pricing_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Pricing {
@@ -34,7 +51,7 @@ public class Pricing {
     private String name;
 
     @Column(name="deleted", nullable=false)
-    private boolean deleted;
+    private boolean deleted = false;
 
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "user_id")

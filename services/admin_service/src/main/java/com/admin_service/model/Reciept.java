@@ -1,13 +1,24 @@
-package com.admin_service.model;
+package com.rent_a_car.agentski_bekend.model;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
-import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
-
+import java.util.List;
 
 
 @Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(
+        name = "Reciept", propOrder = {
+        "id",
+        "customer",
+        "owner",
+        "sum",
+        "recieptArticles",
+        "deleted"
+}, namespace = "nekiUri/reciept")
 @Table(name = "reciept_table")
 @Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 public class Reciept {
@@ -26,7 +37,7 @@ public class Reciept {
     @Column(name="sum")
     private Double sum;
 
-    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="reciept", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     private List<RecieptArticle> recieptArticles = new ArrayList<RecieptArticle>();
 
     @Column(name="deleted", nullable=false)

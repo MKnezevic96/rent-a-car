@@ -1,9 +1,8 @@
-package com.admin_service.service;
+package com.rent_a_car.agentski_bekend.service;
 
-
-import com.admin_service.model.Manufacturer;
-import com.admin_service.repository.ManufacturerRepository;
-import com.admin_service.service.interfaces.ManufacturerServiceInterface;
+import com.rent_a_car.agentski_bekend.model.Manufacturer;
+import com.rent_a_car.agentski_bekend.repository.ManufacturerRepository;
+import com.rent_a_car.agentski_bekend.service.interfaces.ManufacturerServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +28,5 @@ public class ManufacturerService implements ManufacturerServiceInterface {
     public List<Manufacturer> findAll() {
         return manufacturerRepository.findAll();
     }
-
 
 }

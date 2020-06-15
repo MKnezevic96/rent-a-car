@@ -1,9 +1,8 @@
-package com.admin_service.service;
+package com.rent_a_car.agentski_bekend.service;
 
-
-import com.admin_service.model.TransmissionType;
-import com.admin_service.repository.TransmissionTypeRepository;
-import com.admin_service.service.interfaces.TransmissionTypeServiceInterface;
+import com.rent_a_car.agentski_bekend.model.TransmissionType;
+import com.rent_a_car.agentski_bekend.repository.TransmissionTypeRepository;
+import com.rent_a_car.agentski_bekend.service.interfaces.TransmissionTypeServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +28,4 @@ public class TransmissionTypeService implements TransmissionTypeServiceInterface
     public List<TransmissionType> findAll() {
         return transmissionTypeRepository.findAll();
     }
-
 }

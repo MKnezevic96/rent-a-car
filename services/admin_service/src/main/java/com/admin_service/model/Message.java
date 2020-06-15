@@ -1,10 +1,24 @@
-package com.admin_service.model;
+package com.rent_a_car.agentski_bekend.model;
 
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.Calendar;
 
 @Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(
+        name = "Message", propOrder = {
+        "id",
+        "content",
+        "from",
+        "to",
+        "date",
+        "deleted"
+}, namespace = "nekiUri/message")
 @Table(name="messages_table")
 @Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 public class Message {
@@ -12,24 +26,30 @@ public class Message {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="message_id", nullable=false, unique=true)
+    @XmlElement(required=true)
     private Integer id;
 
     @Column(name="content", nullable=false)
+    @XmlElement(required=true)
     private String content;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="user_from_id", referencedColumnName = "user_id", nullable=false)
+    @XmlElement(required=true)
     private User from;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="user_to_id", referencedColumnName = "user_id", nullable=false)
+    @XmlElement(required=true)
     private User to;
 
     @Column(name="date", nullable=false)
+    @XmlElement(required=true)
     private Calendar date;
 
     @Column(name="deleted", nullable=false)
-    private boolean deleted;
+    @XmlElement(required=true)
+    private boolean deleted = false;
 
     public Message() {
         deleted = false;

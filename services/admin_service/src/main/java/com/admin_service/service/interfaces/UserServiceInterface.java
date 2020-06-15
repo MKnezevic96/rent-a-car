@@ -1,9 +1,10 @@
-package com.admin_service.service.interfaces;
+package com.rent_a_car.agentski_bekend.service.interfaces;
 
-import com.admin_service.model.User;
+import com.rent_a_car.agentski_bekend.model.User;
 
 import java.util.List;
 import java.util.Optional;
+
 
 public interface UserServiceInterface {
 
@@ -14,5 +15,4 @@ public interface UserServiceInterface {
     public List<User> findAll();
 
     public void delete(User user);
-
 }
