@@ -35,7 +35,7 @@ public class User implements Serializable, UserDetails {
     @Column(name="email", nullable = false, unique = true)
     private String email;
 
-    @Size(min = 5, max = 15)
+    //@Size(min = 5, max = 15)
     @Column(name="password", nullable = false)
     private String password;
 

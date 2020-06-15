@@ -16,6 +16,8 @@ import { ManufacturesComponent } from './components/manufactures/manufactures.co
 import { FuelTypesComponent } from './components/fuel-types/fuel-types.component';
 import { CarClassesComponent } from './components/car-classes/car-classes.component';
 import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
+import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
+import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
 
 
 const routes: Routes = [
@@ -43,7 +45,13 @@ const routes: Routes = [
             {path: 'users', component: UsersListComponent},
             {path: 'requests', component: RegistrationRequestsComponent}
           ]
-        }
+        },
+        { path: 'commentsMenagement',
+          component: CommentMenagementComponent,
+          children: [
+            {path: 'pendingComments', component: PendingCommentsComponent},
+          ]
+        },
       ]
     },
     { path: 'advertisement', component: AdvertisementComponent},

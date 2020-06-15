@@ -20,6 +20,7 @@ import { AdminService } from 'src/app/services/admin.service';
           <td>{{ user.firsname }}</td>
           <td>{{ user.lastname }}</td>
           <td>{{ user.email }}</td>
+          <td><button class="btn btn-primary" (click)="reactivate(user.email)">Reactivate</button></td>
       </tr>
       </tbody>
     </table>
@@ -37,6 +38,15 @@ export class BlockedUsersListComponent implements OnInit {
   ngOnInit(): void {
     this.adminService.getBlockedUsers().subscribe(data =>{
       this.usersBlocked = data;
+    });
+  }
+
+  reactivate(email:string){
+    this.adminService.reactivate(email).subscribe((data)=>{
+      console.log(data);
+      this.adminService.getBlockedUsers().subscribe(data =>{
+        this.usersBlocked = data;
+      });
     });
   }
 

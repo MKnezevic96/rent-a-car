@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { first } from 'rxjs/operators';
+import { UserService } from 'src/app/security/user.service';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,8 @@ export class LoginComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService,
         private alertService: AlertService,
-        private loginService:LoginService
+        private loginService:LoginService,
+        private userService:UserService
     ) {
         // redirect to home if already logged in
         if (this.authenticationService.currentUserValue) {
@@ -53,6 +55,27 @@ export class LoginComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
 
+//radio
+  // onSubmit(){
+  //   console.log(this.email);
+  //   console.log(this.password);
+
+  //   this.loginUser = {email: this.email, password: this.password};
+  //   console.log(this.loginUser);
+
+  //   this.loginService.onLogin(this.loginUser).subscribe((data)=>{
+  //     console.log(data);
+  //     //localStorage.setItem('token', data.email)
+  //     this.router.navigateByUrl('adminPage');
+  //   },
+  //   error =>{
+  //       alert('Username or password incorrect');
+  //   });
+  // }
+
+
+
+
 
   onSubmit(){
     console.log(this.email);
@@ -61,7 +84,7 @@ export class LoginComponent implements OnInit {
     this.loginUser = {email: this.email, password: this.password};
     console.log(this.loginUser);
 
-    this.loginService.onLogin(this.loginUser).subscribe((data)=>{
+    this.userService.login(this.loginUser).subscribe((data)=>{
       console.log(data);
       //localStorage.setItem('token', data.email)
       this.router.navigateByUrl('adminPage');
@@ -70,6 +93,9 @@ export class LoginComponent implements OnInit {
         alert('Username or password incorrect');
     });
   }
+
+
+
 
 // onSubmit() {
         //this.submitted = true;

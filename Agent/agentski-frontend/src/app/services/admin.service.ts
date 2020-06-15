@@ -8,6 +8,7 @@ import {TransmissionType} from '../models/TransmissionType';
 import {FuelType} from '../models/FuelType';
 import {CarModels} from '../models/CarModels';
 import { User } from '../models/User';
+import { Review } from '../models/Review';
 
 
 const httpOptions = {
@@ -50,8 +51,12 @@ export class AdminService {
   url21:string = 'http://localhost:8282/admin/getUserRequests';
   url22:string = 'http://localhost:8282/admin/getUsers';
   url23:string = 'http://localhost:8282/admin/activateAcc';
+  url27:string = 'http://localhost:8282/admin/ractivateAcc';
+
   url24:string = 'http://localhost:8282/admin/blockAcc';
   url25:string = 'http://localhost:8282/admin/getBlockedUsers'
+
+  url26:string = 'http://localhost:8282/admin/carReviews'
 
   carClass:CarClass;
   manufact:Manufacturer;
@@ -72,6 +77,10 @@ export class AdminService {
 
   }
 
+  reactivate(email:string):Observable<string>{
+    return this.http.post<string>(this.url27, email, httpOptions);
+  }
+
   addCM(name:string, caarc:string, trrans:string, maanu:string):Observable<CarModels>{
     this.carModel={name:name, carClass:caarc, transmission:trrans, manufacturer:maanu, deleted:false};
     return this.http.post<CarModels>(this.url17, this.carModel, httpOptions);
@@ -90,6 +99,11 @@ export class AdminService {
   addTT(name: string): Observable<string>{
     console.log('sending');
     return this.http.post<string>(this.url3, name, httpOptions);
+  }
+
+  approve(id:number): Observable<number>{
+    return this.http.post<number>(this.url26, id, httpOptions);
+
   }
 
   addFT(name: string): Observable<string>{
@@ -153,6 +167,10 @@ export class AdminService {
 
   getCarC():Observable<CarClass[]>{
     return this.http.get<CarClass[]>(this.url5);
+  }
+
+  getPendingComments():Observable<Review[]>{
+    return this.http.get<Review[]>(this.url26);
   }
 
   getCarModels():Observable<CarModels[]>{
