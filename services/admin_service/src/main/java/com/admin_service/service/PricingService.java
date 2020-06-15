@@ -1,10 +1,8 @@
-package com.rent_a_car.agentski_bekend.service;
+package com.admin_service.service;
 
-import com.rent_a_car.agentski_bekend.model.CarModels;
-import com.rent_a_car.agentski_bekend.model.Pricing;
-import com.rent_a_car.agentski_bekend.repository.CarModelsRepository;
-import com.rent_a_car.agentski_bekend.repository.PricingRepository;
-import com.rent_a_car.agentski_bekend.service.interfaces.PricingServicecInterface;
+import com.admin_service.model.Pricing;
+import com.admin_service.repository.PricingRepository;
+import com.admin_service.service.interfaces.PricingServicecInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

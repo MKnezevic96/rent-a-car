@@ -1,6 +1,6 @@
-package com.rent_a_car.agentski_bekend.model;
-
-import org.springframework.security.core.GrantedAuthority;
+package com.admin_service.model;
+//
+//import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -21,7 +21,7 @@ import java.util.Collection;
 }, namespace = "nekiUri/role")
 @Table(name = "role_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Role implements GrantedAuthority {
+public class Role /*implements GrantedAuthority*/ {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -93,10 +93,10 @@ public class Role implements GrantedAuthority {
     public void setPrivileges(Collection<Privilege> privileges) {
         this.privileges = privileges;
     }
-
-
-    @Override
-    public String getAuthority() {
-        return name;
-    }
+//
+//
+//    @Override
+//    public String getAuthority() {
+//        return name;
+//    }
 }

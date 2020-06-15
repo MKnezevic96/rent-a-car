@@ -1,7 +1,6 @@
 package com.admin_service.repository;
 
-import com.rent_a_car.agentski_bekend.model.Manufacturer;
-import com.rent_a_car.agentski_bekend.model.Pricing;
+import com.admin_service.model.Pricing;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PricingRepository extends JpaRepository<Pricing, Integer> {

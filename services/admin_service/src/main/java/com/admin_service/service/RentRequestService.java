@@ -1,9 +1,7 @@
-package com.rent_a_car.agentski_bekend.service;
-import com.rent_a_car.agentski_bekend.model.RentRequest;
-import com.rent_a_car.agentski_bekend.model.UserRequest;
-import com.rent_a_car.agentski_bekend.repository.RentRequestRepository;
-import com.rent_a_car.agentski_bekend.repository.UserRequestRepository;
-import com.rent_a_car.agentski_bekend.service.interfaces.RentRequestServiceInterface;
+package com.admin_service.service;
+import com.admin_service.model.RentRequest;
+import com.admin_service.repository.RentRequestRepository;
+import com.admin_service.service.interfaces.RentRequestServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

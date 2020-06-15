@@ -1,7 +1,6 @@
-package com.rent_a_car.agentski_bekend.service.interfaces;
+package com.admin_service.service.interfaces;
 
-import com.rent_a_car.agentski_bekend.model.CarClass;
-import com.rent_a_car.agentski_bekend.model.Pricing;
+import com.admin_service.model.Pricing;
 
 import java.util.List;
 

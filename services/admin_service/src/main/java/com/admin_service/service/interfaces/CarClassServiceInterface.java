@@ -1,8 +1,7 @@
-package com.rent_a_car.agentski_bekend.service.interfaces;
-
-import com.rent_a_car.agentski_bekend.model.CarClass;
+package com.admin_service.service.interfaces;
 
 import java.util.List;
+import com.admin_service.model.CarClass;
 
 public interface CarClassServiceInterface {
     CarClass findByName(String name);

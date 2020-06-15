@@ -1,6 +1,6 @@
-package com.rent_a_car.agentski_bekend.service.interfaces;
+package com.admin_service.service.interfaces;
 
-import com.rent_a_car.agentski_bekend.model.User;
+import com.admin_service.model.User;
 
 import java.util.List;
 import java.util.Optional;

@@ -19,29 +19,13 @@
 	</properties>
 
 	<dependencies>
-
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-			<version>2.2.2.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-			<version>2.2.2.RELEASE</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -71,10 +55,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jersey</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-security</artifactId>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -108,14 +92,27 @@
 			<artifactId>spring-rabbit-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.security</groupId>-->
+<!--			<artifactId>spring-security-test</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+
+		<!--<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
+			<version>2.2.2.RELEASE</version>
+		</dependency>   -->
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<version>2.2.2.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -154,9 +151,38 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-netflix-eureka-client</artifactId>
+			<version>2.2.2.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -168,27 +194,131 @@
 					<mainClass>com.admin_service.AdmnServiceApplication</mainClass>
 				</configuration>
 			</plugin>
-<!--			<plugin>-->
-<!--				<groupId>org.apache.maven.plugins</groupId>-->
-<!--				<artifactId>maven-jar-plugin</artifactId>-->
-<!--				<version>2.4</version>-->
-<!--				<configuration>-->
-<!--					<archive>-->
-<!--						<index>true</index>-->
-<!--						<manifest>-->
-<!--							<mainClass>com.admin_service.AdmnServiceApplication</mainClass>-->
-<!--						</manifest>-->
-<!--					</archive>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
-<!--			<plugin>-->
-<!--				<groupId>org.apache.maven.plugins</groupId>-->
-<!--				<artifactId>maven-surefire-plugin</artifactId>-->
-<!--				<version>2.19.1</version>-->
-<!--				<configuration>-->
-<!--					&lt;!&ndash;					<testFailureIgnore>true</testFailureIgnore>&ndash;&gt;-->
-<!--				</configuration>-->
-<!--			</plugin>-->
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>2.2</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<sources>
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/AndroidGPS.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/CarClass.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/CarModels.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/CarReview.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Cars.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Company.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/FuelType.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Manufacturer.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Message.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Pricing.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Privilege.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Reciept.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/RecieptArticle.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/RentingReport.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/RentRequest.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Role.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/TransmissionType.java</source>-->
+						<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/User.java</source>-->
+						<source>${project.basedir}/src/main/resources/cars.xsd</source>
+					</sources>
+					<!--					<transformSchemas>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/android_gps</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>android_gps.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/car_class</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>car_class.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/car_review</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>car_review.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/car_models</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>car_models.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/fuel_type</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>fuel_type.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/cars</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>cars.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/company</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>company.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/manufacturer</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>manufacturer.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/message</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>message.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/pricing</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>pricing.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/privilege</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>privilege.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/reciept</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>reciept.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/reciept_article</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>reciept_article.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/renting_report</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>renting_report.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/renting_request</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>renting_request.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/role</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>role.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--						<transformSchema>-->
+					<!--							<uri>nekiUri/transmission_type</uri>-->
+					<!--							<toPrefix>c</toPrefix>-->
+					<!--							<toFile>transmission_type.xsd</toFile>-->
+					<!--						</transformSchema>-->
+					<!--					</transformSchemas>-->
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 

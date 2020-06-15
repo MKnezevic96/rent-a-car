@@ -1,8 +1,8 @@
-package com.rent_a_car.agentski_bekend.service;
+package com.admin_service.service;
 
-import com.rent_a_car.agentski_bekend.model.CarClass;
-import com.rent_a_car.agentski_bekend.repository.CarClassRepository;
-import com.rent_a_car.agentski_bekend.service.interfaces.CarClassServiceInterface;
+import com.admin_service.model.CarClass;
+import com.admin_service.repository.CarClassRepository;
+import com.admin_service.service.interfaces.CarClassServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

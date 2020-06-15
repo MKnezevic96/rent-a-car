@@ -1,6 +1,6 @@
 package com.admin_service.repository;
 
-import com.rent_a_car.agentski_bekend.model.Cars;
+import com.admin_service.model.Cars;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,7 +1,6 @@
-package com.rent_a_car.agentski_bekend.service.interfaces;
+package com.admin_service.service.interfaces;
 
-import com.rent_a_car.agentski_bekend.model.FuelType;
-import com.rent_a_car.agentski_bekend.model.Manufacturer;
+import com.admin_service.model.FuelType;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.rent_a_car.agentski_bekend.service.interfaces;
+package com.admin_service.service.interfaces;
 
-import com.rent_a_car.agentski_bekend.model.TransmissionType;
+import com.admin_service.model.TransmissionType;
 
 import java.util.List;
 
