@@ -32,6 +32,9 @@ import { CarClassesComponent } from './components/car-classes/car-classes.compon
 import { ManufacturesComponent } from './components/manufactures/manufactures.component';
 import { FuelTypesComponent } from './components/fuel-types/fuel-types.component';
 import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
+import { RentingReportComponent } from './components/renting-report/renting-report.component';
+import { IndexComponent } from './components/index/index.component';
+import { AdvertisementListComponent } from './components/advertisement-list/advertisement-list.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,9 @@ import { TransmissionTypesComponent } from './components/transmission-types/tran
     ManufacturesComponent,
     FuelTypesComponent,
     TransmissionTypesComponent,
+    RentingReportComponent,
+    IndexComponent,
+    AdvertisementListComponent,
    // AuthGuard
   ],
   imports: [

@@ -41,15 +41,15 @@ public class RentRequest implements Serializable {
     private Cars carId;
 
     @NotNull
-    @Column(name="startDate", nullable = false, unique = true)
+    @Column(name="startDate", nullable = false)
     private Date startDate;
 
     @NotNull
-    @Column(name="endDate", nullable = false, unique = true)
+    @Column(name="endDate", nullable = false)
     private Date endDate;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name="status", nullable = false, unique = true)
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name="status", nullable = false)
     private RequestStatus status;
 
     @Column (name="request_group_id")
@@ -59,6 +59,7 @@ public class RentRequest implements Serializable {
     private boolean deleted=false;
 
     @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="renting_report_id", referencedColumnName = "renting_report_id")
     private RentingReport rentingReport;
 
     public RentRequest() {

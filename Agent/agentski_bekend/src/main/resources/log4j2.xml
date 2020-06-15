@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>	
+<Configuration status="WARN" xmlns:n="http://www.w3.org/2001/XMLSchema">
+    <n:Appenders>
+        <n:Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <n:PatternLayout
+              pattern="%d [%t] %-5level %logger{36} - %msg%n%throwable"/>
+        </n:Console>
+    </n:Appenders>
+    <n:Loggers>
+        <n:Root level="ERROR">
+            <n:AppenderRef ref="ConsoleAppender"/>
+        </n:Root>
+    </n:Loggers>
+</Configuration>

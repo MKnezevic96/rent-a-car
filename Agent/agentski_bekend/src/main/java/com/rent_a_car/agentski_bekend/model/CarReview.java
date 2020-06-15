@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -50,7 +51,7 @@ public class CarReview {
 
     @Column(name="approved")
     @XmlElement
-    private Calendar approved;
+    private Date approved;
 
     @Column(name="deleted", nullable=false)
     @XmlElement
@@ -99,11 +100,11 @@ public class CarReview {
         this.review = review;
     }
 
-    public Calendar getApproved() {
+    public Date getApproved() {
         return approved;
     }
 
-    public void setApproved(Calendar approved) {
+    public void setApproved(Date approved) {
         this.approved = approved;
     }
 

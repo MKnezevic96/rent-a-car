@@ -13,8 +13,6 @@ public interface CarsRepository extends JpaRepository<Cars, Integer> {
     List<Cars> findAll ();
 
     Cars findByName(String name);
-
-
     Cars getOne(Integer id);
 
 }

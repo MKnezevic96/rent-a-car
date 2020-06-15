@@ -7,6 +7,8 @@ import com.rent_a_car.agentski_bekend.service.interfaces.RentRequestServiceInter
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+
+
 @Service
 public class RentRequestService implements RentRequestServiceInterface {
     @Autowired
@@ -16,8 +18,8 @@ public class RentRequestService implements RentRequestServiceInterface {
         return userRequestRepository.findById(id).orElse(null);
     }
     @Override
-    public RentRequest save(RentRequest user) {
-        return userRequestRepository.save(user);
+    public RentRequest save(RentRequest request) {
+        return userRequestRepository.save(request);
     }
     @Override
     public List<RentRequest> findAll() {

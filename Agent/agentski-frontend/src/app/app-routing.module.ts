@@ -16,6 +16,9 @@ import { ManufacturesComponent } from './components/manufactures/manufactures.co
 import { FuelTypesComponent } from './components/fuel-types/fuel-types.component';
 import { CarClassesComponent } from './components/car-classes/car-classes.component';
 import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
+import { RentingReportComponent } from './components/renting-report/renting-report.component';
+import { IndexComponent } from './components/index/index.component';
+import { AdvertisementListComponent } from './components/advertisement-list/advertisement-list.component';
 
 
 const routes: Routes = [
@@ -46,9 +49,17 @@ const routes: Routes = [
         }
       ]
     },
-    { path: 'advertisement', component: AdvertisementComponent},
-    { path: 'rentRequest', component: RentRequestComponent},
     
+    { path: 'rentRequest', component: RentRequestComponent},
+    { path: 'index',
+      component: IndexComponent,
+      children: [
+        { path: 'advertisement', component: AdvertisementComponent},
+        { path: 'rentingReport', component: RentingReportComponent},
+        { path: 'advertisements', component: AdvertisementListComponent},
+        
+      ]
+    },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 
