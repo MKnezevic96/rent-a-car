@@ -3,6 +3,7 @@ package com.rent_a_car.agentski_bekend.model;
 
 import javax.persistence.*;
 import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @Table(name="car_reviews_table")
@@ -28,13 +29,24 @@ public class CarReview {
     @Column(name="review", nullable=false)
     private String review;
 
-    @Column(name="approved")
-    private Calendar approved;
+    @Column(name="approvedDate")
+    private Date approvedDate;
 
     @Column(name="deleted", nullable=false)
     private boolean deleted = false;
 
+    @Column(name="approved", nullable=false)
+    private boolean approved = false;
+
     public CarReview () {
+    }
+
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
     }
 
     public Integer getId() {
@@ -77,12 +89,12 @@ public class CarReview {
         this.review = review;
     }
 
-    public Calendar getApproved() {
-        return approved;
+    public Date getApprovedDate() {
+        return approvedDate;
     }
 
-    public void setApproved(Calendar approved) {
-        this.approved = approved;
+    public void setApprovedDate(Date approvedDate) {
+        this.approvedDate = approvedDate;
     }
 
     public boolean isDeleted() {

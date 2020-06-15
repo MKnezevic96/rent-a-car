@@ -124,7 +124,7 @@ public class UserRequest implements Serializable, UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override

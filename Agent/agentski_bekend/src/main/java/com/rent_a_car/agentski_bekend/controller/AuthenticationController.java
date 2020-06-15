@@ -100,15 +100,15 @@ public class AuthenticationController {
     @PostMapping(value = "/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest){
 
-        final Authentication authentication = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
-                        authenticationRequest.getPassword()));
-
-//        UsernamePasswordAuthenticationToken upat = new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
-//                        authenticationRequest.getPassword());
-
 //        final Authentication authentication = authenticationManager
-//                .authenticate(upat);
+//                .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
+//                        authenticationRequest.getPassword()));
+
+        UsernamePasswordAuthenticationToken upat = new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
+                        authenticationRequest.getPassword());
+
+        final Authentication authentication = authenticationManager
+                .authenticate(upat);
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 

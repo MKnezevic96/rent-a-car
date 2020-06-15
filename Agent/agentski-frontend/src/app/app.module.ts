@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 import {FormsModule} from '@angular/forms';
 // import { MaterialModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
-//import { JwtModule } from '@auth0/angular-jwt'
-//import { HttpModule } from '@angular/http'
+//import { JwtModule } from '@auth0/angular-jwt';
+//import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule, RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +32,8 @@ import { CarClassesComponent } from './components/car-classes/car-classes.compon
 import { ManufacturesComponent } from './components/manufactures/manufactures.component';
 import { FuelTypesComponent } from './components/fuel-types/fuel-types.component';
 import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
+import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
+import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { TransmissionTypesComponent } from './components/transmission-types/tran
     ManufacturesComponent,
     FuelTypesComponent,
     TransmissionTypesComponent,
+    CommentMenagementComponent,
+    PendingCommentsComponent,
    // AuthGuard
   ],
   imports: [
@@ -64,7 +68,7 @@ import { TransmissionTypesComponent } from './components/transmission-types/tran
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
     // HttpModule,
     // JwtModule.forRoot({
     //   config: {
