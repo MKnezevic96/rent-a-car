@@ -3,6 +3,7 @@ package com.rent_a_car.agentski_bekend.controller;
 import com.rent_a_car.agentski_bekend.dto.CarsDetailsDTO;
 import com.rent_a_car.agentski_bekend.dto.CarsListingDTO;
 import com.rent_a_car.agentski_bekend.model.Cars;
+import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import com.rent_a_car.agentski_bekend.repository.CarsRepository;
 import com.rent_a_car.agentski_bekend.service.CarsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,4 +62,9 @@ public class RentingController {
 
     }
 
+//
+//    public void approveRentRequest() {
+//        this.rentRequest.setStatus(RequestStatus.RESERVED);
+//        //  this.carsService.declineRequests(rentRequest);
+//    }
 }
