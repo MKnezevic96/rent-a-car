@@ -121,7 +121,7 @@ services:
       - eureka
 
   gps-service:
-    image: gps_service
+    image: gps_service 
     container_name: gps-service
     build:
       context: ./services/gps_service
