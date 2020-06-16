@@ -92,8 +92,8 @@ public class AuthenticationController {
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private TokenUtils tokenUtils;
@@ -111,13 +111,15 @@ public class AuthenticationController {
                 .authenticate(upat);
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
+        String role = new String();//
+        role = authentication.getAuthorities().iterator().next().getAuthority();
 
         User user = (User)customUserDetailsService.loadUserByUsername(authenticationRequest.getEmail());
 
         String jwt = tokenUtils.generateToken(user.getEmail());
         int expiresIn = tokenUtils.getExpiredId();
 
-        return ResponseEntity.ok(new UserTokenState(jwt, expiresIn));
+        return ResponseEntity.ok(new UserTokenState(jwt, expiresIn, role));
 
     }
 
