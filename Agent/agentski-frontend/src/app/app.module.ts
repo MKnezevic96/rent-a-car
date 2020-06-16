@@ -34,6 +34,7 @@ import { FuelTypesComponent } from './components/fuel-types/fuel-types.component
 import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
 import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
 import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
+import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { PendingCommentsComponent } from './components/pending-comments/pending-
     TransmissionTypesComponent,
     CommentMenagementComponent,
     PendingCommentsComponent,
+    PricingPageComponent,
    // AuthGuard
   ],
   imports: [

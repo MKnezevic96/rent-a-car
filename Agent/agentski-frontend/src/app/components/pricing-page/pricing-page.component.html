@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pricing</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="css/register.css"> -->
+    <!-- <script src="js/Register.js"></script> -->
+</head>
+<body>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="" id="icon" />
+        </div>
+       
+        <div class="form-row">
+            <div class="col-md-8 mb-3">
+                <label>Pricing name</label>
+                <input type="text" id="name" class="form-control" name="name" [(ngModel)]="name">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label>Distance limit</label>
+                <input type="number" id="distancelimit" class="form-control" name="distancelimit"
+                    [(ngModel)]="distancelimit">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Regular price</label>
+                <input type="number" id="regularprice" class="form-control" name="regularprice"
+                    [(ngModel)]="regularprice">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label>Overuse price</label>
+                <input type="number" id="overuseprice" class="form-control" name="overuseprice"
+                    [(ngModel)]="overuseprice">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Collision damage</label>
+                <input type="number" id="collisiondamage" class="form-control" name="collisiondamage"
+                    [(ngModel)]="collisiondamage">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label>Discount percentage</label>
+                <input type="number" id="discountperc" class="form-control" name="discountperc"
+                    [(ngModel)]="discountperc">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Discount days</label>
+                <input type="number" id="discountdays" class="form-control" name="discountdays"
+                    [(ngModel)]="discountdays">
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Owner</label>
+            <select [(ngModel)]="cm" class="form-control">
+                <option [ngValue]="cm" *ngFor="let cm of users" (click)="selectedUser(cm)">
+                    {{cm.email}}
+                </option>
+            </select>
+        </div>
+        
+        <div class="form-row">
+            <label> </label>
+            <button class="btn btn-primary btn-lg"
+                (click)="onSubmit()">Create pricing</button>
+        </div>
+    
+
+
+    </div>
+</div>
+</body>
+</html>

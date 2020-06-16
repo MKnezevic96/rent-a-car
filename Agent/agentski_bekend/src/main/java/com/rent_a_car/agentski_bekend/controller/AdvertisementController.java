@@ -1,5 +1,6 @@
 package com.rent_a_car.agentski_bekend.controller;
 import com.rent_a_car.agentski_bekend.dto.CarDTO;
+import com.rent_a_car.agentski_bekend.dto.PricingDTO;
 import com.rent_a_car.agentski_bekend.dto.RentRequestDTO;
 import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
@@ -36,17 +37,57 @@ public class AdvertisementController {
     @Autowired
     private RentRequestServiceInterface rentRequestService;
 
+    @Autowired
+    private UserServiceInterface userService;
 
 
-    @PostMapping(value="/addPricing")
-    public ResponseEntity<?> addPricing(@RequestBody Pricing pricing){
+    @PostMapping(value="/pricing")
+    public ResponseEntity<?> addPricing(@RequestBody PricingDTO dto){
         try{
-            pricingService.save(pricing);
+            Pricing c = new Pricing();
+            User cm = userService.findByEmail(dto.getOwner());
+            c.setOwner(cm);
+
+            c.setCollisionDamage(dto.getCollisionDamage());
+            c.setName(dto.getName());
+            c.setDiscountDays(dto.getDiscountDays());
+            c.setDiscountPercent(dto.getDiscountPercent());
+            c.setDistanceLimit(dto.getDistanceLimit());
+            c.setOverusePrice(dto.getOverusePrice());
+            c.setRegularPrice(dto.getRegularPrice());
+           // c.setOwner(dto.getOwner());
+
+
+
+            pricingService.save(c);
             return ResponseEntity.ok().build();
         }catch (Exception e){
         }
         return ResponseEntity.status(400).build();
     }
+
+    @GetMapping(value="/pricing")
+    public List<PricingDTO> getPricing(){
+        List<Pricing> c = pricingService.findAll();
+
+        List<PricingDTO> dto = new ArrayList<>();
+
+        for(Pricing a : c){
+            PricingDTO d = new PricingDTO();
+            d.setName(a.getName());
+            d.setCollisionDamage(a.getCollisionDamage());
+            d.setDiscountDays(a.getDiscountDays());
+            d.setDiscountPercent(a.getDiscountPercent());
+            d.setDistanceLimit(a.getDistanceLimit());
+            d.setOverusePrice(a.getOverusePrice());
+            d.setRegularPrice(a.getRegularPrice());
+            d.setOwner(a.getOwner().getEmail());
+            dto.add(d);
+        }
+
+        return dto;
+    }
+
 
     @PostMapping(value="/addCar")
     public ResponseEntity<?> addCar(@RequestBody CarDTO dto){
@@ -54,15 +95,16 @@ public class AdvertisementController {
             Cars c = new Cars();
             CarModels cm = carModelsService.findByName(dto.getCarModel());
             c.setModel(cm);
-            Pricing p = pricingService.findByName(dto.getName());
+            Pricing p = pricingService.findByName(dto.getPricing());
             c.setPricing(p);
+            c.setOwner(p.getOwner());
             FuelType ft = fuelTypeService.findByName(dto.getFuelType());
             c.setFuelType(ft);
             c.setMilage(dto.getMilage());
             c.setName(dto.getName());
 
             c.setAndroidGps(null);
-            c.setOwner(null);
+            c.setOwner(p.getOwner());
 
             carsService.save(c);
             return ResponseEntity.ok().build();

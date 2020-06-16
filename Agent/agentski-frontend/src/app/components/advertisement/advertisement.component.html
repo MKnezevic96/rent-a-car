@@ -38,24 +38,9 @@
             </nav>
 
             <div class="container fluid">
-                <!-- <div id="formContent"> -->
-                <!-- Tabs Titles -->
-                <!-- Icon -->
-
-                <!-- <div class="md-form">
-            <select ng-model="selectedModel" ng-options="x for x in names">
-            </select>
-        </div> -->
-                <!-- <div class="md-form">
-            <select formControlName="orders" id="orders" [(ngModel)]="fuelTyp">
-                <option *ngFor="let x of fuelType let i = index">
-                  {{x[i].name}}
-            </option>
-            </select>
-        </div>  -->
+               
 
                 <p></p>
-                <form>
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label>Car model</label>
@@ -72,11 +57,13 @@
 
                         </div>
                     </div>
+
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label>Milage</label>
                             <input type="number" id="milage" class="form-control" name="milage" [(ngModel)]="milage">
                         </div>
+
                         <div class="col-md-4 mb-3">
                             <label>Fuel type</label>
                             <select [(ngModel)]="ft" class="form-control">
@@ -86,68 +73,29 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="col-md-8 mb-3">
-                            <label>Name pricing</label>
-                            <input type="text" id="namee" class="form-control" name="name" [(ngModel)]="namePricing">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label>Distance limit</label>
-                            <input type="number" id="distancelimit" class="form-control" name="distancelimit"
-                                [(ngModel)]="distancelimit">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label>Regular price</label>
-                            <input type="number" id="regularprice" class="form-control" name="regularprice"
-                                [(ngModel)]="regularprice">
-                        </div>
-                    </div>
 
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <label>Overuse price</label>
-                            <input type="number" id="overuseprice" class="form-control" name="overuseprice"
-                                [(ngModel)]="overuseprice">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label>Collision damage</label>
-                            <input type="number" id="collisiondamage" class="form-control" name="collisiondamage"
-                                [(ngModel)]="collisiondamage">
+                            <label>Pricing</label>
+                            <select [(ngModel)]="pr" class="form-control">
+                                <option [ngValue]="pr" *ngFor="let pr of pricings" (click)="selectedPricing(pr)">
+                                    {{pr.name}}
+                                </option>
+                            </select>
                         </div>
                     </div>
-
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label>Discount percentage</label>
-                            <input type="number" id="discountperc" class="form-control" name="discountperc"
-                                [(ngModel)]="discountperc">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label>Discount days</label>
-                            <input type="number" id="discountdays" class="form-control" name="discountdays"
-                                [(ngModel)]="discountdays">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label>Start date</label>
-                            <input type="date" [(ngModel)]="selectedStartDate" class="form-control"
-                                (ngModelChange)="selectStartDate()">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label>End date</label>
-                            <input type="date" [(ngModel)]="selectedEndDate" class="form-control"
-                                (ngModelChange)="selectEndDate()">
-                        </div>
-                    </div>
+                   
                     <div class="form-row">
                         <label> </label>
                         <button class="btn btn-primary btn-lg"
                             (click)="onSubmit()">Create an advertisement</button>
                     </div>
-                </form>
+               
+                    <div>                
+                            <button class="btn btn-primary btn-lg"
+                            (click)="onPricing()">Create pricing</button>
+                    </div>
+
 
 
             </div>
