@@ -8,9 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 @Service
-public class FuelTypeService  implements FuelTypeServiceInterface {
+public class FuelTypeService implements FuelTypeServiceInterface {
 
     @Autowired
     private FuelTypeRepository fuelTypeRepository;
@@ -29,5 +28,4 @@ public class FuelTypeService  implements FuelTypeServiceInterface {
     public List<FuelType> findAll() {
         return fuelTypeRepository.findAll();
     }
-
 }

@@ -4,6 +4,7 @@ import com.rent_a_car.agentski_bekend.model.Cars;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.math.BigInteger;
 import java.util.List;
 
 public interface CarsRepository extends JpaRepository<Cars, Integer> {
