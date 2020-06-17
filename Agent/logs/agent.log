@@ -1,0 +1,12 @@
+2020-06-17 16:59:10 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 031ca6890eaa with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-17 16:59:10 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-17 16:59:49 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 40.488 seconds (JVM running for 45.407)
+2020-06-17 17:00:27 INFO  RentingController:58 - Action get all cars successful
+2020-06-17 17:04:57 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on b2f6813e1ef3 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-17 17:04:57 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-17 17:05:41 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 46.682 seconds (JVM running for 51.906)
+2020-06-17 17:05:48 INFO  RentingController:58 - Action get all cars successful
+2020-06-17 17:09:30 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on dedac96e320b with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-17 17:09:30 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-17 17:10:09 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 41.556 seconds (JVM running for 47.889)
+2020-06-17 17:10:15 INFO  RentingController:58 - Action get all cars successful

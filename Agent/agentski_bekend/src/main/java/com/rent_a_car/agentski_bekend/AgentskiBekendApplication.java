@@ -1,5 +1,7 @@
 package com.rent_a_car.agentski_bekend;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,14 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 //@EntityScan("model")
 //@EnableJpaRepositories(basePackages = "repository")
 @SpringBootApplication//(scanBasePackages = {"model", "service", "repository", "controller"})
-//@ImportResource(locations={
-//		"classpath:log4j2.xml", "classpath:log4j2.xsd"
-//})
 public class AgentskiBekendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AgentskiBekendApplication.class, args);
 	}
+
+	private static final Logger LOGGER = LogManager.getLogger(AgentskiBekendApplication.class.getName());
 
 	@RequestMapping("/health")
 	public String sayHello(){
@@ -37,6 +38,7 @@ public class AgentskiBekendApplication {
 		String retVal = "";
 //		for (Person p : people.getAllThePeople()) {
 //			retVal += p.getFirstName();
+
 //		}
 		return "Hello from agent backend!" + " " + retVal;
 	}

@@ -1,11 +1,11 @@
 package com.rent_a_car.agentski_bekend.controller;
 
+import com.rent_a_car.agentski_bekend.AgentskiBekendApplication;
 import com.rent_a_car.agentski_bekend.dto.*;
 import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
-import com.rent_a_car.agentski_bekend.repository.CarsRepository;
-import com.rent_a_car.agentski_bekend.security.auth.JwtAuthenticationRequest;
 import com.rent_a_car.agentski_bekend.service.*;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +40,7 @@ public class RentingController {
     private UserService userService;
 
 
-    Logger logger = LogManager.getLogger(getClass());
-
+    private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
 
     @GetMapping(value = "test")
     public String test () {
@@ -56,11 +55,7 @@ public class RentingController {
                 retVal.add(new CarsListingDTO(c));
             }
         }
-
-        logger.info("This is a simple message at INFO level. " +
-                "It will be hidden.");
-        logger.debug("This is a simple message at ERROR level. " +
-                "This is the minimum visible level.");
+        LOGGER.info("Action get all cars successful");
         return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
     }
 
@@ -68,7 +63,7 @@ public class RentingController {
     @GetMapping(value = "get/{t}")
     public ResponseEntity<List<CarsListingDTO>> filterCarsByTown (@PathVariable("t") String t) {
         ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
-        System.out.println("   >>> " + t);
+
         for (Cars c : carsService.filterByCity((ArrayList<Cars>) carsService.findAll(), t.replaceAll("_", " "))) {
             retVal.add(new CarsListingDTO(c));
         }
@@ -77,10 +72,16 @@ public class RentingController {
 
     @GetMapping (value = "cars/{id}")
     public ResponseEntity<CarsDetailsDTO> getOneCar (@PathVariable("id") Integer id) {
-        CarsDetailsDTO retVal = new CarsDetailsDTO(carsService.getCar(id));
+        try {
+            CarsDetailsDTO retVal = new CarsDetailsDTO(carsService.getCar(id));
 
-        return new ResponseEntity<CarsDetailsDTO>(retVal, HttpStatus.OK);
+            LOGGER.info("Action get car id:{} successful", id);
+            return new ResponseEntity<CarsDetailsDTO>(retVal, HttpStatus.OK);
+        } catch(Exception e) {
+            LOGGER.error("Action get car id:{} failed. Cause:{}", id, e.getMessage());
+        }
 
+        return ResponseEntity.status(400).build();
     }
 
     @GetMapping(value = "requests")
@@ -95,6 +96,7 @@ public class RentingController {
                     retVal.add(new RentRequestDTO(rr));
             }
         }
+        LOGGER.info("Action get all rent requests successful");
         return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
     }
 
@@ -106,27 +108,33 @@ public class RentingController {
             if(rr.getRequestGroupId().equals(groupId))
                retVal.add(new RentRequestDTO(rr));
         }
+        LOGGER.info("Action get group rent requests successful");
         return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
     }
 
     @PostMapping(value ="/report", consumes = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> addRentingReport(@RequestBody RentingReportDTO dto) {
 
-        RentingReport report = new RentingReport();
-        report.setAddedMileage(dto.getAddedMileage());
-        report.setDeleted(false);
-        report.setReport(dto.getReport());
+        try {
+            RentingReport report = new RentingReport();
+            report.setAddedMileage(dto.getAddedMileage());
+            report.setDeleted(false);
+            report.setReport(dto.getReport());
 
-        RentRequest req = rentRequestService.findById(dto.getRentingInstanceId());
+            RentRequest req = rentRequestService.findById(dto.getRentingInstanceId());
 
-        report.setRentingInstance(rentRequestService.findById(dto.getRentingInstanceId()));
-        rentingReportService.save(report);
+            report.setRentingInstance(rentRequestService.findById(dto.getRentingInstanceId()));
+            rentingReportService.save(report);
 
-        req.setStatus(RequestStatus.RETURNED);
-        req.setRentingReport(report);
-        rentRequestService.save(req);
-
-        return ResponseEntity.status(200).build();
+            req.setStatus(RequestStatus.RETURNED);
+            req.setRentingReport(report);
+            rentRequestService.save(req);
+            LOGGER.info("Action add renting report for request id:{} successful", dto.getRentingInstanceId());
+            return ResponseEntity.status(200).build();
+        } catch(Exception e) {
+            LOGGER.error("Action add renting report for request id:{} failed. Cause: {}", dto.getRentingInstanceId(), e.getMessage());
+        }
+        return ResponseEntity.status(400).build();
 
     }
 
@@ -144,9 +152,11 @@ public class RentingController {
             review.setReviewer(userService.findUserById(1));
             //TODO: promeniti reviewer id kad dodju tokeni
             carReviewService.save(review);
+            LOGGER.info("Action add car review for car id:{} successful", dto.getCarId());
             return ResponseEntity.ok().build();
         }catch (Exception e){
-            e.printStackTrace();
+            LOGGER.error("Action add car review for car id={} failed. Cause: {}", dto.getCarId(), e.getMessage());
+
         }
         return ResponseEntity.status(400).build();
     }
