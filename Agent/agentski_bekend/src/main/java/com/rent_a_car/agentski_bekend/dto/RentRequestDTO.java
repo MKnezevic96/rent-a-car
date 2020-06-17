@@ -9,6 +9,7 @@ public class RentRequestDTO {
     private Date endDate;
     private boolean status;
     private boolean deleted;
+    private String user;   // user koji zahteva vozilo
 
     public RentRequestDTO() {
     }
@@ -51,5 +52,13 @@ public class RentRequestDTO {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 }

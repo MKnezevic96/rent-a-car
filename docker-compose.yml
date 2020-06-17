@@ -106,7 +106,7 @@ services:
 
 #  agentski-bekend:
 #     image: agentski_bekend
-#     networks: 
+#     networks:
 #      - first-network
 #     build:
 #       context: ./agentski_bekend

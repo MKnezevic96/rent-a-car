@@ -38,7 +38,7 @@ public class Pricing {
 
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "user_id")
-    private User owningUser;
+    private User owner;
 
     public Pricing() {
         deleted = false;
@@ -116,12 +116,11 @@ public class Pricing {
         this.deleted = deleted;
     }
 
-    public User getOwningUser() {
-        return owningUser;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setOwningUser(User owningUser) {
-        this.owningUser = owningUser;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
-
 }

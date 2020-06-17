@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import {FormsModule} from '@angular/forms';
 // import { MaterialModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 //import { JwtModule } from '@auth0/angular-jwt';
@@ -34,6 +34,9 @@ import { FuelTypesComponent } from './components/fuel-types/fuel-types.component
 import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
 import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
 import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
+import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @NgModule({
   declarations: [
@@ -58,6 +61,7 @@ import { PendingCommentsComponent } from './components/pending-comments/pending-
     TransmissionTypesComponent,
     CommentMenagementComponent,
     PendingCommentsComponent,
+    PricingPageComponent,
    // AuthGuard
   ],
   imports: [
@@ -69,23 +73,14 @@ import { PendingCommentsComponent } from './components/pending-comments/pending-
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    // HttpModule,
-    // JwtModule.forRoot({
-    //   config: {
-    //     authScheme: 'Bearer',
-    //     headerName: 'Authorization',
-    //     tokenGetter: () => {
-    //       return localStorage.getItem('access_token');
-    //     },
-    //   }
-    // }),
-    // MaterialModule,            // <----- this module will be deprecated in the future version.
-    // MatDatepickerModule,        // <----- import(must)
-    // MatNativeDateModule,        // <----- import for date formating(optional)
+  
     //MatMomentDateModule   
     
   ],
-  providers: [],
+  providers: [
+    
+  ],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule {  }

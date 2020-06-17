@@ -22,6 +22,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AdminService {
+  getPricing() {
+    throw new Error("Method not implemented.");
+  }
 
   url1:string = 'http://localhost:8282/admin/addManufac';
   url2:string = 'http://localhost:8282/admin/addCarC';
