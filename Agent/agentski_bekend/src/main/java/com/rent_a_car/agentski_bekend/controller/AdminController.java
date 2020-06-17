@@ -37,6 +37,12 @@ public class AdminController {
     @Autowired
     private CarReviewServiceInterface carReviewService;
 
+    @Autowired
+    private CompanyServiceInterface companyService;
+
+    @Autowired
+    private RoleServiceInterface roleService;
+
 
     @GetMapping(value="/admin/carReviews")
     public List<CarReviewDTO> getCarReviews(){
@@ -84,8 +90,25 @@ public class AdminController {
         u.setFirstname(us.getFirstname());
         u.setLastname(us.getLastname());
         u.setEmail(us.getEmail());
-        String pass = us.getPassword();
-        u.setPassword(pass);
+        u.setPassword(us.getPassword());
+        if(us.isCompany()){
+            Company com = new Company();
+            com.setName(us.getName());
+            com.setAddress(us.getAddress());
+            com.setBussinessNumber(us.getNumber());
+            com.setDeleted(false);
+            com.setOwner(u);
+            companyService.save(com);
+            u.setCompany(com);
+            List<Role> rList = roleService.findByName("agent");
+            u.setRole(rList);
+        }else{
+            u.setCompany(null);
+            List<Role> rList = roleService.findByName("user");
+            u.setRole(rList);
+        }
+
+
         userService.save(u);
         userRequestService.delete(us);
 

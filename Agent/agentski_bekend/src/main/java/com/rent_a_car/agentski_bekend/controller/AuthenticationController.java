@@ -65,13 +65,12 @@ public class AuthenticationController {
           if(dto.getIsSelected().equals("isCompany")) {
               user.setCompany(true);
           }
-          else if(dto.getIsSelected().equals("isAgent")) {
-              user.setAgent(true);
+          else if(dto.getIsSelected().equals("isUser")) {
+              user.setUser(true);
           }
-          else if(dto.getIsSelected().equals("isCustomer")) {
-              user.setCustomer(true);
-          }
-
+          user.setName(dto.getName());
+          user.setAddress(dto.getAdress());
+          user.setNumber(dto.getNumber());
         if(!dto.getEmail().matches("[a-zA-Z0-9.']+@(gmail.com)|(yahoo.com)|(uns.ac.rs)")){
             return ResponseEntity.status(400).build();
         }
