@@ -13,11 +13,12 @@ public class RentRequestService implements RentRequestServiceInterface {
     @Autowired
     private RentRequestRepository userRequestRepository;
 
-    @Autowired
-    private CarsService carsService;
 
-    @Autowired
-    private RentRequest rentRequest;
+//    @Autowired
+//    private CarsService carsService;
+
+//    @Autowired
+//    private RentRequest rentRequest;
 
     @Override
     public RentRequest findById(Integer id) {

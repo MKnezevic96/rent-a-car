@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,11 +43,13 @@ public class AdvertisementController {
 
 
     @PostMapping(value="/pricing")
-    public ResponseEntity<?> addPricing(@RequestBody PricingDTO dto){
+    public ResponseEntity<?> addPricing(@RequestBody PricingDTO dto, Principal p){
         try{
+
+            User user = userService.findByEmail(p.getName());
             Pricing c = new Pricing();
             User cm = userService.findByEmail(dto.getOwner());
-            c.setOwner(cm);
+            c.setOwner(user);
 
             c.setCollisionDamage(dto.getCollisionDamage());
             c.setName(dto.getName());
@@ -104,10 +107,18 @@ public class AdvertisementController {
             c.setName(dto.getName());
 
             c.setAndroidGps(null);
-            c.setOwner(p.getOwner());
+         //   c.setOwner(p.getOwner());
+            c.setTown("");
 
             carsService.save(c);
             return ResponseEntity.ok().build();
+
+
+
+
+
+
+
         }catch (Exception e){
         }
         return ResponseEntity.status(400).build();

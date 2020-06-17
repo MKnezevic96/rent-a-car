@@ -62,14 +62,7 @@
             </div>
         </div>
 
-        <div class="col-md-4 mb-3">
-            <label>Owner</label>
-            <select [(ngModel)]="cm" class="form-control">
-                <option [ngValue]="cm" *ngFor="let cm of users" (click)="selectedUser(cm)">
-                    {{cm.email}}
-                </option>
-            </select>
-        </div>
+        
         
         <div class="form-row">
             <label> </label>

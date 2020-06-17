@@ -21,7 +21,7 @@ public class Role implements GrantedAuthority {
     @ManyToMany(mappedBy = "role")
     private Collection<User> user;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "roles_privileges",
         joinColumns = @JoinColumn(

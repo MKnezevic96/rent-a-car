@@ -35,11 +35,11 @@ public class User implements Serializable, UserDetails {
     @Column(name="email", nullable = false, unique = true)
     private String email;
 
-    //@Size(min = 5, max = 15)
+    //@Size(min = 5)
     @Column(name="password", nullable = false)
     private String password;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(
