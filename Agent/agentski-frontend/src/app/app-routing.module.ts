@@ -19,17 +19,20 @@ import { TransmissionTypesComponent } from './components/transmission-types/tran
 import { RentingReportComponent } from './components/renting-report/renting-report.component';
 import { IndexComponent } from './components/index/index.component';
 import { AdvertisementListComponent } from './components/advertisement-list/advertisement-list.component';
+import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
+import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
+import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
     { path: 'home', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
-    { 
-      path: 'adminPage', 
+    {
+      path: 'adminPage',
       component: AdminPageComponent,
       children: [
-        { path: 'codebookMenagement', 
+        { path: 'codebookMenagement',
           component: CodebookMenagementComponent,
           children: [
             {path: 'carModels', component: CarModelsComponent},
@@ -37,7 +40,7 @@ const routes: Routes = [
             {path: 'manufactures', component: ManufacturesComponent },
             {path: 'fuelTypes', component: FuelTypesComponent },
             {path: 'transmissionTypes', component: TransmissionTypesComponent}
-          ]  
+          ]
         },
         { path: 'userMenagement',
           component: UserMenagementComponent,
@@ -46,10 +49,16 @@ const routes: Routes = [
             {path: 'users', component: UsersListComponent},
             {path: 'requests', component: RegistrationRequestsComponent}
           ]
-        }
+        },
+        { path: 'commentsMenagement',
+          component: CommentMenagementComponent,
+          children: [
+            {path: 'pendingComments', component: PendingCommentsComponent},
+          ]
+        },
       ]
     },
-    
+
     { path: 'rentRequest', component: RentRequestComponent},
     { path: 'index',
       component: IndexComponent,
@@ -57,9 +66,13 @@ const routes: Routes = [
         { path: 'advertisement', component: AdvertisementComponent},
         { path: 'rentingReport', component: RentingReportComponent},
         { path: 'advertisements', component: AdvertisementListComponent},
-        
+
       ]
     },
+    { path: 'advertisement', component: AdvertisementComponent},
+    { path: 'rentRequest', component: RentRequestComponent},
+    { path: 'pricing', component: PricingPageComponent},
+
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 

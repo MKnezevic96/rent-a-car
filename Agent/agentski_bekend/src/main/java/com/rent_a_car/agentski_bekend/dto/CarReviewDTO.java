@@ -1,22 +1,32 @@
 package com.rent_a_car.agentski_bekend.dto;
 
-import com.rent_a_car.agentski_bekend.model.Cars;
-import com.rent_a_car.agentski_bekend.model.User;
 
-import javax.persistence.*;
 import java.util.Date;
 
 public class CarReviewDTO {
-
+//TODO resiti duplikate
     private Integer id;
-    private Integer reviewerId;
-    private Integer carId;
+    private String reviewer;
+    private Integer car;
     private Integer rating;
     private String review;
-    private Date approved;
-    private boolean deleted = false;
+    private Date approvedDate;
+    private boolean deleted;
+    private boolean approved;
 
     public CarReviewDTO () {}
+
+    public CarReviewDTO(Integer id, String reviewer, Integer car, Integer rating, String review, Date approvedDate, boolean deleted, boolean approved) {
+        this.id = id;
+        this.reviewer = reviewer;
+        this.car = car;
+        this.rating = rating;
+        this.review = review;
+        this.approvedDate = approvedDate;
+        this.deleted = deleted;
+        this.approved = approved;
+    }
+
 
     public Integer getId() {
         return id;
@@ -26,20 +36,20 @@ public class CarReviewDTO {
         this.id = id;
     }
 
-    public Integer getReviewerId() {
-        return reviewerId;
+    public String getReviewer() {
+        return reviewer;
     }
 
-    public void setReviewerId(Integer reviewerId) {
-        this.reviewerId = reviewerId;
+    public void setReviewer(String reviewer) {
+        this.reviewer = reviewer;
     }
 
-    public Integer getCarId() {
-        return carId;
+    public Integer getCar() {
+        return car;
     }
 
-    public void setCarId(Integer carId) {
-        this.carId = carId;
+    public void setCar(Integer car) {
+        this.car = car;
     }
 
     public Integer getRating() {
@@ -58,12 +68,12 @@ public class CarReviewDTO {
         this.review = review;
     }
 
-    public Date getApproved() {
-        return approved;
+    public Date getApprovedDate() {
+        return approvedDate;
     }
 
-    public void setApproved(Date approved) {
-        this.approved = approved;
+    public void setApprovedDate(Date approvedDate) {
+        this.approvedDate = approvedDate;
     }
 
     public boolean isDeleted() {
@@ -72,5 +82,13 @@ public class CarReviewDTO {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
     }
 }

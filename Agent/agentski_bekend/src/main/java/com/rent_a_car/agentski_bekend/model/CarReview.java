@@ -6,7 +6,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -49,15 +48,25 @@ public class CarReview {
     @XmlElement
     private String review;
 
-    @Column(name="approved")
-    @XmlElement
-    private Date approved;
+    @Column(name="approvedDate")
+    private Date approvedDate;
 
     @Column(name="deleted", nullable=false)
     @XmlElement
     private boolean deleted = false;
 
+    @Column(name="approved", nullable=false)
+    private boolean approved = false;
+
     public CarReview () {
+    }
+
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
     }
 
     public Integer getId() {
@@ -100,12 +109,12 @@ public class CarReview {
         this.review = review;
     }
 
-    public Date getApproved() {
-        return approved;
+    public Date getApprovedDate() {
+        return approvedDate;
     }
 
-    public void setApproved(Date approved) {
-        this.approved = approved;
+    public void setApprovedDate(Date approvedDate) {
+        this.approvedDate = approvedDate;
     }
 
     public boolean isDeleted() {

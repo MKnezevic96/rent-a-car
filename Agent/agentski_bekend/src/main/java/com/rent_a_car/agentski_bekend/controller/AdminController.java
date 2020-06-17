@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class AdminController {
@@ -33,31 +34,100 @@ public class AdminController {
     @Autowired
     private UserServiceInterface userService;
 
+    @Autowired
+    private CarReviewServiceInterface carReviewService;
+
+    @Autowired
+    private CompanyServiceInterface companyService;
+
+    @Autowired
+    private RoleServiceInterface roleService;
+
+
+    @GetMapping(value="/admin/carReviews")
+    public List<CarReviewDTO> getCarReviews(){
+
+        List<CarReview> cr = carReviewService.findAll();
+        List<CarReviewDTO> dto = new ArrayList<>();
+        for(CarReview c : cr){
+            if(!c.isApproved()) {
+                CarReviewDTO crDTO = new CarReviewDTO();
+                crDTO.setId(c.getId());
+                crDTO.setReviewer(c.getReviewer().getEmail());
+                crDTO.setCar(c.getCar().getId());
+                crDTO.setRating(c.getRating());
+                crDTO.setReview(c.getReview());
+                crDTO.setApprovedDate(c.getApprovedDate());
+                crDTO.setDeleted(c.isDeleted());
+                crDTO.setApproved(c.isApproved());
+                dto.add(crDTO);
+            }
+        }
+
+        return dto;
+
+    }
+
+    @PostMapping(value="/admin/carReviews")
+    public ResponseEntity<?> approveReview(@RequestBody Integer id){
+
+        List<CarReview> crList = carReviewService.findAll();
+        CarReview review;
+        for(CarReview cr : crList){
+            if(cr.getId() == id){
+                cr.setApproved(true);
+                carReviewService.save(cr);
+            }
+        }
+        return ResponseEntity.ok().build();
+    }
+
+//-----------------------------------------------------------------
     @PostMapping(value="/admin/activateAcc")
     public ResponseEntity<?> activateAcc(@RequestBody String email){
         UserRequest us = userRequestService.findByEmail(email);
-        userRequestService.delete(us);
         User u = new User();
         u.setFirstname(us.getFirstname());
         u.setLastname(us.getLastname());
         u.setEmail(us.getEmail());
         u.setPassword(us.getPassword());
-        userService.save(u);
+        if(us.isCompany()){
+            Company com = new Company();
+            com.setName(us.getName());
+            com.setAddress(us.getAddress());
+            com.setBussinessNumber(us.getNumber());
+            com.setDeleted(false);
+            com.setOwner(u);
+            companyService.save(com);
+            u.setCompany(com);
+            List<Role> rList = roleService.findByName("agent");
+            u.setRole(rList);
+        }else{
+            u.setCompany(null);
+            List<Role> rList = roleService.findByName("user");
+            u.setRole(rList);
+        }
 
+
+        userService.save(u);
+        userRequestService.delete(us);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping(value="/admin/ractivateAcc")
+    public ResponseEntity<?> ractivateAcc(@RequestBody String email){
+        User u = userService.findByEmail(email);
+        u.setDeleted(false);
+        userService.save(u);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping(value="/admin/blockAcc")
     public ResponseEntity<?> blocAcc(@RequestBody String email){
         User u = userService.findByEmail(email);
-        userService.delete(u);
-//        UserBlocked ub = new UserBlocked();
-//        ub.setFirstname(u.getFirstname());
-//        ub.setLastname(u.getLastname());
-//        ub.setEmail(u.getEmail());
-//        ub.setPassword(u.getPassword());
-//        userBlockedService.save(ub);
-
+        u.setDeleted(true);
+        userService.save(u);
         return ResponseEntity.ok().build();
     }
 
@@ -202,12 +272,14 @@ public class AdminController {
         List<UserRequestDTO> dto = new ArrayList<>();
 
         for(User c : cm){
-            UserRequestDTO m = new UserRequestDTO();
-            m.setFirsname(c.getFirstname());
-            m.setLastname(c.getLastname());
-            m.setEmail(c.getEmail());
-            m.setPassword(c.getPassword());
-            dto.add(m);
+            if(c.isDeleted() == false) {
+                UserRequestDTO m = new UserRequestDTO();
+                m.setFirsname(c.getFirstname());
+                m.setLastname(c.getLastname());
+                m.setEmail(c.getEmail());
+                m.setPassword(c.getPassword());
+                dto.add(m);
+            }
         }
 
         return dto;
@@ -216,18 +288,20 @@ public class AdminController {
     @GetMapping(value="/admin/getBlockedUsers")
     public List<UserRequestDTO> getBlockedUsers(){
 
-//        List<UserBlocked> cm = userBlockedService.findAll();
+        List<User> cm = userService.findAll();
 
         List<UserRequestDTO> dto = new ArrayList<>();
 
-//        for(UserBlocked c : cm){
-//            UserRequestDTO m = new UserRequestDTO();
-//            m.setFirsname(c.getFirstname());
-//            m.setLastname(c.getLastname());
-//            m.setEmail(c.getEmail());
-//            m.setPassword(c.getPassword());
-//            dto.add(m);
-//        }
+        for(User c : cm){
+            if(c.isDeleted()==true) {
+                UserRequestDTO m = new UserRequestDTO();
+                m.setFirsname(c.getFirstname());
+                m.setLastname(c.getLastname());
+                m.setEmail(c.getEmail());
+                m.setPassword(c.getPassword());
+                dto.add(m);
+            }
+        }
 
         return dto;
     }

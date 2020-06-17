@@ -65,13 +65,12 @@ public class AuthenticationController {
           if(dto.getIsSelected().equals("isCompany")) {
               user.setCompany(true);
           }
-          else if(dto.getIsSelected().equals("isAgent")) {
-              user.setAgent(true);
+          else if(dto.getIsSelected().equals("isUser")) {
+              user.setUser(true);
           }
-          else if(dto.getIsSelected().equals("isCustomer")) {
-              user.setCustomer(true);
-          }
-
+          user.setName(dto.getName());
+          user.setAddress(dto.getAdress());
+          user.setNumber(dto.getNumber());
         if(!dto.getEmail().matches("[a-zA-Z0-9.']+@(gmail.com)|(yahoo.com)|(uns.ac.rs)")){
             return ResponseEntity.status(400).build();
         }
@@ -92,32 +91,34 @@ public class AuthenticationController {
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private TokenUtils tokenUtils;
     @PostMapping(value = "/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest){
 
-        final Authentication authentication = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
-                        authenticationRequest.getPassword()));
-
-//        UsernamePasswordAuthenticationToken upat = new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
-//                        authenticationRequest.getPassword());
-
 //        final Authentication authentication = authenticationManager
-//                .authenticate(upat);
+//                .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
+//                        authenticationRequest.getPassword()));
+
+        UsernamePasswordAuthenticationToken upat = new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
+                        authenticationRequest.getPassword());
+
+        final Authentication authentication = authenticationManager
+                .authenticate(upat);
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
+        String role = new String();//
+        role = authentication.getAuthorities().iterator().next().getAuthority();
 
         User user = (User)customUserDetailsService.loadUserByUsername(authenticationRequest.getEmail());
 
         String jwt = tokenUtils.generateToken(user.getEmail());
         int expiresIn = tokenUtils.getExpiredId();
 
-        return ResponseEntity.ok(new UserTokenState(jwt, expiresIn));
+        return ResponseEntity.ok(new UserTokenState(jwt, expiresIn, role));
 
     }
 

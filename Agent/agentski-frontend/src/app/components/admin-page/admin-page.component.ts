@@ -38,4 +38,8 @@ export class AdminPageComponent implements OnInit {
     this.router.navigateByUrl('rentRequest');
 
   }
+
+  showComments(){
+    this.router.navigate(['commentsMenagement'], {relativeTo: this.route});
+  }
 }

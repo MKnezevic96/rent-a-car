@@ -1,6 +1,5 @@
 package com.rent_a_car.agentski_bekend.controller;
 
-import com.rent_a_car.agentski_bekend.AgentskiBekendApplication;
 import com.rent_a_car.agentski_bekend.dto.*;
 import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
@@ -8,6 +7,10 @@ import com.rent_a_car.agentski_bekend.service.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import com.rent_a_car.agentski_bekend.dto.CarsDetailsDTO;
+import com.rent_a_car.agentski_bekend.dto.CarsListingDTO;
+import com.rent_a_car.agentski_bekend.model.Cars;
+import com.rent_a_car.agentski_bekend.service.CarsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +30,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
-
 
 @RestController
 @RequestMapping(value = "api/renting/")
@@ -170,4 +172,9 @@ public class RentingController {
         return ResponseEntity.status(400).build();
     }
 
+//
+//    public void approveRentRequest() {
+//        this.rentRequest.setStatus(RequestStatus.RESERVED);
+//        //  this.carsService.declineRequests(rentRequest);
+//    }
 }

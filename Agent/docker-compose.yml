@@ -5,7 +5,7 @@ services:
 
   agentski-bekend:
      image: agentski_bekend
-     networks:
+     networks: 
       - second-network
      build:
        context: ./agentski_bekend
@@ -14,14 +14,14 @@ services:
      ports:
       - "127.0.0.1:8282:8282"
      environment:
-       DATABASE_USERNAME: 'sa'
+       DATABASE_USERNAME: 'root'
        DATABASE_PASSWORD: 'admin'
        DATABASE_DOMAIN: 'agentska-baza'
        DATABASE_PORT: "3306"
      depends_on:
        - agentska-baza
      volumes:
-       - ./logs:/logs 
+       - ./logs:/logs
 
 
   agentski-frontend:
@@ -48,7 +48,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 'admin'
       MYSQL_DATABASE: 'agentska-baza'
-      MYSQL_USER: 'sa'
+      MYSQL_USER: 'root'
       MYSQL_PASSWORD: 'admin'
     image: mysql:8
     volumes:

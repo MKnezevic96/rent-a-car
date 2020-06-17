@@ -16,28 +16,20 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./advertisement.component.css']
 })
 export class AdvertisementComponent implements OnInit {
-  model: CarModels[];
   fuelType: FuelType[];
-  //fuelTyp: string;
   nameAdvertisement: string;
-  namePricing:string;
   milage: number;
-  distancelimit: number;
-  regularprice: number;
-  overuseprice: number;
-  collisiondamage: number;
-  discountdays: number;
-  discountperc:  number;
-  pricing: Pricing;
+
   ft:FuelType;
-  selectedStartDate:Date;
-  selectedEndDate: Date;
+
   carModels:CarModels[];
   cm:CarModels;
+  pricings:Pricing[];
+  pr:Pricing;
 
   //minDate = moment(new Date()).format('YYYY-MM-DD');  //current
   constructor(
-    private adminService: AdminService, 
+    private adminService: AdminService,
     private advertisementService: AdvertisementService,
     private route: ActivatedRoute,
     private router: Router
@@ -51,11 +43,10 @@ export class AdvertisementComponent implements OnInit {
     this.cm = name;
     console.log(this.carModels);
   }
-  selectStartDate() {
-    console.log(this.selectedStartDate);
-  }
-  selectEndDate() {
-    console.log(this.selectedEndDate);
+
+  selectedPricing(name:Pricing){
+    this.pr = name;
+    console.log(this.pricings);
   }
   ngOnInit(): void {
     // this.adminService.getCarModel().subscribe(data =>{
@@ -67,30 +58,30 @@ export class AdvertisementComponent implements OnInit {
     this.adminService.getCarModels().subscribe(data =>{
       this.carModels = data;
     });
+    this.advertisementService.getPricing().subscribe(data =>{
+      this.pricings = data;
+    });
   }
   onSubmit() {
-    this.pricing={distanceLimit: this.distancelimit, regularPrice: this.regularprice, overusePrice: this.overuseprice, collisionDamage: this.collisiondamage, discountDays: this.discountdays, discountPercent: this.discountperc, name: this.namePricing, deleted:false};
     console.log(this.ft);
     console.log(this.cm);
 
-    console.log(this.pricing);
-    this.advertisementService.addPricing(this.pricing).pipe(first())
+    console.log(this.pr);
+
+    console.log(this.pr.name,this.cm.name, this.ft.name, this.milage, this.nameAdvertisement );
+
+    this.advertisementService.addCar(this.pr.name, this.cm.name, this.ft.name, this.milage, this.nameAdvertisement,).pipe(first())
     .subscribe(
         data => {
             console.log('Making advertisement successful');
-            this.makeAdvertisement();
+
+
         })
 
   }
 
-  makeAdvertisement(){
-    this.advertisementService.addCar(this.namePricing, this.cm.name, this.ft.name, this.milage, this.nameAdvertisement, this.selectedStartDate, this.selectedEndDate).pipe(first())
-    .subscribe(
-        data => {
-            console.log('Making advertisement successful');
-        })
+  onPricing() {
+    this.router.navigateByUrl('pricing');
 
   }
-
-  
 }

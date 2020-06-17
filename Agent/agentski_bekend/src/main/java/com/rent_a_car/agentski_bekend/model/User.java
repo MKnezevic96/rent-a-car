@@ -63,12 +63,12 @@ public class User implements Serializable, UserDetails {
     @XmlElement(required=true)
     private String email;
 
-    @Size(min = 5, max = 15)
+    //@Size(min = 5)
     @Column(name="password", nullable = false)
     @XmlElement(required=true)
     private String password;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(

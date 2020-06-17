@@ -3,6 +3,7 @@ package com.rent_a_car.agentski_bekend.service;
 import com.rent_a_car.agentski_bekend.model.User;
 import com.rent_a_car.agentski_bekend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Qualifier("userDetails")
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -37,8 +39,8 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(String.format("No user found with email " + email));
         }
 
-        //return user;
-        return new org.springframework.security.core.userdetails.User(user.getEmail(),encoder.encode(user.getPassword()),getGrantedAuthorities(user));
+        return user;
+        //return new org.springframework.security.core.userdetails.User(user.getEmail(),encoder.encode(user.getPassword()),getGrantedAuthorities(user));
     }
 
     @Bean

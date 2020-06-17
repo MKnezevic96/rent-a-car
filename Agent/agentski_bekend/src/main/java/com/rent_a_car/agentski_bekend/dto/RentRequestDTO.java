@@ -20,6 +20,7 @@ public class RentRequestDTO {
     private Integer owningUserId;
     private Integer requestGroupId;
     private Integer id;
+    private String user;   // user koji zahteva vozilo
 
 
     public RentRequestDTO(RentRequest req){
@@ -34,9 +35,9 @@ public class RentRequestDTO {
 
     }
 
+
     public RentRequestDTO() {
     }
-
 
     public String getCarName() {
         return carName;
@@ -108,5 +109,13 @@ public class RentRequestDTO {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 }

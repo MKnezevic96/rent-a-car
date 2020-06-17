@@ -25,6 +25,12 @@ export class RegisterComponent implements OnInit {
     lastname: string;
     email:string;
     password:string;
+    password1:string;
+
+    cname:string = '';
+    adress:string = '';
+    number:string = '';
+    ifCompany:boolean = false;
   
     isSelected: string;
     user:UserRequest;
@@ -54,6 +60,15 @@ export class RegisterComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
 
+    onSelected(){
+        if(this.isSelected=='isCompany'){
+            this.ifCompany = true;
+        }
+        if(this.isSelected=='isUser'){
+            this.ifCompany = false;
+        }
+    }
+
     onSubmit() {
         //this.submitted = true;
 
@@ -70,13 +85,14 @@ export class RegisterComponent implements OnInit {
             
         
 
-        this.user={firstname: this.firstname, lastname:this.lastname, email:this.email, password:this.password, isSelected: this.isSelected};
+        this.user={firstname: this.firstname, lastname:this.lastname, email:this.email, password:this.password, isSelected: this.isSelected, name: this.cname, adress: this.adress, number: this.number};
         
         console.log(this.user.firstname);
         console.log(this.user.lastname);
         console.log(this.user.email);
         console.log(this.user.password);
         console.log(this.user.isSelected);
+        console.log(this.user.adress);
         
         this.loading = true;
 
