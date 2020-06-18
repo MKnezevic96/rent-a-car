@@ -64,9 +64,18 @@ export class AdvertisementService {
   }
 
   getPricing() {
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+      })
+    }
     console.log('get.. pricing');
 
-  return this.http.get<Pricing[]>(this.url1);  }
+  return this.http.get<Pricing[]>(this.url1, httpOptions );  }
 
   addRentRequest(rentRequest:RentRequest):Observable<RentRequest>{
     return this.http.post<RentRequest>(this.url4, rentRequest, this.httpOptions);

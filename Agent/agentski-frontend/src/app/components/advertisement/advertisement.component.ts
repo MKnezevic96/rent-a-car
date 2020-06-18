@@ -19,6 +19,7 @@ export class AdvertisementComponent implements OnInit {
   fuelType: FuelType[];
   nameAdvertisement: string;
   milage: number;
+  town: string;
   
   ft:FuelType;
   
@@ -66,10 +67,11 @@ export class AdvertisementComponent implements OnInit {
     console.log(this.cm);
 
     console.log(this.pr);
+    console.log(this.town);
 
     console.log(this.pr.name,this.cm.name, this.ft.name, this.milage, this.nameAdvertisement );
     
-    this.advertisementService.addCar(this.pr.name, this.cm.name, this.ft.name, this.milage, this.nameAdvertisement,).pipe(first())
+    this.advertisementService.addCar(this.pr.name, this.cm.name, this.ft.name, this.milage, this.nameAdvertisement, this.town).pipe(first())
     .subscribe(
         data => {
             console.log('Making advertisement successful');

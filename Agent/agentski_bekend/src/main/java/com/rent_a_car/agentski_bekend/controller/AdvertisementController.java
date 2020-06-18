@@ -70,22 +70,27 @@ public class AdvertisementController {
     }
 
     @GetMapping(value="/pricing")
-    public List<PricingDTO> getPricing(){
+    public List<PricingDTO> getPricing(Principal p){
         List<Pricing> c = pricingService.findAll();
 
         List<PricingDTO> dto = new ArrayList<>();
+        User user = userService.findByEmail(p.getName());
 
-        for(Pricing a : c){
-            PricingDTO d = new PricingDTO();
-            d.setName(a.getName());
-            d.setCollisionDamage(a.getCollisionDamage());
-            d.setDiscountDays(a.getDiscountDays());
-            d.setDiscountPercent(a.getDiscountPercent());
-            d.setDistanceLimit(a.getDistanceLimit());
-            d.setOverusePrice(a.getOverusePrice());
-            d.setRegularPrice(a.getRegularPrice());
-            d.setOwner(a.getOwner().getEmail());
-            dto.add(d);
+        for(Pricing a : c) {
+            if (a.getOwner().equals(user)) {
+
+
+                PricingDTO d = new PricingDTO();
+                d.setName(a.getName());
+                d.setCollisionDamage(a.getCollisionDamage());
+                d.setDiscountDays(a.getDiscountDays());
+                d.setDiscountPercent(a.getDiscountPercent());
+                d.setDistanceLimit(a.getDistanceLimit());
+                d.setOverusePrice(a.getOverusePrice());
+                d.setRegularPrice(a.getRegularPrice());
+                d.setOwner(a.getOwner().getEmail());
+                dto.add(d);
+            }
         }
 
         return dto;
