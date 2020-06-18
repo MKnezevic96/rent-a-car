@@ -4,10 +4,10 @@ package com.rent_a_car.agentski_bekend.dto;
 import java.util.Date;
 
 public class CarReviewDTO {
-//TODO resiti duplikate
+
     private Integer id;
-    private String reviewer;
-    private Integer car;
+    private String reviewerId;
+    private Integer carId;
     private Integer rating;
     private String review;
     private Date approvedDate;
@@ -18,8 +18,8 @@ public class CarReviewDTO {
 
     public CarReviewDTO(Integer id, String reviewer, Integer car, Integer rating, String review, Date approvedDate, boolean deleted, boolean approved) {
         this.id = id;
-        this.reviewer = reviewer;
-        this.car = car;
+        this.reviewerId = reviewer;
+        this.carId = car;
         this.rating = rating;
         this.review = review;
         this.approvedDate = approvedDate;
@@ -36,20 +36,20 @@ public class CarReviewDTO {
         this.id = id;
     }
 
-    public String getReviewer() {
-        return reviewer;
+    public String getReviewerId() {
+        return reviewerId;
     }
 
-    public void setReviewer(String reviewer) {
-        this.reviewer = reviewer;
+    public void setReviewerId(String reviewer) {
+        this.reviewerId = reviewer;
     }
 
-    public Integer getCar() {
-        return car;
+    public Integer getCarId() {
+        return carId;
     }
 
-    public void setCar(Integer car) {
-        this.car = car;
+    public void setCarId(Integer car) {
+        this.carId = car;
     }
 
     public Integer getRating() {

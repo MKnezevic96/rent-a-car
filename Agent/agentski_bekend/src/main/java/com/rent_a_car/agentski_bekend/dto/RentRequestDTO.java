@@ -24,13 +24,13 @@ public class RentRequestDTO {
 
 
     public RentRequestDTO(RentRequest req){
-        this.carId=req.getCarId().getId();
+//        this.carId=req.getCarId().getId();
         this.startDate=req.getStartDate();
         this.endDate=req.getEndDate();
         this.status=req.getStatus().toString();
         this.deleted=req.isDeleted();
-        this.owningUserId=req.getOwningUser().getId();
-        this.requestGroupId=req.getRequestGroupId();
+//        this.owningUserId=req.getOwningUser().getId();
+//        this.requestGroupId=req.getRequestGroupId();
         this.id=req.getId();
 
     }

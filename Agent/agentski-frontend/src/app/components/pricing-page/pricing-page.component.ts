@@ -55,6 +55,10 @@ export class PricingPageComponent implements OnInit {
         })
 
 
+
+
+        
+        
   }
 
  

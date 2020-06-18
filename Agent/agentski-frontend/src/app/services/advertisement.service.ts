@@ -32,9 +32,10 @@ export class AdvertisementService {
   url4:string = 'http://localhost:8282/rentCar'
   getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/'
   addCarReviewUrl:string='http://localhost:8282/api/renting/review'
+  checkUrl:string= 'http://localhost:8282/api/renting/requests/'
 
 
-  constructor(private http:HttpClient) { }
+
 
   private decoder: JwtHelperService;
 
@@ -60,9 +61,10 @@ export class AdvertisementService {
 
 
   addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string):Observable<Car>{
-    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, user:null };
+    this.car={id:null, pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, user:null };
     return this.http.post<Car>(this.url2, this.car, this.httpOptions);
-    }
+  }
+
 
   getCar():Observable<Car[]>{
     return this.http.get<Car[]>(this.url3);
@@ -83,8 +85,10 @@ export class AdvertisementService {
   }
 
   addCarReview( carId:number, rating:number, review:string):Observable<CarReview>{
-    this.carReview={id:null, reviewerId:null, carId:carId, rating:rating, approved:null, deleted:false, review:review};
-    return this.http.post<CarReview>(this.addCarReviewUrl, this.carReview, httpOptions);
+    this.carReview={reviewerId:null, carId:carId, rating:rating, approved:null, deleted:false, review:review};
+    console.log(this.carReview);
+    return this.http.post<CarReview>(this.addCarReviewUrl, this.carReview, this.httpOptions);
 
   }
+
 }

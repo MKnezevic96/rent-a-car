@@ -53,8 +53,8 @@ public class AdminController {
             if(!c.isApproved()) {
                 CarReviewDTO crDTO = new CarReviewDTO();
                 crDTO.setId(c.getId());
-                crDTO.setReviewer(c.getReviewer().getEmail());
-                crDTO.setCar(c.getCar().getId());
+                crDTO.setReviewerId(c.getReviewer().getEmail());
+                crDTO.setCarId(c.getCar().getId());
                 crDTO.setRating(c.getRating());
                 crDTO.setReview(c.getReview());
                 crDTO.setApprovedDate(c.getApprovedDate());

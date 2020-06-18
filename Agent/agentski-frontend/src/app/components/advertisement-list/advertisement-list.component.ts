@@ -55,8 +55,7 @@ import { first } from 'rxjs/operators';
 
 </div>
 
-
-<div class="card-header" id="addNew"> Add comment </div>
+<div class="card-header" id="addNew"> Add review </div>
 <div class="card-body">
 
     <div id="addComment">
@@ -73,7 +72,6 @@ import { first } from 'rxjs/operators';
 </div>
 </div>
 </div>
-</ng-container>
   `,
   styles: [
   ]
@@ -116,6 +114,7 @@ export class AdvertisementListComponent implements OnInit {
     this.advertisementService.getCar().subscribe(data => {
       this.cars = data;
     });
+    
   }
 
   viewDetails(car:Car){
@@ -139,6 +138,8 @@ export class AdvertisementListComponent implements OnInit {
       this.distancePenalty=this.myData.distancePenalty;
       this.carName=this.myData.carName;
       this.collisionDamage=this.myData.collisionDamage;
+
+
     });
   }
 
