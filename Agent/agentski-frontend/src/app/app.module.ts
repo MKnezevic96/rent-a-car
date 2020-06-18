@@ -36,13 +36,16 @@ import { CommentMenagementComponent } from './components/comment-menagement/comm
 import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
 import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
 
+import { RentingReportComponent } from './components/renting-report/renting-report.component';
+import { IndexComponent } from './components/index/index.component';
+import { AdvertisementListComponent } from './components/advertisement-list/advertisement-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent, 
+    LoginComponent,
     RegisterComponent,
-    AlertComponent, 
+    AlertComponent,
     HomeComponent,
     AdminPageComponent,
     AdvertisementComponent,
@@ -58,6 +61,9 @@ import { PricingPageComponent } from './components/pricing-page/pricing-page.com
     ManufacturesComponent,
     FuelTypesComponent,
     TransmissionTypesComponent,
+    RentingReportComponent,
+    IndexComponent,
+    AdvertisementListComponent,
     CommentMenagementComponent,
     PendingCommentsComponent,
     PricingPageComponent,
@@ -67,19 +73,19 @@ import { PricingPageComponent } from './components/pricing-page/pricing-page.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-  
-    //MatMomentDateModule   
-    
+
+    //MatMomentDateModule
+
   ],
   providers: [
-    
+
   ],
- 
+
   bootstrap: [AppComponent]
 })
 export class AppModule {  }

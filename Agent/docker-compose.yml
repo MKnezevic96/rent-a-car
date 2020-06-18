@@ -20,6 +20,8 @@ services:
        DATABASE_PORT: "3306"
      depends_on:
        - agentska-baza
+     volumes:
+       - ./logs:/logs
 
 
   agentski-frontend:

@@ -1,6 +1,5 @@
 package com.admin_service.service;
 
-
 import com.admin_service.model.User;
 import com.admin_service.repository.UserRepository;
 import com.admin_service.service.interfaces.UserServiceInterface;
@@ -44,5 +43,4 @@ public class UserService implements UserServiceInterface {
     public void delete(User user) {
         userRepository.delete(user);
     }
-
 }

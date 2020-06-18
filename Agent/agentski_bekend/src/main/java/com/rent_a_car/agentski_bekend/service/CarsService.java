@@ -7,14 +7,19 @@ import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import com.rent_a_car.agentski_bekend.repository.CarsRepository;
 import com.rent_a_car.agentski_bekend.repository.RentRequestRepository;
 import com.rent_a_car.agentski_bekend.service.interfaces.CarsServiceInterface;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@Transactional
 public class CarsService implements CarsServiceInterface {
     @Autowired
     private CarsRepository carsRepository;

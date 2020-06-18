@@ -1,11 +1,30 @@
 package com.admin_service.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(
+        name = "Cars", propOrder = {
+        "id",
+        "owner",
+        "model",
+        "fuelType",
+        "pricing",
+        "milage",
+        "name",
+        "androidGps",
+        "town",
+        "reviews",
+        "deleted"
+}, namespace = "nekiUri/cars")
 @Table(name="cars_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Cars {
@@ -13,46 +32,51 @@ public class Cars {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="cars_id", nullable=false, unique=true)
+    @XmlElement(required=true)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id",  referencedColumnName = "user_id")
+    @XmlElement
     private User owner;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="car_models_id",  referencedColumnName = "car_models_id",  nullable=false)
+    @XmlElement(required=true)
     private CarModels model;
 
     @ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="fuel_type", referencedColumnName = "id",  nullable=false)
+    @XmlElement(required=true)
     private FuelType fuelType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="pricing_id", referencedColumnName = "pricing_id", nullable=false)
+    @XmlElement(required=true)
     private Pricing pricing;
 
     @Column(name="cars_milage", nullable=false)
+    @XmlElement(required=true)
     private double milage;
 
     @Column(name="name", nullable=false)
+    @XmlElement(required=true)
     private String name;
 
     @Column(name="deleted", nullable=false)
+    @XmlElement(required=true)
     private boolean deleted = false;
 
     @OneToOne(fetch=FetchType.LAZY)
+    @XmlElement
     private AndroidGPS androidGps;
 
-    @Column(name="start_date")
-    private Date startDate;
-
-    @Column(name="end_date")
-    private Date endDate;
-
     @Column(name="town")
+    @XmlElement
     private String town;
 
-    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="car", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @XmlElement
     private List<CarReview> reviews = new ArrayList<CarReview>();
 
 
@@ -74,22 +98,6 @@ public class Cars {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
     }
 
     public Integer getId() {

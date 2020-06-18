@@ -8,7 +8,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -123,15 +123,15 @@ public class TokenUtils {
         return claims;
     }
 
-    public boolean validateToken(String token, UserDetails userDetails) {
-        User user = (User) userDetails;
-        final String username = getEmailFromToken(token);
-        final Date created = getIssuedAtDateFromToken(token);
-
-        return (username != null && username.equals(user.getUsername()) && true);
-        //&& !isCreatedBeforeLastPasswordReset(created, user.getLastPasswordResetDate());
-
-    }
+//    public boolean validateToken(String token, UserDetails userDetails) {
+//        User user = (User) userDetails;
+//        final String username = getEmailFromToken(token);
+//        final Date created = getIssuedAtDateFromToken(token);
+//
+//        return (username != null && username.equals(user.getUsername()) && true);
+//        //&& !isCreatedBeforeLastPasswordReset(created, user.getLastPasswordResetDate());
+//
+//    }
 
     public Date getIssuedAtDateFromToken(String token) {
         Date issueAt;

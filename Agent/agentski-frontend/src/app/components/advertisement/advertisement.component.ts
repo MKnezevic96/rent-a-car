@@ -6,7 +6,7 @@ import { AdminService } from 'src/app/services/admin.service';
 import { first } from 'rxjs/operators';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Pricing } from 'src/app/models/Pricing';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 //import * as moment from 'moment';
 // import {ModalDismissReasons, NgbDatepickerConfig, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 // import {faCalendar, faWindowClose, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
@@ -19,9 +19,9 @@ export class AdvertisementComponent implements OnInit {
   fuelType: FuelType[];
   nameAdvertisement: string;
   milage: number;
-  
+
   ft:FuelType;
-  
+
   carModels:CarModels[];
   cm:CarModels;
   pricings:Pricing[];
@@ -29,9 +29,10 @@ export class AdvertisementComponent implements OnInit {
 
   //minDate = moment(new Date()).format('YYYY-MM-DD');  //current
   constructor(
-    private adminService: AdminService, 
+    private adminService: AdminService,
     private advertisementService: AdvertisementService,
-    private router: Router,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
   }
   selectedFuelType(name:FuelType){
@@ -68,13 +69,13 @@ export class AdvertisementComponent implements OnInit {
     console.log(this.pr);
 
     console.log(this.pr.name,this.cm.name, this.ft.name, this.milage, this.nameAdvertisement );
-    
+
     this.advertisementService.addCar(this.pr.name, this.cm.name, this.ft.name, this.milage, this.nameAdvertisement,).pipe(first())
     .subscribe(
         data => {
             console.log('Making advertisement successful');
-          
-           
+
+
         })
 
   }

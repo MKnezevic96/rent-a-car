@@ -1,11 +1,24 @@
 package com.rent_a_car.agentski_bekend.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(
+        name = "Reciept", propOrder = {
+        "id",
+        "customer",
+        "owner",
+        "sum",
+        "recieptArticles",
+        "deleted"
+}, namespace = "nekiUri/reciept")
 @Table(name = "reciept_table")
 @Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 public class Reciept {

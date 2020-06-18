@@ -1,10 +1,10 @@
 package com.rent_a_car.agentski_bekend.dto;
 
-import java.util.Calendar;
+
 import java.util.Date;
 
 public class CarReviewDTO {
-
+//TODO resiti duplikate
     private Integer id;
     private String reviewer;
     private Integer car;
@@ -14,6 +14,7 @@ public class CarReviewDTO {
     private boolean deleted;
     private boolean approved;
 
+    public CarReviewDTO () {}
 
     public CarReviewDTO(Integer id, String reviewer, Integer car, Integer rating, String review, Date approvedDate, boolean deleted, boolean approved) {
         this.id = id;
@@ -26,8 +27,6 @@ public class CarReviewDTO {
         this.approved = approved;
     }
 
-    public CarReviewDTO() {
-    }
 
     public Integer getId() {
         return id;
