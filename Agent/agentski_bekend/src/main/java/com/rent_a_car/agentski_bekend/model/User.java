@@ -60,6 +60,9 @@ public class User implements Serializable, UserDetails {
     @Column (name="deleted", nullable=false)
     private boolean deleted = false;
 
+    @Column (name="blocked", nullable=false)
+    private boolean blocked = false;
+
     @OneToOne (fetch=FetchType.LAZY)
     private Company company;
 
@@ -82,6 +85,14 @@ public class User implements Serializable, UserDetails {
     private List<Pricing> pricings = new ArrayList<Pricing> ();
 
     public User() {
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 
     public List<Reciept> getRecieptsIMade() {

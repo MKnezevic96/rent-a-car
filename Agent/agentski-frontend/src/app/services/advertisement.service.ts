@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Car } from '../models/Car';
 import { RentRequest } from '../models/RentRequest';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { UserService } from '../security/user.service';
 
 //let token = this.localStorage.getItem("user");//this.msal.accessToken;
@@ -21,26 +20,33 @@ export class AdvertisementService {
   url2:string = 'http://localhost:8282/addCar';
   url3:string = 'http://localhost:8282/getCars';
   url4:string = 'http://localhost:8282/rentCar';
-  private decoder: JwtHelperService;
   
   
   constructor(private http:HttpClient, private userService: UserService) { }
   
-  
-  token = this.userService.getToken();
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'mode': 'cors',
       // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
-      'Authorization': 'Bearer ' + this.token, //JSON.parse(this.localStorage.getItem('accessToken')),
     })
   }
-
-
+  
+  
   addPricing(pricing: Pricing): Observable<Pricing>{
+    //let token = this.userService.getToken();
+    let token = localStorage.getItem('accessToken');
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+      })
+    }
+    console.log(token);
     console.log('adding pricing');
-    return this.http.post<Pricing>( this.url1, pricing, this.httpOptions);
+    return this.http.post<Pricing>( this.url1, pricing, httpOptions);
   }
 
   addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string):Observable<Car>{

@@ -91,6 +91,8 @@ public class AdminController {
         u.setLastname(us.getLastname());
         u.setEmail(us.getEmail());
         u.setPassword(us.getPassword());
+        u.setBlocked(false);
+        u.setDeleted(false);
         if(us.isCompany()){
             Company com = new Company();
             com.setName(us.getName());
@@ -118,13 +120,21 @@ public class AdminController {
     @PostMapping(value="/admin/ractivateAcc")
     public ResponseEntity<?> ractivateAcc(@RequestBody String email){
         User u = userService.findByEmail(email);
-        u.setDeleted(false);
+        u.setBlocked(false);
         userService.save(u);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping(value="/admin/blockAcc")
     public ResponseEntity<?> blocAcc(@RequestBody String email){
+        User u = userService.findByEmail(email);
+        u.setBlocked(true);
+        userService.save(u);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping(value="/admin/deleteAcc")
+    public ResponseEntity<?> deleteAcc(@RequestBody String email){
         User u = userService.findByEmail(email);
         u.setDeleted(true);
         userService.save(u);
@@ -272,7 +282,7 @@ public class AdminController {
         List<UserRequestDTO> dto = new ArrayList<>();
 
         for(User c : cm){
-            if(c.isDeleted() == false) {
+            if(!c.isDeleted() && !c.isBlocked()) {
                 UserRequestDTO m = new UserRequestDTO();
                 m.setFirsname(c.getFirstname());
                 m.setLastname(c.getLastname());
@@ -293,7 +303,7 @@ public class AdminController {
         List<UserRequestDTO> dto = new ArrayList<>();
 
         for(User c : cm){
-            if(c.isDeleted()==true) {
+            if(c.isBlocked()==true) {
                 UserRequestDTO m = new UserRequestDTO();
                 m.setFirsname(c.getFirstname());
                 m.setLastname(c.getLastname());
