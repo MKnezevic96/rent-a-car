@@ -40,12 +40,21 @@ export class AdvertisementService {
 
 
   addPricing(pricing: Pricing): Observable<Pricing>{
+   let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+      })
+    }
     console.log('adding pricing');
-    return this.http.post<Pricing>( this.url1, pricing, this.httpOptions);
+    return this.http.post<Pricing>( this.url1, pricing, httpOptions);
   }
 
-  addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string):Observable<Car>{
-    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, user:null };
+  addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string):Observable<Car>{
+    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null };
     return this.http.post<Car>(this.url2, this.car, this.httpOptions);
 
   }

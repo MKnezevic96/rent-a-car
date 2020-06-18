@@ -5,4 +5,5 @@ export class Car {
     carModel:string;
     milage:number;
     name:string;
+    town: string;
 }

@@ -20,30 +20,30 @@ export class PricingPageComponent implements OnInit {
   discountdays: number;
   discountperc:  number;
   pricing: Pricing;
-  users:User[];
-  cm:User;
+  // users:User[];
+  // cm:User;
 
   constructor(
     private advertisementService: AdvertisementService, 
     private adminService: AdminService
   ) { }
 
-  selectedUser(name:User){
-    this.cm = name;
-    console.log(this.users);
-  }
+  // selectedUser(name:User){
+  //   this.cm = name;
+  //   console.log(this.users);
+  // }
 
   ngOnInit(): void {
 
-    this.adminService.getUsers().subscribe(data =>{
-      this.users = data;
-    });
+    // this.adminService.getUsers().subscribe(data =>{
+    //   this.users = data;
+    // });
   }
 
   onSubmit() {
 
-    this.pricing={distanceLimit: this.distancelimit, regularPrice: this.regularprice, overusePrice: this.overuseprice, collisionDamage: this.collisiondamage, discountDays: this.discountdays, discountPercent: this.discountperc, name: this.name, deleted:false, owner: this.cm.email};
-    console.log('owner je ', this.cm);
+    this.pricing={distanceLimit: this.distancelimit, regularPrice: this.regularprice, overusePrice: this.overuseprice, collisionDamage: this.collisiondamage, discountDays: this.discountdays, discountPercent: this.discountperc, name: this.name, deleted:false, owner:''};
+    // console.log('owner je ', this.cm);
 
     console.log('Ceo pricing ', this.pricing);
     

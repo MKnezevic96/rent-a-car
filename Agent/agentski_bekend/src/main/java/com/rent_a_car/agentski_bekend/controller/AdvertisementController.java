@@ -105,10 +105,9 @@ public class AdvertisementController {
             c.setFuelType(ft);
             c.setMilage(dto.getMilage());
             c.setName(dto.getName());
+            c.setTown(dto.getTown());
 
             c.setAndroidGps(null);
-         //   c.setOwner(p.getOwner());
-            c.setTown("");
 
             carsService.save(c);
             return ResponseEntity.ok().build();
