@@ -42,4 +42,8 @@ export class AdminPageComponent implements OnInit {
   showComments(){
     this.router.navigate(['commentsMenagement'], {relativeTo: this.route});
   }
+
+  rentingMenagement(){
+    this.router.navigate(['rentingMenagement'], {relativeTo: this.route});
+  }
 }

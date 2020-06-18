@@ -27,10 +27,11 @@ export class AdvertisementService {
   carReview:CarReview;
   url1:string = 'http://localhost:8282/pricing';
   url2:string = 'http://localhost:8282/addCar';
-  url3:string = 'http://localhost:8282/api/renting/cars'
-  url4:string = 'http://localhost:8282/rentCar'
-  getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/'
-  addCarReviewUrl:string='http://localhost:8282/api/renting/review'
+  url3:string = 'http://localhost:8282/api/renting/cars';
+  url4:string = 'http://localhost:8282/rentCar';
+  url5:string = 'http://localhost:8282/api/renting/payRequests';
+  getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/';
+  addCarReviewUrl:string='http://localhost:8282/api/renting/review';
 
   constructor(private http:HttpClient, private userService: UserService) { }
 
@@ -50,8 +51,7 @@ export class AdvertisementService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'mode': 'cors',
-        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
-        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token,
       })
     }
     console.log(token);
@@ -61,7 +61,7 @@ export class AdvertisementService {
 
 
   addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string):Observable<Car>{
-    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, user:null };
+    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, user:null, id: 0 };
     return this.http.post<Car>(this.url2, this.car, this.httpOptions);
     }
 
@@ -87,5 +87,17 @@ export class AdvertisementService {
     this.carReview={id:null, reviewerId:null, carId:carId, rating:rating, approved:null, deleted:false, review:review};
     return this.http.post<CarReview>(this.addCarReviewUrl, this.carReview, httpOptions);
 
+  }
+
+  getApprovedRents():Observable<RentRequest[]>{
+    let token = localStorage.getItem('accessToken');
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    return this.http.get<RentRequest[]>(this.url5, httpOptions);
   }
 }

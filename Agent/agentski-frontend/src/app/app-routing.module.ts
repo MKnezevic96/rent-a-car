@@ -22,6 +22,8 @@ import { AdvertisementListComponent } from './components/advertisement-list/adve
 import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
 import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
 import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
+import { RentingMenagementComponent } from './components/renting-menagement/renting-menagement.component';
+import { RentPaymentComponent } from './components/rent-payment/rent-payment.component';
 
 
 const routes: Routes = [
@@ -54,6 +56,12 @@ const routes: Routes = [
           component: CommentMenagementComponent,
           children: [
             {path: 'pendingComments', component: PendingCommentsComponent},
+          ]
+        },
+        { path: 'rentingMenagement',
+          component: RentingMenagementComponent,
+          children: [
+            {path: 'rentPayment', component: RentPaymentComponent},
           ]
         },
       ]

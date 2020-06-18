@@ -5,7 +5,7 @@ export class Car {
     carModel:string;
     milage:number;
     name:string;
-    startDate:Date;
-    endDate:Date;
+    //startDate:Date;
+    //endDate:Date;
     id:number;
 }

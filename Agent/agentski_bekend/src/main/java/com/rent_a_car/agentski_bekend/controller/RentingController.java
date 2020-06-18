@@ -5,6 +5,7 @@ import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import com.rent_a_car.agentski_bekend.service.*;
 
+import com.rent_a_car.agentski_bekend.service.interfaces.RentRequestServiceInterface;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.rent_a_car.agentski_bekend.dto.CarsDetailsDTO;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.ws.rs.core.MediaType;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +41,7 @@ public class RentingController {
     private CarsService carsService;
 
     @Autowired
-    private RentRequestService rentRequestService;
+    private RentRequestServiceInterface rentRequestService;
 
     @Autowired
     private RentingReportService rentingReportService;
@@ -111,6 +113,58 @@ public class RentingController {
         return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
     }
 
+    @GetMapping(value = "payRequests")
+    public List<RentRequestDTO> getRequestsForPayment (Principal p) {
+        List<RentRequestDTO> dto = new ArrayList<>();
+        List<RentRequest> rrl = rentRequestService.findAll();
+        User user = userService.findByEmail(p.getName());
+        for(RentRequest rr : rrl){
+            if (rr.getStatus().equals(RequestStatus.RESERVED)) {
+                if (rr.getOwningUser().equals(user)) {
+                    RentRequestDTO rrdto = new RentRequestDTO();
+                    rrdto.setCarName(rr.getCarId().getName());
+                    rrdto.setStartDate(rr.getStartDate());
+                    rrdto.setEndDate(rr.getEndDate());
+                    rrdto.setStatus("RESERVED");
+                    rrdto.setId(rr.getId());
+                    dto.add(rrdto);
+                }
+            }
+        }
+
+
+        return dto;
+    }
+
+    @GetMapping(value = "rentRequests")
+    public List<RentRequestDTO> getRentRequests (Principal p) {
+        List<RentRequest> retVal = rentRequestService.findAll();
+        List<RentRequestDTO> dto = new ArrayList<>() ;
+        User user = userService.findByEmail(p.getName());
+        for (RentRequest c : retVal) {
+            if(c.getCarId().getOwner().equals(user)) {
+                RentRequestDTO dto1 = new RentRequestDTO();
+                dto1.setId(c.getId());
+                dto1.setStartDate(c.getStartDate());
+                dto1.setEndDate(c.getEndDate());
+                if (c.getStatus().equals(RequestStatus.PENDING)) {
+                    dto1.setStatus("PENDING");
+                } else if (c.getStatus().equals(RequestStatus.CANCELED)) {
+                    dto1.setStatus("CANCELED");
+                } else if (c.getStatus().equals(RequestStatus.PAID)) {
+                    dto1.setStatus("PAID");
+                } else if (c.getStatus().equals(RequestStatus.RESERVED)) {
+                    dto1.setStatus("RESERVED");
+                } else if (c.getStatus().equals(RequestStatus.RETURNED)) {
+                    dto1.setStatus("RETURNED");
+                }
+                dto.add(dto1);
+            }
+        }
+        return dto;
+    }
+
+
 
     @GetMapping(value = "requests/group/{id}")
     public ResponseEntity<List<RentRequestDTO>> getGroupRequests (@PathVariable("id") Integer groupId) {
@@ -152,23 +206,23 @@ public class RentingController {
     @PostMapping(value="/review", consumes = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> addReview(@RequestBody CarReviewDTO dto){
 
-        try{
-            CarReview review = new CarReview();
-            review.setDeleted(false);
-            review.setRating(dto.getRating());
-            review.setReview(dto.getReview());
-            Cars car = carsService.getCar(dto.getCarId());
-            review.setCar(car);
-            //review.setReviewer(userService.findUserById(dto.getReviewerId()));
-            review.setReviewer(userService.findUserById(1));
-            //TODO: promeniti reviewer id kad dodju tokeni
-            carReviewService.save(review);
-            LOGGER.info("Action add car review for car id:{} successful", dto.getCarId());
-            return ResponseEntity.ok().build();
-        }catch (Exception e){
-            LOGGER.error("Action add car review for car id={} failed. Cause: {}", dto.getCarId(), e.getMessage());
-
-        }
+//        try{
+//            CarReview review = new CarReview();
+//            review.setDeleted(false);
+//            review.setRating(dto.getRating());
+//            review.setReview(dto.getReview());
+//            Cars car = carsService.getCar(dto.getCarId());
+//            review.setCar(car);
+//            //review.setReviewer(userService.findUserById(dto.getReviewerId()));
+//            review.setReviewer(userService.findUserById(1));
+//            //TODO: promeniti reviewer id kad dodju tokeni
+//            carReviewService.save(review);
+//            LOGGER.info("Action add car review for car id:{} successful", dto.getCarId());
+//            return ResponseEntity.ok().build();
+//        }catch (Exception e){
+//            LOGGER.error("Action add car review for car id={} failed. Cause: {}", dto.getCarId(), e.getMessage());
+//
+//        }
         return ResponseEntity.status(400).build();
     }
 

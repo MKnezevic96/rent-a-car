@@ -42,7 +42,7 @@ export class PricingPageComponent implements OnInit {
 
   onSubmit() {
 
-    this.pricing={distanceLimit: this.distancelimit, regularPrice: this.regularprice, overusePrice: this.overuseprice, collisionDamage: this.collisiondamage, discountDays: this.discountdays, discountPercent: this.discountperc, name: this.name, deleted:false, owner: this.cm.email};
+    this.pricing={distanceLimit: this.distancelimit, regularPrice: this.regularprice, overusePrice: this.overuseprice, collisionDamage: this.collisiondamage, discountDays: this.discountdays, discountPercent: this.discountperc, name: this.name, deleted:false, owner: ''};
     console.log('owner je ', this.cm);
 
     console.log('Ceo pricing ', this.pricing);
