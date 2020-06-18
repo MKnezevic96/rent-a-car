@@ -35,9 +35,7 @@ export class AdvertisementService {
   checkUrl:string= 'http://localhost:8282/api/renting/requests/'
 
 
-
-
-  private decoder: JwtHelperService;
+//  private decoder: JwtHelperService;
 
 
   constructor(private http:HttpClient, private userService: UserService) { }
@@ -49,22 +47,30 @@ export class AdvertisementService {
       'Content-Type': 'application/json',
       'mode': 'cors',
       // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
-      'Authorization': 'Bearer ' + this.token, //JSON.parse(this.localStorage.getItem('accessToken')),
     })
   }
 
 
   addPricing(pricing: Pricing): Observable<Pricing>{
+    //let token = this.userService.getToken();
+    let token = localStorage.getItem('accessToken');
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+      })
+    }
+    console.log(token);
     console.log('adding pricing');
-    return this.http.post<Pricing>( this.url1, pricing, this.httpOptions);
+    return this.http.post<Pricing>( this.url1, pricing, httpOptions);
   }
-
 
   addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string):Observable<Car>{
     this.car={id:null, pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, user:null };
     return this.http.post<Car>(this.url2, this.car, this.httpOptions);
   }
-
 
   getCar():Observable<Car[]>{
     return this.http.get<Car[]>(this.url3);

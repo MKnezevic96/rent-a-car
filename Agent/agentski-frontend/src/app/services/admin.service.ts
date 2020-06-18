@@ -57,9 +57,10 @@ export class AdminService {
   url27:string = 'http://localhost:8282/admin/ractivateAcc';
 
   url24:string = 'http://localhost:8282/admin/blockAcc';
-  url25:string = 'http://localhost:8282/admin/getBlockedUsers'
+  url25:string = 'http://localhost:8282/admin/getBlockedUsers';
 
-  url26:string = 'http://localhost:8282/admin/carReviews'
+  url26:string = 'http://localhost:8282/admin/carReviews';
+  url28:string = 'http://localhost:8282/admin/deleteAcc';
 
   carClass:CarClass;
   manufact:Manufacturer;
@@ -77,6 +78,11 @@ export class AdminService {
 
   block(email:string):Observable<string>{
     return this.http.post<string>(this.url24, email, httpOptions);
+
+  }
+
+  delete(email:string):Observable<string>{
+    return this.http.post<string>(this.url28, email, httpOptions);
 
   }
 
