@@ -1,6 +1,5 @@
 package com.admin_service.service;
 
-
 import com.admin_service.model.CarClass;
 import com.admin_service.repository.CarClassRepository;
 import com.admin_service.service.interfaces.CarClassServiceInterface;
@@ -29,5 +28,4 @@ public class CarClassService implements CarClassServiceInterface {
     public List<CarClass> findAll() {
         return carClassRepository.findAll();
     }
-
 }

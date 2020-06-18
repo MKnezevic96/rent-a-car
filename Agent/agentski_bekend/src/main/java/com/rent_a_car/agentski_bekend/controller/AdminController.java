@@ -57,7 +57,7 @@ public class AdminController {
                 crDTO.setCar(c.getCar().getId());
                 crDTO.setRating(c.getRating());
                 crDTO.setReview(c.getReview());
-                crDTO.setApprovedDate(c.getApprovedDate());
+//                crDTO.setApprovedDate(c.getApprovedDate());
                 crDTO.setDeleted(c.isDeleted());
                 crDTO.setApproved(c.isApproved());
                 dto.add(crDTO);

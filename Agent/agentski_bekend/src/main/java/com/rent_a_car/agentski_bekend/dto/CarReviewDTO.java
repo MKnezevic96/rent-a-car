@@ -1,6 +1,5 @@
 package com.rent_a_car.agentski_bekend.dto;
 
-import java.util.Calendar;
 import java.util.Date;
 
 public class CarReviewDTO {
@@ -51,6 +50,7 @@ public class CarReviewDTO {
 
     public void setCar(Integer car) {
         this.car = car;
+
     }
 
     public Integer getRating() {
@@ -91,5 +91,9 @@ public class CarReviewDTO {
 
     public void setApproved(boolean approved) {
         this.approved = approved;
+    }
+
+    public Integer getCarId() {
+        return car;
     }
 }

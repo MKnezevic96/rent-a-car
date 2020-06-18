@@ -58,9 +58,9 @@ import { PricingPageComponent } from './components/pricing-page/pricing-page.com
     ManufacturesComponent,
     FuelTypesComponent,
     TransmissionTypesComponent,
-    CommentMenagementComponent,
-    PendingCommentsComponent,
-    PricingPageComponent,
+    RentingReportComponent,
+    IndexComponent,
+    AdvertisementListComponent,
    // AuthGuard
   ],
   imports: [

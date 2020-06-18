@@ -13,6 +13,7 @@ export class RentRequestComponent implements OnInit {
   car:Car;
   selectedStartDate:Date;
   selectedEndDate: Date;
+  id:number;
   rentrequest: RentRequest;
   constructor( 
     private advertisementService: AdvertisementService,
@@ -33,7 +34,7 @@ export class RentRequestComponent implements OnInit {
     });
   }
   onSubmit() {
-    this.rentrequest={carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: false, deleted: false };
+    this.rentrequest={carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: false, deleted: false, id:this.id };
     this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
     .subscribe(
         data => {

@@ -83,4 +83,6 @@ export class AdvertisementComponent implements OnInit {
     this.router.navigateByUrl('pricing');
 
   }
+
+  
 }

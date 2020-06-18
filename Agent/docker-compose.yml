@@ -5,7 +5,7 @@ services:
 
   agentski-bekend:
      image: agentski_bekend
-     networks: 
+     networks:
       - second-network
      build:
        context: ./agentski_bekend

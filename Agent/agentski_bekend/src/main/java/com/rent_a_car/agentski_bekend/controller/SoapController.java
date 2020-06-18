@@ -1,6 +1,7 @@
 package com.rent_a_car.agentski_bekend.controller;
 
 import com.rent_a_car.agentski_bekend.model.Cars;
+
 import com.rent_a_car.agentski_bekend.service.CarsService;
 import io.spring.guides.gs_producing_web_service.CarsSoap;
 import io.spring.guides.gs_producing_web_service.GetCarsRequest;
@@ -47,5 +48,6 @@ public class SoapController {
         response.setCars(carsSoap);
         return response;
     }
+
 
 }

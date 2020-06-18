@@ -15,10 +15,10 @@ import { CarModelsComponent } from './components/car-models/car-models.component
 import { ManufacturesComponent } from './components/manufactures/manufactures.component';
 import { FuelTypesComponent } from './components/fuel-types/fuel-types.component';
 import { CarClassesComponent } from './components/car-classes/car-classes.component';
-import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
+// import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
 import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
 import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
-import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
+// import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
 
 
 const routes: Routes = [
@@ -35,8 +35,8 @@ const routes: Routes = [
             {path: 'carModels', component: CarModelsComponent},
             {path: 'carClasses', component: CarClassesComponent},
             {path: 'manufactures', component: ManufacturesComponent },
-            {path: 'fuelTypes', component: FuelTypesComponent },
-            {path: 'transmissionTypes', component: TransmissionTypesComponent}
+            {path: 'fuelTypes', component: FuelTypesComponent }
+            // {path: 'transmissionTypes', component: TransmissionTypesComponent}
           ]  
         },
         { path: 'userMenagement',
@@ -54,10 +54,10 @@ const routes: Routes = [
           ]
         },
       ]
-    },
+    }, 
     { path: 'advertisement', component: AdvertisementComponent},
     { path: 'rentRequest', component: RentRequestComponent},
-    { path: 'pricing', component: PricingPageComponent},
+    // { path: 'pricing', component: PricingPageComponent},
     
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

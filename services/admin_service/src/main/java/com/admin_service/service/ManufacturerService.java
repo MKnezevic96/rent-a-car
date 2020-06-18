@@ -1,6 +1,5 @@
 package com.admin_service.service;
 
-
 import com.admin_service.model.Manufacturer;
 import com.admin_service.repository.ManufacturerRepository;
 import com.admin_service.service.interfaces.ManufacturerServiceInterface;
@@ -29,6 +28,5 @@ public class ManufacturerService implements ManufacturerServiceInterface {
     public List<Manufacturer> findAll() {
         return manufacturerRepository.findAll();
     }
-
 
 }

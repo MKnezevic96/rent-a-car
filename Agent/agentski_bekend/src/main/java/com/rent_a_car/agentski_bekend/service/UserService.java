@@ -43,4 +43,14 @@ public class UserService implements UserServiceInterface {
     public void delete(User user) {
         userRepository.delete(user);
     }
+
+    @Override
+    public User findUserById(Integer id) {
+        List<User> users = userRepository.findAll();
+        for(User u : users){
+            if(u.getId().equals(id))
+                return u;
+        }
+        return null;
+    }
 }
