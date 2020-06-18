@@ -3,15 +3,23 @@ package com.rent_a_car.agentski_bekend.dto;
 import java.util.Date;
 
 public class RentRequestDTO {
-
+    private Integer id;
     private String carName;
     private Date startDate;
     private Date endDate;
-    private boolean status;
+    private String  status;
     private boolean deleted;
     private String user;   // user koji zahteva vozilo
 
     public RentRequestDTO() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCarName() {
@@ -38,11 +46,11 @@ public class RentRequestDTO {
         this.endDate = endDate;
     }
 
-    public boolean isStatus() {
+    public String isStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

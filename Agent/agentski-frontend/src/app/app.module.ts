@@ -36,6 +36,7 @@ import { CommentMenagementComponent } from './components/comment-menagement/comm
 import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
 import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { RentingApproveComponent } from './components/renting-approve/renting-approve.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     CommentMenagementComponent,
     PendingCommentsComponent,
     PricingPageComponent,
+    RentingApproveComponent,
    // AuthGuard
   ],
   imports: [

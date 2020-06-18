@@ -21,6 +21,7 @@ export class AdvertisementService {
   url2:string = 'http://localhost:8282/addCar';
   url3:string = 'http://localhost:8282/getCars';
   url4:string = 'http://localhost:8282/rentCar';
+  url5:string = 'http://localhost:8282/api/renting/rentRequests';
   private decoder: JwtHelperService;
   
   
@@ -62,4 +63,9 @@ export class AdvertisementService {
     return this.http.post<RentRequest>(this.url4, rentRequest, this.httpOptions);
 
   }
+  getRentRequests():Observable<RentRequest[]>{
+    return this.http.get<RentRequest[]>(this.url5, this.httpOptions);
+  }
+
+  //approve()
 }

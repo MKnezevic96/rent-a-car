@@ -19,6 +19,7 @@ import { TransmissionTypesComponent } from './components/transmission-types/tran
 import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
 import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
 import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
+import { RentingApproveComponent } from './components/renting-approve/renting-approve.component';
 
 
 const routes: Routes = [
@@ -58,7 +59,7 @@ const routes: Routes = [
     { path: 'advertisement', component: AdvertisementComponent},
     { path: 'rentRequest', component: RentRequestComponent},
     { path: 'pricing', component: PricingPageComponent},
-    
+    { path: 'rentingApprove', component: RentingApproveComponent},
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 
