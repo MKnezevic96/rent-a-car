@@ -25,22 +25,22 @@ public class RentRequest implements Serializable {
     private Cars carId;
 
     @NotNull
-    @Column(name="startDate", nullable = false, unique = true)
+    @Column(name="startDate")
     private Date startDate;
 
     @NotNull
-    @Column(name="endDate", nullable = false, unique = true)
+    @Column(name="endDate")
     private Date endDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="status", nullable = false, unique = true)
+    @Column(name="status")
     private RequestStatus status;
 
     @Column (name="request_group_id")
     private Integer requestGroupId;
 
     @NotNull
-    @Column(name="deleted", nullable = false, unique = true)
+    @Column(name="deleted", nullable = false)
     private boolean deleted=false;
 
     @OneToOne(fetch=FetchType.LAZY)

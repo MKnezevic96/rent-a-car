@@ -14,10 +14,7 @@ import com.rent_a_car.agentski_bekend.service.interfaces.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -103,5 +100,14 @@ public class RentingController {
         }
 
         return dto;
+    }
+
+
+    @PostMapping(value="approveRentRequest")
+    public ResponseEntity<?> approveRentRequest(@RequestBody Integer id){
+        RentRequest u = rentRequestService.findById(id);
+        u.setStatus(RequestStatus.RESERVED); //odobren j e
+        rentRequestService.save(u);   // nzm treba li
+        return ResponseEntity.ok().build();
     }
 }

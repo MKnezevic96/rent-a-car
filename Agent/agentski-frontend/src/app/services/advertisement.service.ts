@@ -14,6 +14,7 @@ import { UserService } from '../security/user.service';
   providedIn: 'root'
 })
 export class AdvertisementService {
+ 
   
   pricing: Pricing;
   car:Car;
@@ -22,6 +23,7 @@ export class AdvertisementService {
   url3:string = 'http://localhost:8282/getCars';
   url4:string = 'http://localhost:8282/rentCar';
   url5:string = 'http://localhost:8282/api/renting/rentRequests';
+  url6:string = 'http://localhost:8282/api/renting/approveRentRequest';
   private decoder: JwtHelperService;
   
   
@@ -82,8 +84,20 @@ export class AdvertisementService {
 
   }
   getRentRequests():Observable<RentRequest[]>{
-    return this.http.get<RentRequest[]>(this.url5, this.httpOptions);
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+      })
+    }
+    return this.http.get<RentRequest[]>(this.url5, httpOptions);
   }
 
-  //approve()
+  approve(id: number):Observable<number>{
+    return this.http.post<number>(this.url6, id, this.httpOptions); 
+    
+  }
 }

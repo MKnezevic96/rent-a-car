@@ -4,6 +4,7 @@ import { AdvertisementService } from 'src/app/services/advertisement.service';
 import { User } from 'src/app/models/User';
 import { AdminService } from 'src/app/services/admin.service';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pricing-page',
@@ -25,7 +26,8 @@ export class PricingPageComponent implements OnInit {
 
   constructor(
     private advertisementService: AdvertisementService, 
-    private adminService: AdminService
+    private adminService: AdminService, 
+    private router: Router,
   ) { }
 
   // selectedUser(name:User){
@@ -53,6 +55,8 @@ export class PricingPageComponent implements OnInit {
             console.log('Pricing made successfully');
            // this.makeAdvertisement();
         })
+
+        this.router.navigateByUrl('adminPage');
 
 
   }
