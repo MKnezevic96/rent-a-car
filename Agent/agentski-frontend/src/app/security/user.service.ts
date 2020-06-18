@@ -12,7 +12,7 @@ import { LoginUser } from '../models/LoginUser';
 export class UserService {
 
   currentUser;
-  accessToken = null;
+  accessToken;
   role = null;
   request: UserTokenState;
   loggedInUser: Observable<UserTokenState>;
@@ -30,6 +30,7 @@ export class UserService {
       this.role = response.role;
       localStorage.setItem('user', JSON.stringify(response));
       localStorage.setItem('role', this.role);
+      localStorage.setItem('accessToken', response.accessToken);
       this.loggedInUserSubject.next(response);
     }));
   }

@@ -37,6 +37,12 @@ public class AdminController {
     @Autowired
     private CarReviewServiceInterface carReviewService;
 
+    @Autowired
+    private CompanyServiceInterface companyService;
+
+    @Autowired
+    private RoleServiceInterface roleService;
+
 
     @GetMapping(value="/admin/carReviews")
     public List<CarReviewDTO> getCarReviews(){
@@ -84,8 +90,27 @@ public class AdminController {
         u.setFirstname(us.getFirstname());
         u.setLastname(us.getLastname());
         u.setEmail(us.getEmail());
-        String pass = us.getPassword();
-        u.setPassword(pass);
+        u.setPassword(us.getPassword());
+        u.setBlocked(false);
+        u.setDeleted(false);
+        if(us.isCompany()){
+            Company com = new Company();
+            com.setName(us.getName());
+            com.setAddress(us.getAddress());
+            com.setBussinessNumber(us.getNumber());
+            com.setDeleted(false);
+            com.setOwner(u);
+            companyService.save(com);
+            u.setCompany(com);
+            List<Role> rList = roleService.findByName("agent");
+            u.setRole(rList);
+        }else{
+            u.setCompany(null);
+            List<Role> rList = roleService.findByName("user");
+            u.setRole(rList);
+        }
+
+
         userService.save(u);
         userRequestService.delete(us);
 
@@ -95,13 +120,21 @@ public class AdminController {
     @PostMapping(value="/admin/ractivateAcc")
     public ResponseEntity<?> ractivateAcc(@RequestBody String email){
         User u = userService.findByEmail(email);
-        u.setDeleted(false);
+        u.setBlocked(false);
         userService.save(u);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping(value="/admin/blockAcc")
     public ResponseEntity<?> blocAcc(@RequestBody String email){
+        User u = userService.findByEmail(email);
+        u.setBlocked(true);
+        userService.save(u);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping(value="/admin/deleteAcc")
+    public ResponseEntity<?> deleteAcc(@RequestBody String email){
         User u = userService.findByEmail(email);
         u.setDeleted(true);
         userService.save(u);
@@ -249,7 +282,7 @@ public class AdminController {
         List<UserRequestDTO> dto = new ArrayList<>();
 
         for(User c : cm){
-            if(c.isDeleted() == false) {
+            if(!c.isDeleted() && !c.isBlocked()) {
                 UserRequestDTO m = new UserRequestDTO();
                 m.setFirsname(c.getFirstname());
                 m.setLastname(c.getLastname());
@@ -270,7 +303,7 @@ public class AdminController {
         List<UserRequestDTO> dto = new ArrayList<>();
 
         for(User c : cm){
-            if(c.isDeleted()==true) {
+            if(c.isBlocked()==true) {
                 UserRequestDTO m = new UserRequestDTO();
                 m.setFirsname(c.getFirstname());
                 m.setLastname(c.getLastname());

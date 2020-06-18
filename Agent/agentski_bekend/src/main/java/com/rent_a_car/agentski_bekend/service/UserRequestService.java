@@ -5,6 +5,7 @@ import com.rent_a_car.agentski_bekend.repository.UserRepository;
 import com.rent_a_car.agentski_bekend.repository.UserRequestRepository;
 import com.rent_a_car.agentski_bekend.service.interfaces.UserRequestServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +13,9 @@ import java.util.List;
 public class UserRequestService  implements UserRequestServiceInterface {
     @Autowired
     private UserRequestRepository userRequestRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
     @Override
@@ -26,6 +30,8 @@ public class UserRequestService  implements UserRequestServiceInterface {
 
     @Override
     public UserRequest save(UserRequest user) {
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRequestRepository.save(user);
     }
 
