@@ -15,7 +15,7 @@ export class RentRequestComponent implements OnInit {
   selectedEndDate: Date;
   id:number;
   rentrequest: RentRequest;
-  constructor( 
+  constructor(
     private advertisementService: AdvertisementService,
     ) { }
     selectedCar(name:Car){

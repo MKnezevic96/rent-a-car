@@ -8,6 +8,7 @@ import com.rent_a_car.agentski_bekend.repository.CarsRepository;
 import com.rent_a_car.agentski_bekend.repository.RentRequestRepository;
 import com.rent_a_car.agentski_bekend.service.interfaces.CarsServiceInterface;
 import org.hibernate.Hibernate;
+import com.rent_a_car.agentski_bekend.service.interfaces.RentRequestServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +24,10 @@ import java.util.Optional;
 public class CarsService implements CarsServiceInterface {
     @Autowired
     private CarsRepository carsRepository;
-    private RentRequestRepository rentRequestRepository;
+
+//    private RentRequestRepository rentRequestRepository;
+    @Autowired
+    private RentRequestServiceInterface rentRequestService;
 
     //  @Override
  //   public Cars findByName(String name) {
@@ -61,18 +65,18 @@ public class CarsService implements CarsServiceInterface {
 
 
 
-    public void autoReject(RentRequestDTO rentRequestDto) {
+    public void autoReject(RentRequest rentRequestDto) {
 
 
-            List<RentRequest> rentRequests = this.rentRequestRepository.findAll();
+            List<RentRequest> rentRequests = rentRequestService.findAll();
             for (RentRequest request : rentRequests) {
                 if (request.getStatus().equals(RequestStatus.PENDING) && !checkDates(rentRequestDto, request)  // ako je na cekanju i ako su zauzeti datumi
                 ) {
 
                         for (Cars a : carsRepository.findAll()) {
-                            if (a.getName().equals(rentRequestDto.getCarName())) {
+                            if (a.getId().equals(rentRequestDto.getCarId())) {
                                 request.setStatus(RequestStatus.CANCELED);
-                                this.rentRequestRepository.save(request);
+                                rentRequestService.save(request);
                             }
                         }
                     }
@@ -80,7 +84,7 @@ public class CarsService implements CarsServiceInterface {
             }
 
 
-    public boolean checkDates(RentRequestDTO rentRequestDto, RentRequest request) {
+    public boolean checkDates(RentRequest rentRequestDto, RentRequest request) {
         return (rentRequestDto.getEndDate().before(request.getStartDate()) || rentRequestDto.getStartDate().after(request.getEndDate()));
     }
 }

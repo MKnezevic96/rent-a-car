@@ -70,22 +70,27 @@ public class AdvertisementController {
     }
 
     @GetMapping(value="/pricing")
-    public List<PricingDTO> getPricing(){
+    public List<PricingDTO> getPricing(Principal p){
         List<Pricing> c = pricingService.findAll();
 
         List<PricingDTO> dto = new ArrayList<>();
+        User user = userService.findByEmail(p.getName());
 
-        for(Pricing a : c){
-            PricingDTO d = new PricingDTO();
-            d.setName(a.getName());
-            d.setCollisionDamage(a.getCollisionDamage());
-            d.setDiscountDays(a.getDiscountDays());
-            d.setDiscountPercent(a.getDiscountPercent());
-            d.setDistanceLimit(a.getDistanceLimit());
-            d.setOverusePrice(a.getOverusePrice());
-            d.setRegularPrice(a.getRegularPrice());
-            d.setOwner(a.getOwner().getEmail());
-            dto.add(d);
+        for(Pricing a : c) {
+            if (a.getOwner().equals(user)) {
+
+
+                PricingDTO d = new PricingDTO();
+                d.setName(a.getName());
+                d.setCollisionDamage(a.getCollisionDamage());
+                d.setDiscountDays(a.getDiscountDays());
+                d.setDiscountPercent(a.getDiscountPercent());
+                d.setDistanceLimit(a.getDistanceLimit());
+                d.setOverusePrice(a.getOverusePrice());
+                d.setRegularPrice(a.getRegularPrice());
+                d.setOwner(a.getOwner().getEmail());
+                dto.add(d);
+            }
         }
 
         return dto;
@@ -105,10 +110,9 @@ public class AdvertisementController {
             c.setFuelType(ft);
             c.setMilage(dto.getMilage());
             c.setName(dto.getName());
+            c.setTown(dto.getTown());
 
             c.setAndroidGps(null);
-         //   c.setOwner(p.getOwner());
-            c.setTown("");
 
             carsService.save(c);
             return ResponseEntity.ok().build();
@@ -125,22 +129,25 @@ public class AdvertisementController {
     }
 
     @GetMapping(value="/getCars")
-    public List<CarDTO> getCars(){
+    public List<CarDTO> getCars(Principal p){
         List<Cars> c = carsService.findAll();
 
         List<CarDTO> dto = new ArrayList<>();
 
-        for(Cars a : c){
-            CarDTO d = new CarDTO();
-            d.setName(a.getName());
-            d.setCarModel(a.getModel().getName());
-            d.setFuelType(a.getFuelType().getName());
-            d.setMilage(a.getMilage());
-            d.setPricing(a.getPricing().getName());
+        User user = userService.findByEmail(p.getName());
 
-            dto.add(d);
+        for(Cars a : c) {
+            if (a.getOwner().equals(user)) {
+                CarDTO d = new CarDTO();
+                d.setName(a.getName());
+                d.setCarModel(a.getModel().getName());
+                d.setFuelType(a.getFuelType().getName());
+                d.setMilage(a.getMilage());
+                d.setPricing(a.getPricing().getName());
+
+                dto.add(d);
+            }
         }
-
         return dto;
     }
 

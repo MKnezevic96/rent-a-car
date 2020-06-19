@@ -4,6 +4,7 @@ import { AdvertisementService } from 'src/app/services/advertisement.service';
 import { User } from 'src/app/models/User';
 import { AdminService } from 'src/app/services/admin.service';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pricing-page',
@@ -20,33 +21,35 @@ export class PricingPageComponent implements OnInit {
   discountdays: number;
   discountperc:  number;
   pricing: Pricing;
-  users:User[];
-  cm:User;
+  // users:User[];
+  // cm:User;
 
   constructor(
-    private advertisementService: AdvertisementService, 
-    private adminService: AdminService
+    private advertisementService: AdvertisementService,
+    private adminService: AdminService,
+    private router: Router,
   ) { }
 
-  selectedUser(name:User){
-    this.cm = name;
-    console.log(this.users);
-  }
+  // selectedUser(name:User){
+  //   this.cm = name;
+  //   console.log(this.users);
+  // }
 
   ngOnInit(): void {
 
-    this.adminService.getUsers().subscribe(data =>{
-      this.users = data;
-    });
+    // this.adminService.getUsers().subscribe(data =>{
+    //   this.users = data;
+    // });
   }
 
   onSubmit() {
 
-    this.pricing={distanceLimit: this.distancelimit, regularPrice: this.regularprice, overusePrice: this.overuseprice, collisionDamage: this.collisiondamage, discountDays: this.discountdays, discountPercent: this.discountperc, name: this.name, deleted:false, owner: ''};
-    console.log('owner je ', this.cm);
+
+    this.pricing={distanceLimit: this.distancelimit, regularPrice: this.regularprice, overusePrice: this.overuseprice, collisionDamage: this.collisiondamage, discountDays: this.discountdays, discountPercent: this.discountperc, name: this.name, deleted:false, owner:''};
+    // console.log('owner je ', this.cm);
 
     console.log('Ceo pricing ', this.pricing);
-    
+
     this.advertisementService.addPricing(this.pricing).pipe(first())
     .subscribe(
         data => {
@@ -54,9 +57,11 @@ export class PricingPageComponent implements OnInit {
            // this.makeAdvertisement();
         })
 
+        this.router.navigateByUrl('adminPage');
+
 
   }
 
- 
+
 
 }

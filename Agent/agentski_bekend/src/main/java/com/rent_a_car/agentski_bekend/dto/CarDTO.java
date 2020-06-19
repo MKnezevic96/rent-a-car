@@ -9,9 +9,18 @@ public class CarDTO {
     private String carModel;
     private double milage;
     private String name;
+    private String town;
 
 
     public CarDTO() {
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
     }
 
     public String getPricing() {

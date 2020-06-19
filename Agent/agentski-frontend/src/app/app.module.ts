@@ -35,6 +35,8 @@ import { TransmissionTypesComponent } from './components/transmission-types/tran
 import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
 import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
 import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { RentingApproveComponent } from './components/renting-approve/renting-approve.component';
 
 import { RentingReportComponent } from './components/renting-report/renting-report.component';
 import { IndexComponent } from './components/index/index.component';
@@ -69,6 +71,7 @@ import { RentPaymentComponent } from './components/rent-payment/rent-payment.com
     CommentMenagementComponent,
     PendingCommentsComponent,
     PricingPageComponent,
+    RentingApproveComponent,
     RentingMenagementComponent,
     RentPaymentComponent,
    // AuthGuard

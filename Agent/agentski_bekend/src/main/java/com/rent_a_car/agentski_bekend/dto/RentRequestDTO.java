@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class RentRequestDTO {
-
+    private Integer id;
     private String carName;
     private Date startDate;
     private Date endDate;
@@ -39,6 +39,14 @@ public class RentRequestDTO {
     public RentRequestDTO() {
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getCarName() {
         return carName;
     }
@@ -63,7 +71,7 @@ public class RentRequestDTO {
         this.endDate = endDate;
     }
 
-    public String getStatus() {
+    public String isStatus() {
         return status;
     }
 

@@ -41,15 +41,15 @@ public class RentRequest implements Serializable {
     private Cars carId;
 
     @NotNull
-    @Column(name="startDate", nullable = false)
+    @Column(name="startDate")
     private Date startDate;
 
     @NotNull
-    @Column(name="endDate", nullable = false)
+    @Column(name="endDate")
     private Date endDate;
 
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name="status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name="status")
     private RequestStatus status;
 
     @Column (name="request_group_id")

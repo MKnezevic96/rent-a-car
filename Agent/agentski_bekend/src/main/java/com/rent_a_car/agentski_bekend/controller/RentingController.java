@@ -10,19 +10,24 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.rent_a_car.agentski_bekend.dto.CarsDetailsDTO;
 import com.rent_a_car.agentski_bekend.dto.CarsListingDTO;
+import com.rent_a_car.agentski_bekend.dto.RentRequestDTO;
 import com.rent_a_car.agentski_bekend.model.Cars;
+import com.rent_a_car.agentski_bekend.model.RentRequest;
+import com.rent_a_car.agentski_bekend.model.User;
+import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
+import com.rent_a_car.agentski_bekend.repository.CarsRepository;
 import com.rent_a_car.agentski_bekend.service.CarsService;
+import com.rent_a_car.agentski_bekend.service.interfaces.RentRequestServiceInterface;
+import com.rent_a_car.agentski_bekend.service.interfaces.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import java.security.Principal;
 import java.math.BigInteger;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +46,9 @@ public class RentingController {
     private CarsService carsService;
 
     @Autowired
+    private UserServiceInterface userService;
+
+    @Autowired
     private RentRequestServiceInterface rentRequestService;
 
     @Autowired
@@ -48,9 +56,6 @@ public class RentingController {
 
     @Autowired
     private CarReviewService carReviewService;
-
-    @Autowired
-    private UserService userService;
 
 
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
@@ -60,6 +65,7 @@ public class RentingController {
         return "Renting service test";
     }
 
+    //@GetMapping(value = "getCars")
     @GetMapping(value = "cars")
     public ResponseEntity<List<CarsListingDTO>> getAllCars () {
         ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
@@ -225,10 +231,76 @@ public class RentingController {
 //        }
         return ResponseEntity.status(400).build();
     }
+    @GetMapping(value = "rentRequests")
+    public List<RentRequestDTO> getRentRequests (Principal p) {
+       List<RentRequest> retVal = rentRequestService.findAll();
+        List<RentRequestDTO> dto = new ArrayList<>() ;
+        User user = userService.findByEmail(p.getName());
 
-//
-//    public void approveRentRequest() {
-//        this.rentRequest.setStatus(RequestStatus.RESERVED);
-//        //  this.carsService.declineRequests(rentRequest);
-//    }
+        for (RentRequest c : retVal) {
+            if(c.getCarId().getOwner().equals(user)) {
+
+
+                if (c.getStatus().equals(RequestStatus.PENDING)) {
+                    RentRequestDTO dto1 = new RentRequestDTO();
+                    dto1.setId(c.getId());
+                    dto1.setStartDate(c.getStartDate());
+                    dto1.setEndDate(c.getEndDate());
+                    dto1.setCarName(c.getCarId().getName());
+                    dto1.setStatus("PENDING");
+                    dto.add(dto1);
+//                } else if (c.getStatus().equals(RequestStatus.CANCELED)) {
+//                    dto1.setStatus("CANCELED");
+//                } else if (c.getStatus().equals(RequestStatus.PAID)) {
+//                    dto1.setStatus("PAID");
+//                } else if (c.getStatus().equals(RequestStatus.RESERVED)) {
+//                    dto1.setStatus("RESERVED");
+//                } else if (c.getStatus().equals(RequestStatus.RETURNED)) {
+//                    dto1.setStatus("RETURNED");
+                }
+
+                //dto.add(dto1);
+            }
+        }
+
+        return dto;
+    }
+
+    @PostMapping(value="/rentCar")
+    public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto, Principal p){
+        User user = userService.findByEmail(p.getName());
+
+        try{
+            RentRequest rr = new RentRequest();
+            Cars c = carsService.findByName(dto.getCarName());
+            rr.setCarId(c);
+            rr.setStartDate(dto.getStartDate());
+            rr.setEndDate(dto.getEndDate());
+            rr.setStatus(RequestStatus.PENDING);
+            rr.setDeleted(false);
+            rr.setOwningUser(user);
+            rentRequestService.save(rr);
+            return ResponseEntity.ok().build();
+        }catch (Exception e){
+        }
+        return ResponseEntity.status(400).build();
+    }
+
+    @PostMapping(value="approveRentRequest")
+    public ResponseEntity<?> approveRentRequest(@RequestBody Integer id){
+        RentRequest u = rentRequestService.findById(id);
+        u.setStatus(RequestStatus.RESERVED); //odobren j e
+        rentRequestService.save(u);   // nzm treba li
+        // todo odbiti koji se preklapaju
+      //  carsService.autoReject(u);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping(value="rejectRentRequest")
+    public ResponseEntity<?> rejectRentRequest(@RequestBody Integer id){
+        RentRequest u = rentRequestService.findById(id);
+        u.setStatus(RequestStatus.CANCELED); //otkazan j e
+        rentRequestService.save(u);   // nzm treba li
+        return ResponseEntity.ok().build();
+    }
 }
