@@ -31,9 +31,10 @@ export class RentRequestComponent implements OnInit {
     this.advertisementService.getCar().subscribe(data =>{
       this.cars = data;
     });
+    console.log(this.rentrequest);
   }
   onSubmit() {
-    this.rentrequest={id:1, carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: false, deleted: false };
+    this.rentrequest={id:1, carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false };
     this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
     .subscribe(
         data => {
