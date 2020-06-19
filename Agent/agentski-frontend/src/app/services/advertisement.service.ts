@@ -21,9 +21,11 @@ export class AdvertisementService {
   url1:string = 'http://localhost:8282/pricing';
   url2:string = 'http://localhost:8282/addCar';
   url3:string = 'http://localhost:8282/getCars';
-  url4:string = 'http://localhost:8282/rentCar';
+  url4:string = 'http://localhost:8282/api/renting/rentCar';
   url5:string = 'http://localhost:8282/api/renting/rentRequests';
   url6:string = 'http://localhost:8282/api/renting/approveRentRequest';
+  url7:string = 'http://localhost:8282/api/renting/rejectRentRequest';
+
   private decoder: JwtHelperService;
   
   
@@ -62,7 +64,16 @@ export class AdvertisementService {
   }
 
   getCar():Observable<Car[]>{
-    return this.http.get<Car[]>(this.url3);
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+      })
+    }
+    return this.http.get<Car[]>(this.url3, httpOptions);
   }
 
   getPricing() {
@@ -80,7 +91,16 @@ export class AdvertisementService {
   return this.http.get<Pricing[]>(this.url1, httpOptions );  }
 
   addRentRequest(rentRequest:RentRequest):Observable<RentRequest>{
-    return this.http.post<RentRequest>(this.url4, rentRequest, this.httpOptions);
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+      })
+    }
+    return this.http.post<RentRequest>(this.url4, rentRequest, httpOptions);
 
   }
   getRentRequests():Observable<RentRequest[]>{
@@ -98,6 +118,21 @@ export class AdvertisementService {
 
   approve(id: number):Observable<number>{
     return this.http.post<number>(this.url6, id, this.httpOptions); 
+    
+  }
+
+  reject(id: number):Observable<number>{
+
+    let token = localStorage.getItem('accessToken');     // mozda ne treba token
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+      })
+    }
+    return this.http.post<number>(this.url7, id, httpOptions); 
     
   }
 }

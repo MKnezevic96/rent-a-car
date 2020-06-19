@@ -129,40 +129,27 @@ public class AdvertisementController {
     }
 
     @GetMapping(value="/getCars")
-    public List<CarDTO> getCars(){
+    public List<CarDTO> getCars(Principal p){
         List<Cars> c = carsService.findAll();
 
         List<CarDTO> dto = new ArrayList<>();
 
-        for(Cars a : c){
-            CarDTO d = new CarDTO();
-            d.setName(a.getName());
-            d.setCarModel(a.getModel().getName());
-            d.setFuelType(a.getFuelType().getName());
-            d.setMilage(a.getMilage());
-            d.setPricing(a.getPricing().getName());
+        User user = userService.findByEmail(p.getName());
 
-            dto.add(d);
+        for(Cars a : c) {
+            if (a.getOwner().equals(user)) {
+                CarDTO d = new CarDTO();
+                d.setName(a.getName());
+                d.setCarModel(a.getModel().getName());
+                d.setFuelType(a.getFuelType().getName());
+                d.setMilage(a.getMilage());
+                d.setPricing(a.getPricing().getName());
+
+                dto.add(d);
+            }
         }
-
         return dto;
     }
 
-    @PostMapping(value="/rentCar")
-    public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto){
 
-        try{
-            RentRequest rr = new RentRequest();
-            Cars c = carsService.findByName(dto.getCarName());
-            rr.setCarId(c);
-            rr.setStartDate(dto.getStartDate());
-            rr.setEndDate(dto.getEndDate());
-            rr.setStatus(RequestStatus.PENDING);
-            rr.setDeleted(false);
-            rentRequestService.save(rr);
-            return ResponseEntity.ok().build();
-        }catch (Exception e){
-        }
-        return ResponseEntity.status(400).build();
-    }
 }
