@@ -84,7 +84,8 @@ export class AdvertisementComponent implements OnInit {
   }
 
   onPricing() {
-    this.router.navigateByUrl('pricing');
+    // this.router.navigateByUrl('pricing');
+    this.router.navigate(['pricing'], {relativeTo:this.route.parent});
 
   }
 }
