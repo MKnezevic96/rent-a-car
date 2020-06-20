@@ -19,7 +19,6 @@ public class RentRequestDTO {
     private Integer carId;
     private Integer owningUserId;
     private Integer requestGroupId;
-    private Integer id;
     private String user;   // user koji zahteva vozilo
 
 
@@ -37,14 +36,6 @@ public class RentRequestDTO {
 
 
     public RentRequestDTO() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getCarName() {

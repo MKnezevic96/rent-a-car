@@ -24,7 +24,7 @@ import { PendingCommentsComponent } from './components/pending-comments/pending-
 import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
 import { RentingMenagementComponent } from './components/renting-menagement/renting-menagement.component';
 import { RentPaymentComponent } from './components/rent-payment/rent-payment.component';
-import { RentingApproveComponent } from './components/renting-approve/renting-approve.component';
+//import { RentingApproveComponent } from './components/renting-approve/renting-approve.component';
 
 
 const routes: Routes = [
@@ -59,10 +59,21 @@ const routes: Routes = [
             {path: 'pendingComments', component: PendingCommentsComponent},
           ]
         },
-        { path: 'rentingMenagement',
+        { 
+          path: 'rentingMenagement',
           component: RentingMenagementComponent,
           children: [
-            {path: 'rentPayment', component: RentPaymentComponent},
+            { path: 'rentPayment', component: RentPaymentComponent},
+            // { path: 'advertisement',
+            //   component: AdvertisementComponent,
+            //   children: [
+            //     { path: 'pricing', component: PricingPageComponent},
+            //   ]
+            // },
+            { path: 'rentRequest', component: RentRequestComponent},
+            { path: 'advertisement', component: AdvertisementComponent},
+            { path: 'pricing', component: PricingPageComponent},
+
           ]
         },
       ]
@@ -81,7 +92,7 @@ const routes: Routes = [
     { path: 'advertisement', component: AdvertisementComponent},
     { path: 'rentRequest', component: RentRequestComponent},
     { path: 'pricing', component: PricingPageComponent},
-    { path: 'rentingApprove', component: RentingApproveComponent},
+    //{ path: 'rentingApprove', component: RentingApproveComponent},
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 

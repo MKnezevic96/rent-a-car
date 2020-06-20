@@ -5,5 +5,4 @@ export class RentRequest {
     endDate:Date;
     status:boolean;
     deleted:boolean;
-    id:number;
 }

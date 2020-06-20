@@ -23,20 +23,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import java.security.Principal;
 import java.math.BigInteger;
 import org.springframework.web.bind.annotation.*;
-
-
-
 import javax.ws.rs.core.MediaType;
 import java.security.Principal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequestMapping(value = "api/renting/")
@@ -76,6 +77,107 @@ public class RentingController {
         }
         LOGGER.info("Action get all cars successful");
         return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
+    }
+
+//    @GetMapping(value = "availableCars/{d1}/{d2}")
+//    public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, Principal p) throws ParseException {
+//
+//        DateFormat format = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
+//
+//        Date startDate = format.parse(d1);
+//        Date endDate = format.parse(d2);
+//
+//
+////        Date startDate = d1;
+////        Date endDate = d2;
+//
+//        List<RentRequest> rrList = rentRequestService.findAll();
+//        List<Cars> cList = carsService.findAll();
+//        List<CarsListingDTO> dto = new ArrayList<>();
+//        List<CarsListingDTO> carsForRemoval = new ArrayList<>();
+//        User u = userService.findByEmail(p.getName());
+//        for (Cars c : cList) {
+//            for (RentRequest rr : rrList) {
+//                if (rr.getCarId().equals(c)) {
+//                    if (startDate.before(rr.getStartDate())) {
+//                        if(endDate.before(rr.getEndDate())) {
+//                            //ubaci u dto
+//                            CarsListingDTO dt = new CarsListingDTO(c);
+//                            dto.add(dt);
+//                        }
+//                    }
+//                    else if (startDate.after(rr.getStartDate())) {
+//                        if (endDate.after(rr.getEndDate())){
+//                            //ubaci u dto
+//                            CarsListingDTO dt = new CarsListingDTO(c);
+//                            dto.add(dt);
+//                        }
+//                    }
+//                    else{
+//                        CarsListingDTO dt = new CarsListingDTO(c);
+//                        carsForRemoval.add(dt);
+//                    }
+//                }
+//            }
+//            //ubaci u dto
+//            CarsListingDTO dt = new CarsListingDTO(c);
+//            dto.add(dt);
+//        }
+//        for(CarsListingDTO ddd : carsForRemoval){
+//            dto.remove(ddd);
+//        }
+//
+//        return dto;
+//
+//    }
+
+    @GetMapping(value = "availableCars/{d1}/{d2}")
+    public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, Principal p) throws ParseException {
+
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date startDate = format.parse(d1);
+        Date endDate = format.parse(d2);
+        List<RentRequest> rrList = rentRequestService.findAll();
+        List<Cars> cList = carsService.findAll();
+        List<CarsListingDTO> dto = new ArrayList<>();
+        List<CarsListingDTO> carsForRemoval = new ArrayList<>();
+        User u = userService.findByEmail(p.getName());
+        for (Cars c : cList) {
+            for (RentRequest rr : rrList) {
+                if (rr.getCarId().equals(c)) {
+                    if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
+                        CarsListingDTO dt = new CarsListingDTO(c);
+                        carsForRemoval.add(dt);
+                    }
+                    if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
+                        CarsListingDTO dt = new CarsListingDTO(c);
+                        carsForRemoval.add(dt);
+                    }
+                    if(startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())){
+                        CarsListingDTO dt = new CarsListingDTO(c);
+                        carsForRemoval.add(dt);
+                    }
+                }
+            }
+            //ubaci u dto
+            CarsListingDTO dt = new CarsListingDTO(c);
+            dto.add(dt);
+        }
+//        for(CarsListingDTO ddd : carsForRemoval){
+//            dto.remove(ddd);
+//        }
+
+        for(int i = 0 ; i < dto.size() ; i++){
+            for(CarsListingDTO ddd : carsForRemoval){
+                if(dto.get(i).getId().equals(ddd.getId())){
+                    dto.remove(i);
+                }
+            }
+        }
+
+
+        return dto;
+
     }
 
 
@@ -142,33 +244,33 @@ public class RentingController {
         return dto;
     }
 
-    @GetMapping(value = "rentRequests")
-    public List<RentRequestDTO> getRentRequests (Principal p) {
-        List<RentRequest> retVal = rentRequestService.findAll();
-        List<RentRequestDTO> dto = new ArrayList<>() ;
-        User user = userService.findByEmail(p.getName());
-        for (RentRequest c : retVal) {
-            if(c.getCarId().getOwner().equals(user)) {
-                RentRequestDTO dto1 = new RentRequestDTO();
-                dto1.setId(c.getId());
-                dto1.setStartDate(c.getStartDate());
-                dto1.setEndDate(c.getEndDate());
-                if (c.getStatus().equals(RequestStatus.PENDING)) {
-                    dto1.setStatus("PENDING");
-                } else if (c.getStatus().equals(RequestStatus.CANCELED)) {
-                    dto1.setStatus("CANCELED");
-                } else if (c.getStatus().equals(RequestStatus.PAID)) {
-                    dto1.setStatus("PAID");
-                } else if (c.getStatus().equals(RequestStatus.RESERVED)) {
-                    dto1.setStatus("RESERVED");
-                } else if (c.getStatus().equals(RequestStatus.RETURNED)) {
-                    dto1.setStatus("RETURNED");
-                }
-                dto.add(dto1);
-            }
-        }
-        return dto;
-    }
+//    @GetMapping(value = "rentRequests")
+//    public List<RentRequestDTO> getRentRequests (Principal p) {
+//        List<RentRequest> retVal = rentRequestService.findAll();
+//        List<RentRequestDTO> dto = new ArrayList<>() ;
+//        User user = userService.findByEmail(p.getName());
+//        for (RentRequest c : retVal) {
+//            if(c.getCarId().getOwner().equals(user)) {
+//                RentRequestDTO dto1 = new RentRequestDTO();
+//                dto1.setId(c.getId());
+//                dto1.setStartDate(c.getStartDate());
+//                dto1.setEndDate(c.getEndDate());
+//                if (c.getStatus().equals(RequestStatus.PENDING)) {
+//                    dto1.setStatus("PENDING");
+//                } else if (c.getStatus().equals(RequestStatus.CANCELED)) {
+//                    dto1.setStatus("CANCELED");
+//                } else if (c.getStatus().equals(RequestStatus.PAID)) {
+//                    dto1.setStatus("PAID");
+//                } else if (c.getStatus().equals(RequestStatus.RESERVED)) {
+//                    dto1.setStatus("RESERVED");
+//                } else if (c.getStatus().equals(RequestStatus.RETURNED)) {
+//                    dto1.setStatus("RETURNED");
+//                }
+//                dto.add(dto1);
+//            }
+//        }
+//        return dto;
+//    }
 
 
 

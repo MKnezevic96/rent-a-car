@@ -6,14 +6,13 @@ import { Car } from '../models/Car';
 import { RentRequest } from '../models/RentRequest';
 import { CarDetails } from '../models/CarDetails';
 import { CarReview } from '../models/CarReview';
+import { UserService } from '../security/user.service';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
     'mode': 'cors'
   })
 }
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { UserService } from '../security/user.service';
 
 //let token = this.localStorage.getItem("user");//this.msal.accessToken;
 
@@ -28,6 +27,10 @@ export class AdvertisementService {
   pricing: Pricing;
   car:Car;
   carReview:CarReview;
+  d1:string;
+  d2:string;
+  // d1:Date;
+  // d2:Date;
   url1:string = 'http://localhost:8282/pricing';
   url2:string = 'http://localhost:8282/addCar';
   url3:string = 'http://localhost:8282/api/renting/cars';
@@ -36,13 +39,12 @@ export class AdvertisementService {
   getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/';
   addCarReviewUrl:string='http://localhost:8282/api/renting/review';
 
-  url3:string = 'http://localhost:8282/getCars';
-  url4:string = 'http://localhost:8282/api/renting/rentCar';
-  url5:string = 'http://localhost:8282/api/renting/rentRequests';
+  // url3:string = 'http://localhost:8282/getCars';
+  // url4:string = 'http://localhost:8282/api/renting/rentCar';
+  // url5:string = 'http://localhost:8282/api/renting/rentRequests';
   url6:string = 'http://localhost:8282/api/renting/approveRentRequest';
   url7:string = 'http://localhost:8282/api/renting/rejectRentRequest';
-
-  private decoder: JwtHelperService;
+  url8:string = 'http://localhost:8282/api/renting/availableCars/'
 
 
   constructor(private http:HttpClient, private userService: UserService) { }
@@ -75,12 +77,11 @@ export class AdvertisementService {
   }
 
 
-  addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string):Observable<Car>{
-    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, user:null, id: 0 };
+
   addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string):Observable<Car>{
-    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null };
+    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null, id:0 };
     return this.http.post<Car>(this.url2, this.car, this.httpOptions);
-    }
+  }
 
   getCar():Observable<Car[]>{
     let token = localStorage.getItem('accessToken');     // iz browsera
@@ -175,5 +176,23 @@ export class AdvertisementService {
       })
     }
     return this.http.get<RentRequest[]>(this.url5, httpOptions);
+  }
+
+  getAvailableCars(startDate:Date, endDate:Date):Observable<Car[]>{
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    this.d1 = startDate.toString(); 
+    this.d2 = endDate.toString();
+
+    // this.d1 = startDate; 
+    // this.d2 = endDate;
+
+    return this.http.get<Car[]>(this.url8+this.d1+'/'+this.d2, httpOptions);
   }
 }
