@@ -26,4 +26,9 @@ export class RentingMenagementComponent implements OnInit {
 
   }
 
+  approveRent(){
+    this.router.navigate(['rentingApprove'], {relativeTo: this.route});
+
+  }
+
 }

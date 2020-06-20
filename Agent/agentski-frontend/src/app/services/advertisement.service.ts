@@ -34,14 +34,14 @@ export class AdvertisementService {
   url1:string = 'http://localhost:8282/pricing';
   url2:string = 'http://localhost:8282/addCar';
   url3:string = 'http://localhost:8282/api/renting/cars';
-  url4:string = 'http://localhost:8282/rentCar';
+  url4:string = 'http://localhost:8282/api/renting/rentCar';
   url5:string = 'http://localhost:8282/api/renting/payRequests';
   getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/';
   addCarReviewUrl:string='http://localhost:8282/api/renting/review';
 
   // url3:string = 'http://localhost:8282/getCars';
   // url4:string = 'http://localhost:8282/api/renting/rentCar';
-  // url5:string = 'http://localhost:8282/api/renting/rentRequests';
+  url55:string = 'http://localhost:8282/api/renting/rentRequests';
   url6:string = 'http://localhost:8282/api/renting/approveRentRequest';
   url7:string = 'http://localhost:8282/api/renting/rejectRentRequest';
   url8:string = 'http://localhost:8282/api/renting/availableCars/'
@@ -74,6 +74,11 @@ export class AdvertisementService {
     console.log(token);
     console.log('adding pricing');
     return this.http.post<Pricing>( this.url1, pricing, httpOptions);
+  }
+
+  payRent(id:number):Observable<number>{
+    return this.http.post<number>(this.url5, id, this.httpOptions);
+
   }
 
 
@@ -133,7 +138,7 @@ export class AdvertisementService {
         'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
       })
     }
-    return this.http.get<RentRequest[]>(this.url5, httpOptions);
+    return this.http.get<RentRequest[]>(this.url55, httpOptions);
   }
 
   approve(id: number):Observable<number>{

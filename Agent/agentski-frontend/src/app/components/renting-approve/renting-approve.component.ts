@@ -6,6 +6,7 @@ import { AdvertisementService } from 'src/app/services/advertisement.service';
 
 @Component({
   selector: 'app-renting-approve',
+  //templateUrl: './renting-approve.component.html',
   template: `
    <div class="container fluid">
    <ng-container>
