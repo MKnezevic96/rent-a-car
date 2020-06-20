@@ -133,7 +133,6 @@ public class RentingController {
 
     @GetMapping(value = "availableCars/{d1}/{d2}")
     public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, Principal p) throws ParseException {
-
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = format.parse(d1);
         Date endDate = format.parse(d2);
@@ -144,18 +143,20 @@ public class RentingController {
         User u = userService.findByEmail(p.getName());
         for (Cars c : cList) {
             for (RentRequest rr : rrList) {
-                if (rr.getCarId().equals(c)) {
-                    if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
-                        CarsListingDTO dt = new CarsListingDTO(c);
-                        carsForRemoval.add(dt);
-                    }
-                    if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
-                        CarsListingDTO dt = new CarsListingDTO(c);
-                        carsForRemoval.add(dt);
-                    }
-                    if(startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())){
-                        CarsListingDTO dt = new CarsListingDTO(c);
-                        carsForRemoval.add(dt);
+                if (rr.getStatus().equals(RequestStatus.RESERVED)) {
+                    if (rr.getCarId().equals(c)) {
+                        if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
+                            CarsListingDTO dt = new CarsListingDTO(c);
+                            carsForRemoval.add(dt);
+                        }
+                        if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
+                            CarsListingDTO dt = new CarsListingDTO(c);
+                            carsForRemoval.add(dt);
+                        }
+                        if (startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())) {
+                            CarsListingDTO dt = new CarsListingDTO(c);
+                            carsForRemoval.add(dt);
+                        }
                     }
                 }
             }
@@ -163,10 +164,6 @@ public class RentingController {
             CarsListingDTO dt = new CarsListingDTO(c);
             dto.add(dt);
         }
-//        for(CarsListingDTO ddd : carsForRemoval){
-//            dto.remove(ddd);
-//        }
-
         for(int i = 0 ; i < dto.size() ; i++){
             for(CarsListingDTO ddd : carsForRemoval){
                 if(dto.get(i).getId().equals(ddd.getId())){
@@ -174,10 +171,7 @@ public class RentingController {
                 }
             }
         }
-
-
         return dto;
-
     }
 
 
@@ -225,6 +219,7 @@ public class RentingController {
     public List<RentRequestDTO> getRequestsForPayment (Principal p) {
         List<RentRequestDTO> dto = new ArrayList<>();
         List<RentRequest> rrl = rentRequestService.findAll();
+        System.out.println("++++++++++++++++++++++++++++"+p.getName()+"///////////////////////////////////");
         User user = userService.findByEmail(p.getName());
         for(RentRequest rr : rrl){
             if (rr.getStatus().equals(RequestStatus.RESERVED)) {
@@ -239,10 +234,19 @@ public class RentingController {
                 }
             }
         }
-
-
         return dto;
     }
+
+    @PostMapping(value = "payRequests")
+    public ResponseEntity<?> payRent (@RequestBody Integer id) {
+        RentRequest rrl = rentRequestService.findById(id);
+        rrl.setStatus(RequestStatus.PAID);
+        rentRequestService.save(rrl);
+
+        return ResponseEntity.ok().build();
+
+    }
+
 
 //    @GetMapping(value = "rentRequests")
 //    public List<RentRequestDTO> getRentRequests (Principal p) {
