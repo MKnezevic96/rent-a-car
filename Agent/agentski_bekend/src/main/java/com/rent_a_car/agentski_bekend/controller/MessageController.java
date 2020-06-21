@@ -2,6 +2,7 @@ package com.rent_a_car.agentski_bekend.controller;
 
 import com.rent_a_car.agentski_bekend.dto.*;
 import com.rent_a_car.agentski_bekend.model.*;
+import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import com.rent_a_car.agentski_bekend.service.MessageService;
 import com.rent_a_car.agentski_bekend.service.UserService;
 import org.apache.logging.log4j.LogManager;
@@ -62,7 +63,7 @@ public class MessageController {
             }
 
             for(RentRequest rr : currentUser.getRentRequests() ){
-                if(!rr.getStatus().equals("pending"))
+                if(!rr.getStatus().equals(RequestStatus.PENDING))
                     emails.add(rr.getCarId().getOwner().getEmail());
             }
 

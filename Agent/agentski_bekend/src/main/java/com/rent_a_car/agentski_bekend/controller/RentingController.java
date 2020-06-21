@@ -244,7 +244,7 @@ public class RentingController {
             LOGGER.info("Action get all rent requests successful");
         } else if (status.equals("paid")){
             for(RentRequest rr : rentRequestService.findAll()){
-                if(rr.getStatus().equals("paid"))
+                if(rr.getStatus().equals(RequestStatus.PAID))
                     retVal.add(new RentRequestDTO(rr));
             }
             LOGGER.info("Action get paid rent requests successful");
@@ -452,7 +452,6 @@ public class RentingController {
             List<RentRequest> usersRequests = userService.findUsersRentRequests(user.getEmail());
 
             for(RentRequest rr : usersRequests){
-                System.out.println(rr.getCarId().getId() +" " + dto.getCarId() + " " + rr.getStatus()+"----------------------------------------");
                 if(rr.getCarId().getId() == dto.getCarId() && rr.getStatus().equals(RequestStatus.RETURNED)){
                     carReviewService.save(review);
                     LOGGER.info("User email: {} posted a review for car id:{} successfully", p.getName(), dto.getCarId());
@@ -485,11 +484,6 @@ public class RentingController {
     }
 
 
-//
-//    public void approveRentRequest() {
-//        this.rentRequest.setStatus(RequestStatus.RESERVED);
-//        //  this.carsService.declineRequests(rentRequest);
-//    }
     @PostMapping(value="approveRentRequest")
     public ResponseEntity<?> approveRentRequest(@RequestBody Integer id){
         RentRequest u = rentRequestService.findById(id);

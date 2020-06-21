@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="851a59de-86ea-4e19-abe2-e45a3afd678a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement-list/advertisement-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement-list/advertisement-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/pending-comments/pending-comments.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/pending-comments/pending-comments.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/CarReview.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/CarReview.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/Review.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/Review.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/advertisement.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/advertisement.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/MessageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/CarReviewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/CarReviewDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/logs/agent.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,8 +142,26 @@
       <option name="project" value="LOCAL" />
       <updated>1592743917179</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Frontend">
+      <created>1592763489359</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592763489359</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -160,7 +172,8 @@
     <MESSAGE value="Logging - agent" />
     <MESSAGE value="fixes" />
     <MESSAGE value="Sending messages to another users" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sending messages to another users" />
+    <MESSAGE value="Frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Frontend" />
   </component>
   <component name="WindowStateProjectService">
     <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser" timestamp="1592652392948">
@@ -171,10 +184,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="677" y="400" width="631" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/65.24.1855.1056@65.24.1855.1056" timestamp="1591749368004" />
-    <state x="102" y="83" width="813" height="910" key="CommitChangelistDialog2" timestamp="1592743914764">
+    <state x="102" y="83" width="813" height="910" key="CommitChangelistDialog2" timestamp="1592763488775">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="102" y="83" width="813" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1592743914764" />
+    <state x="102" y="83" width="813" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1592763488775" />
     <state x="250" y="102" key="DiffContextDialog" timestamp="1592416928183">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -183,22 +196,22 @@
       <screen x="65" y="24" width="1295" height="744" />
     </state>
     <state x="500" y="141" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1588700165152" />
-    <state width="1795" height="181" key="GridCell.Tab.0.bottom" timestamp="1592753983583">
+    <state width="896" height="181" key="GridCell.Tab.0.bottom" timestamp="1592775346136">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1795" height="181" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1592753983583" />
-    <state width="1795" height="181" key="GridCell.Tab.0.center" timestamp="1592753983581">
+    <state width="896" height="181" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1592775346136" />
+    <state width="896" height="181" key="GridCell.Tab.0.center" timestamp="1592775346129">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1795" height="181" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1592753983581" />
-    <state width="1795" height="181" key="GridCell.Tab.0.left" timestamp="1592753983581">
+    <state width="896" height="181" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1592775346129" />
+    <state width="896" height="181" key="GridCell.Tab.0.left" timestamp="1592775346127">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1795" height="181" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1592753983581" />
-    <state width="1795" height="181" key="GridCell.Tab.0.right" timestamp="1592753983582">
+    <state width="896" height="181" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1592775346127" />
+    <state width="896" height="181" key="GridCell.Tab.0.right" timestamp="1592775346132">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1795" height="181" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1592753983582" />
+    <state width="896" height="181" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1592775346132" />
     <state x="65" y="24" width="1855" height="1056" key="MergeDialog" timestamp="1592515272232">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -211,10 +224,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="692" y="300" key="Vcs.Multiple.Commit.Info.Dialog.Key/65.24.1855.1056@65.24.1855.1056" timestamp="1592419444665" />
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1592743961773">
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1592763505058">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1592743961773" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1592763505058" />
     <state x="164" y="96" width="1657" height="885" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592471919604">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -223,10 +236,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="467" y="341" width="1235" height="854" maximized="true" key="dock-window-1/65.24.1855.1056@65.24.1855.1056" timestamp="1592641090062" />
-    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog" timestamp="1592514751149">
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog" timestamp="1592771257482">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592514751149" />
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592771257482" />
     <state x="655" y="246" key="run.anything.popup" timestamp="1592744829640">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>

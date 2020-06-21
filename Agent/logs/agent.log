@@ -715,3 +715,89 @@
 2020-06-21 16:11:50 INFO  RentingController:70 - Action get all cars successful
 2020-06-21 16:11:53 INFO  RentingController:90 - Action get car id:1 successful
 2020-06-21 16:11:53 INFO  RentingController:205 - Action get all car reviews for car id: 1 successful 
+2020-06-21 18:15:05 INFO  RentingController:70 - Action get all cars successful
+2020-06-21 20:28:08 INFO  RentingController:70 - Action get all cars successful
+2020-06-21 20:31:13 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 6736ce456a42 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 20:31:14 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 20:31:53 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 40.824 seconds (JVM running for 50.843)
+2020-06-21 20:33:36 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 20:33:39 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-21 20:33:39 INFO  RentingController:483 - Action get all car reviews for car id: 1 successful 
+2020-06-21 20:33:57 ERROR RentingController:467 - Action add car review for car id=1 failed. Cause: No enum constant com.rent_a_car.agentski_bekend.model.enums.RequestStatus.4
+2020-06-21 20:34:34 ERROR RentingController:467 - Action add car review for car id=1 failed. Cause: No enum constant com.rent_a_car.agentski_bekend.model.enums.RequestStatus.4
+2020-06-21 20:35:04 INFO  RentingController:51 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 20:35:04 ERROR RentingController:79 - Action get all message conversations of user: mailmk@gmail.com failed. Cause: No enum constant com.rent_a_car.agentski_bekend.model.enums.RequestStatus.4
+2020-06-21 20:38:30 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 20:38:32 INFO  RentingController:483 - Action get all car reviews for car id: 1 successful 
+2020-06-21 20:38:32 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-21 20:38:38 ERROR RentingController:467 - Action add car review for car id=1 failed. Cause: No enum constant com.rent_a_car.agentski_bekend.model.enums.RequestStatus.4
+2020-06-21 20:41:01 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 9c7244f41f3b with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 20:41:01 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 20:41:45 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 45.551 seconds (JVM running for 50.847)
+2020-06-21 20:41:59 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 20:42:02 INFO  RentingController:483 - Action get all car reviews for car id: 1 successful 
+2020-06-21 20:42:02 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-21 20:42:14 INFO  RentingController:458 - User email: mailmk@gmail.com posted a review for car id:1 successfully
+2020-06-21 20:42:24 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-21 20:42:32 INFO  RentingController:51 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 20:42:36 INFO  RentingController:105 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-21 20:42:43 INFO  RentingController:132 - User email: mailmk@gmail.com has sent the message to user email: mail2@gmail.com successfully
+2020-06-21 20:42:44 INFO  RentingController:105 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-21 20:42:58 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-21 20:43:00 INFO  RentingController:51 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 20:43:02 INFO  RentingController:105 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-21 20:43:07 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 20:43:21 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 20:48:07 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 20:48:52 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 20:48:54 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-21 20:48:54 INFO  RentingController:483 - Action get all car reviews for car id: 1 successful 
+2020-06-21 20:49:00 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 20:49:03 INFO  RentingController:227 - Action get car id:2 successful
+2020-06-21 20:49:03 INFO  RentingController:483 - Action get all car reviews for car id: 2 successful 
+2020-06-21 20:49:11 WARN  RentingController:463 - User email: mailmk@gmail.com is not allowed to post a review for car id:2 
+2020-06-21 20:49:21 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-21 20:54:06 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 20:54:08 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-21 20:54:08 INFO  RentingController:483 - Action get all car reviews for car id: 1 successful 
+2020-06-21 20:54:18 INFO  RentingController:51 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 20:54:24 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-21 20:54:35 INFO  RentingController:51 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 20:54:40 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-21 21:16:19 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 3f675995f88b with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 21:16:19 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 21:17:08 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 51.356 seconds (JVM running for 58.078)
+2020-06-21 21:24:49 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 21:24:55 INFO  RentingController:482 - Action get all car reviews for car id: 1 successful 
+2020-06-21 21:24:55 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-21 21:25:05 WARN  RentingController:462 - User email: mailmk@gmail.com is not allowed to post a review for car id:1 
+2020-06-21 21:25:23 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-21 21:25:29 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 21:25:38 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 21:25:47 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 21:25:49 INFO  RentingController:482 - Action get all car reviews for car id: 1 successful 
+2020-06-21 21:25:49 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-21 21:25:59 WARN  RentingController:462 - User email: mailmk@gmail.com is not allowed to post a review for car id:1 
+2020-06-21 21:26:16 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-21 21:26:35 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-21 21:26:45 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-21 21:37:11 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on b380ee14fdfc with PID 7 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 21:37:11 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 21:38:00 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 51.791 seconds (JVM running for 61.02)
+2020-06-21 21:42:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-21 21:42:56 INFO  RentingController:349 - Action add renting report for request id:33 successful
+2020-06-21 21:44:06 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 21:44:18 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 21:44:20 INFO  RentingController:482 - Action get all car reviews for car id: 1 successful 
+2020-06-21 21:44:20 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-21 21:44:30 WARN  RentingController:462 - User email: mailmk@gmail.com is not allowed to post a review for car id:1 
+2020-06-21 21:44:37 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 21:45:21 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 21:45:23 INFO  RentingController:482 - Action get all car reviews for car id: 1 successful 
+2020-06-21 21:45:23 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-21 21:45:32 INFO  RentingController:457 - User email: mail2@gmail.com posted a review for car id:1 successfully
+2020-06-21 21:45:43 INFO  RentingController:52 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 21:45:46 INFO  RentingController:106 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 21:45:50 INFO  RentingController:133 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-21 21:45:50 INFO  RentingController:106 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 21:46:49 INFO  RentingController:250 - Action get paid rent requests successful
