@@ -1,16 +1,15 @@
 package com.rent_a_car.agentski_bekend.controller;
 import com.rent_a_car.agentski_bekend.dto.CarDTO;
+import com.rent_a_car.agentski_bekend.dto.PricingDTO;
 import com.rent_a_car.agentski_bekend.dto.RentRequestDTO;
 import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import com.rent_a_car.agentski_bekend.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,17 +35,64 @@ public class AdvertisementController {
     @Autowired
     private RentRequestServiceInterface rentRequestService;
 
+    @Autowired
+    private UserServiceInterface userService;
 
 
-    @PostMapping(value="/addPricing")
-    public ResponseEntity<?> addPricing(@RequestBody Pricing pricing){
+    @PostMapping(value="/pricing")
+    public ResponseEntity<?> addPricing(@RequestBody PricingDTO dto, Principal p){
         try{
-            pricingService.save(pricing);
+
+            User user = userService.findByEmail(p.getName());
+            Pricing c = new Pricing();
+            User cm = userService.findByEmail(dto.getOwner());
+            c.setOwner(user);
+
+            c.setCollisionDamage(dto.getCollisionDamage());
+            c.setName(dto.getName());
+            c.setDiscountDays(dto.getDiscountDays());
+            c.setDiscountPercent(dto.getDiscountPercent());
+            c.setDistanceLimit(dto.getDistanceLimit());
+            c.setOverusePrice(dto.getOverusePrice());
+            c.setRegularPrice(dto.getRegularPrice());
+           // c.setOwner(dto.getOwner());
+
+
+
+            pricingService.save(c);
             return ResponseEntity.ok().build();
         }catch (Exception e){
         }
         return ResponseEntity.status(400).build();
     }
+
+    @GetMapping(value="/pricing")
+    public List<PricingDTO> getPricing(Principal p){
+        List<Pricing> c = pricingService.findAll();
+
+        List<PricingDTO> dto = new ArrayList<>();
+        User user = userService.findByEmail(p.getName());
+
+        for(Pricing a : c) {
+            if (a.getOwner().equals(user)) {
+
+
+                PricingDTO d = new PricingDTO();
+                d.setName(a.getName());
+                d.setCollisionDamage(a.getCollisionDamage());
+                d.setDiscountDays(a.getDiscountDays());
+                d.setDiscountPercent(a.getDiscountPercent());
+                d.setDistanceLimit(a.getDistanceLimit());
+                d.setOverusePrice(a.getOverusePrice());
+                d.setRegularPrice(a.getRegularPrice());
+                d.setOwner(a.getOwner().getEmail());
+                dto.add(d);
+            }
+        }
+
+        return dto;
+    }
+
 
     @PostMapping(value="/addCar")
     public ResponseEntity<?> addCar(@RequestBody CarDTO dto){
@@ -54,40 +100,45 @@ public class AdvertisementController {
             Cars c = new Cars();
             CarModels cm = carModelsService.findByName(dto.getCarModel());
             c.setModel(cm);
-            Pricing p = pricingService.findByName(dto.getName());
+            Pricing p = pricingService.findByName(dto.getPricing());
             c.setPricing(p);
+            c.setOwner(p.getOwner());
             FuelType ft = fuelTypeService.findByName(dto.getFuelType());
             c.setFuelType(ft);
             c.setMilage(dto.getMilage());
             c.setName(dto.getName());
+            c.setTown(dto.getTown());
 
             c.setAndroidGps(null);
-            c.setOwner(null);
 
             carsService.save(c);
             return ResponseEntity.ok().build();
         }catch (Exception e){
+            e.printStackTrace();
         }
         return ResponseEntity.status(400).build();
     }
 
     @GetMapping(value="/getCars")
-    public List<CarDTO> getCars(){
+    public List<CarDTO> getCars(Principal p){
         List<Cars> c = carsService.findAll();
 
         List<CarDTO> dto = new ArrayList<>();
 
-        for(Cars a : c){
-            CarDTO d = new CarDTO();
-            d.setName(a.getName());
-            d.setCarModel(a.getModel().getName());
-            d.setFuelType(a.getFuelType().getName());
-            d.setMilage(a.getMilage());
-            d.setPricing(a.getPricing().getName());
+        User user = userService.findByEmail(p.getName());
 
-            dto.add(d);
+        for(Cars a : c) {
+            if (a.getOwner().equals(user)) {
+                CarDTO d = new CarDTO();
+                d.setName(a.getName());
+                d.setCarModel(a.getModel().getName());
+                d.setFuelType(a.getFuelType().getName());
+                d.setMilage(a.getMilage());
+                d.setPricing(a.getPricing().getName());
+
+                dto.add(d);
+            }
         }
-
         return dto;
     }
 
@@ -105,7 +156,14 @@ public class AdvertisementController {
             rentRequestService.save(rr);
             return ResponseEntity.ok().build();
         }catch (Exception e){
+            e.printStackTrace();
         }
         return ResponseEntity.status(400).build();
     }
+
+
+
+
+
+
 }

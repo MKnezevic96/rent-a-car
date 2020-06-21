@@ -1,6 +1,5 @@
 package com.admin_service.service;
 
-
 import com.admin_service.model.TransmissionType;
 import com.admin_service.repository.TransmissionTypeRepository;
 import com.admin_service.service.interfaces.TransmissionTypeServiceInterface;
@@ -29,5 +28,4 @@ public class TransmissionTypeService implements TransmissionTypeServiceInterface
     public List<TransmissionType> findAll() {
         return transmissionTypeRepository.findAll();
     }
-
 }

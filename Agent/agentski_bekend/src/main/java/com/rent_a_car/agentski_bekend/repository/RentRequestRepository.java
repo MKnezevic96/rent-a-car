@@ -6,4 +6,6 @@ import java.util.Optional;
 
 public interface RentRequestRepository extends JpaRepository<RentRequest, Integer> {
     Optional<RentRequest> findById (Integer id);
+
+
 }

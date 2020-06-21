@@ -35,4 +35,8 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
+
+    public get loggedIn(): boolean{    // checks if user is logged in 
+        return localStorage.getItem('access_token') !==  null;
+      }
 }

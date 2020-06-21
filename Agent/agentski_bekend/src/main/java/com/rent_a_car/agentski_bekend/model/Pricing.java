@@ -133,12 +133,11 @@ public class Pricing {
         this.deleted = deleted;
     }
 
-    public User getOwningUser() {
+    public User getOwner() {
         return owningUser;
     }
 
-    public void setOwningUser(User owningUser) {
+    public void setOwner(User owningUser) {
         this.owningUser = owningUser;
     }
-
 }

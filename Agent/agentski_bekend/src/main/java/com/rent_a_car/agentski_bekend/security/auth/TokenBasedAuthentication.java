@@ -15,7 +15,7 @@ public class TokenBasedAuthentication extends AbstractAuthenticationToken {
         this.principle = principle;
     }
 
-    public void setToken(String authToken) {
+    public void setToken(String token) {
         this.token = token;
     }
 

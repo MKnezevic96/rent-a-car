@@ -10,52 +10,37 @@
 
     <div class="d-flex" id="wrapper">
 
-        <!-- Sidebar -->
+        <!-- Sidebar
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading"> Menu </div>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">All advertisements</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Add advertisement</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Search</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">New renting report</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Sent requests history</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Vehicle tracking</a>
+                <a class="list-group-item list-group-item-action bg-light">All advertisements</a>
+                <a class="list-group-item list-group-item-action bg-light">Add advertisement</a>
+                <a class="list-group-item list-group-item-action bg-light">Search</a>
+                <a class="list-group-item list-group-item-action bg-light" (click)="showCreateReportForm()">New renting report</a>
+                <a class="list-group-item list-group-item-action bg-light">Sent requests history</a>
+                <a class="list-group-item list-group-item-action bg-light">Vehicle tracking</a>
             </div>
-        </div>
+        </div> -->
 
         <!-- /#sidebar-wrapper -->
         <div id="page-content-wrapper">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="advertisement">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <button class="btn btn-primary" style="margin-top: 0 !important;">Log out</button>
-            </nav>
+                                                                                                                                                                    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                                                                                                                                                        <div class="collapse navbar-collapse" id="navbarNav">
+                                                                                                                                                                            <ul class="navbar-nav">
+                                                                                                                                                                                <li class="nav-item active">
+                                                                                                                                                                                    <a class="nav-link" href="advertisement">Home <span class="sr-only">(current)</span></a>
+                                                                                                                                                                                </li>
+                                                                                                                                                                            </ul>
+                                                                                                                                                                        </div>
+                                                                                                                                                                        <button class="btn btn-primary" style="margin-top: 0 !important;">Log out</button>
+                                                                                                                                                                    </nav> -->
 
             <div class="container fluid">
-                <!-- <div id="formContent"> -->
-                <!-- Tabs Titles -->
-                <!-- Icon -->
-
-                <!-- <div class="md-form">
-            <select ng-model="selectedModel" ng-options="x for x in names">
-            </select>
-        </div> -->
-                <!-- <div class="md-form">
-            <select formControlName="orders" id="orders" [(ngModel)]="fuelTyp">
-                <option *ngFor="let x of fuelType let i = index">
-                  {{x[i].name}}
-            </option>
-            </select>
-        </div>  -->
+               
 
                 <p></p>
-                <form>
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label>Car model</label>
@@ -72,11 +57,13 @@
 
                         </div>
                     </div>
+
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label>Milage</label>
                             <input type="number" id="milage" class="form-control" name="milage" [(ngModel)]="milage">
                         </div>
+
                         <div class="col-md-4 mb-3">
                             <label>Fuel type</label>
                             <select [(ngModel)]="ft" class="form-control">
@@ -86,68 +73,36 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="col-md-8 mb-3">
-                            <label>Name pricing</label>
-                            <input type="text" id="namee" class="form-control" name="name" [(ngModel)]="namePricing">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label>Distance limit</label>
-                            <input type="number" id="distancelimit" class="form-control" name="distancelimit"
-                                [(ngModel)]="distancelimit">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label>Regular price</label>
-                            <input type="number" id="regularprice" class="form-control" name="regularprice"
-                                [(ngModel)]="regularprice">
-                        </div>
-                    </div>
 
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <label>Overuse price</label>
-                            <input type="number" id="overuseprice" class="form-control" name="overuseprice"
-                                [(ngModel)]="overuseprice">
+                            <label>Pricing</label>
+                            <select [(ngModel)]="pr" class="form-control">
+                                <option [ngValue]="pr" *ngFor="let pr of pricings" (click)="selectedPricing(pr)">
+                                    {{pr.name}}
+                                </option>
+                            </select>
                         </div>
+                    
+
+                    
                         <div class="col-md-4 mb-3">
-                            <label>Collision damage</label>
-                            <input type="number" id="collisiondamage" class="form-control" name="collisiondamage"
-                                [(ngModel)]="collisiondamage">
+                            <label>Town</label>
+                            <input type="text" id="town" class="form-control" name="town" [(ngModel)]="town">
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label>Discount percentage</label>
-                            <input type="number" id="discountperc" class="form-control" name="discountperc"
-                                [(ngModel)]="discountperc">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label>Discount days</label>
-                            <input type="number" id="discountdays" class="form-control" name="discountdays"
-                                [(ngModel)]="discountdays">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label>Start date</label>
-                            <input type="date" [(ngModel)]="selectedStartDate" class="form-control"
-                                (ngModelChange)="selectStartDate()">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label>End date</label>
-                            <input type="date" [(ngModel)]="selectedEndDate" class="form-control"
-                                (ngModelChange)="selectEndDate()">
-                        </div>
-                    </div>
                     <div class="form-row">
                         <label> </label>
                         <button class="btn btn-primary btn-lg"
                             (click)="onSubmit()">Create an advertisement</button>
                     </div>
-                </form>
+               
+                    <div>                
+                            <button class="btn btn-primary btn-lg"
+                            (click)="onPricing()">Create pricing</button>
+                    </div>
+
 
 
             </div>

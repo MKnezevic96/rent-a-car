@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 import java.util.Date;
@@ -41,15 +42,15 @@ public class RentRequest implements Serializable {
     private Cars carId;
 
     @NotNull
-    @Column(name="startDate", nullable = false, unique = true)
+    @Column(name="startDate")
     private Date startDate;
 
     @NotNull
-    @Column(name="endDate", nullable = false, unique = true)
+    @Column(name="endDate")
     private Date endDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="status", nullable = false, unique = true)
+    @Column(name="status")
     private RequestStatus status;
 
     @Column (name="request_group_id")
@@ -59,7 +60,10 @@ public class RentRequest implements Serializable {
     private boolean deleted=false;
 
     @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="renting_report_id", referencedColumnName = "renting_report_id")
     private RentingReport rentingReport;
+
+
 
     public RentRequest() {
     }

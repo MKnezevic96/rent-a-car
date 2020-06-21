@@ -16,17 +16,29 @@ import { ManufacturesComponent } from './components/manufactures/manufactures.co
 import { FuelTypesComponent } from './components/fuel-types/fuel-types.component';
 import { CarClassesComponent } from './components/car-classes/car-classes.component';
 import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
+import { RentingReportComponent } from './components/renting-report/renting-report.component';
+import { IndexComponent } from './components/index/index.component';
+import { AdvertisementListComponent } from './components/advertisement-list/advertisement-list.component';
+import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
+import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
+import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
+import { RentingMenagementComponent } from './components/renting-menagement/renting-menagement.component';
+import { RentPaymentComponent } from './components/rent-payment/rent-payment.component';
+import { RentingApproveComponent } from './components/renting-approve/renting-approve.component';
+import { MyCarsComponent } from './components/my-cars/my-cars.component';
+import { MessagesComponent } from './components/messages/messages.component';
+
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
     { path: 'home', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
-    { 
-      path: 'adminPage', 
+    {
+      path: 'adminPage',
       component: AdminPageComponent,
       children: [
-        { path: 'codebookMenagement', 
+        { path: 'codebookMenagement',
           component: CodebookMenagementComponent,
           children: [
             {path: 'carModels', component: CarModelsComponent},
@@ -34,7 +46,7 @@ const routes: Routes = [
             {path: 'manufactures', component: ManufacturesComponent },
             {path: 'fuelTypes', component: FuelTypesComponent },
             {path: 'transmissionTypes', component: TransmissionTypesComponent}
-          ]  
+          ]
         },
         { path: 'userMenagement',
           component: UserMenagementComponent,
@@ -43,12 +55,48 @@ const routes: Routes = [
             {path: 'users', component: UsersListComponent},
             {path: 'requests', component: RegistrationRequestsComponent}
           ]
-        }
+        },
+        { path: 'commentsMenagement',
+          component: CommentMenagementComponent,
+          children: [
+            {path: 'pendingComments', component: PendingCommentsComponent},
+          ]
+        },
+        {
+          path: 'rentingMenagement',
+          component: RentingMenagementComponent,
+          children: [
+            { path: 'rentPayment', component: RentPaymentComponent},
+            // { path: 'advertisement',
+            //   component: AdvertisementComponent,
+            //   children: [
+            //     { path: 'pricing', component: PricingPageComponent},
+            //   ]
+            // },
+            { path: 'rentRequest', component: RentRequestComponent},
+            { path: 'advertisement', component: AdvertisementComponent},
+            { path: 'pricing', component: PricingPageComponent},
+            { path: 'rentingApprove', component: RentingApproveComponent},
+            { path: 'myCars', component: MyCarsComponent}
+          ]
+        },
+      ]
+    },
+
+    { path: 'rentRequest', component: RentRequestComponent},
+    { path: 'index',
+      component: IndexComponent,
+      children: [
+        { path: 'advertisement', component: AdvertisementComponent},
+        { path: 'rentingReport', component: RentingReportComponent},
+        { path: 'advertisements', component: AdvertisementListComponent},
+        { path: 'messages', component: MessagesComponent},
       ]
     },
     { path: 'advertisement', component: AdvertisementComponent},
     { path: 'rentRequest', component: RentRequestComponent},
-    
+    { path: 'pricing', component: PricingPageComponent},
+    { path: 'rentingApprove', component: RentingApproveComponent},
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 

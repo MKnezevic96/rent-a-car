@@ -9,10 +9,18 @@ public class CarDTO {
     private String carModel;
     private double milage;
     private String name;
-    private Date startDate;
-    private Date endDate;
+    private String town;
+
 
     public CarDTO() {
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
     }
 
     public String getPricing() {
@@ -55,19 +63,5 @@ public class CarDTO {
         this.name = name;
     }
 
-    public Date getStartDate() {
-        return startDate;
-    }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
 }

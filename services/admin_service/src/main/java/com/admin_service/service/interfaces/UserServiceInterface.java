@@ -5,6 +5,7 @@ import com.admin_service.model.User;
 import java.util.List;
 import java.util.Optional;
 
+
 public interface UserServiceInterface {
 
     public Optional<User> findById(Integer id);
@@ -14,5 +15,4 @@ public interface UserServiceInterface {
     public List<User> findAll();
 
     public void delete(User user);
-
 }

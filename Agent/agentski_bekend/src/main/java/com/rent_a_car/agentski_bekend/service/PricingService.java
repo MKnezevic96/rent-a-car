@@ -14,20 +14,20 @@ import java.util.List;
 public class PricingService implements PricingServicecInterface {
 
     @Autowired
-    private PricingRepository carModelsRepository;
+    private PricingRepository pricingRepository;
 
     @Override
     public Pricing findByName(String name) {
-        return carModelsRepository.findByName(name);
+        return pricingRepository.findByName(name);
     }
 
     @Override
-    public Pricing save(Pricing carModels) {
-        return carModelsRepository.save(carModels);
+    public Pricing save(Pricing pricing) {
+        return pricingRepository.save(pricing);
     }
 
     @Override
     public List<Pricing> findAll() {
-        return carModelsRepository.findAll();
+        return pricingRepository.findAll();
     }
 }

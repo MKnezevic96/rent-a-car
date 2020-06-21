@@ -14,7 +14,8 @@
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.email }}</td>
                 <td><button class="btn btn-primary "(click)="blockAcc(user.email)">Block</button></td>
-            </tr>
+                <td><button class="btn btn-primary "(click)="deleteAcc(user.email)">Delete</button></td>
+              </tr>
             </tbody>
           </table>
     </ng-container>

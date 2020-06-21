@@ -15,25 +15,27 @@ services:
       - "127.0.0.1:8282:8282"
      environment:
        DATABASE_USERNAME: 'root'
-       DATABASE_PASSWORD: 'password'
+       DATABASE_PASSWORD: 'admin'
        DATABASE_DOMAIN: 'agentska-baza'
        DATABASE_PORT: "3306"
      depends_on:
        - agentska-baza
+     volumes:
+       - ./logs:/logs
 
 
-  agentski-frontend:
-     image: agentski-frontend
-     build:
-       context: ./agentski-frontend
-       dockerfile: Dockerfile
-     tty: true
-     ports:
-       - "4200:80"
-     networks:
-       - second-network
-     depends_on:
-       - agentski-bekend
+#  agentski-frontend:
+#     image: agentski-frontend
+#     build:
+#       context: ./agentski-frontend
+#       dockerfile: Dockerfile
+#     tty: true
+#     ports:
+#       - "4200:80"
+#     networks:
+#       - second-network
+#     depends_on:
+#       - agentski-bekend
 
 
   agentska-baza:
@@ -46,7 +48,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 'admin'
       MYSQL_DATABASE: 'agentska-baza'
-      MYSQL_USER: 'sa'
+      MYSQL_USER: 'root'
       MYSQL_PASSWORD: 'admin'
     image: mysql:8
     volumes:

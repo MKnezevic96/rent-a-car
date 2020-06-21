@@ -13,8 +13,10 @@ export class RentRequestComponent implements OnInit {
   car:Car;
   selectedStartDate:Date;
   selectedEndDate: Date;
+  id:number;
   rentrequest: RentRequest;
-  constructor( 
+  availableCars:boolean = false;
+  constructor(
     private advertisementService: AdvertisementService,
     ) { }
     selectedCar(name:Car){
@@ -33,11 +35,28 @@ export class RentRequestComponent implements OnInit {
     });
   }
   onSubmit() {
-    this.rentrequest={carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: false, deleted: false };
+    //this.rentrequest={carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: false, deleted: false, id:this.id };
+    this.rentrequest={id:1, carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false };
     this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
     .subscribe(
         data => {
             console.log('Making rent request successful');
         })
+  }
+  naKlik(carName:string) {
+    this.rentrequest={carName:carName, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false, id:this.id };
+    this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
+    .subscribe(
+        data => {
+            console.log('Making rent request successful');
+        })
+  }
+
+  getAvailableCars(){
+    this.availableCars = !this.availableCars;
+    this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate).subscribe(data =>{
+      this.cars = data;
+      console.log(data);
+    });
   }
 }

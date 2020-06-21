@@ -63,12 +63,12 @@ public class User implements Serializable, UserDetails {
     @XmlElement(required=true)
     private String email;
 
-    @Size(min = 5, max = 15)
+    //@Size(min = 5)
     @Column(name="password", nullable = false)
     @XmlElement(required=true)
     private String password;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(
@@ -93,6 +93,9 @@ public class User implements Serializable, UserDetails {
     @Column (name="deleted", nullable=false)
     @XmlElement(required=true)
     private boolean deleted = false;
+
+    @Column (name="blocked", nullable=false)
+    private boolean blocked = false;
 
     @OneToOne (fetch=FetchType.LAZY)
     @XmlElement
@@ -122,7 +125,19 @@ public class User implements Serializable, UserDetails {
     @XmlElement
     private List<Pricing> pricings = new ArrayList<Pricing> ();
 
+    @OneToMany(mappedBy="owningUser", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @XmlElement
+    private List<RentRequest> rentRequests = new ArrayList<RentRequest> ();
+
     public User() {
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 
     public List<Reciept> getRecieptsIMade() {
@@ -204,6 +219,14 @@ public class User implements Serializable, UserDetails {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<RentRequest> getRentRequests() {
+        return rentRequests;
+    }
+
+    public void setRentRequests(List<RentRequest> rentRequests) {
+        this.rentRequests = rentRequests;
     }
 
     public String getEmail() {

@@ -1,4 +1,4 @@
-package com.admin_service.model.enums;
+package com.rent_a_car.agentski_bekend.model.enums;
 
 public enum RequestStatus {
 

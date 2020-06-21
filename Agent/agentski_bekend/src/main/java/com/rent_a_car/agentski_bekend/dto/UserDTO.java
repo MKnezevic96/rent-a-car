@@ -1,22 +1,61 @@
 package com.rent_a_car.agentski_bekend.dto;
 
+import com.rent_a_car.agentski_bekend.model.User;
+
 public class UserDTO {
     private String firstname;
     private String lastname;
     private String email;
     private String password;
     private String isSelected;
+    private String name;
+    private String adress;
+    private String number;
 
     public UserDTO() {
     }
 
-    public UserDTO(String firstname, String lastname, String email, String password, String isSelected) {
+    public UserDTO(String firstname, String lastname, String email, String password, String isSelected, String name, String adress, String number) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
         this.isSelected = isSelected;
+        this.name = name;
+        this.adress = adress;
+        this.number = number;
 
+    }
+
+    public UserDTO(User user){
+        this.firstname = user.getFirstname();
+        this.lastname = user.getLastname();
+        this.email = user.getEmail();
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getFirstname() {

@@ -1,5 +1,4 @@
-//import { User } from './User';
-//import { Company } from './Company';
+import { User } from './User';
     export class Pricing {
         distanceLimit: number;
         regularPrice: number;
@@ -8,7 +7,6 @@
         discountDays: number;
         discountPercent: number;
         name: string;
-        //owner: User;
-        //company: Company;
+        owner: string;
         deleted: boolean;
     }

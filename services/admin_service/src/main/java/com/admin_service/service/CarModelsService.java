@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 public class CarModelsService implements CarModelsServiceInterface {
 
-
     @Autowired
     private CarModelsRepository carModelsRepository;
 
@@ -29,5 +28,4 @@ public class CarModelsService implements CarModelsServiceInterface {
     public List<CarModels> findAll() {
         return carModelsRepository.findAll();
     }
-
 }

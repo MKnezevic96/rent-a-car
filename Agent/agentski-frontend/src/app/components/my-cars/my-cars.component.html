@@ -1,0 +1,25 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <table class="table table-borderless">
+            <thead>
+              <tr>           
+                <th>Car name</th>
+                <th>Town</th>
+                <th>Model</th>
+                <th>Fuel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of cars">           
+                <td>{{ user.carName }}</td>
+                <td>{{ user.town }}</td>
+                <td>{{ user.model }}</td>
+                <td>{{ user.fuel }}</td>
+                <!-- <td><button class="btn btn-primary "(click)="seeReview(user.carName)">See reviews</button></td> -->
+              </tr>
+            </tbody>
+        </table>
+        <div id="formFooter">
+        </div>
+    </div>
+</div>

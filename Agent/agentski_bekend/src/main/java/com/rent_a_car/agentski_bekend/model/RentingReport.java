@@ -43,6 +43,9 @@ public class RentingReport {
     @XmlElement(required=true)
     private boolean deleted;
 
+
+
+
     public RentingReport() {
         deleted = false;
     }

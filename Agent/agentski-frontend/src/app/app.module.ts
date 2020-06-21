@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import {FormsModule} from '@angular/forms';
 // import { MaterialModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
-//import { JwtModule } from '@auth0/angular-jwt'
-//import { HttpModule } from '@angular/http'
+//import { JwtModule } from '@auth0/angular-jwt';
+//import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule, RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,13 +32,26 @@ import { CarClassesComponent } from './components/car-classes/car-classes.compon
 import { ManufacturesComponent } from './components/manufactures/manufactures.component';
 import { FuelTypesComponent } from './components/fuel-types/fuel-types.component';
 import { TransmissionTypesComponent } from './components/transmission-types/transmission-types.component';
+import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
+import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
+import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
+import { RentingApproveComponent } from './components/renting-approve/renting-approve.component';
+
+import { RentingReportComponent } from './components/renting-report/renting-report.component';
+import { IndexComponent } from './components/index/index.component';
+import { AdvertisementListComponent } from './components/advertisement-list/advertisement-list.component';
+import { RentingMenagementComponent } from './components/renting-menagement/renting-menagement.component';
+import { RentPaymentComponent } from './components/rent-payment/rent-payment.component';
+import { MyCarsComponent } from './components/my-cars/my-cars.component';
+import { MessagesComponent } from './components/messages/messages.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent, 
+    LoginComponent,
     RegisterComponent,
-    AlertComponent, 
+    AlertComponent,
     HomeComponent,
     AdminPageComponent,
     AdvertisementComponent,
@@ -54,34 +67,36 @@ import { TransmissionTypesComponent } from './components/transmission-types/tran
     ManufacturesComponent,
     FuelTypesComponent,
     TransmissionTypesComponent,
+    RentingReportComponent,
+    IndexComponent,
+    AdvertisementListComponent,
+    CommentMenagementComponent,
+    PendingCommentsComponent,
+    PricingPageComponent,
+    RentingApproveComponent,
+    RentingMenagementComponent,
+    RentPaymentComponent,
+    MyCarsComponent,
+    MessagesComponent,
    // AuthGuard
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
-    // HttpModule,
-    // JwtModule.forRoot({
-    //   config: {
-    //     authScheme: 'Bearer',
-    //     headerName: 'Authorization',
-    //     tokenGetter: () => {
-    //       return localStorage.getItem('access_token');
-    //     },
-    //   }
-    // }),
-    // MaterialModule,            // <----- this module will be deprecated in the future version.
-    // MatDatepickerModule,        // <----- import(must)
-    // MatNativeDateModule,        // <----- import for date formating(optional)
-    //MatMomentDateModule   
-    
+    ModalModule.forRoot(),
+
+    //MatMomentDateModule
+
   ],
-  providers: [],
+  providers: [
+
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {  }
