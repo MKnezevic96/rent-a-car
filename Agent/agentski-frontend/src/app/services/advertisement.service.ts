@@ -15,6 +15,7 @@ const httpOptions = {
 }
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { UserService } from '../security/user.service';
+import { Review } from '../models/Review';
 
 //let token = this.localStorage.getItem("user");//this.msal.accessToken;
 
@@ -34,6 +35,7 @@ export class AdvertisementService {
   getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/'
   addCarReviewUrl:string='http://localhost:8282/api/renting/review'
   checkUrl:string= 'http://localhost:8282/api/renting/requests/'
+  getCarReviewsUrl:string = 'http://localhost:8282/api/renting/reviews/cars/'
 
   responseStatus: number;
 
@@ -79,6 +81,10 @@ export class AdvertisementService {
     return this.http.get<Car[]>(this.url3);
   }
 
+  getCarReviews(id:number):Observable<Review[]>{
+    return this.http.get<Review[]>(this.getCarReviewsUrl+id);
+  }
+
   getPricing() {
     console.log('get.. pricing');
 
@@ -94,7 +100,7 @@ export class AdvertisementService {
   }
 
   addCarReview( carId:number, rating:number, review:string):Observable<CarReview>{
-    this.carReview={reviewerId:null, carId:carId, rating:rating, approved:null, deleted:false, review:review};
+    this.carReview={reviewerId:null, carId:carId, rating:rating, approved:null, deleted:false, review:review, userEmail:null};
 
     let token = localStorage.getItem('accessToken');
     var httpOptions  = {

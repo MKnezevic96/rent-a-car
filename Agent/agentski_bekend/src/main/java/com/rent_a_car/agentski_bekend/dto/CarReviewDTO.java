@@ -1,22 +1,25 @@
 package com.rent_a_car.agentski_bekend.dto;
 
 
+import com.rent_a_car.agentski_bekend.model.CarReview;
+
 import java.util.Date;
 
 public class CarReviewDTO {
 
     private Integer id;
-    private String reviewerId;
+    private Integer reviewerId;
     private Integer carId;
     private Integer rating;
     private String review;
     private Date approvedDate;
     private boolean deleted;
     private boolean approved;
+    private String userEmail;
 
     public CarReviewDTO () {}
 
-    public CarReviewDTO(Integer id, String reviewer, Integer car, Integer rating, String review, Date approvedDate, boolean deleted, boolean approved) {
+    public CarReviewDTO(Integer id, Integer reviewer, Integer car, Integer rating, String review, Date approvedDate, boolean deleted, boolean approved) {
         this.id = id;
         this.reviewerId = reviewer;
         this.carId = car;
@@ -25,6 +28,18 @@ public class CarReviewDTO {
         this.approvedDate = approvedDate;
         this.deleted = deleted;
         this.approved = approved;
+    }
+
+    public CarReviewDTO(CarReview carReview) {
+        this.id = carReview.getId();
+        this.reviewerId = carReview.getReviewer().getId();
+        this.carId = carReview.getCar().getId();
+        this.rating = carReview.getRating();
+        this.review = carReview.getReview();
+        this.approvedDate = carReview.getApprovedDate();
+        this.deleted = carReview.isDeleted();
+        this.approved = carReview.isApproved();
+        this.userEmail = carReview.getReviewer().getEmail();
     }
 
 
@@ -36,11 +51,11 @@ public class CarReviewDTO {
         this.id = id;
     }
 
-    public String getReviewerId() {
+    public Integer getReviewerId() {
         return reviewerId;
     }
 
-    public void setReviewerId(String reviewer) {
+    public void setReviewerId(Integer reviewer) {
         this.reviewerId = reviewer;
     }
 

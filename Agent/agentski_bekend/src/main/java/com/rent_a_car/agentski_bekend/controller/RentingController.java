@@ -162,6 +162,7 @@ public class RentingController {
         try{
             CarReview review = new CarReview();
             review.setDeleted(false);
+            review.setApproved(false);
             review.setRating(dto.getRating());
             review.setReview(dto.getReview());
             Cars car = carsService.getCar(dto.getCarId());
@@ -173,7 +174,8 @@ public class RentingController {
             List<RentRequest> usersRequests = userService.findUsersRentRequests(user.getEmail());
 
             for(RentRequest rr : usersRequests){
-                if(rr.getCarId().equals(dto.getCarId()) && rr.getStatus().equals("returned")){
+                System.out.println(rr.getCarId().getId() +" " + dto.getCarId() + " " + rr.getStatus()+"----------------------------------------");
+                if(rr.getCarId().getId() == dto.getCarId() && rr.getStatus().equals(RequestStatus.RETURNED)){
                     carReviewService.save(review);
                     LOGGER.info("User email: {} posted a review for car id:{} successfully", p.getName(), dto.getCarId());
                     return ResponseEntity.status(200).build();
@@ -188,6 +190,22 @@ public class RentingController {
         }
         return ResponseEntity.status(400).build();
     }
+
+
+    @GetMapping(value = "reviews/cars/{id}")
+    public ResponseEntity<List<CarReviewDTO>> getAllCarReviews (@PathVariable("id") Integer carId) {
+        List<CarReviewDTO> retVal = new ArrayList<CarReviewDTO>();
+        Cars car = carsService.getCar(carId);
+
+        for(CarReview cr : car.getReviews()){
+            if(cr.isApproved())
+                retVal.add(new CarReviewDTO(cr));
+        }
+
+        LOGGER.info("Action get all car reviews for car id: {} successful ", carId);
+        return new ResponseEntity<List<CarReviewDTO>>(retVal, HttpStatus.OK);
+    }
+
 
 //
 //    public void approveRentRequest() {

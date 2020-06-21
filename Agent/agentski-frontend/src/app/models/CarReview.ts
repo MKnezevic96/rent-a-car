@@ -5,4 +5,5 @@ export class CarReview{
     review:string;
     approved:Date;
     deleted:boolean;
+    userEmail:string;
 }

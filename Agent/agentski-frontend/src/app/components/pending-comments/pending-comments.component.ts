@@ -24,7 +24,7 @@ import { Review } from 'src/app/models/Review';
                 </thead>
                 <tbody>
                   <tr *ngFor="let com of pendingComments">           
-                    <td>{{ com.reviewer }}</td>
+                    <td>{{ com.reviewerId }}</td>
                     <td>{{ com.rating }}</td>
                     <td>{{ com.review }}</td>
                     <td><button class="btn btn-primary" (click)="approveReview(com.id)">Approve</button></td>

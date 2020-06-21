@@ -5,6 +5,7 @@ import { Car } from 'src/app/models/Car';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarDetails } from 'src/app/models/CarDetails';
 import { first } from 'rxjs/operators';
+import { Review } from 'src/app/models/Review';
 
 @Component({
   selector: 'app-advertisement-list',
@@ -58,7 +59,7 @@ import { first } from 'rxjs/operators';
 <div class="card-header" id="addNew"> Add review </div>
 <div class="card-body">
 
-    <div id="addComment">
+    <div id="addReview">
         <label>Rate this car: </label>
         <input class="form-control form-control-sm" type="number" min="1" max="5" id="rating" name="rating" [(ngModel)]="rating"><p></p>
         <label>Leave your comment: </label>
@@ -66,6 +67,24 @@ import { first } from 'rxjs/operators';
       <button class="btn btn-primary" (click)="addComment()">Submit</button>
     </div>
     </div>
+
+    <table class="table">
+       <thead>
+         <tr>
+         <th> User id </th>
+         <th> Rating </th>
+         <th> Review </th>           
+           
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let review of reviews">           
+           <td> {{ review.reviewerId }}</td>
+           <td> {{ review.rating }}</td>
+           <td> {{ review.review }}</td>
+       </tr>
+       </tbody>
+     </table>
 
 
 </div>
@@ -80,6 +99,7 @@ export class AdvertisementListComponent implements OnInit {
 
 
   cars:Car[];
+  reviews:Review[];
   ads:boolean = true;
   details:boolean = false;
   
@@ -139,8 +159,13 @@ export class AdvertisementListComponent implements OnInit {
       this.carName=this.myData.carName;
       this.collisionDamage=this.myData.collisionDamage;
 
-
     });
+
+
+    this.advertisementService.getCarReviews(car.id).subscribe(data => {
+        this.reviews = data;
+        console.log(data)
+    })
   }
 
   addComment(){
