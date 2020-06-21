@@ -26,6 +26,8 @@ import { RentingMenagementComponent } from './components/renting-menagement/rent
 import { RentPaymentComponent } from './components/rent-payment/rent-payment.component';
 import { RentingApproveComponent } from './components/renting-approve/renting-approve.component';
 import { MyCarsComponent } from './components/my-cars/my-cars.component';
+import { MessagesComponent } from './components/messages/messages.component';
+
 
 
 const routes: Routes = [
@@ -60,7 +62,7 @@ const routes: Routes = [
             {path: 'pendingComments', component: PendingCommentsComponent},
           ]
         },
-        { 
+        {
           path: 'rentingMenagement',
           component: RentingMenagementComponent,
           children: [
@@ -88,7 +90,7 @@ const routes: Routes = [
         { path: 'advertisement', component: AdvertisementComponent},
         { path: 'rentingReport', component: RentingReportComponent},
         { path: 'advertisements', component: AdvertisementListComponent},
-
+        { path: 'messages', component: MessagesComponent},
       ]
     },
     { path: 'advertisement', component: AdvertisementComponent},

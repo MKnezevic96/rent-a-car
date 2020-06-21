@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Pricing } from '../models/Pricing';
-import { Observable } from 'rxjs';
+import { Observable, observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Car } from '../models/Car';
 import { RentRequest } from '../models/RentRequest';
 import { CarDetails } from '../models/CarDetails';
 import { CarReview } from '../models/CarReview';
 import { UserService } from '../security/user.service';
+import { map } from 'rxjs/operators';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
     'mode': 'cors'
   })
 }
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { UserService } from '../security/user.service';
+import { Review } from '../models/Review';
 
 //let token = this.localStorage.getItem("user");//this.msal.accessToken;
 
@@ -33,14 +37,23 @@ export class AdvertisementService {
   // d2:Date;
   url1:string = 'http://localhost:8282/pricing';
   url2:string = 'http://localhost:8282/addCar';
+  url3:string = 'http://localhost:8282/api/renting/cars'
+  url4:string = 'http://localhost:8282/rentCar'
+  getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/'
+  addCarReviewUrl:string='http://localhost:8282/api/renting/review'
+  checkUrl:string= 'http://localhost:8282/api/renting/requests/'
+  getCarReviewsUrl:string = 'http://localhost:8282/api/renting/reviews/cars/'
   url3:string = 'http://localhost:8282/api/renting/cars';
   url33:string = 'http://localhost:8282/api/renting/mycars';
 
+  responseStatus: number;
   url4:string = 'http://localhost:8282/api/renting/rentCar';
   url5:string = 'http://localhost:8282/api/renting/payRequests';
   getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/';
   addCarReviewUrl:string='http://localhost:8282/api/renting/review';
 
+
+//  private decoder: JwtHelperService;
   // url3:string = 'http://localhost:8282/getCars';
   // url4:string = 'http://localhost:8282/api/renting/rentCar';
   url55:string = 'http://localhost:8282/api/renting/rentRequests';
@@ -87,6 +100,8 @@ export class AdvertisementService {
 
   addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string):Observable<Car>{
     this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null, id:0 };
+  addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string):Observable<Car>{
+    this.car={id:null, pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, user:null };
     return this.http.post<Car>(this.url2, this.car, this.httpOptions);
   }
 
@@ -104,15 +119,19 @@ export class AdvertisementService {
   }
 
   getMyCars():Observable<Car[]>{
-    let token = localStorage.getItem('accessToken');   
+    let token = localStorage.getItem('accessToken');
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'mode': 'cors',
-        'Authorization': 'Bearer ' + token, 
+        'Authorization': 'Bearer ' + token,
       })
     }
     return this.http.get<Car[]>(this.url33, httpOptions);
+  }
+
+  getCarReviews(id:number):Observable<Review[]>{
+    return this.http.get<Review[]>(this.getCarReviewsUrl+id);
   }
 
   getPricing() {
@@ -180,8 +199,22 @@ export class AdvertisementService {
   }
 
   addCarReview( carId:number, rating:number, review:string):Observable<CarReview>{
-    this.carReview={id:null, reviewerId:null, carId:carId, rating:rating, approved:null, deleted:false, review:review};
+    this.carReview={reviewerId:null, carId:carId, rating:rating, approved:null, deleted:false, review:review, userEmail:null};
+
+    let token = localStorage.getItem('accessToken');
+    var httpOptions  = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+      })
+    }
+
+    console.log(this.carReview);
     return this.http.post<CarReview>(this.addCarReviewUrl, this.carReview, httpOptions);
+
+    };
 
   }
 
@@ -206,10 +239,10 @@ export class AdvertisementService {
         'Authorization': 'Bearer ' + token,
       })
     }
-    this.d1 = startDate.toString(); 
+    this.d1 = startDate.toString();
     this.d2 = endDate.toString();
 
-    // this.d1 = startDate; 
+    // this.d1 = startDate;
     // this.d2 = endDate;
 
     return this.http.get<Car[]>(this.url8+this.d1+'/'+this.d2, httpOptions);

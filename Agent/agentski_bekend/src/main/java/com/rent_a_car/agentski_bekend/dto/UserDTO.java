@@ -1,5 +1,7 @@
 package com.rent_a_car.agentski_bekend.dto;
 
+import com.rent_a_car.agentski_bekend.model.User;
+
 public class UserDTO {
     private String firstname;
     private String lastname;
@@ -24,6 +26,13 @@ public class UserDTO {
         this.number = number;
 
     }
+
+    public UserDTO(User user){
+        this.firstname = user.getFirstname();
+        this.lastname = user.getLastname();
+        this.email = user.getEmail();
+    }
+
 
     public String getName() {
         return name;

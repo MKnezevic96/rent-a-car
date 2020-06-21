@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="851a59de-86ea-4e19-abe2-e45a3afd678a" name="Default Changelist" comment="Car details page">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_slf4j_impl_2_12_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_log4j2_2_2_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/log4j2.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/logs/agent.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_jul_2_12_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_test_jar_tests_2_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_12_1.xml" afterDir="false" />
+    <list default="true" id="851a59de-86ea-4e19-abe2-e45a3afd678a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/entrypoint.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/log4j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/AgentskiBekendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/AgentskiBekendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement-list/advertisement-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement-list/advertisement-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/pending-comments/pending-comments.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/pending-comments/pending-comments.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/CarReview.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/CarReview.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/Review.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/Review.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/advertisement.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/advertisement.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/log4j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/log4j2.xsd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/CarReviewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/CarReviewDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/logs/agent.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,15 +21,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="car_details_page" />
+        <entry key="$PROJECT_DIR$" value="najnovije" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -133,7 +127,28 @@
       <option name="project" value="LOCAL" />
       <updated>1592252291010</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Logging - agent">
+      <created>1592414873495</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1592414873495</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fixes">
+      <created>1592514710708</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1592514710708</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Sending messages to another users">
+      <created>1592743917177</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592743917179</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -142,57 +157,80 @@
     <MESSAGE value="Create renting report" />
     <MESSAGE value="Create renting report for paid renting requests" />
     <MESSAGE value="Car details page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Car details page" />
+    <MESSAGE value="Logging - agent" />
+    <MESSAGE value="fixes" />
+    <MESSAGE value="Sending messages to another users" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sending messages to another users" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser" timestamp="1592098970969">
+    <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser" timestamp="1592652392948">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1592098970969" />
+    <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1592652392948" />
     <state x="677" y="400" width="631" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591749368004">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="677" y="400" width="631" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/65.24.1855.1056@65.24.1855.1056" timestamp="1591749368004" />
-    <state x="102" y="83" width="813" height="910" key="CommitChangelistDialog2" timestamp="1592414710190">
+    <state x="102" y="83" width="813" height="910" key="CommitChangelistDialog2" timestamp="1592743914764">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="102" y="83" width="813" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1592414710190" />
-    <state x="250" y="102" key="DiffContextDialog" timestamp="1591284115335">
+    <state x="102" y="83" width="813" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1592743914764" />
+    <state x="250" y="102" key="DiffContextDialog" timestamp="1592416928183">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="250" y="102" key="DiffContextDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1591284115335" />
+    <state x="250" y="102" key="DiffContextDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592416928183" />
     <state x="500" y="141" key="FileChooserDialogImpl" timestamp="1588700165152">
       <screen x="65" y="24" width="1295" height="744" />
     </state>
     <state x="500" y="141" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1588700165152" />
-    <state width="1809" height="386" key="GridCell.Tab.0.bottom" timestamp="1592413880115">
+    <state width="1795" height="181" key="GridCell.Tab.0.bottom" timestamp="1592753983583">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1809" height="386" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1592413880115" />
-    <state width="1809" height="386" key="GridCell.Tab.0.center" timestamp="1592413880114">
+    <state width="1795" height="181" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1592753983583" />
+    <state width="1795" height="181" key="GridCell.Tab.0.center" timestamp="1592753983581">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1809" height="386" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1592413880114" />
-    <state width="1809" height="386" key="GridCell.Tab.0.left" timestamp="1592413880114">
+    <state width="1795" height="181" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1592753983581" />
+    <state width="1795" height="181" key="GridCell.Tab.0.left" timestamp="1592753983581">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1809" height="386" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1592413880114" />
-    <state width="1809" height="386" key="GridCell.Tab.0.right" timestamp="1592413880115">
+    <state width="1795" height="181" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1592753983581" />
+    <state width="1795" height="181" key="GridCell.Tab.0.right" timestamp="1592753983582">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="1809" height="386" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1592413880115" />
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1592252310339">
+    <state width="1795" height="181" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1592753983582" />
+    <state x="65" y="24" width="1855" height="1056" key="MergeDialog" timestamp="1592515272232">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1592252310339" />
-    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog" timestamp="1592135561473">
+    <state x="65" y="24" width="1855" height="1056" key="MergeDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592515272232" />
+    <state x="702" y="257" key="MultipleFileMergeDialog" timestamp="1592515272246">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592135561473" />
-    <state x="655" y="246" key="run.anything.popup" timestamp="1592329653750">
+    <state x="702" y="257" key="MultipleFileMergeDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592515272246" />
+    <state x="692" y="300" key="Vcs.Multiple.Commit.Info.Dialog.Key" timestamp="1592419444665">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="655" y="246" key="run.anything.popup/65.24.1855.1056@65.24.1855.1056" timestamp="1592329653750" />
+    <state x="692" y="300" key="Vcs.Multiple.Commit.Info.Dialog.Key/65.24.1855.1056@65.24.1855.1056" timestamp="1592419444665" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1592743961773">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1592743961773" />
+    <state x="164" y="96" width="1657" height="885" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592471919604">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="164" y="96" width="1657" height="885" key="com.intellij.history.integration.ui.views.FileHistoryDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592471919604" />
+    <state x="467" y="341" width="1235" height="854" maximized="true" key="dock-window-1" timestamp="1592641090062">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="467" y="341" width="1235" height="854" maximized="true" key="dock-window-1/65.24.1855.1056@65.24.1855.1056" timestamp="1592641090062" />
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog" timestamp="1592514751149">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592514751149" />
+    <state x="655" y="246" key="run.anything.popup" timestamp="1592744829640">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="655" y="246" key="run.anything.popup/65.24.1855.1056@65.24.1855.1056" timestamp="1592744829640" />
     <state x="655" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1592332310319">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
