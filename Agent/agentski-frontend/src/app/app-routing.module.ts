@@ -25,6 +25,7 @@ import { PricingPageComponent } from './components/pricing-page/pricing-page.com
 import { RentingMenagementComponent } from './components/renting-menagement/renting-menagement.component';
 import { RentPaymentComponent } from './components/rent-payment/rent-payment.component';
 import { RentingApproveComponent } from './components/renting-approve/renting-approve.component';
+import { MyCarsComponent } from './components/my-cars/my-cars.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,7 @@ const routes: Routes = [
             { path: 'advertisement', component: AdvertisementComponent},
             { path: 'pricing', component: PricingPageComponent},
             { path: 'rentingApprove', component: RentingApproveComponent},
+            { path: 'myCars', component: MyCarsComponent}
           ]
         },
       ]

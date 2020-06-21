@@ -79,6 +79,21 @@ public class RentingController {
         return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
     }
 
+    @GetMapping(value = "mycars")
+    public ResponseEntity<List<CarsListingDTO>> getMyCars (Principal p) {
+        ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
+        User user = userService.findByEmail(p.getName());
+        for (Cars c : carsService.findAll()) {
+            if (c.getId() != null) {
+                if(c.getOwner().getEmail().equals(user.getEmail())) {
+                    retVal.add(new CarsListingDTO(c));
+                }
+            }
+        }
+        LOGGER.info("Action get all cars successful");
+        return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
+    }
+
 //    @GetMapping(value = "availableCars/{d1}/{d2}")
 //    public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, Principal p) throws ParseException {
 //

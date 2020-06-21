@@ -34,6 +34,8 @@ export class AdvertisementService {
   url1:string = 'http://localhost:8282/pricing';
   url2:string = 'http://localhost:8282/addCar';
   url3:string = 'http://localhost:8282/api/renting/cars';
+  url33:string = 'http://localhost:8282/api/renting/mycars';
+
   url4:string = 'http://localhost:8282/api/renting/rentCar';
   url5:string = 'http://localhost:8282/api/renting/payRequests';
   getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/';
@@ -99,6 +101,18 @@ export class AdvertisementService {
       })
     }
     return this.http.get<Car[]>(this.url3, httpOptions);
+  }
+
+  getMyCars():Observable<Car[]>{
+    let token = localStorage.getItem('accessToken');   
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token, 
+      })
+    }
+    return this.http.get<Car[]>(this.url33, httpOptions);
   }
 
   getPricing() {
