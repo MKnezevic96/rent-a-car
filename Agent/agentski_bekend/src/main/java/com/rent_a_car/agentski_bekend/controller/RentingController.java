@@ -199,6 +199,26 @@ public class RentingController {
         return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
     }
 
+    @PostMapping(value="/rentCar")
+    public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto, Principal p){
+        User user = userService.findByEmail(p.getName());
+
+        try{
+            RentRequest rr = new RentRequest();
+            Cars c = carsService.findByName(dto.getCarName());
+            rr.setCarId(c);
+            rr.setStartDate(dto.getStartDate());
+            rr.setEndDate(dto.getEndDate());
+            rr.setStatus(RequestStatus.PENDING);
+            rr.setDeleted(false);
+            rr.setOwningUser(user);
+            rentRequestService.save(rr);
+            return ResponseEntity.ok().build();
+        }catch (Exception e){
+        }
+        return ResponseEntity.status(400).build();
+    }
+
     @GetMapping (value = "cars/{id}")
     public ResponseEntity<CarsDetailsDTO> getOneCar (@PathVariable("id") Integer id) {
         try {
@@ -380,6 +400,39 @@ public class RentingController {
 //        return ResponseEntity.status(400).build();
 //    }
 
+    @GetMapping(value = "rentRequests")
+    public List<RentRequestDTO> getRentRequests (Principal p) {
+        List<RentRequest> retVal = rentRequestService.findAll();
+        List<RentRequestDTO> dto = new ArrayList<>();
+        User user = userService.findByEmail(p.getName());
+
+        for (RentRequest c : retVal) {
+            if (c.getCarId().getOwner().equals(user)) {
+
+
+                if (c.getStatus().equals(RequestStatus.PENDING)) {
+                    RentRequestDTO dto1 = new RentRequestDTO();
+                    dto1.setId(c.getId());
+                    dto1.setStartDate(c.getStartDate());
+                    dto1.setEndDate(c.getEndDate());
+                    dto1.setCarName(c.getCarId().getName());
+                    dto1.setStatus("PENDING");
+                    dto.add(dto1);
+//                } else if (c.getStatus().equals(RequestStatus.CANCELED)) {
+//                    dto1.setStatus("CANCELED");
+//                } else if (c.getStatus().equals(RequestStatus.PAID)) {
+//                    dto1.setStatus("PAID");
+//                } else if (c.getStatus().equals(RequestStatus.RESERVED)) {
+//                    dto1.setStatus("RESERVED");
+//                } else if (c.getStatus().equals(RequestStatus.RETURNED)) {
+//                    dto1.setStatus("RETURNED");
+                }
+
+                //dto.add(dto1);
+            }
+        }
+        return dto;
+    }
 
     @PostMapping(value="review", consumes = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> addReview(@RequestBody CarReviewDTO dto, Principal p){
