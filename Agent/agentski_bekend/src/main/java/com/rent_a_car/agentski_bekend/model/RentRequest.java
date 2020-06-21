@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 import java.util.Date;
@@ -61,6 +62,8 @@ public class RentRequest implements Serializable {
     @OneToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="renting_report_id", referencedColumnName = "renting_report_id")
     private RentingReport rentingReport;
+
+
 
     public RentRequest() {
     }

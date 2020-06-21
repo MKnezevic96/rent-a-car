@@ -129,32 +129,8 @@ public class RentingController {
     }
 
 
-//    @PostMapping(value = "requests/cars/{id}", consumes = MediaType.APPLICATION_JSON)
-//    public boolean isReviewAllowed (@PathVariable("id") Integer carId, Principal p) {
-//
-//        try{
-//            User user = userService.findByEmail(p.getName());
-//
-//            for(RentRequest rr : rentRequestService.findAll() ) {
-//                if(rr.getCarId().equals(carId))
-//                    if(rr.getOwningUser().equals(user.getId())  && rr.getStatus().equals("returned")){
-//                        LOGGER.info("Check if adding review for car id:{} is allowed with status true", carId);
-//                        return true;
-//                    }
-//                ;
-//            }
-//
-//            LOGGER.info("Check if adding review for car id:{} is allowed with status false", carId);
-//            return false;
-//        } catch (Exception e){
-//            e.printStackTrace();
-//            LOGGER.error("Action check if is review allowed failed. Cause: {}", e.getMessage());
-//        }
-//        return false;
-//    }
 
-
-    @PostMapping(value ="/report", consumes = MediaType.APPLICATION_JSON)
+    @PostMapping(value ="report", consumes = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> addRentingReport(@RequestBody RentingReportDTO dto) {
 
         try {
@@ -180,7 +156,7 @@ public class RentingController {
 
     }
 
-    @PostMapping(value="/review", consumes = MediaType.APPLICATION_JSON)
+    @PostMapping(value="review", consumes = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> addReview(@RequestBody CarReviewDTO dto, Principal p){
 
         try{
@@ -194,20 +170,21 @@ public class RentingController {
             User user = userService.findByEmail(p.getName());
             review.setReviewer(user);
 
-            for(RentRequest rr : rentRequestService.findAll() ) {
-                if(rr.getCarId().equals(dto.getCarId()))
-                    if(rr.getOwningUser().equals(user.getId())  && rr.getStatus().equals("returned")){
-                        carReviewService.save(review);
-                        LOGGER.info("User email: {} posted areport for car id:{} successful", p.getName(), dto.getCarId());
-                    } else {
-                        LOGGER.warn("User email: {} is not allowed to submit reviews", p.getName());
-                    }
+            List<RentRequest> usersRequests = userService.findUsersRentRequests(user.getEmail());
+
+            for(RentRequest rr : usersRequests){
+                if(rr.getCarId().equals(dto.getCarId()) && rr.getStatus().equals("returned")){
+                    carReviewService.save(review);
+                    LOGGER.info("User email: {} posted a review for car id:{} successfully", p.getName(), dto.getCarId());
+                    return ResponseEntity.status(200).build();
+                }
             }
 
-            return ResponseEntity.ok().build();
+            LOGGER.warn("User email: {} is not allowed to post a review for car id:{} ", p.getName(), dto.getCarId());
+            return ResponseEntity.status(403).build();
+
         }catch (Exception e){
             LOGGER.error("Action add car review for car id={} failed. Cause: {}", dto.getCarId(), e.getMessage());
-            e.printStackTrace();
         }
         return ResponseEntity.status(400).build();
     }

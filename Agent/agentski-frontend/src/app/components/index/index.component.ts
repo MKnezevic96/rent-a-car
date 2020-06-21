@@ -27,4 +27,10 @@ export class IndexComponent implements OnInit {
   showAll(){
     this.router.navigate(['advertisements'], {relativeTo: this.route});
   }
+
+  showMessages(){
+    this.router.navigate(['messages'], {relativeTo: this.route});
+  }
+
+  
 }

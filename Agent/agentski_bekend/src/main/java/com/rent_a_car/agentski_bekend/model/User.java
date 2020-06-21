@@ -125,6 +125,10 @@ public class User implements Serializable, UserDetails {
     @XmlElement
     private List<Pricing> pricings = new ArrayList<Pricing> ();
 
+    @OneToMany(mappedBy="owningUser", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @XmlElement
+    private List<RentRequest> rentRequests = new ArrayList<RentRequest> ();
+
     public User() {
     }
 
@@ -215,6 +219,14 @@ public class User implements Serializable, UserDetails {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<RentRequest> getRentRequests() {
+        return rentRequests;
+    }
+
+    public void setRentRequests(List<RentRequest> rentRequests) {
+        this.rentRequests = rentRequests;
     }
 
     public String getEmail() {

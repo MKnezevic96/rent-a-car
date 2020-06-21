@@ -1,5 +1,6 @@
 package com.rent_a_car.agentski_bekend.service;
 
+import com.rent_a_car.agentski_bekend.model.RentRequest;
 import com.rent_a_car.agentski_bekend.model.User;
 import com.rent_a_car.agentski_bekend.repository.UserRepository;
 import com.rent_a_car.agentski_bekend.service.interfaces.UserServiceInterface;
@@ -36,6 +37,13 @@ public class UserService implements UserServiceInterface {
     @Override
     public List<User> findAll() {
         List<User> result = userRepository.findAll();
+        return result;
+    }
+
+    @Override
+    public List<RentRequest> findUsersRentRequests(String email){
+        User user = userRepository.findByEmail(email);
+        List<RentRequest> result = user.getRentRequests();
         return result;
     }
 

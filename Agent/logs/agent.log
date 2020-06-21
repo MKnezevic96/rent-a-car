@@ -155,3 +155,423 @@
 2020-06-18 09:22:12 INFO  RentingController:70 - Action get all cars successful
 2020-06-18 09:22:13 INFO  RentingController:90 - Action get car id:1 successful
 2020-06-18 09:22:23 ERROR RentingController:168 - Action add car review for car id=1 failed. Cause: null
+2020-06-18 21:44:08 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 7cc432e2a5ae with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-18 21:44:08 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-18 21:44:43 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 36.165 seconds (JVM running for 40.954)
+2020-06-18 21:44:59 INFO  RentingController:70 - Action get all cars successful
+2020-06-18 21:45:02 INFO  RentingController:90 - Action get car id:1 successful
+2020-06-18 21:45:31 INFO  RentingController:165 - Action add car review for car id:1 successful
+2020-06-18 21:45:51 INFO  RentingController:70 - Action get all cars successful
+2020-06-18 21:45:56 INFO  RentingController:90 - Action get car id:2 successful
+2020-06-18 21:46:16 INFO  RentingController:165 - Action add car review for car id:2 successful
+2020-06-18 22:02:18 INFO  RentingController:70 - Action get all cars successful
+2020-06-18 22:02:23 INFO  RentingController:90 - Action get car id:1 successful
+2020-06-18 22:02:40 INFO  RentingController:165 - Action add car review for car id:1 successful
+2020-06-18 22:04:59 INFO  RentingController:70 - Action get all cars successful
+2020-06-18 22:05:03 INFO  RentingController:90 - Action get car id:4 successful
+2020-06-18 22:11:51 INFO  RentingController:70 - Action get all cars successful
+2020-06-18 22:11:56 INFO  RentingController:90 - Action get car id:1 successful
+2020-06-18 22:12:12 INFO  RentingController:165 - Action add car review for car id:1 successful
+2020-06-18 22:12:39 INFO  RentingController:70 - Action get all cars successful
+2020-06-18 22:12:41 INFO  RentingController:90 - Action get car id:2 successful
+2020-06-18 22:12:52 INFO  RentingController:165 - Action add car review for car id:2 successful
+2020-06-18 22:21:30 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on eabdad183304 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-18 22:21:30 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-18 22:22:12 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 42.77 seconds (JVM running for 48.146)
+2020-06-18 22:25:43 INFO  RentingController:70 - Action get all cars successful
+2020-06-18 22:25:46 INFO  RentingController:90 - Action get car id:1 successful
+2020-06-18 22:26:00 ERROR RentingController:209 - Action add car review for car id=1 failed. Cause: null
+2020-06-18 22:27:44 INFO  RentingController:70 - Action get all cars successful
+2020-06-18 22:27:45 INFO  RentingController:90 - Action get car id:2 successful
+2020-06-18 22:28:01 ERROR RentingController:209 - Action add car review for car id=2 failed. Cause: null
+2020-06-19 07:58:50 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on eabdad183304 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-19 07:58:50 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-19 08:00:00 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 70.387 seconds (JVM running for 74.557)
+2020-06-19 08:07:08 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on cc2df1af01b2 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-19 08:07:08 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-19 08:22:07 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 4e74521b25f8 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-19 08:22:07 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-19 08:55:47 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 4fd4b8230bfd with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-19 08:55:47 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-19 09:03:32 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on badb9708b953 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-19 09:03:32 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-19 09:04:11 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 41.049 seconds (JVM running for 46.726)
+2020-06-19 11:04:40 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on b795e7b51ad4 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-19 11:04:40 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-19 11:05:17 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 38.228 seconds (JVM running for 44.398)
+2020-06-19 11:07:50 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 11:07:54 INFO  RentingController:90 - Action get car id:2 successful
+2020-06-19 11:08:08 WARN  RentingController:206 - User email: mailmk@gmail.com is not allowed to post a review for car id:2 
+2020-06-19 11:08:48 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 11:08:50 INFO  RentingController:90 - Action get car id:1 successful
+2020-06-19 11:09:12 WARN  RentingController:206 - User email: mailmk@gmail.com is not allowed to post a review for car id:1 
+2020-06-19 11:11:07 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 11:11:10 INFO  RentingController:90 - Action get car id:3 successful
+2020-06-19 11:11:19 WARN  RentingController:206 - User email: mailmk@gmail.com is not allowed to post a review for car id:3 
+2020-06-19 11:11:24 WARN  RentingController:206 - User email: mailmk@gmail.com is not allowed to post a review for car id:3 
+2020-06-19 11:13:00 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 11:13:15 INFO  RentingController:107 - Action get all rent requests successful
+2020-06-19 12:53:50 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on d67d52e1eaf7 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-19 12:53:50 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-19 12:54:27 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 38.418 seconds (JVM running for 43.475)
+2020-06-19 12:57:15 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 12:57:17 INFO  RentingController:90 - Action get car id:1 successful
+2020-06-19 12:57:40 WARN  RentingController:183 - User email: mailmk@gmail.com is not allowed to post a review for car id:1 
+2020-06-19 13:14:46 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 13:15:07 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 13:15:09 INFO  RentingController:90 - Action get car id:1 successful
+2020-06-19 13:15:12 WARN  RentingController:183 - User email: mailmk@gmail.com is not allowed to post a review for car id:1 
+2020-06-19 13:17:46 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 13:25:41 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 13:26:26 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 13:27:54 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 13:28:09 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 14:18:32 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 0c31fa230ee4 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-19 14:18:32 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-19 15:41:27 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 0c31fa230ee4 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-19 15:41:27 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-19 15:42:07 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 42.022 seconds (JVM running for 48.454)
+2020-06-19 15:47:43 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 15:47:43 INFO  RentingController:70 - Action get all cars successful
+2020-06-19 15:48:19 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 08:23:16 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on f464d3b5a0e9 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 08:23:16 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 08:24:31 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 77.864 seconds (JVM running for 87.37)
+2020-06-20 08:25:33 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 08:25:35 INFO  RentingController:90 - Action get car id:1 successful
+2020-06-20 08:32:29 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on f289e0dd859d with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 08:32:29 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 08:33:06 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 38.36 seconds (JVM running for 43.523)
+2020-06-20 08:45:20 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 95ae9e95e2a3 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 08:45:20 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 08:46:02 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 43.301 seconds (JVM running for 48.887)
+2020-06-20 08:46:37 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 08:46:42 INFO  RentingController:49 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 08:47:59 INFO  RentingController:113 - Action get paid rent requests successful
+2020-06-20 08:48:02 INFO  RentingController:49 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 09:00:01[32mINFO[mINFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 72301acb9c12 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 09:00:01[32mINFO[mINFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 09:00:51[32mINFO[mINFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 52.651 seconds (JVM running for 59.87)
+2020-06-20 09:01:11[32mINFO[mINFO  RentingController:48 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 09:51:08[32mINFO[mINFO  RentingController:48 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 09:53:55[32mINFO[mINFO  RentingController:48 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 09:55:24[32mINFO[mINFO  RentingController:48 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 09:55:45[32mINFO[mINFO  RentingController:48 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 09:55:51[32mINFO[mINFO  RentingController:48 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 09:56:34[32mINFO[mINFO  RentingController:48 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 10:03:08[32mINFO[mINFO  RentingController:48 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 10:07:59[32mINFO[mINFO  RentingController:48 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 10:10:16 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 8c19154aebcb with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 10:10:16 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 10:11:02 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 48.068 seconds (JVM running for 54.649)
+2020-06-20 10:11:19 INFO  RentingController:54 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 10:15:14 INFO  RentingController:54 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 10:16:20 INFO  RentingController:54 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 10:16:31 INFO  RentingController:54 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 10:17:06 INFO  RentingController:78 - Action get message history of user: mailmk@gmail.com with user prvi@gmail successful
+2020-06-20 10:19:39 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 10:19:41 INFO  RentingController:54 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 10:19:43 INFO  RentingController:78 - Action get message history of user: mailmk@gmail.com with user prvi@gmail successful
+2020-06-20 10:30:25 INFO  RentingController:113 - Action get paid rent requests successful
+2020-06-20 10:30:28 INFO  RentingController:54 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 10:30:30 INFO  RentingController:78 - Action get message history of user: mailmk@gmail.com with user prvi@gmail successful
+2020-06-20 11:02:14 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 62d1e70ce069 with PID 7 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 11:02:14 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 11:02:48 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 35.339 seconds (JVM running for 40.808)
+2020-06-20 11:03:22 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 11:03:26 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 11:04:15 INFO  RentingController:113 - Action get paid rent requests successful
+2020-06-20 11:04:16 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 11:20:12 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on ea714c4475df with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 11:20:13 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 11:20:56 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 45.543 seconds (JVM running for 50.376)
+2020-06-20 11:21:05 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 11:21:13 INFO  RentingController:113 - Action get paid rent requests successful
+2020-06-20 11:21:15 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 11:21:18 INFO  RentingController:83 - Action get message history of user: mailmk@gmail.com with user prvi@gmail successful
+2020-06-20 11:33:39 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on dff5ba218a5e with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 11:33:39 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 11:34:22 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 44.72 seconds (JVM running for 50.708)
+2020-06-20 11:34:33 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 11:34:38 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 11:34:44 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 11:38:02 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 11:39:45 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 7d096a9d3af9 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 11:39:45 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 11:40:30 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 45.921 seconds (JVM running for 51.745)
+2020-06-20 11:40:41 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 11:40:44 INFO  RentingController:83 - Action get message history of user: mailmk@gmail.com with user prvi@gmail successful
+2020-06-20 11:42:20 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 11:42:26 INFO  RentingController:83 - Action get message history of user: mailmk@gmail.com with user prvi@gmail successful
+2020-06-20 11:50:37 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 1a4d284f3461 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 11:50:37 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 11:51:21 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 45.987 seconds (JVM running for 51.866)
+2020-06-20 11:51:38 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 11:51:41 INFO  RentingController:83 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 11:55:21 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 11:55:25 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 11:55:28 INFO  RentingController:83 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-20 11:56:00 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 11:56:06 INFO  RentingController:83 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 12:13:45 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 12:14:40 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on d7dd1c4a4fb3 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 12:14:40 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 12:15:24 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 44.902 seconds (JVM running for 51.438)
+2020-06-20 12:16:21 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 12:16:48 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 12:16:57 INFO  RentingController:83 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 12:23:58 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 12:46:05 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 18:32:53 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 18:34:02 INFO  RentingController:83 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 18:35:24 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 18:35:26 INFO  RentingController:83 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 18:52:48 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 18:54:47 INFO  RentingController:55 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 18:55:30 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on dd06a7ab2f44 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 18:55:30 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 18:56:14 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 45.247 seconds (JVM running for 50.844)
+2020-06-20 18:56:54 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:07:37 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:08:29 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:09:27 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:10:18 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:10:38 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:10:47 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:10:57 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: prvi@gmail.com successfully
+2020-06-20 19:10:58 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:11:27 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: prvi@gmail.com successfully
+2020-06-20 19:11:27 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:11:39 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: prvi@gmail.com successfully
+2020-06-20 19:11:39 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:11:49 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: prvi@gmail.com successfully
+2020-06-20 19:11:49 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:11:49 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: prvi@gmail.com successfully
+2020-06-20 19:11:50 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:11:51 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: prvi@gmail.com successfully
+2020-06-20 19:11:52 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:12:03 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: prvi@gmail.com successfully
+2020-06-20 19:12:03 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:12:08 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 19:12:12 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:12:15 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-20 19:12:22 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-20 19:12:23 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-20 19:12:31 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-20 19:12:31 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-20 19:14:13 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-20 19:14:13 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-20 19:14:22 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-20 19:14:22 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-20 19:14:39 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:14:49 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-20 19:14:57 INFO  RentingController:113 - Action get paid rent requests successful
+2020-06-20 19:14:59 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:15:01 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:15:17 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: prvi@gmail.com successfully
+2020-06-20 19:15:17 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:50:52 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 19:50:54 INFO  RentingController:90 - Action get car id:1 successful
+2020-06-20 19:55:44 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 19:55:46 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:55:50 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:56:00 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 19:56:02 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:56:05 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-20 19:56:07 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 19:56:08 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:56:13 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:56:24 INFO  RentingController:101 - User email: mailmk@gmail.com has sent the message to user email: prvi@gmail.com successfully
+2020-06-20 19:56:25 INFO  RentingController:74 - Action get message history of user: mailmk@gmail.com with user prvi@gmail.com successful
+2020-06-20 19:57:50 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 19:57:52 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:58:42 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 19:58:44 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 19:58:49 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 20:00:07 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 20:00:29 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 20:00:41 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 20:00:58 INFO  RentingController:50 - Action get all message senders of user: mailmk@gmail.com successful
+2020-06-20 20:24:19 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 190ee0d74ed8 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 20:24:19 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 20:25:18 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 61.66 seconds (JVM running for 72.297)
+2020-06-20 20:27:17 ERROR RentingController:63 - Action get all message conversations of user: mailmk@gmail.com failed. Cause: null
+2020-06-20 20:27:37 ERROR RentingController:63 - Action get all message conversations of user: mailmk@gmail.com failed. Cause: null
+2020-06-20 20:30:15 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on cac8b019e24e with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 20:30:15 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 20:30:55 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 42.356 seconds (JVM running for 48.392)
+2020-06-20 20:31:22 INFO  RentingController:48 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-20 20:31:25 INFO  RentingController:87 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-20 20:31:32 INFO  RentingController:114 - User email: mailmk@gmail.com has sent the message to user email: mail2@gmail.com successfully
+2020-06-20 20:31:33 INFO  RentingController:87 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-20 20:31:41 INFO  RentingController:114 - User email: mailmk@gmail.com has sent the message to user email: mail2@gmail.com successfully
+2020-06-20 20:31:41 INFO  RentingController:87 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-20 20:32:23 INFO  RentingController:48 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 20:32:28 INFO  RentingController:87 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 20:32:38 INFO  RentingController:114 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-20 20:32:38 INFO  RentingController:87 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 20:32:55 INFO  RentingController:114 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-20 20:32:56 INFO  RentingController:87 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 20:51:09 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 1c2f72230c76 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 20:51:09 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 20:52:07 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 60.793 seconds (JVM running for 69.536)
+2020-06-20 20:52:16 INFO  RentingController:49 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 20:52:19 INFO  RentingController:92 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 20:52:40 INFO  RentingController:119 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-20 20:52:40 INFO  RentingController:92 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 20:52:47 INFO  RentingController:119 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-20 20:52:47 INFO  RentingController:92 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 20:53:15 INFO  RentingController:49 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-20 20:53:17 INFO  RentingController:92 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-20 20:53:25 INFO  RentingController:119 - User email: mailmk@gmail.com has sent the message to user email: mail2@gmail.com successfully
+2020-06-20 20:53:25 INFO  RentingController:92 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-20 20:53:33 INFO  RentingController:119 - User email: mailmk@gmail.com has sent the message to user email: mail2@gmail.com successfully
+2020-06-20 20:53:33 INFO  RentingController:92 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-20 20:53:56 INFO  RentingController:49 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 20:53:58 INFO  RentingController:92 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 20:54:04 INFO  RentingController:119 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-20 20:54:04 INFO  RentingController:92 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 20:54:55 INFO  RentingController:113 - Action get paid rent requests successful
+2020-06-20 20:55:00 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 20:55:04 INFO  RentingController:49 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 22:50:57 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 438b643fd3e4 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 22:50:57 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 22:51:34 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 38.515 seconds (JVM running for 43.371)
+2020-06-20 22:51:37 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 22:51:48 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 22:51:50 INFO  RentingController:92 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 22:51:59 INFO  RentingController:119 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-20 22:51:59 INFO  RentingController:92 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 22:52:04 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 22:55:21 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on d105f93a4219 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 22:55:22 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 22:55:51 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 31.21 seconds (JVM running for 35.812)
+2020-06-20 22:56:07 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 22:56:20 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 22:56:22 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 23:01:00 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on b90a62807fe3 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 23:01:00 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 23:01:31 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 33.039 seconds (JVM running for 37.48)
+2020-06-20 23:01:44 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 23:02:22 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 23:02:24 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 23:02:28 INFO  RentingController:91 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 23:02:36 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 23:02:39 INFO  RentingController:113 - Action get paid rent requests successful
+2020-06-20 23:02:41 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 23:07:22 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 244d0ac41b83 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 23:07:22 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 23:07:56 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 35.098 seconds (JVM running for 40.069)
+2020-06-20 23:08:05 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 23:09:14 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 23:09:58 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 23:10:01 INFO  RentingController:50 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-20 23:10:10 INFO  RentingController:95 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-20 23:10:41 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 23:10:47 INFO  RentingController:90 - Action get car id:2 successful
+2020-06-20 23:12:17 INFO  RentingController:95 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 23:12:31 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 23:12:34 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 23:12:41 INFO  RentingController:95 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 23:12:47 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 23:12:49 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 23:12:52 INFO  RentingController:95 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-20 23:12:55 INFO  RentingController:70 - Action get all cars successful
+2020-06-20 23:12:57 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 23:17:35 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on b59d567cd7df with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 23:17:35 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 23:18:10 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 36.221 seconds (JVM running for 41.068)
+2020-06-20 23:18:43 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 23:47:34 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on a22e721cf4a4 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 23:47:34 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 23:48:05 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 33.001 seconds (JVM running for 37.357)
+2020-06-20 23:49:34 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-20 23:55:19 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 6734a50bc0a9 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-20 23:55:19 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-20 23:55:50 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 32.752 seconds (JVM running for 37.649)
+2020-06-20 23:56:13 INFO  RentingController:50 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 00:07:07 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 83b6e286c13f with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 00:07:07 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 00:07:39 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 33.012 seconds (JVM running for 41.517)
+2020-06-21 00:08:03 INFO  RentingController:52 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 00:08:31 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 00:15:40 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 19993c8e4c92 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 00:15:40 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 00:16:12 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 33.594 seconds (JVM running for 39.042)
+2020-06-21 00:22:14 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 00:22:34 INFO  RentingController:52 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 00:22:48 INFO  RentingController:113 - Action get paid rent requests successful
+2020-06-21 00:26:52 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 00:27:09 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 00:27:56 INFO  RentingController:52 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 00:29:54 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 05ef4763fb1d with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 00:29:54 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 00:30:31 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 38.576 seconds (JVM running for 43.315)
+2020-06-21 00:31:41 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 00:31:55 INFO  RentingController:81 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-21 00:32:01 INFO  RentingController:108 - User email: mailmk@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-21 00:32:02 INFO  RentingController:81 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-21 00:32:07 INFO  RentingController:70 - Action get all cars successful
+2020-06-21 00:32:12 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 00:32:33 INFO  RentingController:52 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 00:32:39 INFO  RentingController:81 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 00:32:48 INFO  RentingController:108 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-21 00:32:48 INFO  RentingController:81 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 00:32:58 INFO  RentingController:52 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 00:33:07 INFO  RentingController:81 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-21 00:33:12 INFO  RentingController:70 - Action get all cars successful
+2020-06-21 00:33:14 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 00:33:16 INFO  RentingController:81 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-21 00:33:23 INFO  RentingController:108 - User email: mailmk@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-21 00:33:23 INFO  RentingController:81 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-21 00:33:31 INFO  RentingController:70 - Action get all cars successful
+2020-06-21 00:33:33 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 00:49:14 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on a87611ae4187 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 00:49:14 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 00:49:57 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 44.408 seconds (JVM running for 49.877)
+2020-06-21 00:50:18 INFO  RentingController:55 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 00:50:24 INFO  RentingController:84 - Action get message history of user: mail2@gmail.com with user mail2@gmail.com successful
+2020-06-21 00:50:32 INFO  RentingController:55 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 00:50:35 INFO  RentingController:84 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 00:50:42 INFO  RentingController:111 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-21 00:50:42 INFO  RentingController:84 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 00:50:52 INFO  RentingController:55 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 00:51:02 INFO  RentingController:84 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-21 00:51:08 INFO  RentingController:55 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 01:03:59 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 8843c94f38a6 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 01:03:59 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 01:04:43 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 45.974 seconds (JVM running for 51.335)
+2020-06-21 01:04:47 INFO  RentingController:50 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 01:11:41 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 7a80ec6994e4 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 01:11:41 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 01:12:20 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 39.649 seconds (JVM running for 44.901)
+2020-06-21 01:12:29 INFO  RentingController:50 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 01:12:29 ERROR RentingController:75 - Action get all message conversations of user: mailmk@gmail.com failed. Cause: null
+2020-06-21 01:12:53 INFO  RentingController:50 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 01:12:53 ERROR RentingController:75 - Action get all message conversations of user: mailmk@gmail.com failed. Cause: null
+2020-06-21 12:32:50 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on a7070831ac58 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 12:32:50 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 12:33:58 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 70.099 seconds (JVM running for 77.541)
+2020-06-21 12:34:33 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 12:34:37 INFO  RentingController:105 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-21 12:34:52 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 12:34:54 INFO  RentingController:105 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-21 12:35:01 INFO  RentingController:132 - User email: mailmk@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-21 12:35:01 INFO  RentingController:105 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-21 12:37:37 INFO  RentingController:52 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 12:44:29 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on d50d767a5135 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 12:44:29 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 12:45:04 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 36.777 seconds (JVM running for 41.723)
+2020-06-21 12:45:46 INFO  RentingController:51 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 12:45:53 INFO  RentingController:105 - Action get message history of user: mailmk@gmail.com with user mailmk@gmail.com successful
+2020-06-21 12:46:28 INFO  RentingController:51 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 12:46:32 INFO  RentingController:105 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 12:46:39 INFO  RentingController:132 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-21 12:46:39 INFO  RentingController:105 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 12:47:09 INFO  RentingController:51 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 12:47:11 INFO  RentingController:105 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-21 12:47:16 INFO  RentingController:132 - User email: mailmk@gmail.com has sent the message to user email: mail2@gmail.com successfully
+2020-06-21 12:47:16 INFO  RentingController:105 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-21 12:48:09 INFO  RentingController:51 - Action get all message conversations of user: mailmk@gmail.com successful
+2020-06-21 12:48:13 INFO  RentingController:105 - Action get message history of user: mailmk@gmail.com with user mail2@gmail.com successful
+2020-06-21 12:50:18 INFO  RentingController:70 - Action get all cars successful

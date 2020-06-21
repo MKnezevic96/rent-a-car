@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Pricing } from '../models/Pricing';
-import { Observable } from 'rxjs';
+import { Observable, observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Car } from '../models/Car';
 import { RentRequest } from '../models/RentRequest';
 import { CarDetails } from '../models/CarDetails';
 import { CarReview } from '../models/CarReview';
+import { map } from 'rxjs/operators';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -33,6 +34,8 @@ export class AdvertisementService {
   getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/'
   addCarReviewUrl:string='http://localhost:8282/api/renting/review'
   checkUrl:string= 'http://localhost:8282/api/renting/requests/'
+
+  responseStatus: number;
 
 
 //  private decoder: JwtHelperService;
@@ -92,9 +95,20 @@ export class AdvertisementService {
 
   addCarReview( carId:number, rating:number, review:string):Observable<CarReview>{
     this.carReview={reviewerId:null, carId:carId, rating:rating, approved:null, deleted:false, review:review};
-    console.log(this.carReview);
-    return this.http.post<CarReview>(this.addCarReviewUrl, this.carReview, this.httpOptions);
 
-  }
+    let token = localStorage.getItem('accessToken');
+    var httpOptions  = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+      })
+    }
+
+    console.log(this.carReview);
+    return this.http.post<CarReview>(this.addCarReviewUrl, this.carReview, httpOptions);
+      
+    };
 
 }

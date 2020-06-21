@@ -39,6 +39,8 @@ import { PricingPageComponent } from './components/pricing-page/pricing-page.com
 import { RentingReportComponent } from './components/renting-report/renting-report.component';
 import { IndexComponent } from './components/index/index.component';
 import { AdvertisementListComponent } from './components/advertisement-list/advertisement-list.component';
+import { MessagesComponent } from './components/messages/messages.component';
+
 
 @NgModule({
   declarations: [
@@ -67,6 +69,7 @@ import { AdvertisementListComponent } from './components/advertisement-list/adve
     CommentMenagementComponent,
     PendingCommentsComponent,
     PricingPageComponent,
+    MessagesComponent,
    // AuthGuard
   ],
   imports: [

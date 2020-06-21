@@ -22,6 +22,8 @@ import { AdvertisementListComponent } from './components/advertisement-list/adve
 import { CommentMenagementComponent } from './components/comment-menagement/comment-menagement.component';
 import { PendingCommentsComponent } from './components/pending-comments/pending-comments.component';
 import { PricingPageComponent } from './components/pricing-page/pricing-page.component';
+import { MessagesComponent } from './components/messages/messages.component';
+
 
 
 const routes: Routes = [
@@ -66,7 +68,7 @@ const routes: Routes = [
         { path: 'advertisement', component: AdvertisementComponent},
         { path: 'rentingReport', component: RentingReportComponent},
         { path: 'advertisements', component: AdvertisementListComponent},
-
+        { path: 'messages', component: MessagesComponent},
       ]
     },
     { path: 'advertisement', component: AdvertisementComponent},
