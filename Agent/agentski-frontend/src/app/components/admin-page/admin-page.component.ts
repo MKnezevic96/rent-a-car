@@ -9,6 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AdminPageComponent implements OnInit {
 
+  codebooks:boolean;
+  comments:boolean;
+  user:boolean;
+  permission:boolean;
+  agent:boolean;
+  renting:boolean;
+
   constructor(
     private adminService:AdminService,
     private route: ActivatedRoute,
@@ -18,7 +25,31 @@ export class AdminPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+    let user = localStorage.getItem('user');
+    if(user == 'admin'){
+      this.codebooks = true;
+      this.comments = true;
+      this.user = true;
+      this.permission = false;
+      this.agent = false;
+      this.renting = false;
+    }
+    if(user == 'user'){
+      this.codebooks = false;
+      this.comments = false;
+      this.user = false;
+      this.permission = false;
+      this.agent = false;
+      this.renting = true;
+    }
+    if(user == 'admin'){
+      this.codebooks = false;
+      this.comments = false;
+      this.user = false;
+      this.permission = false;
+      this.agent = false;
+      this.renting = true;
+    }
   }
 
 

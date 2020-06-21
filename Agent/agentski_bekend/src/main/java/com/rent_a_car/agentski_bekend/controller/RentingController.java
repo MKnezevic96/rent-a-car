@@ -335,9 +335,9 @@ public class RentingController {
 
     }
 
-    @PostMapping(value="review", consumes = MediaType.APPLICATION_JSON)
-    public ResponseEntity<?> addReview(@RequestBody CarReviewDTO dto, Principal p){
-
+//    @PostMapping(value="review", consumes = MediaType.APPLICATION_JSON)
+//    public ResponseEntity<?> addReview(@RequestBody CarReviewDTO dto, Principal p){
+//
 //        try{
 //            CarReview review = new CarReview();
 //            review.setDeleted(false);
@@ -377,6 +377,42 @@ public class RentingController {
 //        }catch (Exception e){
 //            LOGGER.error("Action add car review for car id={} failed. Cause: {}", dto.getCarId(), e.getMessage());
 //        }
+//        return ResponseEntity.status(400).build();
+//    }
+
+
+    @PostMapping(value="review", consumes = MediaType.APPLICATION_JSON)
+    public ResponseEntity<?> addReview(@RequestBody CarReviewDTO dto, Principal p){
+
+        try{
+            CarReview review = new CarReview();
+            review.setDeleted(false);
+            review.setApproved(false);
+            review.setRating(dto.getRating());
+            review.setReview(dto.getReview());
+            Cars car = carsService.getCar(dto.getCarId());
+            review.setCar(car);
+
+            User user = userService.findByEmail(p.getName());
+            review.setReviewer(user);
+
+            List<RentRequest> usersRequests = userService.findUsersRentRequests(user.getEmail());
+
+            for(RentRequest rr : usersRequests){
+                System.out.println(rr.getCarId().getId() +" " + dto.getCarId() + " " + rr.getStatus()+"----------------------------------------");
+                if(rr.getCarId().getId() == dto.getCarId() && rr.getStatus().equals(RequestStatus.RETURNED)){
+                    carReviewService.save(review);
+                    LOGGER.info("User email: {} posted a review for car id:{} successfully", p.getName(), dto.getCarId());
+                    return ResponseEntity.status(200).build();
+                }
+            }
+
+            LOGGER.warn("User email: {} is not allowed to post a review for car id:{} ", p.getName(), dto.getCarId());
+            return ResponseEntity.status(403).build();
+
+        }catch (Exception e){
+            LOGGER.error("Action add car review for car id={} failed. Cause: {}", dto.getCarId(), e.getMessage());
+        }
         return ResponseEntity.status(400).build();
     }
 

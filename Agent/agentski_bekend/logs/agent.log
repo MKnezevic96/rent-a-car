@@ -169,3 +169,11 @@
 2020-06-21 18:18:09 INFO  RentingController:78 - Action get all cars successful
 2020-06-21 18:20:47 INFO  RentingController:93 - Action get all cars successful
 2020-06-21 18:22:18 INFO  RentingController:93 - Action get all cars successful
+2020-06-21 19:49:36 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication on student-VirtualBox with PID 7218 (/home/student/Desktop/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/Desktop/rent-a-car/Agent/agentski_bekend)
+2020-06-21 19:49:36 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 19:50:06 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 31.746 seconds (JVM running for 37.898)
+2020-06-21 20:26:56 INFO  RentingController:92 - Action get all cars successful
+2020-06-21 20:56:41 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication on student-VirtualBox with PID 8844 (/home/student/Desktop/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/Desktop/rent-a-car/Agent/agentski_bekend)
+2020-06-21 20:56:41 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 20:57:11 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 32.949 seconds (JVM running for 39.811)
+2020-06-21 20:58:29 INFO  RentingController:77 - Action get all cars successful
