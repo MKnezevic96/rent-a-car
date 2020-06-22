@@ -801,3 +801,43 @@
 2020-06-21 21:45:50 INFO  RentingController:133 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
 2020-06-21 21:45:50 INFO  RentingController:106 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
 2020-06-21 21:46:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-21 22:16:20 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on b380ee14fdfc with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 22:16:20 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 22:16:51 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 32.299 seconds (JVM running for 37.805)
+2020-06-21 22:17:51 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:26:54 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on ff8cb9219da7 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-21 22:26:54 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 22:27:33 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 41.537 seconds (JVM running for 48.175)
+2020-06-21 22:32:06 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:32:10 INFO  RentingController:227 - Action get car id:9 successful
+2020-06-21 22:32:10 INFO  RentingController:482 - Action get all car reviews for car id: 9 successful 
+2020-06-21 22:32:28 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:33:40 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:36:22 INFO  RentingController:52 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 22:36:23 INFO  RentingController:106 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 22:36:34 INFO  RentingController:133 - User email: mail2@gmail.com has sent the message to user email: mailmk@gmail.com successfully
+2020-06-21 22:36:35 INFO  RentingController:106 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 22:36:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-21 22:36:52 INFO  RentingController:349 - Action add renting report for request id:35 successful
+2020-06-21 22:37:48 INFO  RentingController:52 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 22:37:52 INFO  RentingController:52 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 22:37:54 INFO  RentingController:106 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 22:38:17 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:38:49 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:39:14 INFO  RentingController:92 - Action get all cars successful
+2020-06-21 22:39:39 INFO  RentingController:92 - Action get all cars successful
+2020-06-21 22:40:16 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:41:51 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:41:55 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:50:57 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:51:09 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-21 22:51:09 INFO  RentingController:482 - Action get all car reviews for car id: 1 successful 
+2020-06-21 22:51:31 INFO  RentingController:52 - Action get all message conversations of user: mail2@gmail.com successful
+2020-06-21 22:51:35 INFO  RentingController:106 - Action get message history of user: mail2@gmail.com with user mailmk@gmail.com successful
+2020-06-21 22:51:38 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:54:46 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:54:56 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:59:02 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 22:59:06 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 23:00:10 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 23:02:06 INFO  RentingController:92 - Action get all cars successful

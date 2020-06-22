@@ -1,0 +1,99 @@
+package com.ad_service.model;
+
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
+
+
+@Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(
+        name = "Reciept", propOrder = {
+        "id",
+        "customer",
+        "owner",
+        "sum",
+        "recieptArticles",
+        "deleted"
+}, namespace = "nekiUri/reciept")
+@Table(name = "reciept_table")
+@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
+public class Reciept {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="reciept_id", nullable = false, unique = true)
+    private Integer id;
+
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    private String customer;     // user id
+
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    private String owner;   // user id
+
+    @Column(name="sum")
+    private Double sum;
+
+    @OneToMany(mappedBy="reciept", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    private List<RecieptArticle> recieptArticles = new ArrayList<RecieptArticle>();
+
+    @Column(name="deleted", nullable=false)
+    private boolean deleted = false;
+
+    public Reciept() {
+        this.deleted = false;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+    public  String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public Double getSum() {
+        return sum;
+    }
+
+    public void setSum(Double sum) {
+        this.sum = sum;
+    }
+
+    public List<RecieptArticle> getRecieptArticles() {
+        return recieptArticles;
+    }
+
+    public void setRecieptArticles(List<RecieptArticle> recieptArticles) {
+        this.recieptArticles = recieptArticles;
+    }
+}
