@@ -1,6 +1,7 @@
 package com.rent_a_car.agentski_bekend.controller;
 import com.rent_a_car.agentski_bekend.dto.*;
 import com.rent_a_car.agentski_bekend.model.*;
+import com.rent_a_car.agentski_bekend.service.CarsService;
 import com.rent_a_car.agentski_bekend.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +44,9 @@ public class AdminController {
     @Autowired
     private RoleServiceInterface roleService;
 
+    @Autowired
+    private CarsService carService;
+
 
     @GetMapping(value="/admin/carReviews")
     public List<CarReviewDTO> getCarReviews(){
@@ -53,8 +57,8 @@ public class AdminController {
             if(!c.isApproved()) {
                 CarReviewDTO crDTO = new CarReviewDTO();
                 crDTO.setId(c.getId());
-                crDTO.setReviewer(c.getReviewer().getEmail());
-                crDTO.setCar(c.getCar().getId());
+                crDTO.setReviewerId(c.getReviewer().getId());
+                crDTO.setCarId(c.getCar().getId());
                 crDTO.setRating(c.getRating());
                 crDTO.setReview(c.getReview());
                 crDTO.setApprovedDate(c.getApprovedDate());
@@ -72,11 +76,14 @@ public class AdminController {
     public ResponseEntity<?> approveReview(@RequestBody Integer id){
 
         List<CarReview> crList = carReviewService.findAll();
-        CarReview review;
+
         for(CarReview cr : crList){
             if(cr.getId() == id){
                 cr.setApproved(true);
                 carReviewService.save(cr);
+                Cars car = carService.getCar(cr.getCar().getId());
+                car.getReviews().add(cr);
+                carService.save(car);
             }
         }
         return ResponseEntity.ok().build();

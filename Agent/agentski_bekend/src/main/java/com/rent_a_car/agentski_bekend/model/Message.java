@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -45,7 +46,7 @@ public class Message {
 
     @Column(name="date", nullable=false)
     @XmlElement(required=true)
-    private Calendar date;
+    private Date date;
 
     @Column(name="deleted", nullable=false)
     @XmlElement(required=true)
@@ -87,11 +88,11 @@ public class Message {
         this.to = to;
     }
 
-    public Calendar getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Calendar date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

@@ -42,6 +42,9 @@ import { IndexComponent } from './components/index/index.component';
 import { AdvertisementListComponent } from './components/advertisement-list/advertisement-list.component';
 import { RentingMenagementComponent } from './components/renting-menagement/renting-menagement.component';
 import { RentPaymentComponent } from './components/rent-payment/rent-payment.component';
+import { MyCarsComponent } from './components/my-cars/my-cars.component';
+import { MessagesComponent } from './components/messages/messages.component';
+
 
 @NgModule({
   declarations: [
@@ -73,6 +76,8 @@ import { RentPaymentComponent } from './components/rent-payment/rent-payment.com
     RentingApproveComponent,
     RentingMenagementComponent,
     RentPaymentComponent,
+    MyCarsComponent,
+    MessagesComponent,
    // AuthGuard
   ],
   imports: [

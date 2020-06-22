@@ -52,6 +52,10 @@ export class RentingApproveComponent implements OnInit {
      approve(id:number){
      this.advertisementService.approve(id).subscribe((data:number)=>{
        console.log(data);
+       this.advertisementService.getRentRequests().subscribe(data =>{
+        this.requests = data;
+        console.log(data);
+      });
      });
 
  }
@@ -59,6 +63,10 @@ export class RentingApproveComponent implements OnInit {
   reject(id:number){
       this.advertisementService.reject(id).subscribe((data:number)=>{
       console.log(data);
+      this.advertisementService.getRentRequests().subscribe(data =>{
+        this.requests = data;
+        console.log(data);
+      });
   });
 
  }

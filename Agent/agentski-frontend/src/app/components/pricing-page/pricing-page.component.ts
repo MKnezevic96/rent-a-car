@@ -60,6 +60,10 @@ export class PricingPageComponent implements OnInit {
         this.router.navigateByUrl('adminPage');
 
 
+
+
+        
+        
   }
 
 

@@ -29,7 +29,7 @@ public class RentRequestDTO {
         this.status=req.getStatus().toString();
         this.deleted=req.isDeleted();
         this.owningUserId=req.getOwningUser().getId();
-        this.requestGroupId=req.getRequestGroupId();
+//        this.requestGroupId=req.getRequestGroupId();
         this.id=req.getId();
 
     }

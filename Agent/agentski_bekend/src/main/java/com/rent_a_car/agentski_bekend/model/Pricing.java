@@ -137,7 +137,7 @@ public class Pricing {
         return owningUser;
     }
 
-    public void setOwner(User owner) {
-        this.owningUser = owner;
+    public void setOwner(User owningUser) {
+        this.owningUser = owningUser;
     }
 }

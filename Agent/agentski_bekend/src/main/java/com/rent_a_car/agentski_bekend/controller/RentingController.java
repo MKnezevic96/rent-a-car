@@ -66,13 +66,27 @@ public class RentingController {
         return "Renting service test";
     }
 
-    //@GetMapping(value = "getCars")
     @GetMapping(value = "cars")
     public ResponseEntity<List<CarsListingDTO>> getAllCars () {
         ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
         for (Cars c : carsService.findAll()) {
             if (c.getId() != null) {
                 retVal.add(new CarsListingDTO(c));
+            }
+        }
+        LOGGER.info("Action get all cars successful");
+        return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "mycars")
+    public ResponseEntity<List<CarsListingDTO>> getMyCars (Principal p) {
+        ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
+        User user = userService.findByEmail(p.getName());
+        for (Cars c : carsService.findAll()) {
+            if (c.getId() != null) {
+                if(c.getOwner().getEmail().equals(user.getEmail())) {
+                    retVal.add(new CarsListingDTO(c));
+                }
             }
         }
         LOGGER.info("Action get all cars successful");
@@ -185,6 +199,26 @@ public class RentingController {
         return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
     }
 
+    @PostMapping(value="/rentCar")
+    public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto, Principal p){
+        User user = userService.findByEmail(p.getName());
+
+        try{
+            RentRequest rr = new RentRequest();
+            Cars c = carsService.findByName(dto.getCarName());
+            rr.setCarId(c);
+            rr.setStartDate(dto.getStartDate());
+            rr.setEndDate(dto.getEndDate());
+            rr.setStatus(RequestStatus.PENDING);
+            rr.setDeleted(false);
+            rr.setOwningUser(user);
+            rentRequestService.save(rr);
+            return ResponseEntity.ok().build();
+        }catch (Exception e){
+        }
+        return ResponseEntity.status(400).build();
+    }
+
     @GetMapping (value = "cars/{id}")
     public ResponseEntity<CarsDetailsDTO> getOneCar (@PathVariable("id") Integer id) {
         try {
@@ -203,15 +237,19 @@ public class RentingController {
     public ResponseEntity<List<RentRequestDTO>> getAllRentRequests (@RequestParam(value = "status", required = false) String status) {
         ArrayList<RentRequestDTO> retVal = new ArrayList<RentRequestDTO>();
 
-        for (RentRequest rr : rentRequestService.findAll()) {
-            if(status == null){
+        if(status==null){
+            for(RentRequest rr : rentRequestService.findAll()){
                 retVal.add(new RentRequestDTO(rr));
-            } else if(status.equals("paid")) {
-                if(rr.getStatus() == RequestStatus.PAID)
+            }
+            LOGGER.info("Action get all rent requests successful");
+        } else if (status.equals("paid")){
+            for(RentRequest rr : rentRequestService.findAll()){
+                if(rr.getStatus().equals(RequestStatus.PAID))
                     retVal.add(new RentRequestDTO(rr));
             }
+            LOGGER.info("Action get paid rent requests successful");
         }
-        LOGGER.info("Action get all rent requests successful");
+
         return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
     }
 
@@ -283,13 +321,15 @@ public class RentingController {
         ArrayList<RentRequestDTO> retVal = new ArrayList<RentRequestDTO>();
         for (RentRequest rr : rentRequestService.findAll()) {
             if(rr.getRequestGroupId().equals(groupId))
-               retVal.add(new RentRequestDTO(rr));
+                retVal.add(new RentRequestDTO(rr));
         }
         LOGGER.info("Action get group rent requests successful");
         return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
     }
 
-    @PostMapping(value ="/report", consumes = MediaType.APPLICATION_JSON)
+
+
+    @PostMapping(value ="report", consumes = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> addRentingReport(@RequestBody RentingReportDTO dto) {
 
         try {
@@ -315,36 +355,59 @@ public class RentingController {
 
     }
 
-    @PostMapping(value="/review", consumes = MediaType.APPLICATION_JSON)
-    public ResponseEntity<?> addReview(@RequestBody CarReviewDTO dto){
-
+//    @PostMapping(value="review", consumes = MediaType.APPLICATION_JSON)
+//    public ResponseEntity<?> addReview(@RequestBody CarReviewDTO dto, Principal p){
+//
 //        try{
 //            CarReview review = new CarReview();
 //            review.setDeleted(false);
+//            review.setApproved(false);
 //            review.setRating(dto.getRating());
 //            review.setReview(dto.getReview());
 //            Cars car = carsService.getCar(dto.getCarId());
 //            review.setCar(car);
-//            //review.setReviewer(userService.findUserById(dto.getReviewerId()));
-//            review.setReviewer(userService.findUserById(1));
-//            //TODO: promeniti reviewer id kad dodju tokeni
-//            carReviewService.save(review);
-//            LOGGER.info("Action add car review for car id:{} successful", dto.getCarId());
+//
+//            User user = userService.findByEmail(p.getName());
+//            review.setReviewer(user);
+//
+//            List<RentRequest> usersRequests = userService.findUsersRentRequests(user.getEmail());
+//
+//            for(RentRequest rr : usersRequests){
+//                System.out.println(rr.getCarId().getId() +" " + dto.getCarId() + " " + rr.getStatus()+"----------------------------------------");
+//                if(rr.getCarId().getId() == dto.getCarId() && rr.getStatus().equals(RequestStatus.RETURNED)){
+//                    carReviewService.save(review);
+//                    LOGGER.info("User email: {} posted a review for car id:{} successfully", p.getName(), dto.getCarId());
+//                    return ResponseEntity.status(200).build();
+//                }
+//            }
+//
+//            LOGGER.warn("User email: {} is not allowed to post a review for car id:{} ", p.getName(), dto.getCarId());
+//            return ResponseEntity.status(403).build();
+//
+//            RentRequest rr = new RentRequest();
+//            Cars c = carsService.findByName(dto.getCarName());
+//            rr.setCarId(c);
+//            rr.setStartDate(dto.getStartDate());
+//            rr.setEndDate(dto.getEndDate());
+//            rr.setStatus(RequestStatus.PENDING);
+//            rr.setDeleted(false);
+//            rr.setOwningUser(user);
+//            rentRequestService.save(rr);
 //            return ResponseEntity.ok().build();
 //        }catch (Exception e){
 //            LOGGER.error("Action add car review for car id={} failed. Cause: {}", dto.getCarId(), e.getMessage());
-//
 //        }
-        return ResponseEntity.status(400).build();
-    }
+//        return ResponseEntity.status(400).build();
+//    }
+
     @GetMapping(value = "rentRequests")
     public List<RentRequestDTO> getRentRequests (Principal p) {
-       List<RentRequest> retVal = rentRequestService.findAll();
-        List<RentRequestDTO> dto = new ArrayList<>() ;
+        List<RentRequest> retVal = rentRequestService.findAll();
+        List<RentRequestDTO> dto = new ArrayList<>();
         User user = userService.findByEmail(p.getName());
 
         for (RentRequest c : retVal) {
-            if(c.getCarId().getOwner().equals(user)) {
+            if (c.getCarId().getOwner().equals(user)) {
 
 
                 if (c.getStatus().equals(RequestStatus.PENDING)) {
@@ -368,29 +431,58 @@ public class RentingController {
                 //dto.add(dto1);
             }
         }
-
         return dto;
     }
 
-    @PostMapping(value="/rentCar")
-    public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto, Principal p){
-        User user = userService.findByEmail(p.getName());
+    @PostMapping(value="review", consumes = MediaType.APPLICATION_JSON)
+    public ResponseEntity<?> addReview(@RequestBody CarReviewDTO dto, Principal p){
 
         try{
-            RentRequest rr = new RentRequest();
-            Cars c = carsService.findByName(dto.getCarName());
-            rr.setCarId(c);
-            rr.setStartDate(dto.getStartDate());
-            rr.setEndDate(dto.getEndDate());
-            rr.setStatus(RequestStatus.PENDING);
-            rr.setDeleted(false);
-            rr.setOwningUser(user);
-            rentRequestService.save(rr);
-            return ResponseEntity.ok().build();
+            CarReview review = new CarReview();
+            review.setDeleted(false);
+            review.setApproved(false);
+            review.setRating(dto.getRating());
+            review.setReview(dto.getReview());
+            Cars car = carsService.getCar(dto.getCarId());
+            review.setCar(car);
+
+            User user = userService.findByEmail(p.getName());
+            review.setReviewer(user);
+
+            List<RentRequest> usersRequests = userService.findUsersRentRequests(user.getEmail());
+
+            for(RentRequest rr : usersRequests){
+                if(rr.getCarId().getId() == dto.getCarId() && rr.getStatus().equals(RequestStatus.RETURNED)){
+                    carReviewService.save(review);
+                    LOGGER.info("User email: {} posted a review for car id:{} successfully", p.getName(), dto.getCarId());
+                    return ResponseEntity.status(200).build();
+                }
+            }
+
+            LOGGER.warn("User email: {} is not allowed to post a review for car id:{} ", p.getName(), dto.getCarId());
+            return ResponseEntity.status(403).build();
+
         }catch (Exception e){
+            LOGGER.error("Action add car review for car id={} failed. Cause: {}", dto.getCarId(), e.getMessage());
         }
         return ResponseEntity.status(400).build();
     }
+
+
+    @GetMapping(value = "reviews/cars/{id}")
+    public ResponseEntity<List<CarReviewDTO>> getAllCarReviews (@PathVariable("id") Integer carId) {
+        List<CarReviewDTO> retVal = new ArrayList<CarReviewDTO>();
+        Cars car = carsService.getCar(carId);
+
+        for(CarReview cr : car.getReviews()){
+            if(cr.isApproved())
+                retVal.add(new CarReviewDTO(cr));
+        }
+
+        LOGGER.info("Action get all car reviews for car id: {} successful ", carId);
+        return new ResponseEntity<List<CarReviewDTO>>(retVal, HttpStatus.OK);
+    }
+
 
     @PostMapping(value="approveRentRequest")
     public ResponseEntity<?> approveRentRequest(@RequestBody Integer id){
