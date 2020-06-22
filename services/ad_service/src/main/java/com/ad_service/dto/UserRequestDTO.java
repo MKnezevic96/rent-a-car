@@ -1,4 +1,4 @@
-package com.admin_service.dto;
+package com.ad_service.dto;
 
 public class UserRequestDTO {
     public String firsname;
@@ -16,11 +16,11 @@ public class UserRequestDTO {
         this.password = password;
     }
 
-    public String getFirstname() {
+    public String getFirsname() {
         return firsname;
     }
 
-    public void setFirstname(String firsname) {
+    public void setFirsname(String firsname) {
         this.firsname = firsname;
     }
 

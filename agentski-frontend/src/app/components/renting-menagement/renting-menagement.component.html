@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link">Manage renting <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="rentPayments()">Rent payments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="toAdv()">Make advertisement</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="rentRequest()">Make rent request</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="approveRent()">Approve rent requests</a>
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-primary" style="margin-top: 0 !important;">Log out</button>
+</nav>
+
+<router-outlet></router-outlet>
