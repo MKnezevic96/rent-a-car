@@ -177,3 +177,20 @@
 2020-06-21 20:56:41 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
 2020-06-21 20:57:11 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 32.949 seconds (JVM running for 39.811)
 2020-06-21 20:58:29 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 21:02:39 INFO  RentingController:92 - Action get all cars successful
+2020-06-21 21:02:52 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 21:05:44 INFO  RentingController:77 - Action get all cars successful
+2020-06-21 21:17:19 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication on student-VirtualBox with PID 9331 (/home/student/Desktop/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/Desktop/rent-a-car/Agent/agentski_bekend)
+2020-06-21 21:17:19 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-21 21:17:53 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 35.581 seconds (JVM running for 41.349)
+2020-06-21 21:17:57 INFO  RentingController:77 - Action get all cars successful
+2020-06-22 00:01:00 INFO  RentingController:77 - Action get all cars successful
+2020-06-22 00:04:32 INFO  RentingController:483 - Action get all car reviews for car id: 1 successful 
+2020-06-22 00:04:32 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-22 00:42:39 INFO  RentingController:77 - Action get all cars successful
+2020-06-22 00:43:55 INFO  RentingController:77 - Action get all cars successful
+2020-06-22 00:45:03 INFO  RentingController:77 - Action get all cars successful
+2020-06-22 00:45:31 INFO  RentingController:227 - Action get car id:1 successful
+2020-06-22 00:45:31 INFO  RentingController:483 - Action get all car reviews for car id: 1 successful 
+2020-06-22 00:46:32 INFO  RentingController:77 - Action get all cars successful
+2020-06-22 00:46:34 INFO  RentingController:250 - Action get paid rent requests successful
