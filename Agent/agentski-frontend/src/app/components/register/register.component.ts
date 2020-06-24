@@ -60,6 +60,8 @@ export class RegisterComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
 
+    
+
     onSelected(){
         if(this.isSelected=='isCompany'){
             this.ifCompany = true;
@@ -104,7 +106,7 @@ export class RegisterComponent implements OnInit {
                     this.router.navigate(['/login']);
                 },
                 error => {
-                    alert("Invalid email");
+                    alert(error.error);
                     this.alertService.error(error);
                     this.loading = false;
                 });

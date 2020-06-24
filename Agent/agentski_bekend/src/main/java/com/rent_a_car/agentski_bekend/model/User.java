@@ -1,5 +1,6 @@
 package com.rent_a_car.agentski_bekend.model;
 
+import com.rent_a_car.agentski_bekend.security.constraint.ValidPassword;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -65,6 +66,7 @@ public class User implements Serializable, UserDetails {
 
     //@Size(min = 5)
     @Column(name="password", nullable = false)
+    @ValidPassword   // custom hybernate validator
     @XmlElement(required=true)
     private String password;
 
