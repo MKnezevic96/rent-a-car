@@ -1,0 +1,18 @@
+2020-06-22 21:02:47 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication on student-VirtualBox with PID 16894 (/home/student/Desktop/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/Desktop/rent-a-car)
+2020-06-22 21:02:47 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-22 21:03:15 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 30.561 seconds (JVM running for 36.61)
+2020-06-23 11:55:43 INFO  RentingController:92 - Action get all cars successful
+2020-06-23 11:56:18 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 11:58:10 INFO  RentingController:52 - Action get all message conversations of user: user2@gmail.com successful
+2020-06-23 11:58:19 INFO  RentingController:106 - Action get message history of user: user2@gmail.com with user user1@gmail.com successful
+2020-06-23 11:58:26 INFO  RentingController:133 - User email: user2@gmail.com has sent the message to user email: user1@gmail.com successfully
+2020-06-23 11:58:26 INFO  RentingController:106 - Action get message history of user: user2@gmail.com with user user1@gmail.com successful
+2020-06-23 11:58:57 INFO  RentingController:52 - Action get all message conversations of user: user1@gmail.com successful
+2020-06-23 11:59:03 INFO  RentingController:106 - Action get message history of user: user1@gmail.com with user user2@gmail.com successful
+2020-06-23 11:59:09 INFO  RentingController:133 - User email: user1@gmail.com has sent the message to user email: user2@gmail.com successfully
+2020-06-23 11:59:09 INFO  RentingController:106 - Action get message history of user: user1@gmail.com with user user2@gmail.com successful
+2020-06-23 11:59:15 INFO  RentingController:52 - Action get all message conversations of user: user1@gmail.com successful
+2020-06-23 11:59:16 INFO  RentingController:106 - Action get message history of user: user1@gmail.com with user user1@gmail.com successful
+2020-06-23 11:59:57 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 12:00:01 INFO  RentingController:482 - Action get all car reviews for car id: 1 successful 
+2020-06-23 12:00:01 INFO  RentingController:227 - Action get car id:1 successful

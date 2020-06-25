@@ -3,10 +3,26 @@ import com.rent_a_car.agentski_bekend.dto.*;
 import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.service.CarsService;
 import com.rent_a_car.agentski_bekend.service.interfaces.*;
+import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+//import org.springframework.ws.mime.MimeMessage;
 
+import org.springframework.mail.SimpleMailMessage;
+//import org.springframework.mail.javamail.JavaMailSender;
+//import org.springframework.mail.javamail.MimeMessageHelper;
+
+import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -47,6 +63,11 @@ public class AdminController {
     @Autowired
     private CarsService carService;
 
+    @Autowired
+    private JavaMailSender javaMailSender;
+
+    @Value("${back-uri}")
+    private String uri;
 
     @GetMapping(value="/admin/carReviews")
     public List<CarReviewDTO> getCarReviews(){
@@ -117,12 +138,44 @@ public class AdminController {
             u.setRole(rList);
         }
 
+        try {
+            sendAcceptEmail(u.getEmail());
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (javax.mail.MessagingException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Successfully sent email.");
 
         userService.save(u);
         userRequestService.delete(us);
 
         return ResponseEntity.ok().build();
     }
+
+//    @PostMapping(value="/activateAcc/{email}")
+//    public ResponseEntity<?> activateAccaunt(@PathVariable("email") String email){
+//        User user = userService.findByEmail(email);
+//        user.setActivated(true);
+//        userService.save(user);
+//        return ResponseEntity.ok().build();
+//    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/activateAcc/{mail:.+}")
+    public ResponseEntity activateAcc(@PathVariable("mail") String mail, @Value("${front_uri}") String uri) throws URISyntaxException {
+        User user = userService.findByEmail(mail);
+        user.setActivated(true);
+        userService.save(user);
+
+        URI loginURI = new URI(uri + "/activateAcc");
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setLocation(loginURI);
+
+        return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
+    }
+
 
     @PostMapping(value="/admin/ractivateAcc")
     public ResponseEntity<?> ractivateAcc(@RequestBody String email){
@@ -133,6 +186,7 @@ public class AdminController {
     }
 
     @PostMapping(value="/admin/blockAcc")
+    @PreAuthorize("hasAuthority('user_menagement')")
     public ResponseEntity<?> blocAcc(@RequestBody String email){
         User u = userService.findByEmail(email);
         u.setBlocked(true);
@@ -485,4 +539,39 @@ public class AdminController {
         transmissionTypeService.save(man);
         return ResponseEntity.ok().build();
     }
+
+
+    void sendAcceptEmail(String sendTo) throws MessagingException, IOException, javax.mail.MessagingException {
+
+        MimeMessage msg = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(msg, true);
+        helper.setTo(sendTo);
+
+        helper.setSubject("Centro Clinico account registration");
+        String text = "Dear sir/madam, " + '\n';
+        text += "your account request has been reviewed and accepted by our administrator staff. \n Please follow the link below to activate your account.";
+        text += uri + "/activateAcc/" + sendTo + "\n\n\n" + "Sincerely, Rent a car support team.";
+//        text += "http://localhost:4200/activateAcc/" + sendTo + "\n\n\n" + "Sincerely, Rent a car support team.";
+
+        helper.setText(text);
+
+
+        javaMailSender.send(msg);
+
+    }
+
+//    void sendDeclineEmail(String sendTo, String description, String firstName, String lastName) {
+//
+//        SimpleMailMessage msg = new SimpleMailMessage();
+//        msg.setTo(sendTo);
+//
+//        msg.setSubject("Centro Clinico account registration");
+//        String text = "Dear sir/madam, " + '\n';
+//        text += "your account request has been reviewed. Unfortunately, it has been declined, with an administrator message attached:";
+//        text += "\n\n\n" + "Sincerely, Centro Clinico support team.";
+//        msg.setText(text);
+//
+//        javaMailSender.send(msg);
+//
+//    }
 }

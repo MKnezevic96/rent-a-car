@@ -2,9 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="851a59de-86ea-4e19-abe2-e45a3afd678a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_core_1_1_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_client_1_1_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/agent.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/CarClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/CarModels.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/FuelType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Manufacturer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/TransmissionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/CarClassRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/CarModelsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/CompanyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/FuelTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/ManufacturerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/TransmissionTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/CarClassService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/CarModelsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/CompanyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/FuelTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/ManufacturerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/TransmissionTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CarClassServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CarModelsServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CarReviewServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CarsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CompanyServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/FuelTypeServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/ManufacturerServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/RoleServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/TransmissionTypeServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/logs/agent.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/UserRequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/UserRequestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/security/TokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/security/TokenUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/UserRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/UserRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/UserRequestServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/UserRequestServiceInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +93,15 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/agentski_bekend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Agent" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.admin_service.repository" />
+      <recent name="com.admin_service.model" />
+      <recent name="com.admin_service.service.interfaces" />
+      <recent name="com.admin_service.controller" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="AgentskiBekendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -189,10 +243,22 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1592652392948" />
+    <state x="558" y="275" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1592838147953">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="558" y="275" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/65.24.1295.744@65.24.1295.744" timestamp="1592838147953" />
+    <state x="300" y="41" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1592838143168">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="300" y="41" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/65.24.1295.744@65.24.1295.744" timestamp="1592838143168" />
     <state x="677" y="400" width="631" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591749368004">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="677" y="400" width="631" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/65.24.1855.1056@65.24.1855.1056" timestamp="1591749368004" />
+    <state x="450" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592845856741">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="450" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/65.24.1295.744@65.24.1295.744" timestamp="1592845856741" />
     <state x="102" y="83" width="813" height="910" key="CommitChangelistDialog2" timestamp="1592776405472">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -201,25 +267,29 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="250" y="102" key="DiffContextDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592416928183" />
-    <state x="500" y="141" key="FileChooserDialogImpl" timestamp="1588700165152">
+    <state x="500" y="141" key="FileChooserDialogImpl" timestamp="1592906880487">
       <screen x="65" y="24" width="1295" height="744" />
     </state>
-    <state x="500" y="141" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1588700165152" />
-    <state width="895" height="181" key="GridCell.Tab.0.bottom" timestamp="1592778308255">
-      <screen x="65" y="24" width="1855" height="1056" />
+    <state x="500" y="141" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1592906880487" />
+    <state width="1249" height="193" key="GridCell.Tab.0.bottom" timestamp="1592906887832">
+      <screen x="65" y="24" width="1295" height="744" />
     </state>
+    <state width="1249" height="193" key="GridCell.Tab.0.bottom/65.24.1295.744@65.24.1295.744" timestamp="1592906887832" />
     <state width="895" height="181" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1592778308255" />
-    <state width="895" height="181" key="GridCell.Tab.0.center" timestamp="1592778308255">
-      <screen x="65" y="24" width="1855" height="1056" />
+    <state width="1249" height="193" key="GridCell.Tab.0.center" timestamp="1592906887832">
+      <screen x="65" y="24" width="1295" height="744" />
     </state>
+    <state width="1249" height="193" key="GridCell.Tab.0.center/65.24.1295.744@65.24.1295.744" timestamp="1592906887831" />
     <state width="895" height="181" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1592778308255" />
-    <state width="895" height="181" key="GridCell.Tab.0.left" timestamp="1592778308253">
-      <screen x="65" y="24" width="1855" height="1056" />
+    <state width="1249" height="193" key="GridCell.Tab.0.left" timestamp="1592906887831">
+      <screen x="65" y="24" width="1295" height="744" />
     </state>
+    <state width="1249" height="193" key="GridCell.Tab.0.left/65.24.1295.744@65.24.1295.744" timestamp="1592906887831" />
     <state width="895" height="181" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1592778308253" />
-    <state width="895" height="181" key="GridCell.Tab.0.right" timestamp="1592778308255">
-      <screen x="65" y="24" width="1855" height="1056" />
+    <state width="1249" height="193" key="GridCell.Tab.0.right" timestamp="1592906887832">
+      <screen x="65" y="24" width="1295" height="744" />
     </state>
+    <state width="1249" height="193" key="GridCell.Tab.0.right/65.24.1295.744@65.24.1295.744" timestamp="1592906887832" />
     <state width="895" height="181" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1592778308255" />
     <state x="65" y="24" width="1855" height="1056" key="MergeDialog" timestamp="1592515272232">
       <screen x="65" y="24" width="1855" height="1056" />
@@ -241,6 +311,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="164" y="96" width="1657" height="885" key="com.intellij.history.integration.ui.views.FileHistoryDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592471919604" />
+    <state x="463" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1592847364083">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="463" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog/65.24.1295.744@65.24.1295.744" timestamp="1592847364083" />
     <state x="467" y="341" width="1235" height="854" maximized="true" key="dock-window-1" timestamp="1592641090062">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>

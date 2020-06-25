@@ -12,10 +12,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -37,7 +34,8 @@ import java.util.List;
         "reviews",
         "sentMessages",
         "recieved",
-        "pricings"
+        "pricings",
+        "activated"
 }, namespace = "nekiUri/user")
 @Table(name = "user_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -129,7 +127,18 @@ public class User implements Serializable, UserDetails {
     @XmlElement
     private List<RentRequest> rentRequests = new ArrayList<RentRequest> ();
 
+    @Column (name="activated", nullable=false)
+    private boolean activated = false;
+
     public User() {
+    }
+
+    public boolean isActivated() {
+        return activated;
+    }
+
+    public void setActivated(boolean activated) {
+        this.activated = activated;
     }
 
     public boolean isBlocked() {
@@ -298,7 +307,13 @@ public class User implements Serializable, UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.role;
+
+        Set<Privilege> allPermissions = new HashSet<>();
+        for (Role a : role) {
+            allPermissions.addAll(a.getPrivileges());
+        }
+        return allPermissions;
+
     }
 
     @Override

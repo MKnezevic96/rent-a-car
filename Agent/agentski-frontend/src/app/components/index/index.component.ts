@@ -20,6 +20,10 @@ export class IndexComponent implements OnInit {
     this.router.navigate(['rentingReport'], {relativeTo: this.route});
   }
 
+  changePassword() {
+    this.router.navigate(['changePassword'], {relativeTo: this.route});
+  }
+
   showAddAdvertisementForm() {
     this.router.navigate(['advertisement'], {relativeTo: this.route});
   }

@@ -42,7 +42,11 @@ public class AuthenticationController {
         try{
             User user = userService.findByEmail(authenticationRequest.getEmail());
             if(user.getPassword().equals(authenticationRequest.getPassword())) {
-                return ResponseEntity.ok().build();
+                if(user.isActivated()) {
+                    return ResponseEntity.ok().build();
+                }else{
+                    return ResponseEntity.status(403).build();
+                }
             }
             return ResponseEntity.status(401).build();
 
@@ -110,10 +114,14 @@ public class AuthenticationController {
                 .authenticate(upat);
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String role = new String();//
-        role = authentication.getAuthorities().iterator().next().getAuthority();
 
+        String role = new String();//
+        //role = authentication.getAuthorities().iterator().next().getAuthority();
         User user = (User)customUserDetailsService.loadUserByUsername(authenticationRequest.getEmail());
+        role = user.getRole().iterator().next().getName();
+        if(!user.isActivated()){
+            return ResponseEntity.status(403).build();
+        }
 
         String jwt = tokenUtils.generateToken(user.getEmail());
         int expiresIn = tokenUtils.getExpiredId();
@@ -142,5 +150,40 @@ public class AuthenticationController {
 
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/changePassword")
+    public ResponseEntity<?> changePassword(@RequestBody String newPassword, Principal p){
+
+        User user = userService.findByEmail(p.getName());
+
+        user.setPassword(passwordEncoder.encode(newPassword));
+
+        userService.save(user);
+
+        return ResponseEntity.ok().build();
+
+    }
+
+    @PostMapping("/checkPassword")
+    public ResponseEntity<?> checkPassword(@RequestBody String oldPassword, Principal p){
+
+        User user = userService.findByEmail(p.getName());
+
+//        String pass = user.getPassword();
+//        String ppass = passwordEncoder.encode(oldPassword);
+
+        if( user.getPassword().equals(passwordEncoder.encode(oldPassword))) {
+            return ResponseEntity.ok().build();
+        }
+
+        if( passwordEncoder.matches(oldPassword, user.getPassword())) {
+            return ResponseEntity.ok().build();
+        }
+
+        return ResponseEntity.status(402).build();
+
+
+    }
+
 }
 

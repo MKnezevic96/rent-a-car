@@ -5,6 +5,9 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { UserTokenState } from '../models/UserTokenState';
 import { LoginUser } from '../models/LoginUser';
+import { HttpHeaders } from '@angular/common/http';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +36,34 @@ export class UserService {
       localStorage.setItem('accessToken', response.accessToken);
       this.loggedInUserSubject.next(response);
     }));
+  }
+
+  checkPassword(oldPassword:string):Observable<string>{
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    let url = 'http://localhost:8282/checkPassword';
+    return this.httpClient.post<string>(url, oldPassword, httpOptions);
+
+  }
+
+  changePassword(newPassword:string):Observable<string>{
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    let url = 'http://localhost:8282/changePassword';
+    return this.httpClient.post<string>(url, newPassword, httpOptions);
+
   }
 
   getMyInfo() {

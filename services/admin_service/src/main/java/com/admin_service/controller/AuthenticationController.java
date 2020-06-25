@@ -2,13 +2,9 @@ package com.admin_service.controller;
 
 import com.admin_service.dto.UserDTO;
 import com.admin_service.dto.UserRequestDTO;
-import com.admin_service.model.User;
-import com.admin_service.model.UserRequest;
 import com.admin_service.security.auth.JwtAuthenticationRequest;
 import com.admin_service.service.UserService;
-import com.admin_service.service.interfaces.UserRequestServiceInterface;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,10 +17,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;
 import java.util.Collection;
-import java.util.List;
 
 
 @RestController

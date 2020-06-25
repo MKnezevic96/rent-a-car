@@ -261,7 +261,7 @@ public class RentingController {
         User user = userService.findByEmail(p.getName());
         for(RentRequest rr : rrl){
             if (rr.getStatus().equals(RequestStatus.RESERVED)) {
-                if (rr.getOwningUser().equals(user)) {
+                if (rr.getOwningUser().getEmail().equals(user.getEmail())) {
                     RentRequestDTO rrdto = new RentRequestDTO();
                     rrdto.setCarName(rr.getCarId().getName());
                     rrdto.setStartDate(rr.getStartDate());
