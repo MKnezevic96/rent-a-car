@@ -1,9 +1,30 @@
 package com.rent_a_car.agentski_bekend.dto;
 
+import org.hibernate.validator.constraints.Email;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class UserRequestDTO {
+
+    @NotNull(message = "Name is mandatory")
+    @Size(min = 2, max = 30,
+            message = "Name must be between 2 and 30 characters long")
     public String firsname;
+
+    @NotNull(message = "Last name is mandatory")
+    @Size(min = 2, max = 32,
+            message = "Last Name must be between 2 and 32 characters long")
     public String lastname;
+
+    @NotNull(message = "Email is mandatory")
+    @Email    // hybernate validator
+    @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@↵\n" +
+            "(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$")
     public String email;
+
+    @Size(min = 10, max = 500)
     public String password;
 
     public UserRequestDTO() {

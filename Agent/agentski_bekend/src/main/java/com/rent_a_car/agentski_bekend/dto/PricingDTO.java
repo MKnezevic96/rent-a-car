@@ -1,13 +1,23 @@
 package com.rent_a_car.agentski_bekend.dto;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class PricingDTO {
 
+    @NotNull(message = "Name is mandatory")
+    @Size(min = 2, max = 30,
+            message = "Name must be between 2 and 30 characters long")
     private String name;
+
     private double distanceLimit;
     private double regularPrice;
     private double overusePrice;
     private double collisionDamage;
     private Integer discountDays;
+
+    @Pattern(regexp = "^[1-9]{1}[0-9]?(?:\\.\\d{1,2})?$|^0\\.\\d{1,2}?$|100")   // percentage two decimals, except 0
     private double discountPercent;
     private String owner;
 

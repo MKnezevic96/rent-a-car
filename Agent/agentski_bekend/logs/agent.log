@@ -170,3 +170,12 @@
 2020-06-24 18:15:48 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication on student-VirtualBox with PID 4229 (/home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend)
 2020-06-24 18:15:48 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
 2020-06-24 18:16:22 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 36.244 seconds (JVM running for 45.91)
+2020-06-25 15:59:55 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication on student-VirtualBox with PID 7434 (/home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend)
+2020-06-25 15:59:55 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-25 16:00:34 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 42.098 seconds (JVM running for 48.758)
+2020-06-25 16:12:51 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication on student-VirtualBox with PID 7837 (/home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend)
+2020-06-25 16:12:51 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-25 16:13:23 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 34.486 seconds (JVM running for 40.856)
+2020-06-25 16:16:20 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication on student-VirtualBox with PID 7988 (/home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend)
+2020-06-25 16:16:20 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-25 16:16:48 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 30.133 seconds (JVM running for 35.78)
