@@ -7,3 +7,4 @@ public interface CompanyRepository extends JpaRepository<Company, Integer> {
     Company findByName(String name);
 
 }
+

@@ -16,11 +16,11 @@ public class UserRequestDTO {
         this.password = password;
     }
 
-    public String getFirsname() {
+    public String getFirstname() {
         return firsname;
     }
 
-    public void setFirsname(String firsname) {
+    public void setFirstname(String firsname) {
         this.firsname = firsname;
     }
 

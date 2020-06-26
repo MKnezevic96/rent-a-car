@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/services/ad_service/ad_service.iml" filepath="$PROJECT_DIR$/services/ad_service/ad_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/services/admin_service/admin_service.iml" filepath="$PROJECT_DIR$/services/admin_service/admin_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/Agent/agentski_bekend/agentski_bekend.iml" filepath="$PROJECT_DIR$/Agent/agentski_bekend/agentski_bekend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/authentication_service/auth_service.iml" filepath="$PROJECT_DIR$/services/authentication_service/auth_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/gps_service/gps_service.iml" filepath="$PROJECT_DIR$/services/gps_service/gps_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/rent-a-car.iml" filepath="$PROJECT_DIR$/.idea/rent-a-car.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/renting_service/renting_service.iml" filepath="$PROJECT_DIR$/services/renting_service/renting_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/security_service/security_service.iml" filepath="$PROJECT_DIR$/services/security_service/security_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuul/zuul.iml" filepath="$PROJECT_DIR$/zuul/zuul.iml" />
     </modules>
   </component>
 </project>

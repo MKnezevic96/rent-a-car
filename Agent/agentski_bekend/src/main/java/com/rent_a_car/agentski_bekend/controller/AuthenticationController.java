@@ -6,6 +6,8 @@ import com.rent_a_car.agentski_bekend.model.UserTokenState;
 import com.rent_a_car.agentski_bekend.security.TokenUtils;
 import com.rent_a_car.agentski_bekend.service.UserService;
 import com.rent_a_car.agentski_bekend.service.interfaces.UserRequestServiceInterface;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;
 import java.util.Collection;
@@ -37,46 +40,36 @@ public class AuthenticationController {
     @Autowired
     private UserRequestServiceInterface userRequestService;
 
-    @PostMapping(value ="/api/login")
-    public ResponseEntity<?> login(@RequestBody JwtAuthenticationRequest authenticationRequest) {
-        try{
-            User user = userService.findByEmail(authenticationRequest.getEmail());
-            if(user.getPassword().equals(authenticationRequest.getPassword())) {
-                return ResponseEntity.ok().build();
-            }
-            return ResponseEntity.status(401).build();
-
-        }catch (Exception e){
-
-            };
-        return ResponseEntity.status(401).build();
-
-
-    }
 
     @PostMapping(value = "/api/register")
-    public ResponseEntity<?> register(@RequestBody UserDTO dto) {
+    public ResponseEntity<?> register(  @RequestBody UserDTO dto) {    // pokrece constraint iz dto klaase
         UserRequest user = new UserRequest();
         user.setFirstname(dto.getFirstname());
         user.setLastname(dto.getLastname());
         user.setEmail(dto.getEmail());
         user.setPassword(dto.getPassword());
 
-          if(dto.getIsSelected().equals("isCompany")) {
-              user.setCompany(true);
-          }
-          else if(dto.getIsSelected().equals("isUser")) {
-              user.setUser(true);
-          }
-          user.setName(dto.getName());
-          user.setAddress(dto.getAdress());
-          user.setNumber(dto.getNumber());
-        if(!dto.getEmail().matches("[a-zA-Z0-9.']+@(gmail.com)|(yahoo.com)|(uns.ac.rs)")){
+        if (dto.getIsSelected().equals("isCompany")) {
+            user.setCompany(true);
+        } else if (dto.getIsSelected().equals("isUser")) {
+            user.setUser(true);
+        }
+        user.setName(dto.getName());
+        user.setAddress(dto.getAdress());
+        user.setNumber(dto.getNumber());
+        if (!dto.getEmail().matches("[a-zA-Z0-9.']+@(gmail.com)|(yahoo.com)|(uns.ac.rs)")) {
             return ResponseEntity.status(400).build();
         }
-        userRequestService.save(user);
-        return ResponseEntity.ok().build();
-    }
+        try {
+            userRequestService.save(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+          //  return ResponseEntity.badRequest().body("Invalid password");
+            return new ResponseEntity<>("Invalid pass", HttpStatus.BAD_REQUEST);
+
+        }
+            return ResponseEntity.ok().build();
+        }
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
@@ -110,10 +103,14 @@ public class AuthenticationController {
                 .authenticate(upat);
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String role = new String();//
-        role = authentication.getAuthorities().iterator().next().getAuthority();
 
+        String role = new String();//
+        //role = authentication.getAuthorities().iterator().next().getAuthority();
         User user = (User)customUserDetailsService.loadUserByUsername(authenticationRequest.getEmail());
+        role = user.getRole().iterator().next().getName();
+        if(!user.isActivated()){
+            return ResponseEntity.status(403).build();
+        }
 
         String jwt = tokenUtils.generateToken(user.getEmail());
         int expiresIn = tokenUtils.getExpiredId();
@@ -136,11 +133,53 @@ public class AuthenticationController {
         return ResponseEntity.ok(auth);
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @RequestMapping(value = "/izadji", method = RequestMethod.GET)
     public ResponseEntity<?> logout(HttpServletRequest request) throws ServletException {
         request.logout();
 
         return ResponseEntity.ok().build();
     }
+
+    @PreAuthorize("hasAuthority('acc_menagement')")
+    @PostMapping("/changePassword")
+    public ResponseEntity<?> changePassword(@RequestBody String newPassword, Principal p){
+
+        User user = userService.findByEmail(p.getName());
+
+        user.setPassword(passwordEncoder.encode(newPassword));
+
+        userService.save(user);
+
+        return ResponseEntity.ok().build();
+
+    }
+    @PreAuthorize("hasAuthority('acc_menagement')")
+    @PostMapping("/checkPassword")
+    public ResponseEntity<?> checkPassword(@RequestBody String oldPassword, Principal p){
+
+        User user = userService.findByEmail(p.getName());
+
+//        String pass = user.getPassword();
+//        String ppass = passwordEncoder.encode(oldPassword);
+
+        if( user.getPassword().equals(passwordEncoder.encode(oldPassword))) {
+            return ResponseEntity.ok().build();
+        }
+
+        if( passwordEncoder.matches(oldPassword, user.getPassword())) {
+            return ResponseEntity.ok().build();
+        }
+
+        return ResponseEntity.status(402).build();
+    }
+
+    //@PreAuthorize("hasAuthority('acc_menagement')")
+    @PostMapping("/forgotPassword")
+    public ResponseEntity<?> forgotPassword(@RequestBody String oldPassword, Principal p){
+
+
+        return ResponseEntity.status(402).build();
+    }
+
 }
 

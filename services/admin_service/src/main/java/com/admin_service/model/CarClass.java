@@ -8,7 +8,8 @@ import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity@XmlAccessorType(XmlAccessType.FIELD)
+@Entity
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
         name = "CarClass", propOrder = {
         "id",

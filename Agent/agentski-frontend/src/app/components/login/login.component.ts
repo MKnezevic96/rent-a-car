@@ -90,7 +90,8 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('adminPage');
     },
     error =>{
-        alert('Username or password incorrect');
+      console.log(error);
+      alert('Activate account or check username or password');
     });
   }
 

@@ -27,6 +27,8 @@ import { RentPaymentComponent } from './components/rent-payment/rent-payment.com
 import { RentingApproveComponent } from './components/renting-approve/renting-approve.component';
 import { MyCarsComponent } from './components/my-cars/my-cars.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { PasswordChangeComponent } from './components/password-change/password-change.component';
+import { ActivateComponent } from './components/activate/activate.component';
 
 
 
@@ -82,6 +84,7 @@ const routes: Routes = [
         },
       ]
     },
+    { path: 'changePassword', component: PasswordChangeComponent},
 
     { path: 'rentRequest', component: RentRequestComponent},
     { path: 'index',
@@ -91,8 +94,12 @@ const routes: Routes = [
         { path: 'rentingReport', component: RentingReportComponent},
         { path: 'advertisements', component: AdvertisementListComponent},
         { path: 'messages', component: MessagesComponent},
+        { path: 'changePassword', component: PasswordChangeComponent},
+
       ]
     },
+    { path: 'activateAcc', component: ActivateComponent},
+
     { path: 'advertisement', component: AdvertisementComponent},
     { path: 'rentRequest', component: RentRequestComponent},
     { path: 'pricing', component: PricingPageComponent},

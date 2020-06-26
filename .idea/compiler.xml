@@ -6,10 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="agentski_bekend" />
+        <module name="auth_service" />
+        <module name="ad_service" />
+        <module name="renting_service" />
         <module name="gateway" />
-        <module name="admin_service" />
         <module name="eureka" />
+        <module name="agentski_bekend" />
+        <module name="admin_service" />
+        <module name="security_service" />
+        <module name="gps_service" />
+        <module name="zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

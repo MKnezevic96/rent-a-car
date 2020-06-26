@@ -2,9 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="550768e0-e962-4068-9384-9bb5085a8442" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_core_1_1_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_client_1_1_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../logs/agent.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/CarClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/CarModels.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/FuelType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/Manufacturer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/TransmissionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/repository/CarClassRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/repository/CarModelsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/repository/CompanyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/repository/FuelTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/repository/ManufacturerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/repository/TransmissionTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/CarClassService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/CarModelsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/CompanyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/FuelTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/ManufacturerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/TransmissionTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/interfaces/CarClassServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/interfaces/CarModelsServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/interfaces/CarReviewServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/interfaces/CarsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/interfaces/CompanyServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/interfaces/FuelTypeServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/interfaces/ManufacturerServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/interfaces/RoleServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/interfaces/TransmissionTypeServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/model/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/repository/UserRequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/repository/UserRequestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/security/TokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/security/TokenUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/UserRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/UserRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/interfaces/UserRequestServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../services/admin_service/src/main/java/com/admin_service/service/interfaces/UserRequestServiceInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +69,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/agentski_bekend" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -37,5 +83,11 @@
       <updated>1591536024884</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="500" y="141" key="FileChooserDialogImpl" timestamp="1592906917741">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="500" y="141" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1592906917741" />
   </component>
 </project>

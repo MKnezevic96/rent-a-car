@@ -1,46 +1,690 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fcce3a5-143c-4b0c-833d-c7556aa7fc18" name="Default Changelist" comment="">
+    <list default="true" id="4fcce3a5-143c-4b0c-833d-c7556aa7fc18" name="Default Changelist" comment="all merged up - security">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_afterburner_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_hystrix_hystrix_javanica_1_5_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_hystrix_hystrix_metrics_event_stream_1_5_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_hystrix_hystrix_serialization_1_5_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_netflix_commons_netflix_commons_util_0_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_zuul_zuul_core_1_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_jakarta_mail_1_6_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_14.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_core_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_3_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_reactivex_rxjava_reactive_streams_1_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_13_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_35.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_35.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_16_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jakarta_el_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_passay_passay_1_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_autoconfigure_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_actuator_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_cache_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_2_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_core_1_1_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_client_1_1_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_zuul_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_client_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_hystrix_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_zuul_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_3_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/activate/activate.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/activate/activate.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/activate/activate.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/activate/activate.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/password-change/password-change.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/password-change/password-change.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/password-change/password-change.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/password-change/password-change.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/security/constraint/PasswordConstraintValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/security/constraint/SQLInjectionSafe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/security/constraint/SQLInjectionSafeConstraintValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/security/constraint/ValidPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/browserslist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/e2e/protractor.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/e2e/src/app.e2e-spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/e2e/src/app.po.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/e2e/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/admin-page/admin-page.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/admin-page/admin-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/admin-page/admin-page.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/admin-page/admin-page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/advertisement-list/advertisement-list.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/advertisement-list/advertisement-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/advertisement/advertisement.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/advertisement/advertisement.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/advertisement/advertisement.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/advertisement/advertisement.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/alert.component/alert.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/alert.component/alert.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/blocked-users-list/blocked-users-list.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/blocked-users-list/blocked-users-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/car-classes/car-classes.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/car-classes/car-classes.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/car-models/car-models.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/car-models/car-models.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/codebook-menagement/codebook-menagement.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/codebook-menagement/codebook-menagement.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/codebook-menagement/codebook-menagement.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/comment-menagement/comment-menagement.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/comment-menagement/comment-menagement.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/comment-menagement/comment-menagement.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/comment-menagement/comment-menagement.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/fuel-types/fuel-types.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/fuel-types/fuel-types.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/home/home.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/home/home.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/index/index.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/index/index.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/index/index.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/login/login.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/login/login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/login/login.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/login/login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/manufactures/manufactures.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/manufactures/manufactures.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/pending-comments/pending-comments.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/pending-comments/pending-comments.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/pending-comments/pending-comments.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/pending-comments/pending-comments.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/pricing-page/pricing-page.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/pricing-page/pricing-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/pricing-page/pricing-page.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/pricing-page/pricing-page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/register/register.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/register/register.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/register/register.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/register/register.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/registration-requests/registration-requests.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/registration-requests/registration-requests.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/rent-payment/rent-payment.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/rent-payment/rent-payment.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/rent-payment/rent-payment.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/rent-payment/rent-payment.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/rent-request/rent-request.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/rent-request/rent-request.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/rent-request/rent-request.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/rent-request/rent-request.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/renting-approve/renting-approve.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/renting-approve/renting-approve.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/renting-approve/renting-approve.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/renting-approve/renting-approve.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/renting-menagement/renting-menagement.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/renting-menagement/renting-menagement.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/renting-menagement/renting-menagement.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/renting-menagement/renting-menagement.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/renting-report/renting-report.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/renting-report/renting-report.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/transmission-types/transmission-types.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/transmission-types/transmission-types.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/user-menagement/user-menagement.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/user-menagement/user-menagement.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/user-menagement/user-menagement.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/users-list/users-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/users-list/users-list.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/components/users-list/users-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/helpers/error.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/helpers/jwt.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/Car.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/CarClass.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/CarDetails.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/CarModels.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/CarReview.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/FuelType.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/LoginUser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/Manufacturer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/Pricing.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/RentRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/RentingReport.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/Review.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/TransmissionType.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/User.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/UserRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/models/UserTokenState.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/security/tokenInterceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/security/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/UserService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/admin.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/admin.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/advertisement.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/advertisement.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/alert.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/authentication.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/login.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/login.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/register.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/register.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/renting-report.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/app/services/renting-report.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agentski-frontend/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/config/WebServiceConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/controller/AdvertisementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/controller/RentingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/CarDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/CarReviewDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/CarsDetailsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/CarsListingDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/PricingDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/RentRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/UserRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/feignClients/UserFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/helper/TimeProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/CarClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/CarModels.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/FuelType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/Manufacturer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/Reciept.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/RecieptArticle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/TransmissionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/repository/CarClassRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/repository/CarModelsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/repository/CarReviewRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/repository/FuelTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/repository/ManufacturerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/repository/RentingReportRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/repository/TransmissionTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/CarClassService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/CarModelsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/CarReviewService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/FuelTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/ManufacturerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/PricingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/RentingReportService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/TransmissionTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/interfaces/CarClassServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/interfaces/CarModelsServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/interfaces/CarReviewServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/interfaces/FuelTypeServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/interfaces/ManufacturerServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/interfaces/RentingReportServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/interfaces/TransmissionTypeServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/security/auth/JwtAuthenticationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CarReviewServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CarsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/RoleServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/codebook-menagement/codebook-menagement.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/codebook-menagement/codebook-menagement.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/codebook-menagement/codebook-menagement.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/codebook-menagement/codebook-menagement.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/comment-menagement/comment-menagement.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/comment-menagement/comment-menagement.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/comment-menagement/comment-menagement.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/comment-menagement/comment-menagement.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/index/index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/index/index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/index/index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/index/index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/registration-requests/registration-requests.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/registration-requests/registration-requests.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/renting-menagement/renting-menagement.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/renting-menagement/renting-menagement.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/renting-menagement/renting-menagement.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/renting-menagement/renting-menagement.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/user-menagement/user-menagement.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/user-menagement/user-menagement.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/user-menagement/user-menagement.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/user-menagement/user-menagement.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/UserRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/UserRequest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/security/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/security/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/logs/agent.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/CarDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/CarDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/PricingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/PricingDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/RentRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/RentRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/UserRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/UserRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/Privilege.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/Privilege.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/security/TokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/security/TokenUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/UserRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/UserRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/interfaces/UserRequestServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/interfaces/UserRequestServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/agent.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/ad_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/AdServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/AdServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/controller/CarsEndpoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/dto/CarClassDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/CarClassDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/dto/CarModelsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/CarModelsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/dto/FuelTypeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/FuelTypeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/dto/ManufacturerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/ManufacturerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/dto/RentingReportDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/RentingReportDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/dto/TransmissionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/dto/TransmissionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/dto/UserRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/dto/UserRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/AndroidGPS.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/AndroidGPS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/CarClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/CarClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/CarModels.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/CarModels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/CarReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/CarReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Cars.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/Cars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/FuelType.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/FuelType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Manufacturer.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Manufacturer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Pricing.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/Pricing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/RentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/RentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/RentingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/RentingReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/enums/RequestStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/enums/RequestStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/model/enums/ServicesEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/model/enums/ServicesEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/CarsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/repository/CarsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/FuelTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/FuelTypeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/ManufacturerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/ManufacturerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/PricingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/repository/PricingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/RentRequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/repository/RentRequestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/TransmissionTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/TransmissionTypeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/UserRequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/repository/UserRequestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/security/TokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/security/TokenUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/CarClassService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/CarClassService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/CarModelsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/CarModelsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/CarsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/CarsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/FuelTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/FuelTypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/ManufacturerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/ManufacturerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/PricingService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/RentRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/RentRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/TransmissionTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/TransmissionTypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/UserRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/UserRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CarClassServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CarClassServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CarsServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/interfaces/CarsServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CompanyServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/CompanyServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/FuelTypeServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/FuelTypeServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/PricingServicecInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/interfaces/PricingServicecInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/RentRequestServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/ad_service/src/main/java/com/ad_service/service/interfaces/RentRequestServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/UserRequestServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin_service/src/main/java/com/admin_service/service/interfaces/UserRequestServiceInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="rent-a-car" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="messages" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1bUwe0VvBZgiptsheR2kDoPCeMm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Agent" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.admin_service.repository" />
+      <recent name="com.admin_service.model" />
+      <recent name="com.admin_service.service.interfaces" />
+      <recent name="com.admin_service.controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="AgentskiBekendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.rent_a_car.agentski_bekend.AgentskiBekendApplication" />
+      <module name="agentski_bekend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.rent_a_car.agentski_bekend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AgentskiBekendApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="aaaa">
-      <created>1593199818375</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="851a59de-86ea-4e19-abe2-e45a3afd678a" name="Default Changelist" comment="" />
+      <created>1588700071837</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588700071837</updated>
+    </task>
+    <task id="LOCAL-00001" summary="service discovery and docker commpose fixed">
+      <created>1591284342237</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1593199818375</updated>
+      <updated>1591284342237</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Create renting report">
+      <created>1591811981839</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591811981839</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Create renting report for paid renting requests">
+      <created>1591917479038</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1591917479038</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Car details page">
+      <created>1592252291010</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1592252291010</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Logging - agent">
+      <created>1592414873495</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1592414873495</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fixes">
+      <created>1592514710708</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1592514710708</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Sending messages to another users">
+      <created>1592743917177</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592743917179</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Frontend">
+      <created>1592763489359</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592763489359</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fix enums">
+      <created>1592776406354</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1592776406354</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="aaaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="aaaa" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="service discovery and docker commpose fixed" />
+    <MESSAGE value="Create renting report" />
+    <MESSAGE value="Create renting report for paid renting requests" />
+    <MESSAGE value="Car details page" />
+    <MESSAGE value="Logging - agent" />
+    <MESSAGE value="fixes" />
+    <MESSAGE value="Sending messages to another users" />
+    <MESSAGE value="Frontend" />
+    <MESSAGE value="Fix enums" />
+    <MESSAGE value="all merged up vol.3" />
+    <MESSAGE value="all merged up - security" />
+    <option name="LAST_COMMIT_MESSAGE" value="all merged up - security" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="601" y="83" key="CommitChangelistDialog2" timestamp="1593199817741">
+    <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser" timestamp="1592652392948">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="601" y="83" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1593199817741" />
-    <state x="661" y="333" key="git4idea.merge.GitPullDialog" timestamp="1593199834987">
+    <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1592652392948" />
+    <state x="558" y="275" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1592838147953">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="558" y="275" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/65.24.1295.744@65.24.1295.744" timestamp="1592838147953" />
+    <state x="300" y="41" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1592838143168">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="300" y="41" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/65.24.1295.744@65.24.1295.744" timestamp="1592838143168" />
+    <state x="677" y="400" width="631" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591749368004">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="661" y="333" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1593199834987" />
+    <state x="677" y="400" width="631" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/65.24.1855.1056@65.24.1855.1056" timestamp="1591749368004" />
+    <state x="450" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592845856741">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="450" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/65.24.1295.744@65.24.1295.744" timestamp="1592845856741" />
+    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2" timestamp="1593203691783">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1593203691783" />
+    <state x="250" y="102" key="DiffContextDialog" timestamp="1592416928183">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="250" y="102" key="DiffContextDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592416928183" />
+    <state x="500" y="141" key="FileChooserDialogImpl" timestamp="1592906880487">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="500" y="141" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1592906880487" />
+    <state width="1152" height="191" key="GridCell.Tab.0.bottom" timestamp="1593200616834">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state width="1249" height="193" key="GridCell.Tab.0.bottom/65.24.1295.744@65.24.1295.744" timestamp="1592906887832" />
+    <state width="1152" height="191" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1593200616834" />
+    <state width="1152" height="191" key="GridCell.Tab.0.center" timestamp="1593200616834">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state width="1249" height="193" key="GridCell.Tab.0.center/65.24.1295.744@65.24.1295.744" timestamp="1592906887831" />
+    <state width="1152" height="191" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1593200616834" />
+    <state width="1152" height="191" key="GridCell.Tab.0.left" timestamp="1593200616833">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state width="1249" height="193" key="GridCell.Tab.0.left/65.24.1295.744@65.24.1295.744" timestamp="1592906887831" />
+    <state width="1152" height="191" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1593200616833" />
+    <state width="1152" height="191" key="GridCell.Tab.0.right" timestamp="1593200616834">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state width="1249" height="193" key="GridCell.Tab.0.right/65.24.1295.744@65.24.1295.744" timestamp="1592906887832" />
+    <state width="1152" height="191" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1593200616834" />
+    <state x="65" y="24" width="1855" height="1056" key="MergeDialog" timestamp="1592515272232">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="65" y="24" width="1855" height="1056" key="MergeDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592515272232" />
+    <state x="702" y="257" key="MultipleFileMergeDialog" timestamp="1592515272246">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="702" y="257" key="MultipleFileMergeDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592515272246" />
+    <state x="692" y="300" key="Vcs.Multiple.Commit.Info.Dialog.Key" timestamp="1592419444665">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="692" y="300" key="Vcs.Multiple.Commit.Info.Dialog.Key/65.24.1855.1056@65.24.1855.1056" timestamp="1592419444665" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1592776440266">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1592776440266" />
+    <state x="164" y="96" width="1657" height="885" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592471919604">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="164" y="96" width="1657" height="885" key="com.intellij.history.integration.ui.views.FileHistoryDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592471919604" />
+    <state x="463" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1592847364083">
+      <screen x="65" y="24" width="1295" height="744" />
+    </state>
+    <state x="463" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog/65.24.1295.744@65.24.1295.744" timestamp="1592847364083" />
+    <state x="467" y="341" width="1235" height="854" maximized="true" key="dock-window-1" timestamp="1592641090062">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="467" y="341" width="1235" height="854" maximized="true" key="dock-window-1/65.24.1855.1056@65.24.1855.1056" timestamp="1592641090062" />
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog" timestamp="1593200860299">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1593200860299" />
+    <state x="655" y="246" key="run.anything.popup" timestamp="1592744829640">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="655" y="246" key="run.anything.popup/65.24.1855.1056@65.24.1855.1056" timestamp="1592744829640" />
+    <state x="655" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1592332310319">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="655" y="236" width="672" height="678" key="search.everywhere.popup/65.24.1855.1056@65.24.1855.1056" timestamp="1592332310319" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/AgentskiBekendApplication.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

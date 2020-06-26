@@ -5,6 +5,15 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { UserTokenState } from '../models/UserTokenState';
 import { LoginUser } from '../models/LoginUser';
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'mode': 'cors',
+  })
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +44,34 @@ export class UserService {
     }));
   }
 
+  checkPassword(oldPassword:string):Observable<string>{
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    let url = 'http://localhost:8282/checkPassword';
+    return this.httpClient.post<string>(url, oldPassword, httpOptions);
+
+  }
+
+  changePassword(newPassword:string):Observable<string>{
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    let url = 'http://localhost:8282/changePassword';
+    return this.httpClient.post<string>(url, newPassword, httpOptions);
+
+  }
+
   getMyInfo() {
     return this.httpClient.get('https://localhost:8443/authentication-service/api/users/whoami').subscribe(data => {
       this.currentUser = data;
@@ -58,10 +95,18 @@ export class UserService {
   }
 
   logout() {
+    console.log('tu');
     localStorage.removeItem('user');
     localStorage.removeItem('role');
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('optc');
+    localStorage.removeItem('test');
+
     this.accessToken = null;
     this.router.navigate(['/']);
+    let url = 'http://localhost:8282/izadji';
+    return this.httpClient.get<string>(url, httpOptions);
+    
   }
 
 }

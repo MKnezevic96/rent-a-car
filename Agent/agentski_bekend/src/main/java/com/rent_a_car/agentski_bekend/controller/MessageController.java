@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,7 @@ public class MessageController {
     @Autowired
     private UserService userService;
 
+    @PreAuthorize("hasAuthority('msg_menagement_read')")
     @GetMapping(value = "users")
     public ResponseEntity<List<UserDTO>> getAllUsers (@RequestParam(value = "param", required = false) String param, Principal p) {
         List<UserDTO> retVal = new ArrayList<UserDTO>();
@@ -83,7 +85,7 @@ public class MessageController {
         return new ResponseEntity<List<UserDTO>>(retVal, HttpStatus.BAD_REQUEST);
     }
 
-
+    @PreAuthorize("hasAuthority('msg_menagement_read')")
     @GetMapping(value = "history")
     public ResponseEntity<List<MessageDTO>> getMessageHistory (@RequestParam(value = "email", required = false) String email,  Principal p) {
         List<MessageDTO> retVal = new ArrayList<MessageDTO>();
@@ -107,7 +109,7 @@ public class MessageController {
         return new ResponseEntity<List<MessageDTO>>(retVal, HttpStatus.OK);
     }
 
-
+    @PreAuthorize("hasAuthority('msg_menagement_write')")
     @PostMapping(value="message", consumes = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> sendMessage(@RequestBody MessageDTO dto, Principal p){
 
