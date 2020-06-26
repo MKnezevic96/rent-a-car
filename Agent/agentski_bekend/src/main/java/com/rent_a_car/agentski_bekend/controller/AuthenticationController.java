@@ -7,6 +7,7 @@ import com.rent_a_car.agentski_bekend.security.TokenUtils;
 import com.rent_a_car.agentski_bekend.service.UserService;
 import com.rent_a_car.agentski_bekend.service.interfaces.UserRequestServiceInterface;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;
 import java.util.Collection;
@@ -60,28 +62,34 @@ public class AuthenticationController {
 //    }
 
     @PostMapping(value = "/api/register")
-    public ResponseEntity<?> register(@RequestBody UserDTO dto) {
+    public ResponseEntity<?> register(  @RequestBody UserDTO dto) {    // pokrece constraint iz dto klaase
         UserRequest user = new UserRequest();
         user.setFirstname(dto.getFirstname());
         user.setLastname(dto.getLastname());
         user.setEmail(dto.getEmail());
         user.setPassword(dto.getPassword());
 
-          if(dto.getIsSelected().equals("isCompany")) {
-              user.setCompany(true);
-          }
-          else if(dto.getIsSelected().equals("isUser")) {
-              user.setUser(true);
-          }
-          user.setName(dto.getName());
-          user.setAddress(dto.getAdress());
-          user.setNumber(dto.getNumber());
-        if(!dto.getEmail().matches("[a-zA-Z0-9.']+@(gmail.com)|(yahoo.com)|(uns.ac.rs)")){
+        if (dto.getIsSelected().equals("isCompany")) {
+            user.setCompany(true);
+        } else if (dto.getIsSelected().equals("isUser")) {
+            user.setUser(true);
+        }
+        user.setName(dto.getName());
+        user.setAddress(dto.getAdress());
+        user.setNumber(dto.getNumber());
+        if (!dto.getEmail().matches("[a-zA-Z0-9.']+@(gmail.com)|(yahoo.com)|(uns.ac.rs)")) {
             return ResponseEntity.status(400).build();
         }
-        userRequestService.save(user);
-        return ResponseEntity.ok().build();
-    }
+        try {
+            userRequestService.save(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+          //  return ResponseEntity.badRequest().body("Invalid password");
+            return new ResponseEntity<>("Invalid pass", HttpStatus.BAD_REQUEST);
+
+        }
+            return ResponseEntity.ok().build();
+        }
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {

@@ -1,11 +1,13 @@
 package com.rent_a_car.agentski_bekend.model;
 
+import com.rent_a_car.agentski_bekend.security.constraint.ValidPassword;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -47,22 +49,30 @@ public class User implements Serializable, UserDetails {
     @XmlElement(required=true)
     private Integer id;
 
-    @NotNull
+    @NotNull(message = "Name is mandatory")
+    @Size(min = 2, max = 30,
+            message = "Name must be between 2 and 30 characters long")
     @Column(name="firstname")
     private String firstname;
 
-    @NotNull
+    @NotNull(message = "Last name is mandatory")
+    @Size(min = 2, max = 32,
+            message = "Last Name must be between 2 and 32 characters long")
     @Column(name="lastname")
     @XmlElement(required=true)
     private String lastname;
-    @NotNull
+
+    @NotNull(message = "Email is mandatory")
     @Email    // hybernate validator
+    @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@↵\n" +
+            "(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$")
     @Column(name="email", nullable = false, unique = true)
     @XmlElement(required=true)
     private String email;
 
     //@Size(min = 5)
     @Column(name="password", nullable = false)
+    @ValidPassword   // custom hybernate validator
     @XmlElement(required=true)
     private String password;
 

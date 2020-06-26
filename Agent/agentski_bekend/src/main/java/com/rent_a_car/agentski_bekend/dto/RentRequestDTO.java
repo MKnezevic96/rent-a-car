@@ -6,14 +6,20 @@ import com.rent_a_car.agentski_bekend.model.User;
 import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class RentRequestDTO {
     private Integer id;
     private String carName;
+
+    @Future
     private Date startDate;
+
+    @Future
     private Date endDate;
+
     private String status;
     private boolean deleted;
     private Integer carId;

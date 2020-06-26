@@ -3,7 +3,9 @@ package com.rent_a_car.agentski_bekend.service;
 import com.rent_a_car.agentski_bekend.model.UserRequest;
 import com.rent_a_car.agentski_bekend.repository.UserRepository;
 import com.rent_a_car.agentski_bekend.repository.UserRequestRepository;
+import com.rent_a_car.agentski_bekend.security.constraint.PasswordConstraintValidator;
 import com.rent_a_car.agentski_bekend.service.interfaces.UserRequestServiceInterface;
+import org.hibernate.validator.internal.engine.constraintvalidation.ConstraintValidatorContextImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class UserRequestService  implements UserRequestServiceInterface {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    private PasswordConstraintValidator passwordConstraintValidator=new PasswordConstraintValidator();
+
 
     @Override
     public UserRequest findById(Integer id) {
@@ -29,10 +33,16 @@ public class UserRequestService  implements UserRequestServiceInterface {
     }
 
     @Override
-    public UserRequest save(UserRequest user) {
+    public UserRequest save(UserRequest user) throws Exception {
 
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRequestRepository.save(user);
+            if(passwordConstraintValidator.isValid(user.getPassword(), null)) {
+                user.setPassword(passwordEncoder.encode(user.getPassword()));
+                return userRequestRepository.save(user);
+            } else {
+                throw new Exception("");
+            }
+
+
     }
 
     @Override
