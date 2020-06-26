@@ -1,0 +1,4 @@
+2020-06-22 02:22:21 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication on student-VirtualBox with PID 7337 (/home/student/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/rent-a-car)
+2020-06-22 02:22:21 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-22 02:22:52 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 33.769 seconds (JVM running for 39.496)
+2020-06-22 22:58:30 INFO  RentingController:77 - Action get all cars successful

@@ -6,16 +6,16 @@ services:
     build: ./eureka
     container_name: eureka
     ports:
-     - "8761:8761"
+      - "8761:8761"
     tty: true
     networks:
-     - first-network
+      - first-network
 
   zuul:
     build: ./zuul
     container_name: zuul
     ports:
-    - "8083:8083"
+      - "8083:8083"
     environment:
       - REGISTRY_HOST=eureka
     tty: true
@@ -30,20 +30,20 @@ services:
       - security-service
       - renting-service
 
-#  nginx:
-#    image: nginx:latest
-#    container_name: nginx-server
-#    ports:
-#      - "80:80"
-#      - "443:443"
-#      - "444:444"
-#      - "445:445"
-#      - "446:446"
-#      - "447:447"
-#      - "448:448"
-#    volumes:
-#      - /consul-certs:/etc/nginx/certs
-#      - ./nginx:/etc/nginx/nginx
+  #  nginx:
+  #    image: nginx:latest
+  #    container_name: nginx-server
+  #    ports:
+  #      - "80:80"
+  #      - "443:443"
+  #      - "444:444"
+  #      - "445:445"
+  #      - "446:446"
+  #      - "447:447"
+  #      - "448:448"
+  #    volumes:
+  #      - /consul-certs:/etc/nginx/certs
+  #      - ./nginx:/etc/nginx/nginx
 
 
   admin-service:
@@ -54,10 +54,10 @@ services:
       dockerfile: Dockerfile
     tty: true
     environment:
-       REGISTRY_HOST: eureka
-       DATABASE_USERNAME: 'sa'
-       DATABASE_PASSWORD: 'admin'
-       DATABASE_DOMAIN: 'db'
+      REGISTRY_HOST: eureka
+      DATABASE_USERNAME: 'sa'
+      DATABASE_PASSWORD: 'admin'
+      DATABASE_DOMAIN: 'db'
     ports:
       - "8284:444"
     networks:
@@ -90,18 +90,18 @@ services:
       dockerfile: Dockerfile
     tty: true
     environment:
-       DATABASE_USERNAME: 'sa'
-       DATABASE_PASSWORD: 'admin	'
-       DATABASE_DOMAIN: 'db'
-#       DATABASE_PORT: "3306"
-       REGISTRY_HOST: eureka
+      DATABASE_USERNAME: 'sa'
+      DATABASE_PASSWORD: 'admin	'
+      DATABASE_DOMAIN: 'db'
+      #       DATABASE_PORT: "3306"
+      REGISTRY_HOST: eureka
     ports:
-     - "127.0.0.1:8287:447"
+      - "127.0.0.1:8287:447"
     networks:
       - first-network
     depends_on:
-       - db
-       - eureka
+      - db
+      - eureka
 
 
   authentication-service:
@@ -155,11 +155,11 @@ services:
 
   db:
     restart: always
-    networks: 
-     - first-network
+    networks:
+      - first-network
     container_name: db
     ports:
-     - "3308:3306"
+      - "3308:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 'admin'
       MYSQL_DATABASE: 'db'

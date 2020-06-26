@@ -4,16 +4,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/gateway/pom.xml" />
-        <option value="$PROJECT_DIR$/eureka/pom.xml" />
-        <option value="$PROJECT_DIR$/zuul/pom.xml" />
-        <option value="$PROJECT_DIR$/services/ad_service/pom.xml" />
-        <option value="$PROJECT_DIR$/services/admin_service/pom.xml" />
-        <option value="$PROJECT_DIR$/services/authentication_service/pom.xml" />
-        <option value="$PROJECT_DIR$/services/gps_service/pom.xml" />
-        <option value="$PROJECT_DIR$/services/renting_service/pom.xml" />
-        <option value="$PROJECT_DIR$/services/security_service/pom.xml" />
         <option value="$PROJECT_DIR$/agentski_bekend/pom.xml" />
         <option value="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/services/admin_service/pom.xml" />
       </list>
     </option>
   </component>

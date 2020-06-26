@@ -841,3 +841,516 @@
 2020-06-21 22:59:06 INFO  RentingController:77 - Action get all cars successful
 2020-06-21 23:00:10 INFO  RentingController:77 - Action get all cars successful
 2020-06-21 23:02:06 INFO  RentingController:92 - Action get all cars successful
+2020-06-22 00:14:02 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on c386afbe5905 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-22 00:14:02 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-22 00:14:55 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 55.298 seconds (JVM running for 62.572)
+2020-06-22 00:19:19 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 4de293aec750 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-22 00:19:19 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-22 00:19:57 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 38.863 seconds (JVM running for 43.707)
+2020-06-23 20:27:55 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 596519d604ac with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-23 20:27:55 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-23 20:28:35 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 41.751 seconds (JVM running for 47.627)
+2020-06-23 20:31:58 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 20:31:58 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 20:31:59 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 20:31:59 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 20:47:27 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 20:47:27 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 20:47:28 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 20:48:13 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 20:48:14 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 20:48:14 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 20:48:17 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 20:48:17 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 20:48:18 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 20:48:27 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 20:48:28 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 20:48:28 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 20:48:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 20:48:31 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:28:29 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:28:29 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:28:29 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:28:40 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:28:40 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:28:41 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:28:49 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:28:50 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:28:50 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:29:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:29:04 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:42:39 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:42:39 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:42:39 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:42:40 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:44:29 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:44:29 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:44:30 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:45:05 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:45:06 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:45:06 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:45:08 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:45:08 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:45:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:45:15 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:45:16 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:45:16 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:45:19 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:45:19 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:48:17 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:48:17 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:48:17 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:39 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:48 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:48 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:48 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:48 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:48 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:48 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:48 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:48 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:49 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:56 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:56 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:56 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:56 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:56 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:56 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:56 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:56 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:56 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:57 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:57 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:57 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:57 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:57 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:57 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:57 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:57 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:49:57 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:10 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:10 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:10 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:10 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:10 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:10 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:10 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:17 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:17 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:20 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:50:21 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:21 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:50:39 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:50:39 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:50:40 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:50:40 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:50:40 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:50:40 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:50:40 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:50:40 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:50:40 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:50:44 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:50:45 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:50:45 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:50:46 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:50:47 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:50 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:53 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:50:53 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:04 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:31 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:38 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:51:39 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:51:39 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:51:45 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:45 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:51:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:07 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:52:07 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:52:08 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:52:08 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:52:08 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:52:08 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:08 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:52:09 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:54:48 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:54:48 INFO  RentingController:77 - Action get all cars successful
+2020-06-23 21:54:50 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:54:50 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:54:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:54:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:54:51 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:54:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:54:53 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-23 21:54:53 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-23 21:54:53 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 12:58:37 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on bf9d1e292e29 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-25 12:58:37 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-25 12:59:28 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 53.516 seconds (JVM running for 67.088)
+2020-06-25 13:03:07 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 13:03:07 INFO  RentingController:77 - Action get all cars successful
+2020-06-25 13:03:08 INFO  RentingController:77 - Action get all cars successful
+2020-06-25 13:03:08 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:05:00 INFO  RentingController:77 - Action get all cars successful
+2020-06-25 13:05:01 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 13:05:01 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:05:02 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:05:02 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:05:03 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:05:09 INFO  RentingController:77 - Action get all cars successful
+2020-06-25 13:05:10 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 13:05:10 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 13:05:13 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:05:13 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 13:29:03 INFO  RentingController:77 - Action get all cars successful
+2020-06-25 13:29:03 INFO  RentingController:77 - Action get all cars successful
+2020-06-25 13:29:03 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 13:29:03 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:29:40 INFO  RentingController:77 - Action get all cars successful
+2020-06-25 13:29:40 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 13:29:40 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:40:16 INFO  RentingController:77 - Action get all cars successful
+2020-06-25 13:40:16 INFO  RentingController:77 - Action get all cars successful
+2020-06-25 13:40:17 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 13:40:18 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 13:40:21 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:40:21 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:40:21 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:40:22 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:40:23 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 13:40:23 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 13:40:23 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 14:14:03 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 14:14:05 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 14:17:58 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on bf9d1e292e29 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-25 14:17:58 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-25 14:24:09 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 8efa396c5b79 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-25 14:24:09 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-25 14:25:05 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 58.163 seconds (JVM running for 68.22)
+2020-06-25 14:33:13 INFO  RentingController:77 - Action get all cars successful
+2020-06-25 14:33:14 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 14:33:14 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 14:33:16 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 14:33:16 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 14:33:17 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 14:33:23 INFO  RentingController:77 - Action get all cars successful
+2020-06-25 14:33:24 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 14:33:24 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-25 14:33:28 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-25 14:33:28 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 12:03:22 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 8efa396c5b79 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-26 12:03:22 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-26 12:04:25 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 64.079 seconds (JVM running for 73.753)
+2020-06-26 12:27:37 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 12:27:37 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 12:27:37 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 12:27:37 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 12:28:53 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 12:28:53 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 12:28:53 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 12:28:54 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 12:30:51 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 12:30:52 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 12:30:52 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 12:30:53 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 12:30:53 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 12:30:54 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 12:31:01 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 12:31:02 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 12:31:02 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 12:31:05 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 12:31:05 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 13:16:23 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 13:16:23 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 13:16:23 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 13:16:24 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 13:16:54 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 13:16:54 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 13:16:54 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 13:34:19 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 8efa396c5b79 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-26 13:34:19 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-26 13:35:34 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 77.716 seconds (JVM running for 86.188)
+2020-06-26 13:38:02 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 13:38:44 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 13:46:34 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 8efa396c5b79 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-26 13:46:34 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-26 13:47:31 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 58.917 seconds (JVM running for 65.548)
+2020-06-26 13:49:54 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on c37de9913e24 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-26 13:49:54 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-26 13:50:59 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 67.737 seconds (JVM running for 76.335)
+2020-06-26 14:00:20 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on c37de9913e24 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-26 14:00:20 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-26 14:01:02 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 43.317 seconds (JVM running for 49.014)
+2020-06-26 14:04:13 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 14:04:13 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 14:04:13 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 14:19:01 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 14:19:01 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 14:19:01 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 14:19:02 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 14:51:33 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 14:51:33 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 14:51:33 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 14:51:34 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 14:54:31 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 14:54:32 INFO  RentingController:244 - Action get all rent requests successful
+2020-06-26 14:54:32 INFO  RentingController:250 - Action get paid rent requests successful
+2020-06-26 14:54:33 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 15:42:01 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 15:42:04 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 15:43:11 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 15:43:40 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 15:43:59 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 15:58:40 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 15:58:40 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:00:51 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:00:52 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:00:52 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:00:53 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:00:53 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:00:53 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:00:54 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:00:54 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:00:55 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:00:57 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:00:58 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:00:59 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:00:59 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:00:59 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:01:01 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:01:01 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:01:01 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:01:03 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:05:59 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:06:00 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:06:49 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:06:50 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:06:50 INFO  RentingController:77 - Action get all cars successful
+2020-06-26 16:06:50 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:06:50 INFO  RentingController:92 - Action get all cars successful
+2020-06-26 16:06:50 INFO  RentingController:92 - Action get all cars successful
