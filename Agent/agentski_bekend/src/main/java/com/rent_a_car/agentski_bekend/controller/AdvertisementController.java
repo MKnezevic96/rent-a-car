@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,7 @@ public class AdvertisementController {
 
 
     @PostMapping(value="/pricing")
-    public ResponseEntity<?> addPricing(@RequestBody PricingDTO dto, Principal p){
+    public ResponseEntity<?> addPricing(@Valid @RequestBody PricingDTO dto, Principal p){
         try{
 
             User user = userService.findByEmail(p.getName());
@@ -95,7 +96,7 @@ public class AdvertisementController {
 
 
     @PostMapping(value="/addCar")
-    public ResponseEntity<?> addCar(@RequestBody CarDTO dto){
+    public ResponseEntity<?> addCar( @Valid @RequestBody CarDTO dto){
         try{
             Cars c = new Cars();
             CarModels cm = carModelsService.findByName(dto.getCarModel());
@@ -143,7 +144,7 @@ public class AdvertisementController {
     }
 
     @PostMapping(value="/rentCar")
-    public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto){
+    public ResponseEntity<?> rentCar( @Valid @RequestBody RentRequestDTO dto){
 
         try{
             RentRequest rr = new RentRequest();

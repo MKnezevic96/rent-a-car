@@ -57,7 +57,7 @@ public class AuthenticationController {
     }
 
     @PostMapping(value = "/api/register")
-    public ResponseEntity<?> register(  @RequestBody UserDTO dto) {    // pokrece constraint iz dto klaase
+    public ResponseEntity<?> register( @Valid @RequestBody UserDTO dto) {    // pokrece constraint iz dto klaase
         UserRequest user = new UserRequest();
         user.setFirstname(dto.getFirstname());
         user.setLastname(dto.getLastname());

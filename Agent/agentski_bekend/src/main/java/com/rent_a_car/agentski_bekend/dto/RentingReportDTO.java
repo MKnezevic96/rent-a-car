@@ -2,12 +2,14 @@ package com.rent_a_car.agentski_bekend.dto;
 
 
 import com.rent_a_car.agentski_bekend.model.RentingReport;
+import org.hibernate.validator.constraints.SafeHtml;
 
 public class RentingReportDTO {
 
 
     private Integer id;
     private Integer rentingInstanceId;
+    @SafeHtml
     private String report;
     private double addedMileage;
     private boolean deleted;

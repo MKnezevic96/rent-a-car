@@ -1,5 +1,7 @@
 package com.rent_a_car.agentski_bekend.dto;
 
+import org.hibernate.validator.constraints.SafeHtml;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -11,6 +13,7 @@ public class PricingDTO {
     @Size(min = 2, max = 30,
             message = "Name must be between 2 and 30 characters long")
     @Pattern(regexp="^$|[a-zA-Z ]+$", message="Name must not include special characters.")
+    @SafeHtml    // xss
     private String name;
 
     @Min(0)
