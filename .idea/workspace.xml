@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="851a59de-86ea-4e19-abe2-e45a3afd678a" name="Default Changelist" comment="commit">
+    <list default="true" id="851a59de-86ea-4e19-abe2-e45a3afd678a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -233,7 +233,21 @@
       <option name="project" value="LOCAL" />
       <updated>1593198410484</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="commit">
+      <created>1593198620175</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1593198620175</updated>
+    </task>
+    <task id="LOCAL-00013" summary="commit">
+      <created>1593198706984</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1593198706984</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,10 +286,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="677" y="400" width="631" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/65.24.1855.1056@65.24.1855.1056" timestamp="1591749368004" />
-    <state x="65" y="24" width="1855" height="1056" key="CommitChangelistDialog2" timestamp="1593198619690">
+    <state x="65" y="24" width="1855" height="1056" key="CommitChangelistDialog2" timestamp="1593198706541">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="65" y="24" width="1855" height="1056" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1593198619690" />
+    <state x="65" y="24" width="1855" height="1056" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1593198706541" />
     <state x="250" y="102" key="DiffContextDialog" timestamp="1593198381737">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -284,22 +298,22 @@
       <screen x="65" y="24" width="1295" height="744" />
     </state>
     <state x="500" y="141" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1588700165152" />
-    <state width="709" height="237" key="GridCell.Tab.0.bottom" timestamp="1593178281257">
+    <state width="1153" height="191" key="GridCell.Tab.0.bottom" timestamp="1593198739760">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="709" height="237" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1593178281257" />
-    <state width="709" height="237" key="GridCell.Tab.0.center" timestamp="1593178281256">
+    <state width="1153" height="191" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1593198739760" />
+    <state width="1153" height="191" key="GridCell.Tab.0.center" timestamp="1593198739758">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="709" height="237" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1593178281256" />
-    <state width="709" height="237" key="GridCell.Tab.0.left" timestamp="1593178281254">
+    <state width="1153" height="191" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1593198739758" />
+    <state width="1153" height="191" key="GridCell.Tab.0.left" timestamp="1593198739758">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="709" height="237" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1593178281254" />
-    <state width="709" height="237" key="GridCell.Tab.0.right" timestamp="1593178281257">
+    <state width="1153" height="191" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1593198739758" />
+    <state width="1153" height="191" key="GridCell.Tab.0.right" timestamp="1593198739760">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="709" height="237" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1593178281257" />
+    <state width="1153" height="191" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1593198739760" />
     <state x="65" y="24" width="1855" height="1056" key="MergeDialog" timestamp="1592515272232">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -324,10 +338,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="467" y="341" width="1235" height="854" maximized="true" key="dock-window-1/65.24.1855.1056@65.24.1855.1056" timestamp="1592641090062" />
-    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog" timestamp="1593198682813">
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog" timestamp="1593198724105">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1593198682813" />
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1593198724105" />
     <state x="655" y="246" width="672" height="677" key="run.anything.popup" timestamp="1592787350533">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
