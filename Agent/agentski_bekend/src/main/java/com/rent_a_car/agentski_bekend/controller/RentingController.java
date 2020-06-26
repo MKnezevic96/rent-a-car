@@ -72,7 +72,7 @@ public class RentingController {
         return "Renting service test";
     }
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value = "cars")
     public ResponseEntity<List<CarsListingDTO>> getAllCars () {
         ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
@@ -85,7 +85,7 @@ public class RentingController {
         return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ad_menagement')")
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value = "mycars")
     public ResponseEntity<List<CarsListingDTO>> getMyCars (Principal p) {
         ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
@@ -152,7 +152,7 @@ public class RentingController {
 //        return dto;
 //
 //    }
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value = "availableCars/{d1}/{d2}")
     public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, Principal p) throws ParseException {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -196,7 +196,7 @@ public class RentingController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value = "get/{t}")
     public ResponseEntity<List<CarsListingDTO>> filterCarsByTown (@PathVariable("t") String t) {
         ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
@@ -207,7 +207,7 @@ public class RentingController {
         return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
     @PostMapping(value="/rentCar")
     public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto, Principal p){
         User user = userService.findByEmail(p.getName());
@@ -228,7 +228,7 @@ public class RentingController {
         return ResponseEntity.status(400).build();
     }
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping (value = "cars/{id}")
     public ResponseEntity<CarsDetailsDTO> getOneCar (@PathVariable("id") Integer id) {
         try {
@@ -243,7 +243,7 @@ public class RentingController {
         return ResponseEntity.status(400).build();
     }
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('rent_menagement_read')")
     @GetMapping(value = "requests")
     public ResponseEntity<List<RentRequestDTO>> getAllRentRequests (@RequestParam(value = "status", required = false) String status) {
         ArrayList<RentRequestDTO> retVal = new ArrayList<RentRequestDTO>();
@@ -264,7 +264,7 @@ public class RentingController {
         return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('rent_menagement_read')")
     @GetMapping(value = "payRequests")
     public List<RentRequestDTO> getRequestsForPayment (Principal p) {
         List<RentRequestDTO> dto = new ArrayList<>();
@@ -286,7 +286,7 @@ public class RentingController {
         }
         return dto;
     }
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
     @PostMapping(value = "payRequests")
     public ResponseEntity<?> payRent (@RequestBody @Min(1) @Max(100000) Integer id) {
         RentRequest rrl = rentRequestService.findById(id);
@@ -327,7 +327,7 @@ public class RentingController {
 //    }
 
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('rent_menagement_read')")
     @GetMapping(value = "requests/group/{id}")
     public ResponseEntity<List<RentRequestDTO>> getGroupRequests (@PathVariable("id") @Min(1) @Max(100000) Integer groupId) {   // URL input param valid.
         ArrayList<RentRequestDTO> retVal = new ArrayList<RentRequestDTO>();
@@ -340,7 +340,7 @@ public class RentingController {
     }
 
 
-    @PreAuthorize("hasAuthority('review_menagement')")
+    @PreAuthorize("hasAuthority('review_menagement_write')")
     @PostMapping(value ="report", consumes = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> addRentingReport(@RequestBody RentingReportDTO dto) {
 
@@ -412,7 +412,7 @@ public class RentingController {
 //        return ResponseEntity.status(400).build();
 //    }
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('rent_menagement_read')")
     @GetMapping(value = "rentRequests")
     public List<RentRequestDTO> getRentRequests (Principal p) {
         List<RentRequest> retVal = rentRequestService.findAll();
@@ -431,14 +431,6 @@ public class RentingController {
                     dto1.setCarName(c.getCarId().getName());
                     dto1.setStatus("PENDING");
                     dto.add(dto1);
-//                } else if (c.getStatus().equals(RequestStatus.CANCELED)) {
-//                    dto1.setStatus("CANCELED");
-//                } else if (c.getStatus().equals(RequestStatus.PAID)) {
-//                    dto1.setStatus("PAID");
-//                } else if (c.getStatus().equals(RequestStatus.RESERVED)) {
-//                    dto1.setStatus("RESERVED");
-//                } else if (c.getStatus().equals(RequestStatus.RETURNED)) {
-//                    dto1.setStatus("RETURNED");
                 }
 
                 //dto.add(dto1);
@@ -447,7 +439,7 @@ public class RentingController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('review_menagement')")
+    @PreAuthorize("hasAuthority('review_menagement_write')")
     @PostMapping(value="review", consumes = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> addReview(@RequestBody CarReviewDTO dto, Principal p){
 
@@ -482,7 +474,7 @@ public class RentingController {
         return ResponseEntity.status(400).build();
     }
 
-    @PreAuthorize("hasAuthority('review_menagement')")
+    @PreAuthorize("hasAuthority('review_menagement_read')")
     @GetMapping(value = "reviews/cars/{id}")
     public ResponseEntity<List<CarReviewDTO>> getAllCarReviews (@PathVariable("id") Integer carId) {
         List<CarReviewDTO> retVal = new ArrayList<CarReviewDTO>();
@@ -498,7 +490,7 @@ public class RentingController {
     }
 
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
     @PostMapping(value="approveRentRequest")
     public ResponseEntity<?> approveRentRequest(@RequestBody Integer id){
         RentRequest u = rentRequestService.findById(id);
@@ -509,7 +501,7 @@ public class RentingController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
     @PostMapping(value="rejectRentRequest")
     public ResponseEntity<?> rejectRentRequest(@RequestBody Integer id){
         RentRequest u = rentRequestService.findById(id);

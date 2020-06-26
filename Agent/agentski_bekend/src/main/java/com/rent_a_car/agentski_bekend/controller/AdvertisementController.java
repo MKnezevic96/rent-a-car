@@ -39,7 +39,7 @@ public class AdvertisementController {
     @Autowired
     private UserServiceInterface userService;
 
-    @PreAuthorize("hasAuthority('ad_menagement')")
+    @PreAuthorize("hasAuthority('ad_menagement_write')")
     @PostMapping(value="/pricing")
     public ResponseEntity<?> addPricing(@RequestBody PricingDTO dto, Principal p){
         try{
@@ -67,7 +67,7 @@ public class AdvertisementController {
         return ResponseEntity.status(400).build();
     }
 
-    @PreAuthorize("hasAuthority('ad_menagement')")
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value="/pricing")
     public List<PricingDTO> getPricing(Principal p){
         List<Pricing> c = pricingService.findAll();
@@ -95,7 +95,7 @@ public class AdvertisementController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('ad_menagement')")
+    @PreAuthorize("hasAuthority('ad_menagement_write')")
     @PostMapping(value="/addCar")
     public ResponseEntity<?> addCar(@RequestBody CarDTO dto){
         try{
@@ -121,7 +121,7 @@ public class AdvertisementController {
         return ResponseEntity.status(400).build();
     }
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value="/getCars")
     public List<CarDTO> getCars(Principal p){
         List<Cars> c = carsService.findAll();
@@ -145,7 +145,7 @@ public class AdvertisementController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('rent_menagement')")
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
     @PostMapping(value="/rentCar")
     public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto){
 

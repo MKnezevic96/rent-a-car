@@ -40,26 +40,6 @@ public class AuthenticationController {
     @Autowired
     private UserRequestServiceInterface userRequestService;
 
-//    @PostMapping(value ="/api/login")
-//    public ResponseEntity<?> login(@RequestBody JwtAuthenticationRequest authenticationRequest) {
-//        try{
-//            User user = userService.findByEmail(authenticationRequest.getEmail());
-//            if(user.getPassword().equals(authenticationRequest.getPassword())) {
-//                if(user.isActivated()) {
-//                    return ResponseEntity.ok().build();
-//                }else{
-//                    return ResponseEntity.status(403).build();
-//                }
-//            }
-//            return ResponseEntity.status(401).build();
-//
-//        }catch (Exception e){
-//
-//            };
-//        return ResponseEntity.status(401).build();
-//
-//
-//    }
 
     @PostMapping(value = "/api/register")
     public ResponseEntity<?> register(  @RequestBody UserDTO dto) {    // pokrece constraint iz dto klaase
@@ -191,8 +171,14 @@ public class AuthenticationController {
         }
 
         return ResponseEntity.status(402).build();
+    }
+
+    //@PreAuthorize("hasAuthority('acc_menagement')")
+    @PostMapping("/forgotPassword")
+    public ResponseEntity<?> forgotPassword(@RequestBody String oldPassword, Principal p){
 
 
+        return ResponseEntity.status(402).build();
     }
 
 }

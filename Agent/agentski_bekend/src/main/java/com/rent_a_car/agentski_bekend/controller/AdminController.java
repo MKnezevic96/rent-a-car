@@ -74,6 +74,7 @@ public class AdminController {
     @Value("${back-uri}")
     private String uri;
 
+    @PreAuthorize("hasAuthority('review_menagement_read')")
     @GetMapping(value="/admin/carReviews")
     public List<CarReviewDTO> getCarReviews(){
 
@@ -98,6 +99,7 @@ public class AdminController {
 
     }
 
+    @PreAuthorize("hasAuthority('review_menagement_write')")
     @PostMapping(value="/admin/carReviews")
     public ResponseEntity<?> approveReview(@RequestBody @Min(1) @Max(100000)Integer id){
 
@@ -116,7 +118,7 @@ public class AdminController {
     }
 
 //-----------------------------------------------------------------
-    @PreAuthorize("hasAuthority('user_menagement')")
+    @PreAuthorize("hasAuthority('user_menagement_write')")
     @PostMapping(value="/admin/activateAcc")
     public ResponseEntity<?> activateAcc(@RequestBody String email){
         UserRequest us = userRequestService.findByEmail(email);
@@ -182,7 +184,7 @@ public class AdminController {
         return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
     }
 
-    @PreAuthorize("hasAuthority('user_menagement')")
+    @PreAuthorize("hasAuthority('user_menagement_write')")
     @PostMapping(value="/admin/ractivateAcc")
     public ResponseEntity<?> ractivateAcc(@RequestBody @NotBlank String email){
         User u = userService.findByEmail(email);
@@ -191,7 +193,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('user_menagement')")
+    @PreAuthorize("hasAuthority('user_menagement_write')")
     @PostMapping(value="/admin/blockAcc")
     public ResponseEntity<?> blocAcc(@RequestBody @NotBlank String email){
         User u = userService.findByEmail(email);
@@ -200,7 +202,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('user_menagement')")
+    @PreAuthorize("hasAuthority('user_menagement_delete')")
     @PostMapping(value="/admin/deleteAcc")
     public ResponseEntity<?> deleteAcc(@RequestBody@NotBlank String email){
         User u = userService.findByEmail(email);
@@ -209,7 +211,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_write')")
     @PostMapping(value="/admin/addCarC")
     public ResponseEntity<?> addCarClass(@RequestBody @NotBlank String name){
         try{
@@ -224,7 +226,7 @@ public class AdminController {
         return ResponseEntity.status(400).build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_write')")
     @PostMapping(value="/admin/addCarModel")
     public ResponseEntity<?> addCarModels(@RequestBody CarModelsDTO dto){
         try{
@@ -245,7 +247,7 @@ public class AdminController {
         return ResponseEntity.status(400).build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_write')")
     @PostMapping(value="/admin/addFuelType")
     public ResponseEntity<?> addFuelType(@RequestBody String name){
         try{
@@ -261,7 +263,7 @@ public class AdminController {
         //return ResponseEntity.status(400).build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_write')")
     @PostMapping(value="/admin/addManufac")
     public ResponseEntity<?> addManufacturer(@RequestBody @NotBlank String name){
         try{
@@ -276,7 +278,7 @@ public class AdminController {
         return ResponseEntity.status(400).build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_write')")
     @PostMapping(value="/admin/addTrans")
     public ResponseEntity<?> addTransmissionType(@RequestBody @NotBlank String name){
         try{
@@ -291,7 +293,7 @@ public class AdminController {
         return ResponseEntity.status(400).build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_read')")
     @GetMapping(value="/admin/getManufacturers")
     public List<ManufacturerDTO> getAllManufacturers(){
 
@@ -309,7 +311,7 @@ public class AdminController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_read')")
     @GetMapping(value="/admin/getCarModels")
     public List<CarModelsDTO> getCarModels(){
 
@@ -330,7 +332,7 @@ public class AdminController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('user_menagement')")
+    @PreAuthorize("hasAuthority('user_menagement_read')")
     @GetMapping(value="/admin/getUserRequests")
     public List<UserRequestDTO> getUserRequest(){
 
@@ -350,7 +352,7 @@ public class AdminController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('user_menagement')")
+    @PreAuthorize("hasAuthority('user_menagement_read')")
     @GetMapping(value="/admin/getUsers")
     public List<UserRequestDTO> getUsers(){
 
@@ -372,7 +374,7 @@ public class AdminController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('user_menagement')")
+    @PreAuthorize("hasAuthority('user_menagement_read')")
     @GetMapping(value="/admin/getBlockedUsers")
     public List<UserRequestDTO> getBlockedUsers(){
 
@@ -394,7 +396,7 @@ public class AdminController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_read')")
     @GetMapping(value="/admin/getFuelTypes")
     public List<FuelTypeDTO> getAllFuelTypes(){
 
@@ -412,7 +414,7 @@ public class AdminController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_read')")
     @GetMapping(value="/admin/getCarClasses")
     public List<CarClassDTO> getAllCarClasses(){
 
@@ -430,7 +432,7 @@ public class AdminController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_read')")
     @GetMapping(value="/admin/getTransmissions")
     public List<TransmissionDTO> getAllTransmissions(){
 
@@ -448,7 +450,7 @@ public class AdminController {
         return dto;
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_delete')")
     @PostMapping(value="/admin/deleteManufacturer")
     public ResponseEntity<?> deleteManufacturer(@RequestBody String name){
 
@@ -459,7 +461,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_delete')")
     @PostMapping(value="/admin/deleteCarModel")
     public ResponseEntity<?> deleteCarModel(@RequestBody String name){
 
@@ -470,7 +472,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_delete')")
     @PostMapping(value="/admin/deleteFuelType")
     public ResponseEntity<?> deleteFuelType(@RequestBody String name){
 
@@ -481,7 +483,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_delete')")
     @PostMapping(value="/admin/deleteTransmissionType")
     public ResponseEntity<?> deleteTransmissionType(@RequestBody String name){
 
@@ -492,7 +494,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_delete')")
     @PostMapping(value="/admin/deleteCarClass")
     public ResponseEntity<?> deleteCarClass(@RequestBody String name){
 
@@ -503,7 +505,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_update')")
     @PostMapping(value="/admin/updateManufacturer/{old}")
     public ResponseEntity<?> updateManufacturer(@PathVariable("old") String old, @RequestBody ManufacturerDTO dto){
 
@@ -516,7 +518,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_update')")
     @PostMapping(value="/admin/updateCarModel/{old}")
     public ResponseEntity<?> updateCarModel(@PathVariable("old") String old, @RequestBody CarModelsDTO dto){
 
@@ -529,7 +531,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_update')")
     @PostMapping(value="/admin/updateFuelType/{old}")
     public ResponseEntity<?> updateFuelType(@PathVariable("old") String old, @RequestBody FuelTypeDTO dto){
 
@@ -542,7 +544,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_update')")
     @PostMapping(value="/admin/updateCarClass/{old}")
     public ResponseEntity<?> updateCarClass(@PathVariable("old") String old, @RequestBody CarClassDTO dto){
 
@@ -556,7 +558,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @PreAuthorize("hasAuthority('codebook_menagement')")
+    @PreAuthorize("hasAuthority('codebook_menagement_update')")
     @PostMapping(value="/admin/updateTransmissionType/{old}")
     public ResponseEntity<?> updateTransmissionType(@PathVariable("old") String old, @RequestBody TransmissionDTO dto){
 
