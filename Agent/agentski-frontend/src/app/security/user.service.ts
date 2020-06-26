@@ -7,6 +7,12 @@ import { UserTokenState } from '../models/UserTokenState';
 import { LoginUser } from '../models/LoginUser';
 import { HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'mode': 'cors',
+  })
+}
 
 
 @Injectable({
@@ -89,10 +95,18 @@ export class UserService {
   }
 
   logout() {
+    console.log('tu');
     localStorage.removeItem('user');
     localStorage.removeItem('role');
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('optc');
+    localStorage.removeItem('test');
+
     this.accessToken = null;
     this.router.navigate(['/']);
+    let url = 'http://localhost:8282/izadji';
+    return this.httpClient.get<string>(url, httpOptions);
+    
   }
 
 }

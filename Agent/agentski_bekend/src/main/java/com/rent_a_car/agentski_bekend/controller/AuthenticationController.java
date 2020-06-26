@@ -6,6 +6,7 @@ import com.rent_a_car.agentski_bekend.model.UserTokenState;
 import com.rent_a_car.agentski_bekend.security.TokenUtils;
 import com.rent_a_car.agentski_bekend.service.UserService;
 import com.rent_a_car.agentski_bekend.service.interfaces.UserRequestServiceInterface;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -37,26 +38,26 @@ public class AuthenticationController {
     @Autowired
     private UserRequestServiceInterface userRequestService;
 
-    @PostMapping(value ="/api/login")
-    public ResponseEntity<?> login(@RequestBody JwtAuthenticationRequest authenticationRequest) {
-        try{
-            User user = userService.findByEmail(authenticationRequest.getEmail());
-            if(user.getPassword().equals(authenticationRequest.getPassword())) {
-                if(user.isActivated()) {
-                    return ResponseEntity.ok().build();
-                }else{
-                    return ResponseEntity.status(403).build();
-                }
-            }
-            return ResponseEntity.status(401).build();
-
-        }catch (Exception e){
-
-            };
-        return ResponseEntity.status(401).build();
-
-
-    }
+//    @PostMapping(value ="/api/login")
+//    public ResponseEntity<?> login(@RequestBody JwtAuthenticationRequest authenticationRequest) {
+//        try{
+//            User user = userService.findByEmail(authenticationRequest.getEmail());
+//            if(user.getPassword().equals(authenticationRequest.getPassword())) {
+//                if(user.isActivated()) {
+//                    return ResponseEntity.ok().build();
+//                }else{
+//                    return ResponseEntity.status(403).build();
+//                }
+//            }
+//            return ResponseEntity.status(401).build();
+//
+//        }catch (Exception e){
+//
+//            };
+//        return ResponseEntity.status(401).build();
+//
+//
+//    }
 
     @PostMapping(value = "/api/register")
     public ResponseEntity<?> register(@RequestBody UserDTO dto) {
@@ -144,13 +145,14 @@ public class AuthenticationController {
         return ResponseEntity.ok(auth);
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @RequestMapping(value = "/izadji", method = RequestMethod.GET)
     public ResponseEntity<?> logout(HttpServletRequest request) throws ServletException {
         request.logout();
 
         return ResponseEntity.ok().build();
     }
 
+    @PreAuthorize("hasAuthority('acc_menagement')")
     @PostMapping("/changePassword")
     public ResponseEntity<?> changePassword(@RequestBody String newPassword, Principal p){
 
@@ -163,7 +165,7 @@ public class AuthenticationController {
         return ResponseEntity.ok().build();
 
     }
-
+    @PreAuthorize("hasAuthority('acc_menagement')")
     @PostMapping("/checkPassword")
     public ResponseEntity<?> checkPassword(@RequestBody String oldPassword, Principal p){
 
