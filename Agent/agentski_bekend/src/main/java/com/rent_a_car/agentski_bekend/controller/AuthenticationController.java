@@ -23,6 +23,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;
 import java.util.Collection;
@@ -56,7 +57,7 @@ public class AuthenticationController {
     }
 
     @PostMapping(value = "/api/register")
-    public ResponseEntity<?> register(@RequestBody UserDTO dto) {
+    public ResponseEntity<?> register(  @RequestBody UserDTO dto) {    // pokrece constraint iz dto klaase
         UserRequest user = new UserRequest();
         user.setFirstname(dto.getFirstname());
         user.setLastname(dto.getLastname());

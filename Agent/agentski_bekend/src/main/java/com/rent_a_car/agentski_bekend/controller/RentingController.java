@@ -22,7 +22,11 @@ import com.rent_a_car.agentski_bekend.service.interfaces.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -40,6 +44,7 @@ import java.util.List;
 import java.util.Locale;
 
 @RestController
+@Validated
 @RequestMapping(value = "api/renting/")
 public class RentingController {
 
@@ -276,7 +281,7 @@ public class RentingController {
     }
 
     @PostMapping(value = "payRequests")
-    public ResponseEntity<?> payRent (@RequestBody Integer id) {
+    public ResponseEntity<?> payRent (@RequestBody @Min(1) @Max(100000) Integer id) {
         RentRequest rrl = rentRequestService.findById(id);
         rrl.setStatus(RequestStatus.PAID);
         rentRequestService.save(rrl);
@@ -317,7 +322,7 @@ public class RentingController {
 
 
     @GetMapping(value = "requests/group/{id}")
-    public ResponseEntity<List<RentRequestDTO>> getGroupRequests (@PathVariable("id") Integer groupId) {
+    public ResponseEntity<List<RentRequestDTO>> getGroupRequests (@PathVariable("id") @Min(1) @Max(100000) Integer groupId) {   // URL input param valid.
         ArrayList<RentRequestDTO> retVal = new ArrayList<RentRequestDTO>();
         for (RentRequest rr : rentRequestService.findAll()) {
             if(rr.getRequestGroupId().equals(groupId))

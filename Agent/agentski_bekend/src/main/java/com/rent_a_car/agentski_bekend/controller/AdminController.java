@@ -3,15 +3,20 @@ import com.rent_a_car.agentski_bekend.dto.*;
 import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.service.CarsService;
 import com.rent_a_car.agentski_bekend.service.interfaces.*;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@Validated
 public class AdminController {
 
     @Autowired
@@ -73,7 +78,7 @@ public class AdminController {
     }
 
     @PostMapping(value="/admin/carReviews")
-    public ResponseEntity<?> approveReview(@RequestBody Integer id){
+    public ResponseEntity<?> approveReview(@RequestBody @Min(1) @Max(100000)Integer id){
 
         List<CarReview> crList = carReviewService.findAll();
 
@@ -125,7 +130,7 @@ public class AdminController {
     }
 
     @PostMapping(value="/admin/ractivateAcc")
-    public ResponseEntity<?> ractivateAcc(@RequestBody String email){
+    public ResponseEntity<?> ractivateAcc(@RequestBody @NotBlank String email){
         User u = userService.findByEmail(email);
         u.setBlocked(false);
         userService.save(u);
@@ -133,7 +138,7 @@ public class AdminController {
     }
 
     @PostMapping(value="/admin/blockAcc")
-    public ResponseEntity<?> blocAcc(@RequestBody String email){
+    public ResponseEntity<?> blocAcc(@RequestBody @NotBlank String email){
         User u = userService.findByEmail(email);
         u.setBlocked(true);
         userService.save(u);
@@ -141,7 +146,7 @@ public class AdminController {
     }
 
     @PostMapping(value="/admin/deleteAcc")
-    public ResponseEntity<?> deleteAcc(@RequestBody String email){
+    public ResponseEntity<?> deleteAcc(@RequestBody@NotBlank String email){
         User u = userService.findByEmail(email);
         u.setDeleted(true);
         userService.save(u);
@@ -149,7 +154,7 @@ public class AdminController {
     }
 
     @PostMapping(value="/admin/addCarC")
-    public ResponseEntity<?> addCarClass(@RequestBody String name){
+    public ResponseEntity<?> addCarClass(@RequestBody @NotBlank String name){
         try{
             CarClass cc = new CarClass();
             cc.setName(name);
@@ -198,7 +203,7 @@ public class AdminController {
     }
 
     @PostMapping(value="/admin/addManufac")
-    public ResponseEntity<?> addManufacturer(@RequestBody String name){
+    public ResponseEntity<?> addManufacturer(@RequestBody @NotBlank String name){
         try{
             Manufacturer m = new Manufacturer();
             m.setName(name);
@@ -212,7 +217,7 @@ public class AdminController {
     }
 
     @PostMapping(value="/admin/addTrans")
-    public ResponseEntity<?> addTransmissionType(@RequestBody String name){
+    public ResponseEntity<?> addTransmissionType(@RequestBody @NotBlank String name){
         try{
             TransmissionType tt = new TransmissionType();
             tt.setName(name);
