@@ -109,4 +109,15 @@ export class UserService {
     
   }
 
+  recoverEmail(email:string):Observable<string>{
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+      })
+    }
+    let url = 'http://localhost:8282/recoverEmail';
+    return this.httpClient.post<string>(url, email, httpOptions);
+  }
+
 }

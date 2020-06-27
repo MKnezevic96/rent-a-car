@@ -87,7 +87,13 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.loginUser).subscribe((data)=>{
       console.log(data);
       //localStorage.setItem('token', data.email)
-      this.router.navigateByUrl('adminPage');
+
+      let role = this.userService.getRole();
+      if(role == 'admin'){
+        this.router.navigateByUrl('adminPage');
+      }else{
+        this.router.navigateByUrl('index');
+      }
     },
     error =>{
       console.log(error);
