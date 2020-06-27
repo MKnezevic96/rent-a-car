@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fcce3a5-143c-4b0c-833d-c7556aa7fc18" name="Default Changelist" comment="Logging updated">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_9_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_27_1_jre.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_owasp_java_html_sanitizer_owasp_java_html_sanitizer_20191001_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_2_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_17.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jsoup_jsoup_1_10_1.xml" beforeDir="false" />
+    <list default="true" id="4fcce3a5-143c-4b0c-833d-c7556aa7fc18" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/logs/agent.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/config/AntiXSSConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/PricingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/PricingDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/RentingReportDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/RentingReportDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/UserRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/UserRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/security/constraint/DefaultJsonDeserializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/logs/agent.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593232782978</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Logging updated">
+      <created>1593238777048</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1593238777048</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,10 +246,10 @@
       <screen x="65" y="24" width="1295" height="744" />
     </state>
     <state x="450" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/65.24.1295.744@65.24.1295.744" timestamp="1592845856741" />
-    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2" timestamp="1593233055490">
+    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2" timestamp="1593238776500">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1593233055490" />
+    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1593238776500" />
     <state x="250" y="102" width="1484" height="844" key="DiffContextDialog" timestamp="1593238643311">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -268,26 +258,26 @@
       <screen x="65" y="24" width="1295" height="744" />
     </state>
     <state x="500" y="141" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1592906880487" />
-    <state width="1151" height="336" key="GridCell.Tab.0.bottom" timestamp="1593232226738">
+    <state width="1149" height="299" key="GridCell.Tab.0.bottom" timestamp="1593239468604">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.bottom/65.24.1295.744@65.24.1295.744" timestamp="1592906887832" />
-    <state width="1151" height="336" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1593232226738" />
-    <state width="1151" height="336" key="GridCell.Tab.0.center" timestamp="1593232226738">
+    <state width="1149" height="299" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1593239468604" />
+    <state width="1149" height="299" key="GridCell.Tab.0.center" timestamp="1593239468604">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.center/65.24.1295.744@65.24.1295.744" timestamp="1592906887831" />
-    <state width="1151" height="336" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1593232226738" />
-    <state width="1151" height="336" key="GridCell.Tab.0.left" timestamp="1593232226737">
+    <state width="1149" height="299" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1593239468604" />
+    <state width="1149" height="299" key="GridCell.Tab.0.left" timestamp="1593239468598">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.left/65.24.1295.744@65.24.1295.744" timestamp="1592906887831" />
-    <state width="1151" height="336" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1593232226737" />
-    <state width="1151" height="336" key="GridCell.Tab.0.right" timestamp="1593232226738">
+    <state width="1149" height="299" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1593239468598" />
+    <state width="1149" height="299" key="GridCell.Tab.0.right" timestamp="1593239468604">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.right/65.24.1295.744@65.24.1295.744" timestamp="1592906887832" />
-    <state width="1151" height="336" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1593232226738" />
+    <state width="1149" height="299" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1593239468604" />
     <state x="65" y="24" width="1855" height="1056" key="MergeDialog" timestamp="1592515272232">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>

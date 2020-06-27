@@ -10,3 +10,9 @@
 2020-06-27 05:55:26 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on fad32591b691 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
 2020-06-27 05:55:26 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
 2020-06-27 05:56:14 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 49.833 seconds (JVM running for 58.137)
+2020-06-27 06:26:07 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on e538972715f3 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-27 06:26:07 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-06-27 06:26:51 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 45.464 seconds (JVM running for 51.262)
+2020-06-27 06:34:03 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 818a04ba0732 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-06-27 06:34:03 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-06-27 06:34:54 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 52.529 seconds (JVM running for 58.055)
