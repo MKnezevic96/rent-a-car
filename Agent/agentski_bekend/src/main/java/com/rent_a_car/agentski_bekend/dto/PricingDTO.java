@@ -24,7 +24,7 @@ public class PricingDTO {
     private double collisionDamage;
     private Integer discountDays;
 
-    @Pattern(regexp = "^[1-9]{1}[0-9]?(?:\\.\\d{1,2})?$|^0\\.\\d{1,2}?$|100")   // percentage two decimals, except 0
+//    @Pattern(regexp = "^[1-9]{1}[0-9]?(?:\\.\\d{1,2})?$|^0\\.\\d{1,2}?$|100")   // percentage two decimals, except 0
     private double discountPercent;
     private String owner;
 

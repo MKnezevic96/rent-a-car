@@ -64,8 +64,8 @@ public class User implements Serializable, UserDetails {
 
     @NotNull(message = "Email is mandatory")
     @Email    // hybernate validator
-    @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@↵\n" +
-            "(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$")
+//    @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@↵\n" +
+//            "(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$")
     @Column(name="email", nullable = false, unique = true)
     @XmlElement(required=true)
     private String email;

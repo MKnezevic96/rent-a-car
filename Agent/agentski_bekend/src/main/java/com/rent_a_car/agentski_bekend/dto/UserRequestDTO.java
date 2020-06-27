@@ -22,8 +22,8 @@ public class UserRequestDTO {
 
     @NotNull(message = "Email is mandatory")
     @Email    // hybernate validator
-    @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@↵\n" +
-            "(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$")
+//    @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@↵\n" +
+//            "(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$")
     public String email;
 
     @Size(min = 10, max = 500)
