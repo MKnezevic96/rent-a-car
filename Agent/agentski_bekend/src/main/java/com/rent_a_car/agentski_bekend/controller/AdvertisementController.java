@@ -13,7 +13,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +48,8 @@ public class AdvertisementController {
 
     @PreAuthorize("hasAuthority('ad_menagement_write')")
     @PostMapping(value="/pricing")
-    public ResponseEntity<?> addPricing(@Valid @RequestBody PricingDTO dto, Principal p){
+    public ResponseEntity<?> addPricing(@RequestBody PricingDTO dto, Principal p){
+
         try{
 
             User user = userService.findByEmail(p.getName());
@@ -112,7 +112,7 @@ public class AdvertisementController {
 
     @PreAuthorize("hasAuthority('ad_menagement_write')")
     @PostMapping(value="/addCar")
-    public ResponseEntity<?> addCar( @Valid @RequestBody CarDTO dto){
+    public ResponseEntity<?> addCar(@RequestBody CarDTO dto){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -177,7 +177,7 @@ public class AdvertisementController {
 
     @PreAuthorize("hasAuthority('rent_menagement_write')")
     @PostMapping(value="/rentCar")
-    public ResponseEntity<?> rentCar( @Valid @RequestBody RentRequestDTO dto){
+    public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -198,10 +198,4 @@ public class AdvertisementController {
         }
         return ResponseEntity.status(400).build();
     }
-
-
-
-
-
-
 }

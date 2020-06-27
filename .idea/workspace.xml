@@ -2,8 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fcce3a5-143c-4b0c-833d-c7556aa7fc18" name="Default Changelist" comment="Logging updated">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_9_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_27_1_jre.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_owasp_java_html_sanitizer_owasp_java_html_sanitizer_20191001_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_2_5_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_17.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jsoup_jsoup_1_10_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/logs/agent.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/config/AntiXSSConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/PricingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/PricingDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/RentingReportDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/RentingReportDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/UserRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/UserRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/security/constraint/DefaultJsonDeserializer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/logs/agent.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -242,10 +260,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1593233055490" />
-    <state x="250" y="102" key="DiffContextDialog" timestamp="1592416928183">
+    <state x="250" y="102" width="1484" height="844" key="DiffContextDialog" timestamp="1593238643311">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="250" y="102" key="DiffContextDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592416928183" />
+    <state x="250" y="102" width="1484" height="844" key="DiffContextDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1593238643311" />
     <state x="500" y="141" key="FileChooserDialogImpl" timestamp="1592906880487">
       <screen x="65" y="24" width="1295" height="744" />
     </state>
