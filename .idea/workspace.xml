@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fcce3a5-143c-4b0c-833d-c7556aa7fc18" name="Default Changelist" comment="Logging updated">
-      <change afterPath="$PROJECT_DIR$/Agent/dependency-check-report.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Agent/report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/log4j2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/log4j2.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/logs/agent.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/agent.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="messages" />
+        <entry key="$PROJECT_DIR$" value="final" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -191,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593203694986</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Logging updated">
+      <created>1593232782978</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1593232782978</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,7 +214,8 @@
     <MESSAGE value="Fix enums" />
     <MESSAGE value="all merged up vol.3" />
     <MESSAGE value="all merged up - security" />
-    <option name="LAST_COMMIT_MESSAGE" value="all merged up - security" />
+    <MESSAGE value="Logging updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logging updated" />
   </component>
   <component name="WindowStateProjectService">
     <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser" timestamp="1593219112179">
@@ -243,10 +238,10 @@
       <screen x="65" y="24" width="1295" height="744" />
     </state>
     <state x="450" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/65.24.1295.744@65.24.1295.744" timestamp="1592845856741" />
-    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2" timestamp="1593224494255">
+    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2" timestamp="1593233055490">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1593224494255" />
+    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1593233055490" />
     <state x="250" y="102" key="DiffContextDialog" timestamp="1592416928183">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -287,10 +282,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="692" y="300" key="Vcs.Multiple.Commit.Info.Dialog.Key/65.24.1855.1056@65.24.1855.1056" timestamp="1592419444665" />
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1592776440266">
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1593232876363">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1592776440266" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1593232876363" />
     <state x="164" y="96" width="1657" height="885" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592471919604">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -303,10 +298,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="467" y="341" width="1235" height="854" maximized="true" key="dock-window-1/65.24.1855.1056@65.24.1855.1056" timestamp="1592641090062" />
-    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog" timestamp="1593200860299">
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog" timestamp="1593233015985">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1593200860299" />
+    <state x="660" y="332" width="663" height="411" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1593233015985" />
     <state x="655" y="246" width="672" height="677" key="run.anything.popup" timestamp="1593232226828">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
