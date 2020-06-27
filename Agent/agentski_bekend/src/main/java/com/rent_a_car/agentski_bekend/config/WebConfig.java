@@ -1,13 +1,19 @@
 package com.rent_a_car.agentski_bekend.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.rent_a_car.agentski_bekend.security.TokenUtils;
 import com.rent_a_car.agentski_bekend.security.auth.RestAuthenticationEntryPoint;
 import com.rent_a_car.agentski_bekend.security.auth.TokenAuthenticationFilter;
+import com.rent_a_car.agentski_bekend.security.constraint.DefaultJsonDeserializer;
 import com.rent_a_car.agentski_bekend.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -19,6 +25,8 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import java.util.List;
 
 @EnableWebMvc
 @Configuration
@@ -34,7 +42,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter implements WebMvcCon
 
     @Bean
     @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception{
+    public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
@@ -74,79 +82,23 @@ public class WebConfig extends WebSecurityConfigurerAdapter implements WebMvcCon
                         BasicAuthenticationFilter.class);
 
         http.csrf().disable();
+        http.headers()     // xss
+                .contentSecurityPolicy("script-src 'self' https://trustedscripts.example.com; object-src https://trustedplugins.example.com; report-uri /csp-report-endpoint/");
     }
 
 
-//------------------------------------------------------
-//    @Override
-//    protected void configure(HttpSecurity httpSecurity) throws Exception {
-//        httpSecurity.csrf().disable()
-//                .authorizeRequests()
-//                .antMatchers("/**").permitAll().anyRequest().authenticated().and().
-//                exceptionHandling().and()
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//    }
-//------------------------------------------------------
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(jsonConverter());
+    }
 
-//    @Bean   // ili druga verzija
-//    public BCryptPasswordEncoder passwordEncoder() {
-//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-//        return bCryptPasswordEncoder;
-//    }
-//
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests()
-//                // URLs matching for access rights
-//                .antMatchers("/").permitAll()
-//                .antMatchers("/login").permitAll()
-//                .antMatchers("/register").permitAll()
-//                .antMatchers("/home/**").hasAnyAuthority("USER", "ADMIN", "SECURE_USER")
-//                .anyRequest().authenticated()
-//                .and()
-//                // form login
-//                .csrf().disable().formLogin()
-//                .loginPage("/login")
-//                .failureUrl("/login?error=true")
-//                .defaultSuccessUrl("/home")
-//                .usernameParameter("email")
-//                .passwordParameter("password")
-//                .and()
-//                // logout
-//                .logout()
-//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                .logoutSuccessUrl("/").and()
-//                .exceptionHandling()
-//                .accessDeniedPage("/access-denied");
-//    }
-//
-//    @Override
-//    public void configurePathMatch(PathMatchConfigurer pathMatchConfigurer) {
-//        pathMatchConfigurer.setUseSuffixPatternMatch(false);
-//    }
-//
-//    @Override
-//    public void configureDefaultServletHandling(
-//            DefaultServletHandlerConfigurer configurer) {
-//        configurer.enable();
-//    }
-//
-//    @Bean
-//    public InternalResourceViewResolver htmlViewResolver() {
-//        InternalResourceViewResolver bean = new InternalResourceViewResolver();
-//        bean.setPrefix("/WEB-INF/html/");
-//        bean.setSuffix(".html");
-//        return bean;
-//    }
-//
-//  /*  @Bean
-//    @Override
-//    public AuthenticationManager authenticationManagerBean() throws Exception{
-//        return super.authenticationManagerBean();
-//    }
-//*/
-//    @Override
-//    public void addCorsMappings(CorsRegistry registry) {
-//        registry.addMapping("/**").allowedOrigins("http://localhost:4200").allowedMethods("PUT", "DELETE", "GET", "POST");
-//    }
+    @Bean
+    public HttpMessageConverter<?> jsonConverter() {
+        SimpleModule module = new SimpleModule();
+        module.addDeserializer(String.class, new DefaultJsonDeserializer());
+        ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
+        objectMapper.registerModule(module);
+        return new MappingJackson2HttpMessageConverter(objectMapper);
+    }
 }
+
