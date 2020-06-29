@@ -64,19 +64,11 @@ export class AdvertisementComponent implements OnInit {
     });
   }
   onSubmit() {
-    console.log(this.ft);
-    console.log(this.cm);
-
-    console.log(this.pr);
-    console.log(this.town);
-
-    console.log(this.pr.name,this.cm.name, this.ft.name, this.milage, this.nameAdvertisement );
+  
 
     this.advertisementService.addCar(this.pr.name, this.cm.name, this.ft.name, this.milage, this.nameAdvertisement, this.town).pipe(first())
     .subscribe(
         data => {
-            console.log('Making advertisement successful');
-
 
         })
         this.router.navigateByUrl('adminPage');

@@ -47,15 +47,12 @@ export class RentingReportComponent implements OnInit {
 
   selectedRequest(request:RentRequest){
     this.request = request;
-    console.log('clicked!');
-    console.log(request);
   }
 
   submitReport(){
     this.rentingReportService.addNewRentingReport(this.mileage,this.report, this.request.id).pipe(first())
     .subscribe(
         data => {
-            console.log('Making renting report successful');
         })
     }  
     

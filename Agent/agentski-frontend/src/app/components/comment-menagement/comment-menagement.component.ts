@@ -21,7 +21,6 @@ export class CommentMenagementComponent implements OnInit {
 
   logout(){
     this.userService.logout().subscribe(data =>{
-      console.log('logged out')
     });
   }
 }

@@ -19,7 +19,6 @@ export class IndexComponent implements OnInit {
 
   logout(){
     this.userService.logout().subscribe(data =>{
-      console.log('logged out')
     });
   }
 
@@ -43,5 +42,8 @@ export class IndexComponent implements OnInit {
     this.router.navigate(['messages'], {relativeTo: this.route});
   }
 
+  rentingMenagement(){
+    this.router.navigate(['rentingMenagement'], {relativeTo: this.route});
+  }
   
 }

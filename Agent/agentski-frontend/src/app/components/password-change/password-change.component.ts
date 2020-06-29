@@ -26,7 +26,6 @@ export class PasswordChangeComponent implements OnInit {
 
   checkPassword(){
     this.userService.checkPassword(this.oldPassword).subscribe((data)=>{
-      console.log('Password matches');
       this.checked = true;
     },
     error =>{
@@ -36,7 +35,6 @@ export class PasswordChangeComponent implements OnInit {
 
   changePassword(){
     this.userService.changePassword(this.newPassword).subscribe((data)=>{
-      console.log('Password changed');
       this.router.navigateByUrl('adminPage');
     })
   }

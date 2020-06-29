@@ -21,13 +21,10 @@ export class RentRequestComponent implements OnInit {
     ) { }
     selectedCar(name:Car){
       this.car = name;
-      console.log(this.car);
     }
     selectStartDate() {
-      console.log(this.selectedStartDate);
     }
     selectEndDate() {
-      console.log(this.selectedEndDate);
     }
   ngOnInit(): void {
     this.advertisementService.getCar().subscribe(data =>{
@@ -40,7 +37,6 @@ export class RentRequestComponent implements OnInit {
     this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
     .subscribe(
         data => {
-            console.log('Making rent request successful');
         })
   }
   naKlik(carName:string) {
@@ -48,7 +44,6 @@ export class RentRequestComponent implements OnInit {
     this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
     .subscribe(
         data => {
-            console.log('Making rent request successful');
         })
   }
 
@@ -56,7 +51,6 @@ export class RentRequestComponent implements OnInit {
     this.availableCars = !this.availableCars;
     this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate).subscribe(data =>{
       this.cars = data;
-      console.log(data);
     });
   }
 }

@@ -101,7 +101,6 @@ export class TransmissionTypesComponent implements OnInit {
   }
 
   addTT(){
-    console.log(this.nameTT);
     this.adminService.addTT(this.nameTT).subscribe((data:string)=>{
       this.adminService.getTransmis().subscribe(data =>{
         this.transmissionType = data;

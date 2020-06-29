@@ -120,9 +120,7 @@ export class FuelTypesComponent implements OnInit {
   }
 
   addFT(){
-    console.log(this.nameFT);
     this.adminService.addFT(this.nameFT).subscribe((data:string)=>{
-      console.log(data);
     },
     error =>{
       alert('FuelType type with this name already exists');

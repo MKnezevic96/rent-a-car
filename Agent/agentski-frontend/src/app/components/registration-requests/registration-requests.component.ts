@@ -45,7 +45,6 @@ export class RegistrationRequestsComponent implements OnInit {
 
   activateAcc(email:string){
     this.adminService.activate(email).subscribe((data:string)=>{
-      console.log(data);
       this.adminService.getUserRequests().subscribe(data =>{
         this.usersAcc = data;
       });

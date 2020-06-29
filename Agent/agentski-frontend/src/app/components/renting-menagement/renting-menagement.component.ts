@@ -16,7 +16,6 @@ export class RentingMenagementComponent implements OnInit {
 
   logout(){
     this.userService.logout().subscribe(data =>{
-      console.log('logged out')
     });
   }
 

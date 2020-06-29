@@ -34,13 +34,19 @@ export class UserService {
 
   login(loginRequest: LoginUser) {
     return this.httpClient.post('http://localhost:8282/login', loginRequest).pipe(map((response: UserTokenState) => {
-      console.log(response.role);
       this.accessToken = response.accessToken;
       this.role = response.role;
       localStorage.setItem('user', JSON.stringify(response));
       localStorage.setItem('role', this.role);
       localStorage.setItem('accessToken', response.accessToken);
       this.loggedInUserSubject.next(response);
+
+      if(this.role=="admin") {
+        this.router.navigateByUrl('adminPage');
+      } else if (this.role=="user") {
+        this.router.navigateByUrl('index');
+      }
+
     }));
   }
 
@@ -95,7 +101,6 @@ export class UserService {
   }
 
   logout() {
-    console.log('tu');
     localStorage.removeItem('user');
     localStorage.removeItem('role');
     localStorage.removeItem('accessToken');

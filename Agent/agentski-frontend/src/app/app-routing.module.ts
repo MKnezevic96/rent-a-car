@@ -64,6 +64,38 @@ const routes: Routes = [
             {path: 'pendingComments', component: PendingCommentsComponent},
           ]
         },
+        // {
+        //   path: 'rentingMenagement',
+        //   component: RentingMenagementComponent,
+        //   children: [
+        //     { path: 'rentPayment', component: RentPaymentComponent},
+        //     // { path: 'advertisement',
+        //     //   component: AdvertisementComponent,
+        //     //   children: [
+        //     //     { path: 'pricing', component: PricingPageComponent},
+        //     //   ]
+        //     // },
+        //     { path: 'rentRequest', component: RentRequestComponent},
+        //     { path: 'advertisement', component: AdvertisementComponent},
+        //     { path: 'pricing', component: PricingPageComponent},
+        //     { path: 'rentingApprove', component: RentingApproveComponent},
+        //     { path: 'myCars', component: MyCarsComponent}
+        //   ]
+        // },
+      ]
+    },
+    { path: 'changePassword', component: PasswordChangeComponent},
+
+    { path: 'rentRequest', component: RentRequestComponent},
+    { path: 'index',
+      component: IndexComponent,
+      children: [
+        { path: 'advertisement', component: AdvertisementComponent},
+        { path: 'rentingReport', component: RentingReportComponent},
+        { path: 'advertisements', component: AdvertisementListComponent},
+        { path: 'messages', component: MessagesComponent},
+        { path: 'changePassword', component: PasswordChangeComponent},
+
         {
           path: 'rentingMenagement',
           component: RentingMenagementComponent,
@@ -82,19 +114,6 @@ const routes: Routes = [
             { path: 'myCars', component: MyCarsComponent}
           ]
         },
-      ]
-    },
-    { path: 'changePassword', component: PasswordChangeComponent},
-
-    { path: 'rentRequest', component: RentRequestComponent},
-    { path: 'index',
-      component: IndexComponent,
-      children: [
-        { path: 'advertisement', component: AdvertisementComponent},
-        { path: 'rentingReport', component: RentingReportComponent},
-        { path: 'advertisements', component: AdvertisementListComponent},
-        { path: 'messages', component: MessagesComponent},
-        { path: 'changePassword', component: PasswordChangeComponent},
 
       ]
     },
