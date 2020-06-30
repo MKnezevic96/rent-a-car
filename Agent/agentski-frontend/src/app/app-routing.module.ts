@@ -65,6 +65,21 @@ const routes: Routes = [
             {path: 'pendingComments', component: PendingCommentsComponent},
           ]
         },
+        
+      ]
+    },
+    { path: 'changePassword', component: PasswordChangeComponent},
+
+    { path: 'rentRequest', component: RentRequestComponent},
+    { path: 'index',
+      component: IndexComponent,
+      children: [
+        { path: 'advertisement', component: AdvertisementComponent},
+        { path: 'rentingReport', component: RentingReportComponent},
+        { path: 'advertisements', component: AdvertisementListComponent},
+        { path: 'messages', component: MessagesComponent},
+        { path: 'changePassword', component: PasswordChangeComponent},
+        { path: 'pricing', component: PricingPageComponent},
         {
           path: 'rentingMenagement',
           component: RentingMenagementComponent,
@@ -83,20 +98,6 @@ const routes: Routes = [
             { path: 'myCars', component: MyCarsComponent}
           ]
         },
-      ]
-    },
-    { path: 'changePassword', component: PasswordChangeComponent},
-
-    { path: 'rentRequest', component: RentRequestComponent},
-    { path: 'index',
-      component: IndexComponent,
-      children: [
-        { path: 'advertisement', component: AdvertisementComponent},
-        { path: 'rentingReport', component: RentingReportComponent},
-        { path: 'advertisements', component: AdvertisementListComponent},
-        { path: 'messages', component: MessagesComponent},
-        { path: 'changePassword', component: PasswordChangeComponent},
-        { path: 'pricing', component: PricingPageComponent},
 
       ]
     },
@@ -107,6 +108,7 @@ const routes: Routes = [
     { path: 'pricing', component: PricingPageComponent},
     { path: 'rentingApprove', component: RentingApproveComponent},
     { path: 'forgotPassword', component: ForgotPasswordComponent},
+    
     // otherwise redirect to home
     { path: '**', redirectTo: '' },
 ];
