@@ -72,8 +72,6 @@ export class AdvertisementService {
         'Authorization': 'Bearer ' + token,
       })
     }
-    console.log(token);
-    console.log('adding pricing');
     return this.http.post<Pricing>( this.url1, pricing, httpOptions);
   }
 
@@ -128,7 +126,6 @@ export class AdvertisementService {
         'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
       })
     }
-    console.log('get.. pricing');
 
   return this.http.get<Pricing[]>(this.url1, httpOptions );  }
 
@@ -195,7 +192,6 @@ export class AdvertisementService {
       })
     }
 
-    console.log(this.carReview);
     return this.http.post<CarReview>(this.addCarReviewUrl, this.carReview, httpOptions);
 
   }

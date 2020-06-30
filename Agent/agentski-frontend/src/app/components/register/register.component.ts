@@ -17,97 +17,70 @@ import { UserService } from 'src/app/services/UserService';
 })
 export class RegisterComponent implements OnInit {
  
-    registerForm: FormGroup;
-    loading = false;
-    submitted = false;
+    userData: FormGroup;
+ // notifier: NotifierService;
+  userRequest: UserRequest;
 
-    firstname: string;
-    lastname: string;
-    email:string;
-    password:string;
-    password1:string;
+  constructor( private registrationService: RegisterService,
+              private formBuilder: FormBuilder, private router: Router) {
+    //this.notifier = notifierService;
+  }
 
-    cname:string = '';
-    adress:string = '';
-    number:string = '';
-    ifCompany:boolean = false;
-  
-    isSelected: string;
-    user:UserRequest;
+  ngOnInit(): void {
+    this.userData = this.formBuilder.group({
+        
+        email: ['', [Validators.required, this.emailDomainValidator, Validators.pattern(/[^ @]*@[^ @]*/)]],
+        password: ['', [Validators.required, Validators.minLength(10), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$/)]],
+        passwordRepeat: ['', [Validators.required, Validators.minLength(10)]],
+        firstname: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+        lastname: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+        name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+        adress: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+        number: ['', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.minLength(9), Validators.maxLength(10)]]
+        
+      },
+      {validator: this.checkPasswords});
+  }
 
-    constructor(
-        private formBuilder: FormBuilder,
-        private router: Router,
-        private authenticationService: AuthenticationService,
-        private userService: UserService,
-        private alertService: AlertService,
-        private registerService: RegisterService
-    ) {
-        // redirect to home if already logged in
-      //  if (this.authenticationService.currentUserValue) {
-          //  this.router.navigate(['/']);
-      //  }
+  checkPasswords(group: FormGroup) {
+    if (!group.controls.password.touched) {
+      return null;
     }
+    const pass = group.controls.password.value;
+    const confirmPass = group.controls.passwordRepeat.value;
+    return pass === confirmPass ? null : {notSame: true};
+  }
 
-    ngOnInit() {
-        // this.registerForm = this.formBuilder.group({
-            
-        //     email: ['', Validators.required],
-        //     password: ['', [Validators.required, Validators.minLength(6)]]
-        // });
-    }
-
-    // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
-
-    onSelected(){
-        if(this.isSelected=='isCompany'){
-            this.ifCompany = true;
+  emailDomainValidator(control: FormControl) {
+    const email = control.value;
+    const [name, domain] = email.split('@');
+    if (domain !== 'gmail.com' && domain !== 'yahoo.com' && domain !== 'uns.ac.rs') {
+      return {
+        emailDomain: {
+          parsedDomain: domain
         }
-        if(this.isSelected=='isUser'){
-            this.ifCompany = false;
-        }
+      };
+    } else {
+      return null;
     }
+  }
 
-    onSubmit() {
-        //this.submitted = true;
+  get f() {
+    return this.userData.controls;
+  }
 
-        // reset alerts on submit
-      //  this.alertService.clear();
+ 
 
-        // stop here if form is invalid
-        // if (this.registerForm.invalid) {
-        //     return;
-        // }
+  register() {
 
-          
+    const registration = new UserRequest( this.userData.value.firstname,
+      this.userData.value.lastname, this.userData.value.email, this.userData.value.password, this.userData.value.name, 
+      this.userData.value.adress, this.userData.value.number);
 
-            
-        
-
-        this.user={firstname: this.firstname, lastname:this.lastname, email:this.email, password:this.password, isSelected: this.isSelected, name: this.cname, adress: this.adress, number: this.number};
-        
-        console.log(this.user.firstname);
-        console.log(this.user.lastname);
-        console.log(this.user.email);
-        console.log(this.user.password);
-        console.log(this.user.isSelected);
-        console.log(this.user.adress);
-        
-        this.loading = true;
-
-        this.registerService.onRegister(this.user)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/login']);
-                },
-                error => {
-                    alert("Invalid email");
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
-    }
+    this.registrationService.onRegister(registration).subscribe(data => {
+      this.router.navigate(['/login'])
+      //this.showNotification('success', 'You successfully sent a registration request.');
+    });
+  }
    
 }

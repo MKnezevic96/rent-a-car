@@ -57,14 +57,11 @@ export class LoginComponent implements OnInit {
 
 //radio
   // onSubmit(){
-  //   console.log(this.email);
-  //   console.log(this.password);
+
 
   //   this.loginUser = {email: this.email, password: this.password};
-  //   console.log(this.loginUser);
 
   //   this.loginService.onLogin(this.loginUser).subscribe((data)=>{
-  //     console.log(data);
   //     //localStorage.setItem('token', data.email)
   //     this.router.navigateByUrl('adminPage');
   //   },
@@ -78,19 +75,23 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(){
-    console.log(this.email);
-    console.log(this.password);
+
 
     this.loginUser = {email: this.email, password: this.password};
-    console.log(this.loginUser);
 
     this.userService.login(this.loginUser).subscribe((data)=>{
-      console.log(data);
       //localStorage.setItem('token', data.email)
-      this.router.navigateByUrl('adminPage');
+
+
+      let role = this.userService.getRole();
+      if(role == 'admin'){
+        this.router.navigateByUrl('adminPage');
+      }else{
+        this.router.navigateByUrl('index');
+      }
     },
     error =>{
-        alert('Username or password incorrect');
+      alert('Activate account or check username or password');
     });
   }
 
@@ -110,7 +111,6 @@ export class LoginComponent implements OnInit {
 
         //   //this.loading = true;
         //   this.loginUser = {email: this.email, password: this.password};
-        //  console.log(this.loginUser);
         //   this.loginService.onLogin(this.loginUser)
         //       .pipe(first())
         //       .subscribe(

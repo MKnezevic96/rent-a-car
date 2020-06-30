@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/security/user.service';
 
 @Component({
   selector: 'app-renting-menagement',
@@ -8,9 +9,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RentingMenagementComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private router: Router) {}
+  constructor(private route: ActivatedRoute,private router: Router, private userService:UserService) {}
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.userService.logout().subscribe(data =>{
+    });
   }
 
   rentPayments(){

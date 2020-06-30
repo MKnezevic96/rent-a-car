@@ -2,7 +2,6 @@ package com.admin_service.security;
 
 
 import com.admin_service.helper.TimeProvider;
-import com.admin_service.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

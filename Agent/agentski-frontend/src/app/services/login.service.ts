@@ -22,7 +22,6 @@ export class LoginService {
   constructor(private http:HttpClient) { }
 
   onLogin(loginUser: LoginUser): Observable<LoginUser>{
-    console.log('sending');
     return this.http.post<LoginUser>(this.url, loginUser, httpOptions);
     
 

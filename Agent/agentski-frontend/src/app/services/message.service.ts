@@ -59,7 +59,6 @@ export class MessageService {
 
   sendMessage(content:string, userTo:string):Observable<Message>{
     this.message={content:content, userFromEmail:null, userToEmail:userTo, date:null, id:null};
-    console.log(this.message);
 
     let token = localStorage.getItem('accessToken');
     var httpOptions = {

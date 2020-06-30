@@ -43,7 +43,6 @@ export class BlockedUsersListComponent implements OnInit {
 
   reactivate(email:string){
     this.adminService.reactivate(email).subscribe((data)=>{
-      console.log(data);
       this.adminService.getBlockedUsers().subscribe(data =>{
         this.usersBlocked = data;
       });

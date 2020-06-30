@@ -1,12 +1,10 @@
 package com.admin_service.model;
 
-import org.hibernate.validator.constraints.Email;
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
+import com.sun.istack.NotNull;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -41,7 +39,7 @@ import java.util.List;
 }, namespace = "nekiUri/user")
 @Table(name = "user_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class User implements Serializable /*, UserDetails */{
+public class User implements Serializable, UserDetails {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -63,12 +61,12 @@ public class User implements Serializable /*, UserDetails */{
     @XmlElement(required=true)
     private String email;
 
-    @Size(min = 5, max = 15)
+    //@Size(min = 5)
     @Column(name="password", nullable = false)
     @XmlElement(required=true)
     private String password;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(
@@ -93,6 +91,9 @@ public class User implements Serializable /*, UserDetails */{
     @Column (name="deleted", nullable=false)
     @XmlElement(required=true)
     private boolean deleted = false;
+
+    @Column (name="blocked", nullable=false)
+    private boolean blocked = false;
 
     @OneToOne (fetch=FetchType.LAZY)
     @XmlElement
@@ -122,7 +123,19 @@ public class User implements Serializable /*, UserDetails */{
     @XmlElement
     private List<Pricing> pricings = new ArrayList<Pricing> ();
 
+    @OneToMany(mappedBy="owningUser", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @XmlElement
+    private List<RentRequest> rentRequests = new ArrayList<RentRequest> ();
+
     public User() {
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 
     public List<Reciept> getRecieptsIMade() {
@@ -206,6 +219,14 @@ public class User implements Serializable /*, UserDetails */{
         this.id = id;
     }
 
+    public List<RentRequest> getRentRequests() {
+        return rentRequests;
+    }
+
+    public void setRentRequests(List<RentRequest> rentRequests) {
+        this.rentRequests = rentRequests;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -273,39 +294,39 @@ public class User implements Serializable /*, UserDetails */{
         this.pricings = pricings;
     }
 
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        return this.role;
-//    }
-//
-//    @Override
-//    public String getPassword() {
-//        return password;
-//    }
-//
-//    @Override
-//    public String getUsername() {
-//        return this.email;
-//    }
-//
-//    @Override
-//    public boolean isAccountNonExpired() {
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean isAccountNonLocked() {
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean isCredentialsNonExpired() {
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean isEnabled() {
-//        return true;
-//    }
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.role;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
 }

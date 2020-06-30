@@ -18,16 +18,13 @@ export class RentPaymentComponent implements OnInit {
   ngOnInit(): void {
     this.advertisementService.getApprovedRents().subscribe(data =>{
       this.rentRequests = data;
-      console.log(this.rentRequests);
     });
   }
 
   payRent(id:number){
     this.advertisementService.payRent(id).subscribe((data)=>{
-      console.log(data);
       this.advertisementService.getApprovedRents().subscribe(data =>{
         this.rentRequests = data;
-        console.log(this.rentRequests);
       });
     });
   }

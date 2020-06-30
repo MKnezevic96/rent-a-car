@@ -91,7 +91,6 @@ export class ManufacturesComponent implements OnInit {
   }
 
   addM(){
-    console.log(this.nameM);
     this.adminService.addM(this.nameM).subscribe((data:string)=>{
       this.adminService.getManufac().subscribe(data =>{
         this.manufacturer = data;

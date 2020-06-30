@@ -1,6 +1,5 @@
 package com.admin_service.service;
 
-import com.admin_service.model.User;
 import com.admin_service.repository.UserRepository;
 import com.admin_service.service.interfaces.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;

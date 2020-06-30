@@ -32,7 +32,6 @@ export class PricingPageComponent implements OnInit {
 
   // selectedUser(name:User){
   //   this.cm = name;
-  //   console.log(this.users);
   // }
 
   ngOnInit(): void {
@@ -46,18 +45,14 @@ export class PricingPageComponent implements OnInit {
 
 
     this.pricing={distanceLimit: this.distancelimit, regularPrice: this.regularprice, overusePrice: this.overuseprice, collisionDamage: this.collisiondamage, discountDays: this.discountdays, discountPercent: this.discountperc, name: this.name, deleted:false, owner:''};
-    // console.log('owner je ', this.cm);
-
-    console.log('Ceo pricing ', this.pricing);
 
     this.advertisementService.addPricing(this.pricing).pipe(first())
     .subscribe(
         data => {
-            console.log('Pricing made successfully');
            // this.makeAdvertisement();
         })
 
-        this.router.navigateByUrl('adminPage');
+        this.router.navigateByUrl('index');
 
 
 

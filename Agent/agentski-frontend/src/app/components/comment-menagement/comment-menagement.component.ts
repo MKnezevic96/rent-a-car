@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/security/user.service';
 
 @Component({
   selector: 'app-comment-menagement',
@@ -8,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CommentMenagementComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private router: Router) {}
+  constructor(private route: ActivatedRoute,private router: Router, private userService:UserService) {}
 
 
   ngOnInit(): void {
@@ -16,5 +17,10 @@ export class CommentMenagementComponent implements OnInit {
 
   showPendingComments(){    
     this.router.navigate(['pendingComments'], {relativeTo: this.route});
+  }
+
+  logout(){
+    this.userService.logout().subscribe(data =>{
+    });
   }
 }

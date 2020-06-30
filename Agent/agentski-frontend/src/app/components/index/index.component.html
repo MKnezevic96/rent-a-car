@@ -21,6 +21,10 @@
                 <a class="list-group-item list-group-item-action bg-light">Sent requests history</a>
                 <a class="list-group-item list-group-item-action bg-light" (click)="showMessages()">Messages</a>
                 <a class="list-group-item list-group-item-action bg-light">Vehicle tracking</a>
+                <a class="list-group-item list-group-item-action bg-light" (click)='changePassword()'>Change password</a>
+                <a class="list-group-item list-group-item-action bg-light" (click)=rentingMenagement()>Car menagement</a>
+
+
             </div>
         </div>
 
@@ -35,7 +39,7 @@
                         </li>
                     </ul>
                 </div>
-                <button class="btn btn-primary" style="margin-top: 0 !important;">Log out</button>
+                <button class="btn btn-primary" style="margin-top: 0 !important;" (click)="logout()">Log out</button>
             </nav>
 
             <div class="container fluid">

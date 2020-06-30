@@ -27,13 +27,11 @@ export class UsersListComponent implements OnInit {
 
   blockAcc(email:string){
     this.adminService.block(email).subscribe((data:string)=>{
-      console.log(data);
     });
   }
 
   deleteAcc(email:string){
     this.adminService.delete(email).subscribe((data:string)=>{
-      console.log(data);
     });
   }
 

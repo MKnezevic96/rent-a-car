@@ -13,7 +13,7 @@ import { RentingReport } from 'src/app/models/RentingReport';
       <p></p>
       <label>Select renting request id:</label>
             <select id="rentingInstanceId" class="form-control" [(ngModel)]="request" name="request">
-              <option [ngValue]="request" *ngFor="let request of rentingRequests"  (click)="selectedRequest(request)">{{request.id}} </option>
+              <option [ngValue]="request" *ngFor="let request of rentingRequests"  (click)="selectedRequest(request)">{{request.carName}} </option>
             </select><p></p>
           <label>Enter mileage </label>
           <input class="form-control" type="number" min="0" id="milage" name="mileage" [(ngModel)]="mileage"><p></p>
@@ -47,15 +47,12 @@ export class RentingReportComponent implements OnInit {
 
   selectedRequest(request:RentRequest){
     this.request = request;
-    console.log('clicked!');
-    console.log(request);
   }
 
   submitReport(){
     this.rentingReportService.addNewRentingReport(this.mileage,this.report, this.request.id).pipe(first())
     .subscribe(
         data => {
-            console.log('Making renting report successful');
         })
     }  
     

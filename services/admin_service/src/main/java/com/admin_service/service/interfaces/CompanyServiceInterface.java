@@ -1,6 +1,5 @@
 package com.admin_service.service.interfaces;
 
-
 import com.admin_service.model.Company;
 
 import java.util.List;

@@ -1,21 +1,20 @@
 package com.rent_a_car.agentski_bekend.model;
 
+import com.rent_a_car.agentski_bekend.security.constraint.ValidPassword;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -37,7 +36,8 @@ import java.util.List;
         "reviews",
         "sentMessages",
         "recieved",
-        "pricings"
+        "pricings",
+        "activated"
 }, namespace = "nekiUri/user")
 @Table(name = "user_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -49,22 +49,30 @@ public class User implements Serializable, UserDetails {
     @XmlElement(required=true)
     private Integer id;
 
-    @NotNull
+    @NotNull(message = "Name is mandatory")
+    @Size(min = 2, max = 30,
+            message = "Name must be between 2 and 30 characters long")
     @Column(name="firstname")
     private String firstname;
 
-    @NotNull
+    @NotNull(message = "Last name is mandatory")
+    @Size(min = 2, max = 32,
+            message = "Last Name must be between 2 and 32 characters long")
     @Column(name="lastname")
     @XmlElement(required=true)
     private String lastname;
-    @NotNull
+
+    @NotNull(message = "Email is mandatory")
     @Email    // hybernate validator
+//    @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@↵\n" +
+//            "(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$")
     @Column(name="email", nullable = false, unique = true)
     @XmlElement(required=true)
     private String email;
 
     //@Size(min = 5)
     @Column(name="password", nullable = false)
+    @ValidPassword   // custom hybernate validator
     @XmlElement(required=true)
     private String password;
 
@@ -129,7 +137,18 @@ public class User implements Serializable, UserDetails {
     @XmlElement
     private List<RentRequest> rentRequests = new ArrayList<RentRequest> ();
 
+    @Column (name="activated", nullable=false)
+    private boolean activated = false;
+
     public User() {
+    }
+
+    public boolean isActivated() {
+        return activated;
+    }
+
+    public void setActivated(boolean activated) {
+        this.activated = activated;
     }
 
     public boolean isBlocked() {
@@ -298,7 +317,13 @@ public class User implements Serializable, UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.role;
+
+        Set<Privilege> allPermissions = new HashSet<>();
+        for (Role a : role) {
+            allPermissions.addAll(a.getPrivileges());
+        }
+        return allPermissions;
+
     }
 
     @Override

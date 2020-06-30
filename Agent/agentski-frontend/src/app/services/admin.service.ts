@@ -96,17 +96,14 @@ export class AdminService {
   }
 
   addM(name: string): Observable<string>{
-    console.log('sending');
     return this.http.post<string>(this.url1, name, httpOptions);
   }
 
   addCC(name: string): Observable<string>{
-    console.log('sending');
     return this.http.post<string>(this.url2, name, httpOptions);
   }
 
   addTT(name: string): Observable<string>{
-    console.log('sending');
     return this.http.post<string>(this.url3, name, httpOptions);
   }
 
@@ -116,36 +113,30 @@ export class AdminService {
   }
 
   addFT(name: string): Observable<string>{
-    console.log('sending');
     return this.http.post<string>(this.url14, name, httpOptions);
   }
 
   updateM(old: string, name:string, deleted:boolean): Observable<string>{
-    console.log('sending');
     this.manufact = {name:name, deleted:deleted}
     return this.http.post<string>(this.url10+'/'+old, this.manufact, httpOptions);
   }
 
   updateCC(old: string, name:string, deleted:boolean): Observable<string>{
-    console.log('sending');
     this.carClass = {name:name, deleted:deleted}
     return this.http.post<string>(this.url11+'/'+old, this.carClass, httpOptions);
   }
 
   updateTT(old: string, name:string, deleted:boolean): Observable<string>{
-    console.log('sending');
     this.transmission = {name:name, deleted:deleted}
     return this.http.post<string>(this.url12+'/'+old, this.transmission, httpOptions);
   }
 
   updateFT(old: string, name:string, deleted:boolean): Observable<string>{
-    console.log('sending');
     this.fuelType = {name:name, deleted:deleted}
     return this.http.post<string>(this.url15+'/'+old, this.fuelType, httpOptions);
   }
 
   updateCarModel(old: string, name:string, deleted:boolean): Observable<string>{
-    console.log('sending');
     this.carModel = {name:name, deleted:deleted,  manufacturer:'', carClass:'', transmission:''}
     return this.http.post<string>(this.url20+'/'+old, this.carModel, httpOptions);
   }

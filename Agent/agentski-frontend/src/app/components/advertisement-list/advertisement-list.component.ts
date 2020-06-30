@@ -141,7 +141,6 @@ export class AdvertisementListComponent implements OnInit {
     this.advertisementService.getCarDetails(car.id).subscribe(data => {
 
       this.myData = data;
-      console.log(data);
       this.ads=false;
       this.details=true;;
       this.carClass=this.myData.carClass;
@@ -164,7 +163,6 @@ export class AdvertisementListComponent implements OnInit {
 
     this.advertisementService.getCarReviews(car.id).subscribe(data => {
         this.reviews = data;
-        console.log(data)
     })
   }
 
@@ -172,8 +170,6 @@ export class AdvertisementListComponent implements OnInit {
     this.advertisementService.addCarReview(this.myData.carId, this.rating, this.comment).pipe(first())
     .subscribe(
         data => {
-            console.log(data)
-            console.log('Adding review successful');
         })
   }
 

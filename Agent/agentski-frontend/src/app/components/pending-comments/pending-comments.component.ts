@@ -50,7 +50,6 @@ export class PendingCommentsComponent implements OnInit {
 
   approveReview(id:number){
     this.adminService.approve(id).subscribe((data)=>{
-      console.log(data);
       this.adminService.getPendingComments().subscribe(data =>{
         this.pendingComments = data;
       });

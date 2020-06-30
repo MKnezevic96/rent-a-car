@@ -17,6 +17,16 @@ spring:
 
 server:
   port: 8761
+#  ssl:
+#    enabled: true
+#    key-store: classpath:gateway.dc1.rent-a-car.keystore.p12
+#    key-store-password: 739476603727
+#    trust-store: classpath:rent-a-car.truststore.p12
+#    trust-store-password: 739476603727
+#    key-alias: gateway.dc1.rent-a-car
+#    client-auth: need
+
+
 
 eureka:
   instance:

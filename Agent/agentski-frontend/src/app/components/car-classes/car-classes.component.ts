@@ -91,7 +91,6 @@ export class CarClassesComponent implements OnInit {
   }
 
   addCC(){
-    console.log(this.nameCC);
     this.adminService.addCC(this.nameCC).subscribe((data:string)=>{
       this.adminService.getCarC().subscribe(data =>{
         this.carClass = data;
