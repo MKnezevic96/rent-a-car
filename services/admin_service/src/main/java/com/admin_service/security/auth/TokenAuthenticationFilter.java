@@ -4,6 +4,7 @@ import com.admin_service.security.TokenUtils;
 //import org.springframework.security.core.context.SecurityContextHolder;
 //import org.springframework.security.core.userdetails.UserDetails;
 //import org.springframework.security.core.userdetails.UserDetailsService;
+import com.admin_service.service.CustomUserDetailsService;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -15,6 +16,9 @@ import java.io.IOException;
 public class TokenAuthenticationFilter /*extends OncePerRequestFilter */{
 
     private TokenUtils tokenUtils;
+
+    public TokenAuthenticationFilter(TokenUtils tokenUtils, CustomUserDetailsService jwtUserDetailsService) {
+    }
 
 //    private UserDetailsService userDetailsService;
 

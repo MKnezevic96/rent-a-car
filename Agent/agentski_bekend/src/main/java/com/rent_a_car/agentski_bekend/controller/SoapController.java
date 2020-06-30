@@ -1,11 +1,10 @@
 package com.rent_a_car.agentski_bekend.controller;
 
 import com.rent_a_car.agentski_bekend.model.Cars;
-import com.rent_a_car.agentski_bekend.repository.CarsRepository;
 import com.rent_a_car.agentski_bekend.service.CarsService;
-//import io.spring.guides.gs_producing_web_service.CarsSoap;
-//import io.spring.guides.gs_producing_web_service.GetCarsRequest;
-//import io.spring.guides.gs_producing_web_service.GetCarsResponse;
+import io.spring.guides.gs_producing_web_service.CarsSoap;
+import io.spring.guides.gs_producing_web_service.GetCarsRequest;
+import io.spring.guides.gs_producing_web_service.GetCarsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,8 +14,8 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
-@RestController
-@RequestMapping(value = "ws/")
+//@RestController
+//@RequestMapping(value = "ws/")
 public class SoapController {
 
     private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
@@ -32,21 +31,22 @@ public class SoapController {
 //
 //        return response;
 //    }
+//
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCarsRequest")
+    @ResponsePayload
+    public GetCarsResponse getCar (@RequestPayload GetCarsRequest request) {
 
-//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCarsRequest")
-//    @ResponsePayload
-//    public GetCarsResponse getCar (@RequestPayload GetCarsRequest request) {
-//        System.out.println("Pogodio si @Endpoint; Svaka ti dala! =D");
-//        GetCarsResponse response = new GetCarsResponse();
-//        System.out.println("Loading car...");
-//        Cars car = carsService.getCar(request.getName().intValue());
-//        System.out.println("Car name: " + car.getName());
-//        CarsSoap carsSoap = new CarsSoap();
-//        carsSoap.setName(car.getName());
-//        carsSoap.setManufacturer(car.getModel().getManufacturer().getName());
-//        carsSoap.setModel(car.getModel().getName());
-//        response.setCars(carsSoap);
-//        return response;
-//    }
+        System.out.println("Pogodio si @Endpoint; Svaka ti dala! =D");
+        GetCarsResponse response = new GetCarsResponse();
+        System.out.println("Loading car...");
+        Cars car = carsService.getCar(request.getCarId());
+        System.out.println("Car name: " + car.getName());
+        CarsSoap carsSoap = new CarsSoap();
+        carsSoap.setCarName(car.getName());
+        carsSoap.setManufacturer(car.getModel().getManufacturer().getName());
+        carsSoap.setModel(car.getModel().getName());
+        response.setCars(carsSoap);
+        return response;
+    }
 
 }

@@ -2,13 +2,11 @@ package com.rent_a_car.agentski_bekend.model;
 
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 @Entity
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(namespace="nekiUri/android_gps")
 @XmlType(
         name = "AndroidGps", propOrder = {
         "id",

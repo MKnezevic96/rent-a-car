@@ -1,6 +1,6 @@
 package com.admin_service.model;
 
-import com.rent_a_car.agentski_bekend.model.enums.ServicesEnum;
+import com.admin_service.model.enums.ServicesEnum;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;

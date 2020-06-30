@@ -14,6 +14,7 @@ import java.util.Date;
         name = "CarReview", propOrder = {
         "id",
         "reviewer",
+        "approvedDate",
         "car",
         "rating",
         "review",

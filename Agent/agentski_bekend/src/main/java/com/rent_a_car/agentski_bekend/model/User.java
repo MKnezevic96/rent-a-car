@@ -30,6 +30,7 @@ import java.util.*;
         "rentBan",
         "messageBan",
         "deleted",
+        "blocked",
         "company",
         "recieptsIMade",
         "recieptsImOwed",
@@ -37,6 +38,7 @@ import java.util.*;
         "sentMessages",
         "recieved",
         "pricings",
+        "rentRequests",
         "activated"
 }, namespace = "nekiUri/user")
 @Table(name = "user_table")

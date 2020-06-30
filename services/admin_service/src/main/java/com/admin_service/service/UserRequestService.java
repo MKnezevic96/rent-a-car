@@ -1,6 +1,8 @@
 package com.admin_service.service;
 
+import com.admin_service.model.UserRequest;
 import com.admin_service.repository.UserRequestRepository;
+import com.admin_service.service.interfaces.UserRequestServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
