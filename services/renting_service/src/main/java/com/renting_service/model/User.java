@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Collection;
 
 @Entity
@@ -96,8 +97,8 @@ public class User implements Serializable, UserDetails {
     }
 
     public Role getRola(){
-        ArrayList rols = new ArrayList<>();
-        rols = (ArrayList) role;
+        List rols = new ArrayList<>();
+        rols = (List) role;
         return (Role) rols.get(0);}
 
     public void setRole(Collection<Role> role) {

@@ -65,11 +65,3 @@ networks:
 volumes:
   my-datavolume:
 
-
-
-
-
-
-
-
-

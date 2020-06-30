@@ -2,33 +2,33 @@ version: '3'
 services:
 
 
- eureka:
-   build: ./eureka
-   container_name: eureka
-   ports:
-    - "8761:8761"
-   tty: true
-   networks:
-    - first-network
+  eureka:
+    build: ./eureka
+    container_name: eureka
+    ports:
+      - "8761:8761"
+    tty: true
+    networks:
+      - first-network
 
- zuul:
-   build: ./zuul
-   container_name: zuul
-   ports:
-   - "8083:8083"
-   environment:
-     - REGISTRY_HOST=eureka
-   tty: true
-   networks:
-     - first-network
-   depends_on:
-     - eureka
-     - ad-service
-     - admin-service
-     - authentication-service
-     - gps-service
-     - security-service
-     - renting-service
+  zuul:
+    build: ./zuul
+    container_name: zuul
+    ports:
+      - "8083:8083"
+    environment:
+      - REGISTRY_HOST=eureka
+    tty: true
+    networks:
+      - first-network
+    depends_on:
+      - eureka
+      - ad-service
+      - admin-service
+      - authentication-service
+      - gps-service
+      - security-service
+      - renting-service
 
 #  nginx:
 #    image: nginx:latest
@@ -55,7 +55,7 @@ services:
       dockerfile: Dockerfile
     tty: true
     environment:
-       REGISTRY_HOST: eureka
+       REGISTRY_HOST: http://localhost:8761
        DATABASE_USERNAME: 'sa'
        DATABASE_PASSWORD: 'admin'
        DATABASE_DOMAIN: 'db'
@@ -97,7 +97,7 @@ services:
 #       DATABASE_PORT: "3306"
        REGISTRY_HOST: eureka
     ports:
-     - "127.0.0.1:8287:447"
+     - "8287:447"
     networks:
       - first-network
     depends_on:

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -16,7 +16,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-<!--		<start-class>com.rent_a_car.agentski_bekend.AgentskiBekendApplication</start-class>-->
+		<!--		<start-class>com.rent_a_car.agentski_bekend.AgentskiBekendApplication</start-class>-->
+		<cxf.version>3.2.1</cxf.version>
 	</properties>
 
 	<dependencies>
@@ -32,7 +33,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.18</version>
-<!--			<scope>runtime</scope>-->
+			<!--			<scope>runtime</scope>-->
 		</dependency>
 		<dependency>
 			<groupId>org.owasp.encoder</groupId>
@@ -173,6 +174,19 @@
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
 	</dependencies>
 
 
@@ -187,152 +201,152 @@
 					<mainClass>com.rent_a_car.agentski_bekend.AgentskiBekendApplication</mainClass>
 				</configuration>
 			</plugin>
+			<!--			<plugin>-->
+			<!--				<artifactId>maven-assembly-plugin</artifactId>-->
+			<!--				<configuration>-->
+			<!--					<archive>-->
+			<!--						<manifest>-->
+			<!--							<addClasspath>true</addClasspath>-->
+			<!--							<mainClass>com.rent_a_car.agentski_bekend.AgentskiBekendApplication</mainClass>-->
+			<!--						</manifest>-->
+			<!--					</archive>-->
+			<!--					<descriptorRefs>-->
+			<!--						<descriptorRef>jar-with-dependencies</descriptorRef>-->
+			<!--					</descriptorRefs>-->
+			<!--				</configuration>-->
+			<!--				<executions>-->
+			<!--					<execution>-->
+			<!--						<id>assemble-all</id>-->
+			<!--						<phase>package</phase>-->
+			<!--						<goals>-->
+			<!--							<goal>single</goal>-->
+			<!--						</goals>-->
+			<!--					</execution>-->
+			<!--				</executions>-->
+			<!--			</plugin>-->
 <!--			<plugin>-->
-<!--				<artifactId>maven-assembly-plugin</artifactId>-->
-<!--				<configuration>-->
-<!--					<archive>-->
-<!--						<manifest>-->
-<!--							<addClasspath>true</addClasspath>-->
-<!--							<mainClass>com.rent_a_car.agentski_bekend.AgentskiBekendApplication</mainClass>-->
-<!--						</manifest>-->
-<!--					</archive>-->
-<!--					<descriptorRefs>-->
-<!--						<descriptorRef>jar-with-dependencies</descriptorRef>-->
-<!--					</descriptorRefs>-->
-<!--				</configuration>-->
+<!--				<groupId>org.codehaus.mojo</groupId>-->
+<!--				<artifactId>jaxb2-maven-plugin</artifactId>-->
+<!--				<version>2.2</version>-->
 <!--				<executions>-->
 <!--					<execution>-->
-<!--						<id>assemble-all</id>-->
-<!--						<phase>package</phase>-->
+<!--						<id>xjc</id>-->
 <!--						<goals>-->
-<!--							<goal>single</goal>-->
+<!--							<goal>xjc</goal>-->
 <!--						</goals>-->
 <!--					</execution>-->
 <!--				</executions>-->
+<!--				<configuration>-->
+<!--					<sources>-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/AndroidGPS.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/CarClass.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/CarModels.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/CarReview.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Cars.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Company.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/FuelType.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Manufacturer.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Message.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Pricing.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Privilege.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Reciept.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/RecieptArticle.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/RentingReport.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/RentRequest.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Role.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/TransmissionType.java</source>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<source>src/main/java/com/rent_a_car/agentski_bekend/model/User.java</source>&ndash;&gt;-->
+<!--						<source>${project.basedir}/src/main/resources/cars.xsd</source>-->
+<!--					</sources>-->
+<!--					&lt;!&ndash;					<transformSchemas>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/android_gps</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>android_gps.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/car_class</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>car_class.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/car_review</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>car_review.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/car_models</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>car_models.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/fuel_type</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>fuel_type.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/cars</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>cars.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/company</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>company.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/manufacturer</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>manufacturer.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/message</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>message.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/pricing</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>pricing.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/privilege</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>privilege.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/reciept</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>reciept.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/reciept_article</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>reciept_article.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/renting_report</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>renting_report.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/renting_request</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>renting_request.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/role</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>role.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;						<transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<uri>nekiUri/transmission_type</uri>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toPrefix>c</toPrefix>&ndash;&gt;-->
+<!--					&lt;!&ndash;							<toFile>transmission_type.xsd</toFile>&ndash;&gt;-->
+<!--					&lt;!&ndash;						</transformSchema>&ndash;&gt;-->
+<!--					&lt;!&ndash;					</transformSchemas>&ndash;&gt;-->
+<!--				</configuration>-->
 <!--			</plugin>-->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>2.2</version>
-				<executions>
-					<execution>
-						<id>xjc</id>
-						<goals>
-							<goal>xjc</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<sources>
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/AndroidGPS.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/CarClass.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/CarModels.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/CarReview.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Cars.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Company.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/FuelType.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Manufacturer.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Message.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Pricing.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Privilege.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Reciept.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/RecieptArticle.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/RentingReport.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/RentRequest.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/Role.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/TransmissionType.java</source>-->
-<!--						<source>src/main/java/com/rent_a_car/agentski_bekend/model/User.java</source>-->
-						<source>${project.basedir}/src/main/resources/cars.xsd</source>
-					</sources>
-<!--					<transformSchemas>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/android_gps</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>android_gps.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/car_class</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>car_class.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/car_review</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>car_review.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/car_models</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>car_models.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/fuel_type</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>fuel_type.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/cars</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>cars.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/company</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>company.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/manufacturer</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>manufacturer.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/message</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>message.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/pricing</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>pricing.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/privilege</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>privilege.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/reciept</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>reciept.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/reciept_article</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>reciept_article.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/renting_report</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>renting_report.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/renting_request</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>renting_request.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/role</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>role.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--						<transformSchema>-->
-<!--							<uri>nekiUri/transmission_type</uri>-->
-<!--							<toPrefix>c</toPrefix>-->
-<!--							<toFile>transmission_type.xsd</toFile>-->
-<!--						</transformSchema>-->
-<!--					</transformSchemas>-->
-				</configuration>
-			</plugin>
 
 		</plugins>
 	</build>
