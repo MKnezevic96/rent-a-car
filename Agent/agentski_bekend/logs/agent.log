@@ -467,3 +467,32 @@
 2020-06-27 13:33:13 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication on student-VirtualBox with PID 8645 (/home/student/Desktop/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/Desktop/rent-a-car/Agent/agentski_bekend)
 2020-06-27 13:33:13 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
 2020-06-27 13:34:13 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 64.343 seconds (JVM running for 76.2)
+2020-06-27 16:00:21 INFO  AgentskiBekendApplication:55 - Starting AgentskiBekendApplication on student-VirtualBox with PID 10563 (/home/student/Desktop/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/Desktop/rent-a-car/Agent/agentski_bekend)
+2020-06-27 16:00:21 INFO  AgentskiBekendApplication:651 - No active profile set, falling back to default profiles: default
+2020-06-27 16:01:02 INFO  AgentskiBekendApplication:61 - Started AgentskiBekendApplication in 43.632 seconds (JVM running for 52.961)
+2020-06-30 13:24:13 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication on student-VirtualBox with PID 5733 (/home/student/Desktop/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/Desktop/rent-a-car/Agent/agentski_bekend)
+2020-06-30 13:24:13 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-06-30 13:24:47 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 36.343 seconds (JVM running for 43.292)
+2020-06-30 13:29:37 [http-nio-8282-exec-4] INFO  RentingController:139  - Action create authentication token successful for user account: admin@gmail.com. User logged in.
+2020-06-30 13:34:37 [http-nio-8282-exec-7] INFO  RentingController:139  - Action create authentication token successful for user account: prvi@gmail.com. User logged in.
+2020-06-30 13:40:43 [http-nio-8282-exec-9] INFO  RentingController:139  - Action create authentication token successful for user account: admin@gmail.com. User logged in.
+2020-06-30 15:24:49 [http-nio-8282-exec-3] INFO  RentingController:94  - User: minjos@gmail.com registered successfuly.
+2020-06-30 16:26:35 [http-nio-8282-exec-5] WARN  RentingController:96  - User registration failed. Cause: invalid password input
+2020-06-30 16:26:51 [http-nio-8282-exec-6] WARN  RentingController:96  - User registration failed. Cause: invalid password input
+2020-06-30 16:26:51 [http-nio-8282-exec-7] WARN  RentingController:96  - User registration failed. Cause: invalid password input
+2020-06-30 16:27:42 [http-nio-8282-exec-1] INFO  RentingController:94  - User: stari@gmail.com registered successfuly.
+2020-06-30 16:35:47 [http-nio-8282-exec-10] INFO  RentingController:139  - Action create authentication token successful for user account: admin@gmail.com. User logged in.
+2020-06-30 16:39:09 [http-nio-8282-exec-3] INFO  RentingController:139  - Action create authentication token successful for user account: admin@gmail.com. User logged in.
+2020-06-30 16:40:39 [http-nio-8282-exec-5] WARN  RentingController:88  - User registration failed. Cause: invalid email characters
+2020-06-30 16:49:54 [http-nio-8282-exec-7] WARN  RentingController:88  - User registration failed. Cause: invalid email characters
+2020-06-30 16:55:13 [http-nio-8282-exec-1] WARN  RentingController:88  - User registration failed. Cause: invalid email characters
+2020-06-30 16:58:26 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication on student-VirtualBox with PID 11690 (/home/student/Desktop/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/Desktop/rent-a-car/Agent/agentski_bekend)
+2020-06-30 16:58:26 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-06-30 16:59:28 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 64.365 seconds (JVM running for 77.39)
+2020-06-30 17:01:13 [http-nio-8282-exec-1] WARN  RentingController:88  - User registration failed. Cause: invalid email characters
+2020-06-30 17:02:09 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication on student-VirtualBox with PID 11857 (/home/student/Desktop/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/Desktop/rent-a-car/Agent/agentski_bekend)
+2020-06-30 17:02:09 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-06-30 17:02:51 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 44.668 seconds (JVM running for 52.8)
+2020-06-30 17:05:18 [http-nio-8282-exec-1] WARN  RentingController:96  - User registration failed. Cause: invalid password input
+2020-06-30 17:06:18 [http-nio-8282-exec-2] INFO  RentingController:94  - User: asdasdas@gmail.com registered successfuly.
+2020-06-30 17:19:24 [http-nio-8282-exec-4] INFO  RentingController:139  - Action create authentication token successful for user account: admin@gmail.com. User logged in.

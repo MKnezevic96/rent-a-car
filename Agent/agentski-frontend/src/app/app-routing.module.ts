@@ -30,6 +30,7 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
 import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
 
 
 
@@ -64,6 +65,9 @@ const routes: Routes = [
           children: [
             {path: 'pendingComments', component: PendingCommentsComponent},
           ]
+        },
+        { path: 'registerAgent',
+          component: RegisterAdminComponent,
         },
         
       ]
