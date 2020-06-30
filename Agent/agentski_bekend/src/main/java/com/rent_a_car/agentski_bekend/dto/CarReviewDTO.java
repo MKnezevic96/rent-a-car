@@ -19,7 +19,7 @@ public class CarReviewDTO {
 
     public CarReviewDTO () {}
 
-    public CarReviewDTO(Integer id, Integer reviewer, Integer car, Integer rating, String review, Date approvedDate, boolean deleted, boolean approved) {
+    public CarReviewDTO(Integer id, Integer reviewer, Integer car, Integer rating, String review, Date approvedDate, boolean deleted, boolean approved, String userEmail) {
         this.id = id;
         this.reviewerId = reviewer;
         this.carId = car;
@@ -28,6 +28,7 @@ public class CarReviewDTO {
         this.approvedDate = approvedDate;
         this.deleted = deleted;
         this.approved = approved;
+        this.userEmail = userEmail;
     }
 
     public CarReviewDTO(CarReview carReview) {
@@ -105,5 +106,13 @@ public class CarReviewDTO {
 
     public void setApproved(boolean approved) {
         this.approved = approved;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

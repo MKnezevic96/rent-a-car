@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 //import { JwtHelperService } from '@auth0/angular-jwt';
 import { UserService } from '../security/user.service';
 import { Review } from '../models/Review';
+import { User } from '../models/User';
 
   const httpOptions = {
     headers: new HttpHeaders({
@@ -221,4 +222,20 @@ export class AdvertisementService {
     this.d2 = endDate.toString();
     return this.http.get<Car[]>(this.url8+this.d1+'/'+this.d2, httpOptions);
   }
+
+  getCurrentUser():Observable<User> {
+
+    let token = localStorage.getItem('accessToken');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+
+    return this.http.get<User>('http://localhost:8282/user/current', httpOptions)
+}
+
+
 }

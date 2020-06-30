@@ -1,7 +1,10 @@
 package com.rent_a_car.agentski_bekend.controller;
 
+import com.rent_a_car.agentski_bekend.dto.RentRequestDTO;
 import com.rent_a_car.agentski_bekend.dto.UserDTO;
+import com.rent_a_car.agentski_bekend.model.RentRequest;
 import com.rent_a_car.agentski_bekend.model.User;
+import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import com.rent_a_car.agentski_bekend.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,11 +27,18 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+@RestController
 public class UserController {
 
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    private List<User> users = Arrays.asList();
 
     @PostMapping(value = "/user")
     @ResponseBody
@@ -59,13 +71,25 @@ public class UserController {
         }
     }
 
-    @Autowired
-    private UserService userService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    @GetMapping(value="user/current")
+    public ResponseEntity<UserDTO> getCurrentUser(){
 
-    private List<User> users = Arrays.asList();
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            UserDTO dto = new UserDTO(user);
+            LOGGER.info("Action get current user successful");
+            return new ResponseEntity<UserDTO>(dto, HttpStatus.OK);
+
+        } catch (Exception e) {
+            LOGGER.error("Action get current user failed. Cause: {}", e.getMessage());
+        }
+
+        return ResponseEntity.status(400).build();
+    }
+
+
+
 
 
         //kada se uloguje

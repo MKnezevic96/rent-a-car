@@ -6,6 +6,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CarDetails } from 'src/app/models/CarDetails';
 import { first } from 'rxjs/operators';
 import { Review } from 'src/app/models/Review';
+import { UserService } from 'src/app/services/UserService';
+import { RegisterService } from 'src/app/services/register.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-advertisement-list',
@@ -53,6 +58,8 @@ import { Review } from 'src/app/models/Review';
 <p> Discount days: {{ discoundDays }}</p>
 <p> Collision damage: {{ collisionDamage }}</p>
 <p> Town: {{ town }}</p>
+<p></p>
+<p> Owner email: {{ carOwnerEmail }}</p>
 
 </div>
 
@@ -60,8 +67,10 @@ import { Review } from 'src/app/models/Review';
 <div class="card-body">
 
     <div id="addReview">
+    <div *ngIf="ratingInput" >
         <label>Rate this car: </label>
         <input class="form-control form-control-sm" type="number" min="1" max="5" id="rating" name="rating" [(ngModel)]="rating"><p></p>
+    </div>
         <label>Leave your comment: </label>
         <textarea class="form-control form-control-sm"  id="comment" name="comment" [(ngModel)]="comment" rows="7"></textarea><p></p>
       <button class="btn btn-primary" (click)="addComment()">Submit</button>
@@ -71,7 +80,7 @@ import { Review } from 'src/app/models/Review';
     <table class="table">
        <thead>
          <tr>
-         <th> User id </th>
+         <th> User </th>
          <th> Rating </th>
          <th> Review </th>           
            
@@ -79,7 +88,7 @@ import { Review } from 'src/app/models/Review';
        </thead>
        <tbody>
          <tr *ngFor="let review of reviews">           
-           <td> {{ review.reviewerId }}</td>
+           <td> {{ review.userEmail }}</td>
            <td> {{ review.rating }}</td>
            <td> {{ review.review }}</td>
        </tr>
@@ -97,11 +106,14 @@ import { Review } from 'src/app/models/Review';
 })
 export class AdvertisementListComponent implements OnInit {
 
+  currentUser: User;
+
 
   cars:Car[];
   reviews:Review[];
   ads:boolean = true;
   details:boolean = false;
+  ratingInput:boolean = true;
   
   myData:CarDetails;
 
@@ -123,6 +135,7 @@ export class AdvertisementListComponent implements OnInit {
   pricingId:number;
   pricingPlan:string;
   town:string;
+  carOwnerEmail:string;
 
   rating:number;
   comment:string;
@@ -157,6 +170,7 @@ export class AdvertisementListComponent implements OnInit {
       this.distancePenalty=this.myData.distancePenalty;
       this.carName=this.myData.carName;
       this.collisionDamage=this.myData.collisionDamage;
+      this.carOwnerEmail=this.myData.carOwnerEmail;
 
     });
 
@@ -164,13 +178,25 @@ export class AdvertisementListComponent implements OnInit {
     this.advertisementService.getCarReviews(car.id).subscribe(data => {
         this.reviews = data;
     })
+
+   
+    this.advertisementService.getCurrentUser().subscribe( data => {
+      if(data.email === this.carOwnerEmail){
+        this.ratingInput = false;
+      }
+    })
+    
   }
 
-  addComment(){
-    this.advertisementService.addCarReview(this.myData.carId, this.rating, this.comment).pipe(first())
-    .subscribe(
-        data => {
+  addComment() {
+    return this.advertisementService.addCarReview(this.myData.carId, this.rating, this.comment)
+        .subscribe(res => alert('Review added successfully. Please wait for our admin team to review and approve it.'), err => {
+          if(err.status == 403) {
+            alert("You don't have permission for this action. Car reviews can be added only on cars you have rented and after renting date has expired.")
+        }
+        
+
         })
-  }
+      }
 
 }

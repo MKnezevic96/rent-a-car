@@ -63,6 +63,10 @@ public class CarsService implements CarsServiceInterface {
         return carsRepository.getOne(id);
     }
 
+    public List<Cars> findByOwnerEmail(String email) {
+        return carsRepository.findByOwnerEmail(email);
+    };
+
 
 
     public void autoReject(RentRequest rentRequestDto) {

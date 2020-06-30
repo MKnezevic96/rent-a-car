@@ -22,6 +22,7 @@ public class CarsDetailsDTO {
     private Double pricePerDay;
     private Double milage;
     private String town;
+    private String carOwnerEmail;
 
     public CarsDetailsDTO (Cars car) {
         this.carId = car.getId();
@@ -42,6 +43,7 @@ public class CarsDetailsDTO {
         this.pricePerDay = car.getPricing().getRegularPrice();
         this.milage = car.getMilage();
         this.town = car.getTown();
+        this.carOwnerEmail = car.getOwner().getEmail();
 
     }
 
@@ -190,5 +192,11 @@ public class CarsDetailsDTO {
     }
 
 
+    public String getCarOwnerEmail() {
+        return carOwnerEmail;
+    }
 
+    public void setCarOwnerEmail(String carOwnerEmail) {
+        this.carOwnerEmail = carOwnerEmail;
+    }
 }

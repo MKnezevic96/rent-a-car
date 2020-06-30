@@ -24,6 +24,5 @@ export class LoginService {
   onLogin(loginUser: LoginUser): Observable<LoginUser>{
     return this.http.post<LoginUser>(this.url, loginUser, httpOptions);
     
-
   }
 }

@@ -30,10 +30,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 
 @RestController
 @Validated
@@ -129,6 +126,7 @@ public class AdminController {
            for(CarReview cr : crList){
                if(cr.getId() == id){
                    cr.setApproved(true);
+                   cr.setApprovedDate(new Date());
                    carReviewService.save(cr);
                    Cars car = carService.getCar(cr.getCar().getId());
                    car.getReviews().add(cr);

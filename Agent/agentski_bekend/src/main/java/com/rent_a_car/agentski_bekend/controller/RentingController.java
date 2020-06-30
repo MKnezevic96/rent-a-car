@@ -523,12 +523,24 @@ public class RentingController {
             List<RentRequest> usersRequests = userService.findUsersRentRequests(user.getEmail());
 
             for(RentRequest rr : usersRequests){
-                if(rr.getCarId().getId() == dto.getCarId() && rr.getStatus().equals(RequestStatus.RETURNED)){
+
+                if( rr.getCarId().getId() == dto.getCarId() &&  rr.getEndDate().before(new Date()) ){
                     carReviewService.save(review);
                     LOGGER.info("User: {} posted a review for car id:{} successfully", p.getName(), dto.getCarId());
                     return ResponseEntity.status(200).build();
                 }
             }
+
+            List<Cars> ads = carsService.findAll();
+
+            for(Cars c : ads){
+                if(c.getOwner().getEmail().equals(p.getName())){
+                    carReviewService.save(review);
+                    LOGGER.info("User: {} posted a comment for car id:{} successfully", p.getName(), dto.getCarId());
+                    return ResponseEntity.status(200).build();
+                }
+            }
+
 
             LOGGER.warn("User: {} is not allowed to post a review for car id:{} ", p.getName(), dto.getCarId());
             return ResponseEntity.status(403).build();

@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fcce3a5-143c-4b0c-833d-c7556aa7fc18" name="Default Changelist" comment="">
+    <list default="true" id="4fcce3a5-143c-4b0c-833d-c7556aa7fc18" name="Default Changelist" comment="Adding reviews and comments fixed">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_9_3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement-list/advertisement-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/components/advertisement-list/advertisement-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/CarDetails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/CarDetails.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/Review.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/models/Review.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/advertisement.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/advertisement.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/authentication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski-frontend/src/app/services/login.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/AdvertisementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/CarReviewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/CarReviewDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/CarsDetailsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/dto/CarsDetailsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/CarReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/model/CarReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/repository/CarsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/repository/CarsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/CarsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/CarsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/interfaces/UserServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/service/interfaces/UserServiceInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/logs/agent.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593512164624</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="merged">
+      <created>1593514482277</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1593514482277</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,13 +255,15 @@
     <MESSAGE value="Logging updated" />
     <MESSAGE value="Console logs deleted" />
     <MESSAGE value="Sending mails when message is received" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sending mails when message is received" />
+    <MESSAGE value="merged" />
+    <MESSAGE value="Adding reviews and comments fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding reviews and comments fixed" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser" timestamp="1593219112179">
+    <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser" timestamp="1593529583148">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1593219112179" />
+    <state x="805" y="258" width="374" height="624" key="#com.intellij.ide.util.MemberChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1593529583148" />
     <state x="558" y="275" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1592838147953">
       <screen x="65" y="24" width="1295" height="744" />
     </state>
@@ -254,38 +280,38 @@
       <screen x="65" y="24" width="1295" height="744" />
     </state>
     <state x="450" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/65.24.1295.744@65.24.1295.744" timestamp="1592845856741" />
-    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2" timestamp="1593512159953">
+    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2" timestamp="1593552883879">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1593512159953" />
-    <state x="250" y="102" key="DiffContextDialog" timestamp="1592416928183">
+    <state x="102" y="83" width="1331" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1593552883879" />
+    <state x="250" y="102" key="DiffContextDialog" timestamp="1593552879578">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="250" y="102" key="DiffContextDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1592416928183" />
+    <state x="250" y="102" key="DiffContextDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1593552879578" />
     <state x="500" y="141" key="FileChooserDialogImpl" timestamp="1592906880487">
       <screen x="65" y="24" width="1295" height="744" />
     </state>
     <state x="500" y="141" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1592906880487" />
-    <state width="1144" height="239" key="GridCell.Tab.0.bottom" timestamp="1593510832482">
+    <state width="1809" height="239" key="GridCell.Tab.0.bottom" timestamp="1593552130247">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.bottom/65.24.1295.744@65.24.1295.744" timestamp="1592906887832" />
-    <state width="1144" height="239" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1593510832482" />
-    <state width="1144" height="239" key="GridCell.Tab.0.center" timestamp="1593510832482">
+    <state width="1809" height="239" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1593552130247" />
+    <state width="1809" height="239" key="GridCell.Tab.0.center" timestamp="1593552130241">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.center/65.24.1295.744@65.24.1295.744" timestamp="1592906887831" />
-    <state width="1144" height="239" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1593510832482" />
-    <state width="1144" height="239" key="GridCell.Tab.0.left" timestamp="1593510832480">
+    <state width="1809" height="239" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1593552130241" />
+    <state width="1809" height="239" key="GridCell.Tab.0.left" timestamp="1593552130241">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.left/65.24.1295.744@65.24.1295.744" timestamp="1592906887831" />
-    <state width="1144" height="239" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1593510832480" />
-    <state width="1144" height="239" key="GridCell.Tab.0.right" timestamp="1593510832482">
+    <state width="1809" height="239" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1593552130241" />
+    <state width="1809" height="239" key="GridCell.Tab.0.right" timestamp="1593552130245">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.right/65.24.1295.744@65.24.1295.744" timestamp="1592906887832" />
-    <state width="1144" height="239" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1593510832482" />
+    <state width="1809" height="239" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1593552130245" />
     <state x="65" y="24" width="1855" height="1056" key="MergeDialog" timestamp="1593513716524">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -302,10 +328,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="692" y="300" key="Vcs.Multiple.Commit.Info.Dialog.Key/65.24.1855.1056@65.24.1855.1056" timestamp="1592419444665" />
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1593512207408">
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1593514493460">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1593512207408" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1593514493460" />
     <state x="164" y="96" width="1657" height="885" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592471919604">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
