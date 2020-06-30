@@ -1,6 +1,7 @@
 package com.rent_a_car.agentski_bekend.dto;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.SafeHtml;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -12,18 +13,21 @@ public class UserRequestDTO {
     @Size(min = 2, max = 30,
             message = "Name must be between 2 and 30 characters long")
     @Pattern(regexp="^$|[a-zA-Z ]+$", message="Name must not include special characters.")
+    @SafeHtml
     public String firsname;
 
     @NotNull(message = "Last name is mandatory")
     @Size(min = 2, max = 32,
             message = "Last Name must be between 2 and 32 characters long")
     @Pattern(regexp="^$|[a-zA-Z ]+$", message="Name must not include special characters.")
+    @SafeHtml
     public String lastname;
 
     @NotNull(message = "Email is mandatory")
     @Email    // hybernate validator
-    @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@↵\n" +
-            "(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$")
+    @SafeHtml
+//    @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@↵\n" +
+//            "(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$")
     public String email;
 
     @Size(min = 10, max = 500)

@@ -47,6 +47,7 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
 import { TokenInterceptor } from './security/tokenInterceptor';
 import { ActivateComponent } from './components/activate/activate.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { ActivateComponent } from './components/activate/activate.component';
     MessagesComponent,
     PasswordChangeComponent,
     ActivateComponent,
+    ForgotPasswordComponent,
    // AuthGuard
   ],
   imports: [

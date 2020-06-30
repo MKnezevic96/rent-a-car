@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
 
 //radio
   // onSubmit(){
-  
+
 
   //   this.loginUser = {email: this.email, password: this.password};
 
@@ -82,6 +82,13 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.loginUser).subscribe((data)=>{
       //localStorage.setItem('token', data.email)
 
+
+      let role = this.userService.getRole();
+      if(role == 'admin'){
+        this.router.navigateByUrl('adminPage');
+      }else{
+        this.router.navigateByUrl('index');
+      }
     },
     error =>{
       alert('Activate account or check username or password');

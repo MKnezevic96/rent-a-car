@@ -29,6 +29,7 @@ import { MyCarsComponent } from './components/my-cars/my-cars.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
 import { ActivateComponent } from './components/activate/activate.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 
 
@@ -64,38 +65,6 @@ const routes: Routes = [
             {path: 'pendingComments', component: PendingCommentsComponent},
           ]
         },
-        // {
-        //   path: 'rentingMenagement',
-        //   component: RentingMenagementComponent,
-        //   children: [
-        //     { path: 'rentPayment', component: RentPaymentComponent},
-        //     // { path: 'advertisement',
-        //     //   component: AdvertisementComponent,
-        //     //   children: [
-        //     //     { path: 'pricing', component: PricingPageComponent},
-        //     //   ]
-        //     // },
-        //     { path: 'rentRequest', component: RentRequestComponent},
-        //     { path: 'advertisement', component: AdvertisementComponent},
-        //     { path: 'pricing', component: PricingPageComponent},
-        //     { path: 'rentingApprove', component: RentingApproveComponent},
-        //     { path: 'myCars', component: MyCarsComponent}
-        //   ]
-        // },
-      ]
-    },
-    { path: 'changePassword', component: PasswordChangeComponent},
-
-    { path: 'rentRequest', component: RentRequestComponent},
-    { path: 'index',
-      component: IndexComponent,
-      children: [
-        { path: 'advertisement', component: AdvertisementComponent},
-        { path: 'rentingReport', component: RentingReportComponent},
-        { path: 'advertisements', component: AdvertisementListComponent},
-        { path: 'messages', component: MessagesComponent},
-        { path: 'changePassword', component: PasswordChangeComponent},
-
         {
           path: 'rentingMenagement',
           component: RentingMenagementComponent,
@@ -114,6 +83,20 @@ const routes: Routes = [
             { path: 'myCars', component: MyCarsComponent}
           ]
         },
+      ]
+    },
+    { path: 'changePassword', component: PasswordChangeComponent},
+
+    { path: 'rentRequest', component: RentRequestComponent},
+    { path: 'index',
+      component: IndexComponent,
+      children: [
+        { path: 'advertisement', component: AdvertisementComponent},
+        { path: 'rentingReport', component: RentingReportComponent},
+        { path: 'advertisements', component: AdvertisementListComponent},
+        { path: 'messages', component: MessagesComponent},
+        { path: 'changePassword', component: PasswordChangeComponent},
+        { path: 'pricing', component: PricingPageComponent},
 
       ]
     },
@@ -123,9 +106,9 @@ const routes: Routes = [
     { path: 'rentRequest', component: RentRequestComponent},
     { path: 'pricing', component: PricingPageComponent},
     { path: 'rentingApprove', component: RentingApproveComponent},
+    { path: 'forgotPassword', component: ForgotPasswordComponent},
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
-
+    { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
