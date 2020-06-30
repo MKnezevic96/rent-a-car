@@ -71,7 +71,7 @@ export class AdvertisementComponent implements OnInit {
         data => {
 
         })
-        this.router.navigateByUrl('adminPage');
+        this.router.navigateByUrl('index');
 
   }
 

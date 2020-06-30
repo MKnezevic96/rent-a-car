@@ -5,6 +5,7 @@ import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import com.rent_a_car.agentski_bekend.service.MessageService;
 import com.rent_a_car.agentski_bekend.service.UserService;
+import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.core.MediaType;
+import java.io.IOException;
 import java.security.Principal;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -114,6 +116,7 @@ public class MessageController {
     public ResponseEntity<?> sendMessage(@RequestBody MessageDTO dto, Principal p){
 
         try{
+
             Message message = new Message();
             message.setContent(dto.getContent());
             message.setDate(new Date());
@@ -128,6 +131,8 @@ public class MessageController {
             sender.getSentMessages().add(message);
             receiver.getRecieved().add(message);
 
+            messageService.sendMessageEmail(p.getName(), dto.getUserToEmail());
+
             messageService.save(message);
             userService.save(sender);
             userService.save(receiver);
@@ -140,4 +145,7 @@ public class MessageController {
         }
         return ResponseEntity.status(400).build();
     }
+
+
+
 }

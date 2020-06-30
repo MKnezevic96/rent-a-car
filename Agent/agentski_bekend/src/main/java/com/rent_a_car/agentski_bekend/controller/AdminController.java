@@ -189,7 +189,7 @@ public class AdminController {
             userService.save(u);
             userRequestService.delete(us);
 
-            LOGGER.info("Validation email has been sent to user: {} by administrator: {}", u.getEmail(), user.getEmail());
+            LOGGER.error("Validation email has been sent to user: {} by administrator: {}.", u.getEmail(), user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (MessagingException | IOException | javax.mail.MessagingException e) {
@@ -206,18 +206,16 @@ public class AdminController {
     @RequestMapping(method = RequestMethod.GET, path = "/activateAcc/{mail:.+}")
     public ResponseEntity activateAcc(@PathVariable("mail") String mail, @Value("${front_uri}") String uri) throws URISyntaxException {
 
-        User u = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
         try {
 
             User user = userService.findByEmail(mail);
             user.setActivated(true);
             userService.save(user);
 
-            LOGGER.info("User: {} activated the account with email: {}", u.getEmail(), mail);
+            LOGGER.info("User account {} has been activated", mail);
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to activate the account with email: {}. Cause: {}", u.getEmail(), mail, e.getMessage());
+            LOGGER.error("User account {} has NOT been activated Cause: {}", mail, e.getMessage());
         }
 
 
@@ -934,7 +932,7 @@ public class AdminController {
         MimeMessageHelper helper = new MimeMessageHelper(msg, true);
         helper.setTo(sendTo);
 
-        helper.setSubject("Centro Clinico account registration");
+        helper.setSubject("Account registration");
         String text = "Dear sir/madam, " + '\n';
         text += "your account request has been reviewed and accepted by our administrator staff. \n Please follow the link below to activate your account.";
         text += uri + "/activateAcc/" + sendTo + "\n\n\n" + "Sincerely, Rent a car support team.";

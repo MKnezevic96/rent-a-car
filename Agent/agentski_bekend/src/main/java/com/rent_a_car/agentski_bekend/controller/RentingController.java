@@ -304,7 +304,7 @@ public class RentingController {
 
            } else if (status.equals("paid")){
                for(RentRequest rr : rentRequestService.findAll()){
-                   if(rr.getStatus().equals(RequestStatus.PAID))
+                   if(rr.getStatus().equals(RequestStatus.PAID) && rr.getCarId().getOwner().getEmail().equals(user.getEmail()))
                        retVal.add(new RentRequestDTO(rr));
                }
                LOGGER.info("Action get paid rent requests by user: {} successful", user.getEmail());
