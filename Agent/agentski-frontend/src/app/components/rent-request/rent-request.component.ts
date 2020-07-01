@@ -3,6 +3,7 @@ import { Car } from 'src/app/models/Car';
 import { AdvertisementService } from 'src/app/services/advertisement.service';
 import { RentRequest } from 'src/app/models/RentRequest';
 import { first } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-rent-request',
   templateUrl: './rent-request.component.html',
@@ -16,8 +17,11 @@ export class RentRequestComponent implements OnInit {
   id:number;
   rentrequest: RentRequest;
   availableCars:boolean = false;
+  moreFilters:boolean = false;
   constructor(
     private advertisementService: AdvertisementService,
+    private route: ActivatedRoute,
+    private router: Router
     ) { }
     selectedCar(name:Car){
       this.car = name;
@@ -48,9 +52,14 @@ export class RentRequestComponent implements OnInit {
   }
 
   getAvailableCars(){
-    this.availableCars = !this.availableCars;
     this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate).subscribe(data =>{
       this.cars = data;
     });
+    this.availableCars = !this.availableCars;
+  }
+
+  filterCars(){
+    this.router.navigate(['filterCars'], {relativeTo:this.route.parent});
+
   }
 }

@@ -25,7 +25,7 @@ import { Review } from '../models/Review';
 export class AdvertisementService {
 
 
-
+  auti:Car[];
   pricing: Pricing;
   car:Car;
   carReview:CarReview;
@@ -45,8 +45,8 @@ export class AdvertisementService {
   url55:string = 'http://localhost:8282/api/renting/rentRequests';
   url6:string = 'http://localhost:8282/api/renting/approveRentRequest';
   url7:string = 'http://localhost:8282/api/renting/rejectRentRequest';
-  url8:string = 'http://localhost:8282/api/renting/availableCars/'
-
+  url8:string = 'http://localhost:8282/api/renting/availableCars/';
+  url9:string = 'http://localhost:8282/api/renting/filterCars/';
 
   constructor(private http:HttpClient, private userService: UserService) { }
 
@@ -220,5 +220,34 @@ export class AdvertisementService {
     this.d1 = startDate.toString();
     this.d2 = endDate.toString();
     return this.http.get<Car[]>(this.url8+this.d1+'/'+this.d2, httpOptions);
+  }
+
+
+  getFilteredCars(fuelType:string, transType:string, manufac:string, carClass:string, carModel:string):Observable<Car[]>{
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    // if(fuelType==''){
+    //   fuelType = 'i';
+    // }
+    // if(transType==''){
+    //   fuelType = 'i';
+    // }
+    // if(manufac==''){
+    //   fuelType = 'i';
+    // }
+    // if(carClass==''){
+    //   fuelType = 'i';
+    // }
+    // if(carModel==''){
+    //   fuelType = 'i';
+    // }
+    console.log(this.url9+fuelType+'/'+transType+'/'+manufac+'/'+carClass+'/'+carModel);
+    return this.http.get<Car[]>(this.url9+fuelType+'/'+transType+'/'+manufac+'/'+carClass+'/'+carModel, httpOptions);
   }
 }

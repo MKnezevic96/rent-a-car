@@ -31,6 +31,7 @@ import { PasswordChangeComponent } from './components/password-change/password-c
 import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
+import { FilterCarsComponent } from './components/filter-cars/filter-cars.component';
 
 
 
@@ -99,7 +100,8 @@ const routes: Routes = [
             { path: 'advertisement', component: AdvertisementComponent},
             { path: 'pricing', component: PricingPageComponent},
             { path: 'rentingApprove', component: RentingApproveComponent},
-            { path: 'myCars', component: MyCarsComponent}
+            { path: 'myCars', component: MyCarsComponent},
+            { path: 'filterCars', component: FilterCarsComponent},
           ]
         },
 

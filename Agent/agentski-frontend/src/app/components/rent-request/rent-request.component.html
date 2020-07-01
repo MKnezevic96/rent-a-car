@@ -31,6 +31,8 @@
         <input type="date" [(ngModel)]="selectedStartDate" > 
         <input type="date" [(ngModel)]="selectedEndDate" (ngModelChange)="selectEndDate()">
         <button class="btn btn-primary fadeIn fourth" (click)="getAvailableCars()">See available cars</button>
+        <button class="btn btn-primary fadeIn fourth" (click)="filterCars()">Filter cars</button>
+
         <ng-container *ngIf="availableCars">
             <table class="table table-borderless">
                 <thead>

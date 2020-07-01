@@ -49,6 +49,7 @@ import { TokenInterceptor } from './security/tokenInterceptor';
 import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
+import { FilterCarsComponent } from './components/filter-cars/filter-cars.component';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { RegisterAdminComponent } from './components/register-admin/register-adm
     ActivateComponent,
     ForgotPasswordComponent,
     RegisterAdminComponent,
+    FilterCarsComponent,
    // AuthGuard
   ],
   imports: [
