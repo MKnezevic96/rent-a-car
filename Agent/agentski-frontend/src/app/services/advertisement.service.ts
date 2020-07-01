@@ -47,6 +47,9 @@ export class AdvertisementService {
   url6:string = 'http://localhost:8282/api/renting/approveRentRequest';
   url7:string = 'http://localhost:8282/api/renting/rejectRentRequest';
   url8:string = 'http://localhost:8282/api/renting/availableCars/'
+  requestHistoryUrl:string = 'http://localhost:8282/api/renting/requests/history'
+  cancelRequestUrl:string = 'http://localhost:8282/api/renting/requests/'
+
 
 
   constructor(private http:HttpClient, private userService: UserService) { }
@@ -237,5 +240,22 @@ export class AdvertisementService {
     return this.http.get<User>('http://localhost:8282/user/current', httpOptions)
 }
 
+
+cancelRentRequest(id: number):Observable<number>{
+  return this.http.post<number>(this.cancelRequestUrl+id+'/cancel', this.httpOptions);
+}
+
+getRequestHistory():Observable<RentRequest[]>{
+  let token = localStorage.getItem('accessToken');     // iz browsera
+  let httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'mode': 'cors',
+      'Authorization': 'Bearer ' + token,
+    })
+  }
+  
+  return this.http.get<RentRequest[]>(this.requestHistoryUrl, httpOptions);
+}
 
 }

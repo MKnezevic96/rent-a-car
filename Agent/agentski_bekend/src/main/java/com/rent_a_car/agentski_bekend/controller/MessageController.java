@@ -3,15 +3,13 @@ package com.rent_a_car.agentski_bekend.controller;
 import com.rent_a_car.agentski_bekend.dto.*;
 import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
+import com.rent_a_car.agentski_bekend.service.MailService;
 import com.rent_a_car.agentski_bekend.service.MessageService;
 import com.rent_a_car.agentski_bekend.service.UserService;
-import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -22,10 +20,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.core.MediaType;
-import java.io.IOException;
 import java.security.Principal;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "api/messages/")
@@ -38,6 +34,12 @@ public class MessageController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private MailService mailService;
+
+
+
 
     @PreAuthorize("hasAuthority('msg_menagement_read')")
     @GetMapping(value = "users")
@@ -53,17 +55,14 @@ public class MessageController {
                 for (User u : messageService.findAllFromUsers(p.getName())) {
                     emails.add(u.getEmail());
                 }
-                LOGGER.info("Action get all message conversations of user: {} successful", p.getName());
             } else if (param.equals("to")) {
                 for (User u : messageService.findAllToUsers(p.getName())) {
                     emails.add(u.getEmail());
                 }
-                LOGGER.info("Action get all message recievers of user: {} successful", p.getName());
             } else if (param.equals("from")) {
                 for (User u : messageService.findAllFromUsers(p.getName())) {
                     emails.add(u.getEmail());
                 }
-                LOGGER.info("Action get all message senders of user: {} successful", p.getName());
             }
 
             for(RentRequest rr : currentUser.getRentRequests() ){
@@ -79,13 +78,16 @@ public class MessageController {
                 retVal.add(new UserDTO(userService.findByEmail(email)));
             }
 
+            LOGGER.info("action=get all users, user={}, result=success", p.getName());
             return new ResponseEntity<List<UserDTO>>(retVal, HttpStatus.OK);
+
         } catch(Exception e){
-            LOGGER.error("Action get all message conversations of user: {} failed. Cause: {}", p.getName(), e.getMessage());
+            LOGGER.info("action=get all users, user={}, result=failure, cause={}", p.getName(), e.getMessage());
         }
 
         return new ResponseEntity<List<UserDTO>>(retVal, HttpStatus.BAD_REQUEST);
     }
+
 
     @PreAuthorize("hasAuthority('msg_menagement_read')")
     @GetMapping(value = "history")
@@ -107,9 +109,10 @@ public class MessageController {
 
         retVal.sort(Comparator.comparing(MessageDTO::getDate));
 
-        LOGGER.info("Action get message history of user: {} with user {} successful", p.getName(), email);
+        LOGGER.info("action=get message history, user={}, result=success", p.getName());
         return new ResponseEntity<List<MessageDTO>>(retVal, HttpStatus.OK);
     }
+
 
     @PreAuthorize("hasAuthority('msg_menagement_write')")
     @PostMapping(value="message", consumes = MediaType.APPLICATION_JSON)
@@ -122,7 +125,6 @@ public class MessageController {
             message.setDate(new Date());
             message.setDeleted(false);
 
-
             User sender = userService.findByEmail(p.getName());
             message.setFrom(sender);
             User receiver = userService.findByEmail(dto.getUserToEmail());
@@ -131,17 +133,20 @@ public class MessageController {
             sender.getSentMessages().add(message);
             receiver.getRecieved().add(message);
 
-            messageService.sendMessageEmail(p.getName(), dto.getUserToEmail());
+            String text = "Dear sir/madam, " + '\n';
+            text += "you have received a new message from user " + p.getName() + ".";
+            text +=  "\n\n\n" + "Sincerely, Rent a car support team.";
+            mailService.sendEmail(dto.getUserToEmail(), "New message received!", text);
 
             messageService.save(message);
             userService.save(sender);
             userService.save(receiver);
 
-            LOGGER.info("User email: {} has sent the message to user email: {} successfully", p.getName(), dto.getUserToEmail());
+            LOGGER.info("action=send message, user={}, result=success", p.getName());
             return ResponseEntity.status(200).build();
 
         }catch (Exception e){
-            LOGGER.info("User email: {} has sent the message to user email: {} with failure. Cause: {}", p.getName(), dto.getUserToEmail(), e.getMessage());
+            LOGGER.info("action=send message, user={}, result=failure, cause={}", p.getName(), e.getMessage());
         }
         return ResponseEntity.status(400).build();
     }

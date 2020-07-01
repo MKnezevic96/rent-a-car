@@ -11,6 +11,4 @@ public interface MessageServiceInterface {
     List<User> findAllToUsers(String email);
     List<User> findAllFromUsers(String email);
     List<Message> findAll();
-    void sendMessageEmail(String sendFrom, String sendTo) throws MessagingException, IOException, javax.mail.MessagingException;
-
     }

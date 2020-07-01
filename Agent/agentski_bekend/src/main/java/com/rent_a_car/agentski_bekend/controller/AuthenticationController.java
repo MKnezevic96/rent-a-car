@@ -4,6 +4,7 @@ import com.rent_a_car.agentski_bekend.dto.UserDTO;
 import com.rent_a_car.agentski_bekend.model.UserRequest;
 import com.rent_a_car.agentski_bekend.model.UserTokenState;
 import com.rent_a_car.agentski_bekend.security.TokenUtils;
+import com.rent_a_car.agentski_bekend.service.MailService;
 import com.rent_a_car.agentski_bekend.service.UserService;
 import com.rent_a_car.agentski_bekend.service.interfaces.UserRequestServiceInterface;
 import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
@@ -61,6 +62,9 @@ public class AuthenticationController {
 
     @Autowired
     private TokenUtils tokenUtils;
+
+    @Autowired
+    private MailService mailService;
 
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
 
@@ -141,6 +145,7 @@ public class AuthenticationController {
 
     }
 
+
     @RequestMapping(value = "/role", method = RequestMethod.GET)
     public ResponseEntity<?> getRole(Principal p){
 
@@ -157,6 +162,7 @@ public class AuthenticationController {
         return ResponseEntity.ok(auth);
     }
 
+
     @RequestMapping(value = "/izadji", method = RequestMethod.GET)
     public ResponseEntity<?> logout(HttpServletRequest request) throws ServletException {
 
@@ -166,6 +172,7 @@ public class AuthenticationController {
         LOGGER.info("User: {} logged out successfully", user.getEmail());
         return ResponseEntity.ok().build();
     }
+
 
     @PreAuthorize("hasAuthority('acc_menagement')")
     @PostMapping("/changePassword")
@@ -189,6 +196,8 @@ public class AuthenticationController {
         return ResponseEntity.status(400).build();
 
     }
+
+
     @PreAuthorize("hasAuthority('acc_menagement')")
     @PostMapping("/checkPassword")
     public ResponseEntity<?> checkPassword(@RequestBody String oldPassword, Principal p){
@@ -212,44 +221,33 @@ public class AuthenticationController {
         return ResponseEntity.status(402).build();
     }
 
+
     @PostMapping("/recoverEmail")
     public ResponseEntity<?> forgotPassword(@RequestBody String email){
 
         User user = userService.findByEmail(email);
         String newPassword = generatePassword();
         user.setPassword(passwordEncoder.encode(newPassword));
+
+        String text = "Dear sir/madam, " + '\n';
+        text += "we have been informed about your request for account recovery. \n Please use your new password "+ newPassword + " " +
+                "for your next login and dont forget to set new password of your liking";
+
         try {
-            sendAcceptEmail(user.getEmail(), newPassword);
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (javax.mail.MessagingException e) {
-            e.printStackTrace();
+
+            mailService.sendEmail(user.getEmail(), text, "Account recovery");
+            LOGGER.error("action=recover email, user={}, result=success", email);
+
+        } catch (Exception e) {
+            LOGGER.error("action=recover email, user={}, result=failure, cause={}", email, e.getMessage());
         }
-        System.out.println("Successfully sent email.");
+
         userService.save(user);
 
         return ResponseEntity.ok().build();
     }
 
-    void sendAcceptEmail(String sendTo, String password) throws MessagingException, IOException, javax.mail.MessagingException {
 
-        MimeMessage msg = javaMailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(msg, true);
-        helper.setTo(sendTo);
-
-        helper.setSubject("Account recovery");
-        String text = "Dear sir/madam, " + '\n';
-        text += "we have been informed about your request for account recovery. \n Please use your new password "+ password+ " " +
-                "for your next login and dont forget to set new password of your liking";
-
-        helper.setText(text);
-
-
-        javaMailSender.send(msg);
-
-    }
 
     public String generatePassword(){
         int leftLimit = 97; // letter 'a'

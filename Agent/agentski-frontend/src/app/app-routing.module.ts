@@ -30,6 +30,7 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
 import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { RequestHistoryComponent } from './components/request-history/request-history.component';
 
 
 
@@ -98,7 +99,7 @@ const routes: Routes = [
             { path: 'myCars', component: MyCarsComponent}
           ]
         },
-
+        { path: 'requestHistory', component: RequestHistoryComponent},
       ]
     },
     { path: 'activateAcc', component: ActivateComponent},

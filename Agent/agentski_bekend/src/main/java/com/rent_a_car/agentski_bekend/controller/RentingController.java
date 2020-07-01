@@ -55,6 +55,9 @@ public class RentingController {
     @Autowired
     private CarReviewService carReviewService;
 
+    @Autowired
+    private MailService mailService;
+
 
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
 
@@ -623,4 +626,57 @@ public class RentingController {
 
         return ResponseEntity.status(400).build();
     }
+
+
+    @PreAuthorize("hasAuthority('rent_menagement_read')")
+    @GetMapping(value = "requests/history")
+    public ResponseEntity<List<RentRequestDTO>> getRentRequestHistory (Principal p) {
+
+        List<RentRequestDTO> dtos = new ArrayList<>();
+        User user = userService.findByEmail(p.getName());
+        List<RentRequest> requests = user.getRentRequests();
+
+        try {
+
+            for( RentRequest rr : requests){
+                dtos.add(new RentRequestDTO(rr));
+            }
+
+            LOGGER.info("action=get rent request history, user={}, result=success", p.getName());
+            return new ResponseEntity<List<RentRequestDTO>>(dtos, HttpStatus.OK);
+
+        } catch (Exception e) {
+            LOGGER.error("action=get rent request history, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+        }
+
+        return new ResponseEntity<List<RentRequestDTO>>(dtos, HttpStatus.BAD_REQUEST);
+    }
+
+
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
+    @PostMapping(value="requests/{id}/cancel")
+    public ResponseEntity<?> cancelRentRequest(@PathVariable("id") Integer id, Principal p){
+
+        try {
+
+            RentRequest rr = rentRequestService.findById(id);
+            rr.setStatus(RequestStatus.CANCELED);
+
+            String text = "Dear sir/madam, " + '\n';
+            text += "user " + p.getName() + " cancelled rent request for car" + rr.getCarId().getName() + ".";
+            text +=  "\n\n\n" + "Sincerely, Rent a car support team.";
+            mailService.sendEmail(rr.getCarId().getOwner().getEmail(), "Rent request cancelled!", text);
+
+            rentRequestService.save(rr);
+
+            LOGGER.info("action=cancel rent request, user={}, result=success", p.getName());
+            return ResponseEntity.ok().build();
+
+        } catch (Exception e) {
+            LOGGER.error("action=cancel rent request, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+        }
+
+        return ResponseEntity.status(400).build();
+    }
+
 }

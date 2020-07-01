@@ -5,4 +5,6 @@ export class RentRequest {
     endDate:Date;
     status:string;
     deleted:boolean;
+    startDateString:string;
+    endDateString:string;
 }

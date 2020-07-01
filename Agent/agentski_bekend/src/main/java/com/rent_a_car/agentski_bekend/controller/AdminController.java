@@ -2,6 +2,7 @@ package com.rent_a_car.agentski_bekend.controller;
 import com.rent_a_car.agentski_bekend.dto.*;
 import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.service.CarsService;
+import com.rent_a_car.agentski_bekend.service.MailService;
 import com.rent_a_car.agentski_bekend.service.interfaces.*;
 import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 import org.apache.logging.log4j.LogManager;
@@ -18,11 +19,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-//import org.springframework.ws.mime.MimeMessage;
-
-import org.springframework.mail.SimpleMailMessage;
-//import org.springframework.mail.javamail.JavaMailSender;
-//import org.springframework.mail.javamail.MimeMessageHelper;
 
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
@@ -70,7 +66,7 @@ public class AdminController {
     private CarsService carService;
 
     @Autowired
-    private JavaMailSender javaMailSender;
+    private MailService mailService;
 
     @Value("${back-uri}")
     private String uri;
@@ -181,10 +177,14 @@ public class AdminController {
 
         }
 
+        String text = "Dear sir/madam, " + '\n';
+        text += "your account request has been reviewed and accepted by our administrator staff. \n Please follow the link below to activate your account.";
+        text += uri + "/activateAcc/" + u.getEmail() + "\n\n\n" + "Sincerely, Rent a car support team.";
+//        text += "http://localhost:4200/activateAcc/" + sendTo + "\n\n\n" + "Sincerely, Rent a car support team.";
 
         try {
 
-            sendAcceptEmail(u.getEmail());
+            mailService.sendEmail(u.getEmail(), "Account registration", text);
             userService.save(u);
             userRequestService.delete(us);
 
@@ -925,29 +925,6 @@ public class AdminController {
     }
 
 
-
-    void sendAcceptEmail(String sendTo) throws MessagingException, IOException, javax.mail.MessagingException {
-
-        MimeMessage msg = javaMailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(msg, true);
-        helper.setTo(sendTo);
-
-        helper.setSubject("Account registration");
-        String text = "Dear sir/madam, " + '\n';
-        text += "your account request has been reviewed and accepted by our administrator staff. \n Please follow the link below to activate your account.";
-        text += uri + "/activateAcc/" + sendTo + "\n\n\n" + "Sincerely, Rent a car support team.";
-//        text += "http://localhost:4200/activateAcc/" + sendTo + "\n\n\n" + "Sincerely, Rent a car support team.";
-
-        helper.setText(text);
-
-        try {
-            javaMailSender.send(msg);
-            LOGGER.info("Activation link for account: {} has been sent", sendTo);
-        } catch (Exception e) {
-            LOGGER.warn("Activation link for account: {} has NOT been sent. Cause: {}", sendTo, e.getMessage());
-        }
-
-    }
 
 //    void sendDeclineEmail(String sendTo, String description, String firstName, String lastName) {
 //
