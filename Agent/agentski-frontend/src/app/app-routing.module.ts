@@ -30,6 +30,8 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
 import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
+import { FilterCarsComponent } from './components/filter-cars/filter-cars.component';
 
 
 
@@ -65,6 +67,9 @@ const routes: Routes = [
             {path: 'pendingComments', component: PendingCommentsComponent},
           ]
         },
+        { path: 'registerAgent',
+          component: RegisterAdminComponent,
+        },
         
       ]
     },
@@ -95,7 +100,8 @@ const routes: Routes = [
             { path: 'advertisement', component: AdvertisementComponent},
             { path: 'pricing', component: PricingPageComponent},
             { path: 'rentingApprove', component: RentingApproveComponent},
-            { path: 'myCars', component: MyCarsComponent}
+            { path: 'myCars', component: MyCarsComponent},
+            { path: 'filterCars', component: FilterCarsComponent},
           ]
         },
 

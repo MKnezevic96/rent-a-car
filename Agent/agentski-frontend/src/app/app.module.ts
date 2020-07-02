@@ -48,6 +48,8 @@ import { PasswordChangeComponent } from './components/password-change/password-c
 import { TokenInterceptor } from './security/tokenInterceptor';
 import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
+import { FilterCarsComponent } from './components/filter-cars/filter-cars.component';
 
 
 @NgModule({
@@ -85,6 +87,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     PasswordChangeComponent,
     ActivateComponent,
     ForgotPasswordComponent,
+    RegisterAdminComponent,
+    FilterCarsComponent,
    // AuthGuard
   ],
   imports: [
