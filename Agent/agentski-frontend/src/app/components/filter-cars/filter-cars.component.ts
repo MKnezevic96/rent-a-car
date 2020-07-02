@@ -11,6 +11,7 @@ import { Manufacturer } from 'src/app/models/Manufacturer';
 import { RentRequest } from 'src/app/models/RentRequest';
 import { first } from 'rxjs/operators';
 import { Car } from 'src/app/models/Car';
+import { RentRequestComponent } from '../rent-request/rent-request.component';
 
 @Component({
   selector: 'app-filter-cars',
@@ -20,6 +21,8 @@ import { Car } from 'src/app/models/Car';
 export class FilterCarsComponent implements OnInit {
 
   cars: Car[];
+  carsAvailable: Car[];
+  carsFiltered: Car[];
   fuelTypes: FuelType[];
   carModels:CarModels[];
   carClasses:CarClass[];
@@ -40,7 +43,8 @@ export class FilterCarsComponent implements OnInit {
     private adminService: AdminService,
     private advertisementService: AdvertisementService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    //private rentRequestComponent: RentRequestComponent
   ) { }
 
   ngOnInit(): void {
@@ -60,7 +64,15 @@ export class FilterCarsComponent implements OnInit {
     this.adminService.getManufac().subscribe(data =>{
       this.manufacs = data;
     });
-    
+    this.selectedStartDate = this.advertisementService.getSelectedStartDate();
+    this.selectedEndDate = this.advertisementService.getSelectedEndDate();
+    this.carsAvailable = this.advertisementService.getAvailable();
+    console.log(this.carsAvailable);
+
+    if(typeof this.selectedStartDate == 'undefined' || typeof this.selectedEndDate == 'undefined'){
+      alert('No selected start and end date');
+      this.router.navigateByUrl('index');
+    }
   }
 
   selectedCarModel(name:CarModels){
@@ -69,7 +81,6 @@ export class FilterCarsComponent implements OnInit {
   }
 
   filter(){
-
     var fuel;
     var tran;
     var manu;
@@ -101,10 +112,42 @@ export class FilterCarsComponent implements OnInit {
       model = this.cm.name;
     }
     this.advertisementService.getFilteredCars(fuel, tran, manu, clas, model).subscribe(data =>{
-      this.cars = data;
+      this.carsFiltered = data;
+      console.log(this.carsFiltered);
+      // this.getAvailableCars();
+      this.setCars();
+      this.filterCars = !this.filterCars;
     });
-    this.filterCars = !this.filterCars;
+  }
+  // getAvailableCars(){
+  //   this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate).subscribe(data =>{
+  //     this.carsAvailable = data;
+  //     this.setCars();
+  //   });
+  // }
 
+  setCars(){
+    var i;
+    var j;
+    for(i = 0 ; i < this.carsFiltered.length ; i++){
+      console.log(this.carsFiltered[i]);
+      for(j = 0 ; j < this.carsAvailable.length ; j++){
+        console.log(this.carsAvailable[j]);
+        if(this.carsFiltered[i].id == this.carsAvailable[j].id){
+          this.cars.push(this.carsFiltered[i]);
+          console.log(this.cars);
+        }
+      }
+    }
+    // this.carsFiltered.forEach(el => {
+    //   console.log(el.name);
+    //   this.carsAvailable.forEach(e =>{
+    //     console.log(el.name);
+    //     if(el.id == e.id){
+    //       this.cars.push(el);
+    //     }
+    //   });
+    // });
   }
 
 
@@ -113,6 +156,9 @@ export class FilterCarsComponent implements OnInit {
     this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
     .subscribe(
         data => {
+          console.log('request sent');
+          alert('Request sent');
+          this.router.navigateByUrl('index');
         })
   }
 
