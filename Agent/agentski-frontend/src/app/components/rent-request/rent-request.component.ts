@@ -76,10 +76,14 @@ export class RentRequestComponent implements OnInit {
   }
 
   getAvailableCars(){
-    this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate, this.city).subscribe(data =>{
-      this.cars = data;
-    });
-    this.availableCars = !this.availableCars;
+    if(typeof this.selectedStartDate == 'undefined' || typeof this.selectedEndDate == 'undefined' || typeof this.city == 'undefined'){
+      alert('You have not selected a date or place for request')
+    }else{
+      this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate, this.city).subscribe(data =>{
+        this.cars = data;
+      });
+      this.availableCars = !this.availableCars;
+    }
   }
 
   filterCars(){
