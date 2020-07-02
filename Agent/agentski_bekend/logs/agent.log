@@ -685,3 +685,172 @@
 2020-07-01 16:45:00 [http-nio-8282-exec-4] INFO  RentingController:340  - Action get all avaliable cars by user: prvi@gmail.com successful 
 2020-07-01 16:45:11 [http-nio-8282-exec-5] INFO  RentingController:340  - Action get all avaliable cars by user: prvi@gmail.com successful 
 2020-07-01 16:45:11 [http-nio-8282-exec-7] INFO  RentingController:340  - Action get all avaliable cars by user: prvi@gmail.com successful 
+2020-07-01 16:50:31 [http-nio-8282-exec-8] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-01 17:17:20 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication on student-VirtualBox with PID 4621 (/home/student/Desktop/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/Desktop/rent-a-car/Agent/agentski_bekend)
+2020-07-01 17:17:20 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-07-01 17:18:23 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 65.77 seconds (JVM running for 77.661)
+2020-07-01 17:19:02 [http-nio-8282-exec-1] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-01 17:19:04 [http-nio-8282-exec-1] INFO  RentingController:452  - Action get all manufactures by user: prvi@gmail.com successful
+2020-07-01 17:19:04 [http-nio-8282-exec-8] INFO  RentingController:670  - Action get all transmission types by user: prvi@gmail.com successful
+2020-07-01 17:19:04 [http-nio-8282-exec-9] INFO  RentingController:641  - Action get all car classes by user: prvi@gmail.com successful
+2020-07-01 17:19:04 [http-nio-8282-exec-7] INFO  RentingController:612  - Action get all fuel types by user: prvi@gmail.com successful
+2020-07-01 17:19:05 [http-nio-8282-exec-10] INFO  RentingController:484  - Action get all car models by user: prvi@gmail.com successful
+2020-07-01 17:19:08 [http-nio-8282-exec-2] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-01 17:19:15 [http-nio-8282-exec-6] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-01 17:19:33 [http-nio-8282-exec-4] INFO  RentingController:612  - Action get all fuel types by user: prvi@gmail.com successful
+2020-07-01 17:19:33 [http-nio-8282-exec-5] INFO  RentingController:641  - Action get all car classes by user: prvi@gmail.com successful
+2020-07-01 17:19:33 [http-nio-8282-exec-9] INFO  RentingController:452  - Action get all manufactures by user: prvi@gmail.com successful
+2020-07-01 17:19:33 [http-nio-8282-exec-1] INFO  RentingController:670  - Action get all transmission types by user: prvi@gmail.com successful
+2020-07-01 17:19:33 [http-nio-8282-exec-3] INFO  RentingController:484  - Action get all car models by user: prvi@gmail.com successful
+2020-07-02 12:55:58 [http-nio-8282-exec-4] INFO  RentingController:139  - Action create authentication token successful for user account: prvi@gmail.com. User logged in.
+2020-07-02 12:56:02 [http-nio-8282-exec-5] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-02 12:56:32 [http-nio-8282-exec-1] INFO  RentingController:612  - Action get all fuel types by user: prvi@gmail.com successful
+2020-07-02 12:56:33 [http-nio-8282-exec-9] INFO  RentingController:484  - Action get all car models by user: prvi@gmail.com successful
+2020-07-02 12:56:33 [http-nio-8282-exec-8] INFO  RentingController:104  - Action get pricing by user: prvi@gmail.com successful
+2020-07-02 12:56:34 [http-nio-8282-exec-7] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-02 12:56:55 [http-nio-8282-exec-2] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-02 13:17:46 [http-nio-8282-exec-3] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-02 13:20:44 [http-nio-8282-exec-9] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-02 13:30:51 [http-nio-8282-exec-7] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-02 13:31:12 [http-nio-8282-exec-2] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-02 13:31:32 [http-nio-8282-exec-1] INFO  RentingController:612  - Action get all fuel types by user: prvi@gmail.com successful
+2020-07-02 13:31:32 [http-nio-8282-exec-8] INFO  RentingController:641  - Action get all car classes by user: prvi@gmail.com successful
+2020-07-02 13:31:32 [http-nio-8282-exec-2] INFO  RentingController:452  - Action get all manufactures by user: prvi@gmail.com successful
+2020-07-02 13:31:32 [http-nio-8282-exec-7] INFO  RentingController:670  - Action get all transmission types by user: prvi@gmail.com successful
+2020-07-02 13:31:32 [http-nio-8282-exec-9] INFO  RentingController:484  - Action get all car models by user: prvi@gmail.com successful
+2020-07-02 13:31:54 [http-nio-8282-exec-10] INFO  RentingController:612  - Action get all fuel types by user: prvi@gmail.com successful
+2020-07-02 13:31:54 [http-nio-8282-exec-5] INFO  RentingController:670  - Action get all transmission types by user: prvi@gmail.com successful
+2020-07-02 13:31:54 [http-nio-8282-exec-6] INFO  RentingController:484  - Action get all car models by user: prvi@gmail.com successful
+2020-07-02 13:31:54 [http-nio-8282-exec-3] INFO  RentingController:452  - Action get all manufactures by user: prvi@gmail.com successful
+2020-07-02 13:31:54 [http-nio-8282-exec-4] INFO  RentingController:641  - Action get all car classes by user: prvi@gmail.com successful
+2020-07-02 13:33:23 [http-nio-8282-exec-10] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-02 13:33:38 [http-nio-8282-exec-3] INFO  RentingController:641  - Action get all car classes by user: prvi@gmail.com successful
+2020-07-02 13:33:38 [http-nio-8282-exec-6] INFO  RentingController:612  - Action get all fuel types by user: prvi@gmail.com successful
+2020-07-02 13:33:38 [http-nio-8282-exec-4] INFO  RentingController:670  - Action get all transmission types by user: prvi@gmail.com successful
+2020-07-02 13:33:38 [http-nio-8282-exec-8] INFO  RentingController:452  - Action get all manufactures by user: prvi@gmail.com successful
+2020-07-02 13:33:38 [http-nio-8282-exec-5] INFO  RentingController:484  - Action get all car models by user: prvi@gmail.com successful
+2020-07-02 13:33:45 [http-nio-8282-exec-2] INFO  RentingController:340  - Action get all avaliable cars by user: prvi@gmail.com successful 
+2020-07-02 13:33:49 [http-nio-8282-exec-7] INFO  RentingController:395  - Action rent a car by user: prvi@gmail.com successful
+2020-07-02 13:34:01 [http-nio-8282-exec-9] INFO  RentingController:395  - Action rent a car by user: prvi@gmail.com successful
+2020-07-02 13:34:08 [http-nio-8282-exec-1] INFO  RentingController:395  - Action rent a car by user: prvi@gmail.com successful
+2020-07-02 13:40:08 [http-nio-8282-exec-5] INFO  RentingController:612  - Action get all fuel types by user: prvi@gmail.com successful
+2020-07-02 13:40:09 [http-nio-8282-exec-7] INFO  RentingController:641  - Action get all car classes by user: prvi@gmail.com successful
+2020-07-02 13:40:09 [http-nio-8282-exec-2] INFO  RentingController:484  - Action get all car models by user: prvi@gmail.com successful
+2020-07-02 13:40:09 [http-nio-8282-exec-9] INFO  RentingController:670  - Action get all transmission types by user: prvi@gmail.com successful
+2020-07-02 13:40:09 [http-nio-8282-exec-1] INFO  RentingController:452  - Action get all manufactures by user: prvi@gmail.com successful
+2020-07-02 13:40:22 [http-nio-8282-exec-4] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-02 13:40:32 [http-nio-8282-exec-10] INFO  RentingController:209  - Action get all avaliable cars by user: prvi@gmail.com successful 
+2020-07-02 13:40:37 [http-nio-8282-exec-3] INFO  RentingController:395  - Action rent a car by user: prvi@gmail.com successful
+2020-07-02 13:40:51 [http-nio-8282-exec-6] INFO  RentingController:80  - Action get all cars by user: prvi@gmail.com successful
+2020-07-02 13:41:01 [http-nio-8282-exec-8] INFO  RentingController:612  - Action get all fuel types by user: prvi@gmail.com successful
+2020-07-02 13:41:01 [http-nio-8282-exec-9] INFO  RentingController:452  - Action get all manufactures by user: prvi@gmail.com successful
+2020-07-02 13:41:01 [http-nio-8282-exec-5] INFO  RentingController:484  - Action get all car models by user: prvi@gmail.com successful
+2020-07-02 13:41:02 [http-nio-8282-exec-2] INFO  RentingController:670  - Action get all transmission types by user: prvi@gmail.com successful
+2020-07-02 13:41:02 [http-nio-8282-exec-7] INFO  RentingController:641  - Action get all car classes by user: prvi@gmail.com successful
+2020-07-02 13:41:12 [http-nio-8282-exec-1] INFO  RentingController:340  - Action get all avaliable cars by user: prvi@gmail.com successful 
+2020-07-02 13:41:17 [http-nio-8282-exec-4] INFO  RentingController:395  - Action rent a car by user: prvi@gmail.com successful
+2020-07-02 14:09:44 [http-nio-8282-exec-1] INFO  RentingController:139  - Action create authentication token successful for user account: drugi@gmail.com. User logged in.
+2020-07-02 14:10:15 [http-nio-8282-exec-10] INFO  RentingController:139  - Action create authentication token successful for user account: prvi@gmail.com. User logged in.
+2020-07-02 14:11:32 [http-nio-8282-exec-6] INFO  RentingController:139  - Action create authentication token successful for user account: prvi@gmail.com. User logged in.
+2020-07-02 14:11:38 [http-nio-8282-exec-9] INFO  RentingController:612  - Action get all fuel types by user: prvi@gmail.com successful
+2020-07-02 14:11:38 [http-nio-8282-exec-2] INFO  RentingController:484  - Action get all car models by user: prvi@gmail.com successful
+2020-07-02 14:11:38 [http-nio-8282-exec-1] INFO  RentingController:104  - Action get pricing by user: prvi@gmail.com successful
+2020-07-02 14:12:19 [http-nio-8282-exec-4] INFO  RentingController:70  - Action create pricing: cenovnik] by user: prvi@gmail.com successful
+2020-07-02 14:12:24 [http-nio-8282-exec-10] INFO  RentingController:612  - Action get all fuel types by user: prvi@gmail.com successful
+2020-07-02 14:12:24 [http-nio-8282-exec-3] INFO  RentingController:484  - Action get all car models by user: prvi@gmail.com successful
+2020-07-02 14:12:24 [http-nio-8282-exec-6] INFO  RentingController:104  - Action get pricing by user: prvi@gmail.com successful
+2020-07-02 14:12:52 [http-nio-8282-exec-5] INFO  RentingController:135  - Action add car: RolaCa advertisement by user: prvi@gmail.com successful
+2020-07-02 14:13:07 [http-nio-8282-exec-9] INFO  RentingController:139  - Action create authentication token successful for user account: drugi@gmail.com. User logged in.
+2020-07-02 14:13:14 [http-nio-8282-exec-1] INFO  RentingController:80  - Action get all cars by user: drugi@gmail.com successful
+2020-07-02 14:13:25 [http-nio-8282-exec-10] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:13:26 [http-nio-8282-exec-8] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:13:26 [http-nio-8282-exec-3] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:13:26 [http-nio-8282-exec-7] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:13:26 [http-nio-8282-exec-2] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:13:32 [http-nio-8282-exec-1] INFO  RentingController:340  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:13:32 [http-nio-8282-exec-1] INFO  RentingController:209  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:30:29 [http-nio-8282-exec-9] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:30:30 [http-nio-8282-exec-3] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:30:30 [http-nio-8282-exec-7] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:30:30 [http-nio-8282-exec-8] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:30:30 [http-nio-8282-exec-2] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:30:54 [http-nio-8282-exec-1] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:30:54 [http-nio-8282-exec-5] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:30:54 [http-nio-8282-exec-6] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:30:54 [http-nio-8282-exec-10] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:30:54 [http-nio-8282-exec-4] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:30:58 [http-nio-8282-exec-9] INFO  RentingController:80  - Action get all cars by user: drugi@gmail.com successful
+2020-07-02 14:31:12 [http-nio-8282-exec-8] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:31:12 [http-nio-8282-exec-1] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:31:12 [http-nio-8282-exec-5] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:31:12 [http-nio-8282-exec-6] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:31:12 [http-nio-8282-exec-7] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:31:12 [http-nio-8282-exec-2] INFO  RentingController:209  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:31:18 [http-nio-8282-exec-10] INFO  RentingController:340  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:34:38 [http-nio-8282-exec-6] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:34:39 [http-nio-8282-exec-2] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:34:39 [http-nio-8282-exec-7] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:34:39 [http-nio-8282-exec-3] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:34:39 [http-nio-8282-exec-10] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:34:52 [http-nio-8282-exec-8] INFO  RentingController:80  - Action get all cars by user: drugi@gmail.com successful
+2020-07-02 14:35:05 [http-nio-8282-exec-4] INFO  RentingController:209  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:35:05 [http-nio-8282-exec-9] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:35:05 [http-nio-8282-exec-1] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:35:05 [http-nio-8282-exec-6] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:35:05 [http-nio-8282-exec-5] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:35:05 [http-nio-8282-exec-2] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:35:23 [http-nio-8282-exec-7] INFO  RentingController:340  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:44:27 [http-nio-8282-exec-10] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:44:27 [http-nio-8282-exec-3] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:44:27 [http-nio-8282-exec-4] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:44:27 [http-nio-8282-exec-1] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:44:28 [http-nio-8282-exec-8] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:44:35 [http-nio-8282-exec-6] INFO  RentingController:80  - Action get all cars by user: drugi@gmail.com successful
+2020-07-02 14:44:46 [http-nio-8282-exec-5] INFO  RentingController:209  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:44:46 [http-nio-8282-exec-2] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:44:47 [http-nio-8282-exec-10] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:44:47 [http-nio-8282-exec-7] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:44:47 [http-nio-8282-exec-4] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:44:47 [http-nio-8282-exec-1] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:44:53 [http-nio-8282-exec-3] INFO  RentingController:340  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:47:11 [http-nio-8282-exec-10] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:47:11 [http-nio-8282-exec-4] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:47:11 [http-nio-8282-exec-1] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:47:11 [http-nio-8282-exec-7] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:47:11 [http-nio-8282-exec-3] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:48:00 [http-nio-8282-exec-8] INFO  RentingController:80  - Action get all cars by user: drugi@gmail.com successful
+2020-07-02 14:48:12 [http-nio-8282-exec-5] INFO  RentingController:209  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:48:12 [http-nio-8282-exec-2] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:48:12 [http-nio-8282-exec-4] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:48:12 [http-nio-8282-exec-1] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:48:12 [http-nio-8282-exec-10] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:48:13 [http-nio-8282-exec-7] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:48:18 [http-nio-8282-exec-3] INFO  RentingController:340  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:53:53 [http-nio-8282-exec-4] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:53:53 [http-nio-8282-exec-10] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:53:53 [http-nio-8282-exec-1] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:53:53 [http-nio-8282-exec-7] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:53:53 [http-nio-8282-exec-3] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:54:29 [http-nio-8282-exec-6] INFO  RentingController:80  - Action get all cars by user: drugi@gmail.com successful
+2020-07-02 14:54:45 [http-nio-8282-exec-5] INFO  RentingController:209  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:54:45 [http-nio-8282-exec-8] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:54:45 [http-nio-8282-exec-9] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:54:45 [http-nio-8282-exec-4] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:54:45 [http-nio-8282-exec-2] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:54:45 [http-nio-8282-exec-10] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 14:54:51 [http-nio-8282-exec-1] INFO  RentingController:340  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-02 14:57:32 [http-nio-8282-exec-8] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 14:57:32 [http-nio-8282-exec-9] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 14:57:32 [http-nio-8282-exec-2] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 14:57:32 [http-nio-8282-exec-4] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 14:57:32 [http-nio-8282-exec-10] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 15:14:11 [http-nio-8282-exec-5] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 15:14:12 [http-nio-8282-exec-9] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-02 15:14:12 [http-nio-8282-exec-8] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 15:14:12 [http-nio-8282-exec-2] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 15:14:12 [http-nio-8282-exec-4] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 15:19:53 [http-nio-8282-exec-4] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-02 15:19:53 [http-nio-8282-exec-1] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-02 15:19:53 [http-nio-8282-exec-6] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-02 15:19:53 [http-nio-8282-exec-7] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-02 15:19:53 [http-nio-8282-exec-10] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful

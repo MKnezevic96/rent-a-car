@@ -48,6 +48,9 @@ export class RentRequestComponent implements OnInit {
     this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
     .subscribe(
         data => {
+          console.log('request sent');
+          alert('Request sent');
+          this.router.navigateByUrl('index');
         })
   }
 
@@ -59,7 +62,26 @@ export class RentRequestComponent implements OnInit {
   }
 
   filterCars(){
-    this.router.navigate(['filterCars'], {relativeTo:this.route.parent});
 
+    
+    if(typeof this.selectedStartDate == 'undefined' || typeof this.selectedEndDate == 'undefined'){
+      alert('You have not selected a date for request')
+    }else{
+      this.advertisementService.setSelectedStartDate(this.selectedStartDate);
+      this.advertisementService.setSelectedEndDate(this.selectedEndDate);
+      this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate).subscribe(data =>{
+        this.cars = data;
+      });
+      this.advertisementService.setAvailableCars(this.cars);
+      this.router.navigate(['filterCars'], {relativeTo:this.route.parent});
+    }
+  }
+
+  getSelectedStartDate(){
+    return this.selectedStartDate;
+  }
+
+  getSelectedEndDate(){
+    return this.selectedEndDate;
   }
 }

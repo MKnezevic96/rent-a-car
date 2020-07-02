@@ -48,6 +48,10 @@ export class AdvertisementService {
   url8:string = 'http://localhost:8282/api/renting/availableCars/';
   url9:string = 'http://localhost:8282/api/renting/filterCars/';
 
+
+  selectedStartDate:Date;
+  selectedEndDate: Date;
+
   constructor(private http:HttpClient, private userService: UserService) { }
 
 
@@ -80,6 +84,29 @@ export class AdvertisementService {
 
   }
 
+  setSelectedStartDate(start:Date){
+    this.selectedStartDate = start;
+  }
+
+  setSelectedEndDate(end:Date){
+    this.selectedEndDate = end;
+  }
+
+  getSelectedStartDate(){
+    return this.selectedStartDate;
+  }
+
+  getSelectedEndDate(){
+    return this.selectedEndDate;
+  }
+
+  setAvailableCars(cars:Car[]){
+    this.auti = cars;
+  }
+
+  getAvailable(){
+    return this.auti;
+  }
 
 
   addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string):Observable<Car>{
