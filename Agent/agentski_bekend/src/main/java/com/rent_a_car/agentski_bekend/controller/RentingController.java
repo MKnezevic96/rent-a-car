@@ -163,8 +163,8 @@ public class RentingController {
 //
 //    }
     @PreAuthorize("hasAuthority('ad_menagement_read')")
-    @GetMapping(value = "availableCars/{d1}/{d2}")
-    public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, Principal p) throws ParseException {
+    @GetMapping(value = "availableCars/{d1}/{d2}/{town}")
+    public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, @PathVariable("town") String town,  Principal p) throws ParseException {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = format.parse(d1);
         Date endDate = format.parse(d2);
@@ -176,27 +176,29 @@ public class RentingController {
 
         try {
             for (Cars c : cList) {
-                for (RentRequest rr : rrList) {
-                    if (rr.getStatus().equals(RequestStatus.RESERVED)) {
-                        if (rr.getCarId().equals(c)) {
-                            if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
-                                CarsListingDTO dt = new CarsListingDTO(c);
-                                carsForRemoval.add(dt);
-                            }
-                            if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
-                                CarsListingDTO dt = new CarsListingDTO(c);
-                                carsForRemoval.add(dt);
-                            }
-                            if (startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())) {
-                                CarsListingDTO dt = new CarsListingDTO(c);
-                                carsForRemoval.add(dt);
+                if(c.getTown().equals(town)) {
+                    for (RentRequest rr : rrList) {
+                        if (rr.getStatus().equals(RequestStatus.RESERVED)) {
+                            if (rr.getCarId().equals(c)) {
+                                if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
+                                if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
+                                if (startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
                             }
                         }
                     }
-                }
 
-                CarsListingDTO dt = new CarsListingDTO(c);
-                dto.add(dt);
+                    CarsListingDTO dt = new CarsListingDTO(c);
+                    dto.add(dt);
+                }
             }
             for(int i = 0 ; i < dto.size() ; i++){
                 for(CarsListingDTO ddd : carsForRemoval){

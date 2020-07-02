@@ -31,6 +31,7 @@ export class AdvertisementService {
   carReview:CarReview;
   d1:string;
   d2:string;
+  city:string;
   url1:string = 'http://localhost:8282/pricing';
   url2:string = 'http://localhost:8282/addCar';
   url3:string = 'http://localhost:8282/api/renting/cars'
@@ -106,6 +107,14 @@ export class AdvertisementService {
 
   getAvailable(){
     return this.auti;
+  }
+
+  setCity(city:string){
+    this.city = city;
+  }
+
+  getCity(){
+    return this.city;
   }
 
 
@@ -235,7 +244,7 @@ export class AdvertisementService {
     return this.http.get<RentRequest[]>(this.url5, httpOptions);
   }
 
-  getAvailableCars(startDate:Date, endDate:Date):Observable<Car[]>{
+  getAvailableCars(startDate:Date, endDate:Date, town:string):Observable<Car[]>{
     let token = localStorage.getItem('accessToken');     // iz browsera
     let httpOptions = {
       headers: new HttpHeaders({
@@ -246,7 +255,7 @@ export class AdvertisementService {
     }
     this.d1 = startDate.toString();
     this.d2 = endDate.toString();
-    return this.http.get<Car[]>(this.url8+this.d1+'/'+this.d2, httpOptions);
+    return this.http.get<Car[]>(this.url8+this.d1+'/'+this.d2+'/'+town, httpOptions);
   }
 
 
