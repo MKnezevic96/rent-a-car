@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Request</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="css/register.css"> -->
+    <!-- <script src="js/Register.js"></script> -->
+</head>
+<body>
+<div class="wrapper fadeInDown">
+    <div class="row">
+    <div class="col-md-4 mb-3">
+        <label>Car model</label>
+        <select [(ngModel)]="cm" class="form-control">
+            <option [ngValue]="cm" *ngFor="let cm of carModels" (click)="selectedCarModel(cm)">
+                {{cm.name}}
+            </option>
+        </select>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label>Car class</label>
+        <select [(ngModel)]="cc" class="form-control">
+            <option [ngValue]="cc" *ngFor="let cc of carClasses" (click)="selectedCarModel(cc)">
+                {{cc.name}}
+            </option>
+        </select>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label>Transmission type</label>
+        <select [(ngModel)]="tt" class="form-control">
+            <option [ngValue]="tt" *ngFor="let tt of tTypes" (click)="selectedCarModel(tt)">
+                {{tt.name}}
+            </option>
+        </select>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label>Fuel type</label>
+        <select [(ngModel)]="ft" class="form-control">
+            <option [ngValue]="ft" *ngFor="let ft of fuelTypes" (click)="selectedCarModel(ft)">
+                {{ft.name}}
+            </option>
+        </select>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label>Manufacturer</label>
+        <select [(ngModel)]="ma" class="form-control">
+            <option [ngValue]="ma" *ngFor="let ma of manufacs" (click)="selectedCarModel(ma)">
+                {{ma.name}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <button class="btn btn-primary" (click)="filter()">Filter</button>
+    </div>
+</div>
+
+<ng-container *ngIf="filterCars">
+    <table class="table table-borderless">
+        <thead>
+          <tr>           
+            <th>Car name</th>
+            <th>Town</th>
+            <th>Model</th>
+            <th>Fuel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of cars">           
+            <td>{{ user.carName }}</td>
+            <td>{{ user.town }}</td>
+            <td>{{ user.model }}</td>
+            <td>{{ user.fuel }}</td>
+
+            <td><button class="btn btn-primary "(click)="naKlik(user.carName)">Reserve</button></td>
+          </tr>
+        </tbody>
+      </table>
+</ng-container> 
+        <div id="formFooter">
+        </div>
+</div>
+</body>
+</html>

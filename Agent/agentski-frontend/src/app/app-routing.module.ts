@@ -35,6 +35,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { StatisticsTopRatedComponent } from './components/statistics-top-rated/statistics-top-rated.component';
 import { StatisticsMostCommentedComponent } from './components/statistics-most-commented/statistics-most-commented.component';
 import { StatisticsHighestMileageComponent } from './components/statistics-highest-mileage/statistics-highest-mileage.component';
+import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
+import { FilterCarsComponent } from './components/filter-cars/filter-cars.component';
 
 
 
@@ -70,7 +72,10 @@ const routes: Routes = [
             {path: 'pendingComments', component: PendingCommentsComponent},
           ]
         },
-        
+        { path: 'registerAgent',
+          component: RegisterAdminComponent,
+        },
+
       ]
     },
     { path: 'changePassword', component: PasswordChangeComponent},
@@ -79,8 +84,8 @@ const routes: Routes = [
     { path: 'index',
       component: IndexComponent,
       children: [
-        { path: 'statistics', 
-          component: StatisticsComponent, 
+        { path: 'statistics',
+          component: StatisticsComponent,
           children: [
             { path: 'topRated', component: StatisticsTopRatedComponent},
             { path: 'highestMileage', component: StatisticsHighestMileageComponent},
@@ -108,7 +113,8 @@ const routes: Routes = [
             { path: 'advertisement', component: AdvertisementComponent},
             { path: 'pricing', component: PricingPageComponent},
             { path: 'rentingApprove', component: RentingApproveComponent},
-            { path: 'myCars', component: MyCarsComponent}
+            { path: 'myCars', component: MyCarsComponent},
+            { path: 'filterCars', component: FilterCarsComponent},
           ]
         },
         { path: 'requestHistory', component: RequestHistoryComponent},
@@ -121,7 +127,7 @@ const routes: Routes = [
     { path: 'pricing', component: PricingPageComponent},
     { path: 'rentingApprove', component: RentingApproveComponent},
     { path: 'forgotPassword', component: ForgotPasswordComponent},
-    
+
     // otherwise redirect to home
     { path: '**', redirectTo: '' },
 ];

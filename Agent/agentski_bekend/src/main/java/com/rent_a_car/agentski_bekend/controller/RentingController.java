@@ -166,8 +166,8 @@ public class RentingController {
 //
 //    }
     @PreAuthorize("hasAuthority('ad_menagement_read')")
-    @GetMapping(value = "availableCars/{d1}/{d2}")
-    public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, Principal p) throws ParseException {
+    @GetMapping(value = "availableCars/{d1}/{d2}/{town}")
+    public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, @PathVariable("town") String town,  Principal p) throws ParseException {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = format.parse(d1);
         Date endDate = format.parse(d2);
@@ -179,27 +179,29 @@ public class RentingController {
 
         try {
             for (Cars c : cList) {
-                for (RentRequest rr : rrList) {
-                    if (rr.getStatus().equals(RequestStatus.RESERVED)) {
-                        if (rr.getCarId().equals(c)) {
-                            if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
-                                CarsListingDTO dt = new CarsListingDTO(c);
-                                carsForRemoval.add(dt);
-                            }
-                            if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
-                                CarsListingDTO dt = new CarsListingDTO(c);
-                                carsForRemoval.add(dt);
-                            }
-                            if (startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())) {
-                                CarsListingDTO dt = new CarsListingDTO(c);
-                                carsForRemoval.add(dt);
+                if(c.getTown().equals(town)) {
+                    for (RentRequest rr : rrList) {
+                        if (rr.getStatus().equals(RequestStatus.RESERVED)) {
+                            if (rr.getCarId().equals(c)) {
+                                if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
+                                if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
+                                if (startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
                             }
                         }
                     }
-                }
 
-                CarsListingDTO dt = new CarsListingDTO(c);
-                dto.add(dt);
+                    CarsListingDTO dt = new CarsListingDTO(c);
+                    dto.add(dt);
+                }
             }
             for(int i = 0 ; i < dto.size() ; i++){
                 for(CarsListingDTO ddd : carsForRemoval){
@@ -217,6 +219,141 @@ public class RentingController {
 
         return null;
     }
+
+
+
+
+
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
+    @GetMapping(value = "filterCars/{fuelType}/{transType}/{manufac}/{carClass}/{carModel}")
+    public List<CarsListingDTO> getFilteredCars (@PathVariable("fuelType") String fuelType, @PathVariable("transType") String transType, @PathVariable("manufac") String manufac, @PathVariable("carClass") String carClass, @PathVariable("carModel") String carModel, Principal p) throws ParseException {
+
+        List<RentRequest> rrList = rentRequestService.findAll();
+        List<Cars> cList = carsService.findAll();
+        List<Cars> ftList = new ArrayList<>();
+        List<Cars> ttList = new ArrayList<>();
+        List<Cars> maList = new ArrayList<>();
+        List<Cars> ccList = new ArrayList<>();
+        List<Cars> cmList = new ArrayList<>();
+
+        List<CarsListingDTO> dto = new ArrayList<>();
+        List<CarsListingDTO> carsForRemoval = new ArrayList<>();
+        User u = userService.findByEmail(p.getName());
+        boolean ft;
+        boolean tt;
+        boolean ma;
+        boolean cc;
+        boolean cm;
+        if(fuelType.equals("i")){
+            ft = false;
+        }else{
+            ft = true;
+        }
+        if(transType.equals("i")){
+            tt = false;
+        }else{
+            tt = true;
+        }
+        if(manufac.equals("i")){
+            ma = false;
+        }else{
+            ma = true;
+        }
+        if(carClass.equals("i")){
+            cc = false;
+        }else{
+            cc = true;
+        }
+        if(carModel.equals("i")){
+            cm = false;
+        }else{
+            cm = true;
+        }
+
+
+        try {
+
+//            for(Cars car:cList){
+//                if(car.getModel().getName().equals(carModel)){
+//                    cmList.add(car);
+//                }
+//                if(car.getModel().getCarClass().getName().equals(carClass)){
+//                    ccList.add(car);
+//                }
+//                if(car.getModel().getTransmission().getName().equals(transType)){
+//                    ttList.add(car);
+//                }
+//                if(car.getModel().getManufacturer().getName().equals(manufac)){
+//                    maList.add(car);
+//                }
+//                if(car.getFuelType().getName().equals(fuelType)){
+//                    ftList.add(car);
+//                }
+//            }
+//
+//            for(Cars cmc:cmList){
+//                for(Cars ccc:ccList){
+//                    for(Cars ttc:ttList){
+//                        for(Cars mac:maList){
+//                            for(Cars ftc:ftList){
+//                                if(cmc.getId().equals(ccc.getId().equals(ttc.getId().equals(mac.getId().equals(ftc.getId()))))){
+//                                    CarsListingDTO dsa = new CarsListingDTO(cmc);
+//                                    dto.add(dsa);
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+
+
+            for(Cars car:cList){
+                boolean uslov1 = false;
+                boolean uslov2 = false;
+                boolean uslov3 = false;
+                boolean uslov4 = false;
+                boolean uslov5 = false;
+                if(!cm || car.getModel().getName().equals(carModel)){
+                    uslov1 = true;
+                }
+                if(!cc || car.getModel().getCarClass().getName().equals(carClass)){
+                    uslov2 = true;
+                }
+                if(!tt || car.getModel().getTransmission().getName().equals(transType)){
+                    uslov3 = true;
+                }
+                if(!ma || car.getModel().getManufacturer().getName().equals(manufac)){
+                    uslov4 = true;
+                }
+                if(!ft || car.getFuelType().getName().equals(fuelType)){
+                    uslov5 = true;
+                }
+                if(uslov1 && uslov2 && uslov3 && uslov4 && uslov5){
+                    CarsListingDTO dsa = new CarsListingDTO(car);
+                    dto.add(dsa);
+                }
+
+            }
+
+//            for(Cars car:cList){
+//                if(car.getModel().getName().equals(carModel) && car.getModel().getCarClass().getName().equals(carClass) && car.getModel().getTransmission().getName().equals(transType) && car.getModel().getManufacturer().getName().equals(manufac) && car.getFuelType().getName().equals(fuelType)){
+//                    CarsListingDTO dsa = new CarsListingDTO(car);
+//                    dto.add(dsa);
+//                }
+//            }
+
+            LOGGER.info("Action get all avaliable cars by user: {} successful ", p.getName());
+            return dto;
+        } catch (Exception e){
+            LOGGER.error("Action get all avaliable cars by user: {} failed. Cause: {} ", p.getName(), e.getMessage());
+        }
+
+        return null;
+    }
+
+
+
+
 
 
     @PreAuthorize("hasAuthority('ad_menagement_read')")

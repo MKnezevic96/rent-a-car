@@ -53,6 +53,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { StatisticsTopRatedComponent } from './components/statistics-top-rated/statistics-top-rated.component';
 import { StatisticsHighestMileageComponent } from './components/statistics-highest-mileage/statistics-highest-mileage.component';
 import { StatisticsMostCommentedComponent } from './components/statistics-most-commented/statistics-most-commented.component';
+import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
+import { FilterCarsComponent } from './components/filter-cars/filter-cars.component';
 
 
 @NgModule({
@@ -95,6 +97,8 @@ import { StatisticsMostCommentedComponent } from './components/statistics-most-c
     StatisticsTopRatedComponent,
     StatisticsHighestMileageComponent,
     StatisticsMostCommentedComponent,
+    RegisterAdminComponent,
+    FilterCarsComponent,
    // AuthGuard
   ],
   imports: [

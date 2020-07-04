@@ -88,10 +88,10 @@ public class AuthenticationController {
         user.setAddress(dto.getAdress());
         user.setNumber(dto.getNumber());
 
-        if (!dto.getEmail().matches("[a-zA-Z0-9.']+@(gmail.com)|(yahoo.com)|(uns.ac.rs)")) {
-            LOGGER.warn("User registration failed. Cause: invalid email characters");
-            return ResponseEntity.status(400).build();
-        }
+//        if (!dto.getEmail().matches("[a-zA-Z0-9.']+@(gmail.com)|(yahoo.com)|(uns.ac.rs)")) {
+//            LOGGER.warn("User registration failed. Cause: invalid email characters");
+//            return ResponseEntity.status(400).build();
+//        }
 
         try {
             userRequestService.save(user);

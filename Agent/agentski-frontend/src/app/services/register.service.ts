@@ -23,7 +23,7 @@ export class RegisterService {
   constructor(private http:HttpClient) { }
 
   onRegister(user: UserRequest): Observable<UserRequest>{
-  
+    console.log(user);
     return this.http.post<UserRequest>(this.url, user, httpOptions);
     
 

@@ -26,12 +26,13 @@ import { User } from '../models/User';
 export class AdvertisementService {
 
 
-
+  auti:Car[];
   pricing: Pricing;
   car:Car;
   carReview:CarReview;
   d1:string;
   d2:string;
+  city:string;
   url1:string = 'http://localhost:8282/pricing';
   url2:string = 'http://localhost:8282/addCar';
   url3:string = 'http://localhost:8282/api/renting/cars'
@@ -53,7 +54,12 @@ export class AdvertisementService {
   getMostCommentedCarsUrl:string = 'http://localhost:8282/cars/most-commented'
   getHighestMileageCarsUrl:string = 'http://localhost:8282/cars/highest-mileage'
 
+  url8:string = 'http://localhost:8282/api/renting/availableCars/';
+  url9:string = 'http://localhost:8282/api/renting/filterCars/';
 
+
+  selectedStartDate:Date;
+  selectedEndDate: Date;
 
   constructor(private http:HttpClient, private userService: UserService) { }
 
@@ -87,6 +93,37 @@ export class AdvertisementService {
 
   }
 
+  setSelectedStartDate(start:Date){
+    this.selectedStartDate = start;
+  }
+
+  setSelectedEndDate(end:Date){
+    this.selectedEndDate = end;
+  }
+
+  getSelectedStartDate(){
+    return this.selectedStartDate;
+  }
+
+  getSelectedEndDate(){
+    return this.selectedEndDate;
+  }
+
+  setAvailableCars(cars:Car[]){
+    this.auti = cars;
+  }
+
+  getAvailable(){
+    return this.auti;
+  }
+
+  setCity(city:string){
+    this.city = city;
+  }
+
+  getCity(){
+    return this.city;
+  }
 
 
   addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string):Observable<Car>{
@@ -253,7 +290,7 @@ export class AdvertisementService {
     return this.http.get<RentRequest[]>(this.url5, httpOptions);
   }
 
-  getAvailableCars(startDate:Date, endDate:Date):Observable<Car[]>{
+  getAvailableCars(startDate:Date, endDate:Date, town:string):Observable<Car[]>{
     let token = localStorage.getItem('accessToken');     // iz browsera
     let httpOptions = {
       headers: new HttpHeaders({
@@ -264,7 +301,35 @@ export class AdvertisementService {
     }
     this.d1 = startDate.toString();
     this.d2 = endDate.toString();
-    return this.http.get<Car[]>(this.url8+this.d1+'/'+this.d2, httpOptions);
+    return this.http.get<Car[]>(this.url8+this.d1+'/'+this.d2+'/'+town, httpOptions);
+  }
+
+
+  getFilteredCars(fuelType:string, transType:string, manufac:string, carClass:string, carModel:string):Observable<Car[]>{
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    // if(fuelType==''){
+    //   fuelType = 'i';
+    // }
+    // if(transType==''){
+    //   fuelType = 'i';
+    // }
+    // if(manufac==''){
+    //   fuelType = 'i';
+    // }
+    // if(carClass==''){
+    //   fuelType = 'i';
+    // }
+    // if(carModel==''){
+    //   fuelType = 'i';
+    // }
+    return this.http.get<Car[]>(this.url9+fuelType+'/'+transType+'/'+manufac+'/'+carClass+'/'+carModel, httpOptions);
   }
 
   getCurrentUser():Observable<User> {
@@ -295,7 +360,7 @@ getRequestHistory():Observable<RentRequest[]>{
       'Authorization': 'Bearer ' + token,
     })
   }
-  
+
   return this.http.get<RentRequest[]>(this.requestHistoryUrl, httpOptions);
 }
 
