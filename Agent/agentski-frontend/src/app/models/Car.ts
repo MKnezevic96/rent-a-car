@@ -8,5 +8,4 @@ export class Car {
     town: string;
     //startDate:Date;
     //endDate:Date;
-    id:number;
-}
+    id:number;}

@@ -63,4 +63,10 @@ export class PasswordChangeComponent implements OnInit {
       })
     }
 
+
+ logout(){
+  this.userService.logout().subscribe(data =>{
+  });
+}
+
 }

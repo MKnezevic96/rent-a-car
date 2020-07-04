@@ -49,6 +49,10 @@ import { TokenInterceptor } from './security/tokenInterceptor';
 import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RequestHistoryComponent } from './components/request-history/request-history.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { StatisticsTopRatedComponent } from './components/statistics-top-rated/statistics-top-rated.component';
+import { StatisticsHighestMileageComponent } from './components/statistics-highest-mileage/statistics-highest-mileage.component';
+import { StatisticsMostCommentedComponent } from './components/statistics-most-commented/statistics-most-commented.component';
 
 
 @NgModule({
@@ -87,6 +91,10 @@ import { RequestHistoryComponent } from './components/request-history/request-hi
     ActivateComponent,
     ForgotPasswordComponent,
     RequestHistoryComponent,
+    StatisticsComponent,
+    StatisticsTopRatedComponent,
+    StatisticsHighestMileageComponent,
+    StatisticsMostCommentedComponent,
    // AuthGuard
   ],
   imports: [

@@ -49,4 +49,8 @@ export class IndexComponent implements OnInit {
   showRequestHistory(){
     this.router.navigate(['requestHistory'], {relativeTo: this.route});
   }
+
+  showStatistics(){
+    this.router.navigate(['statistics'], {relativeTo: this.route});
+  }
 }

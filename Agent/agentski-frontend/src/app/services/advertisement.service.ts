@@ -49,6 +49,9 @@ export class AdvertisementService {
   url8:string = 'http://localhost:8282/api/renting/availableCars/'
   requestHistoryUrl:string = 'http://localhost:8282/api/renting/requests/history'
   cancelRequestUrl:string = 'http://localhost:8282/api/renting/requests/'
+  getTopRatedCarsUrl:string = 'http://localhost:8282/cars/top-rated'
+  getMostCommentedCarsUrl:string = 'http://localhost:8282/cars/most-commented'
+  getHighestMileageCarsUrl:string = 'http://localhost:8282/cars/highest-mileage'
 
 
 
@@ -87,7 +90,7 @@ export class AdvertisementService {
 
 
   addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string):Observable<Car>{
-    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null, id:0 };
+    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null, id:0};
     return this.http.post<Car>(this.url2, this.car, this.httpOptions);
   }
 
@@ -115,6 +118,44 @@ export class AdvertisementService {
     }
     return this.http.get<Car[]>(this.url33, httpOptions);
   }
+
+
+  getTopRatedCars():Observable<CarDetails[]>{
+    let token = localStorage.getItem('accessToken');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    return this.http.get<CarDetails[]>(this.getTopRatedCarsUrl, httpOptions);
+  }
+
+  getMostCommentedCars():Observable<CarDetails[]>{
+    let token = localStorage.getItem('accessToken');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    return this.http.get<CarDetails[]>(this.getMostCommentedCarsUrl, httpOptions);
+  }
+
+  getHighestMileageCars():Observable<CarDetails[]>{
+    let token = localStorage.getItem('accessToken');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    return this.http.get<CarDetails[]>(this.getHighestMileageCarsUrl, httpOptions);
+  }
+
 
   getCarReviews(id:number):Observable<Review[]>{
     return this.http.get<Review[]>(this.getCarReviewsUrl+id);

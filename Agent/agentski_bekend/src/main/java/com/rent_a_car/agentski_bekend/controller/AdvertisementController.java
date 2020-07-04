@@ -1,9 +1,11 @@
 package com.rent_a_car.agentski_bekend.controller;
 import com.rent_a_car.agentski_bekend.dto.CarDTO;
+import com.rent_a_car.agentski_bekend.dto.CarsDetailsDTO;
 import com.rent_a_car.agentski_bekend.dto.PricingDTO;
 import com.rent_a_car.agentski_bekend.dto.RentRequestDTO;
 import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
+import com.rent_a_car.agentski_bekend.service.CarsService;
 import com.rent_a_car.agentski_bekend.service.interfaces.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -34,7 +38,7 @@ public class AdvertisementController {
     private FuelTypeServiceInterface fuelTypeService;
 
     @Autowired
-    private CarsServiceInterface carsService;
+    private CarsService carsService;
 
     @Autowired
     private RentRequestServiceInterface rentRequestService;
@@ -200,5 +204,105 @@ public class AdvertisementController {
     }
 
 
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
+    @GetMapping(value="/cars/top-rated")
+    public List<CarsDetailsDTO> getTopRatedCars(Principal p){
+
+        List<CarsDetailsDTO> dtos = new ArrayList<>();
+
+        try {
+            List<Cars> c = carsService.findAll();
+            User user = userService.findByEmail(p.getName());
+
+            for(Cars a : c) {
+                if (a.getOwner().equals(user)) {
+                    dtos.add(new CarsDetailsDTO(a));
+                }
+            }
+
+            Collections.sort(dtos, new Comparator<CarsDetailsDTO>() {
+                @Override
+                public int compare(CarsDetailsDTO dto1, CarsDetailsDTO dto2) {
+                    return dto2.getAverageRating().compareTo(dto1.getAverageRating());
+                }
+            });
+
+            LOGGER.info("action=get top rated cars, user={}, result=success", p.getName());
+        } catch (Exception e) {
+            LOGGER.info("action=get top rated cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+
+        }
+
+        return dtos;
+    }
+
+
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
+    @GetMapping(value="/cars/most-commented")
+    public List<CarsDetailsDTO> getMostCommentedCars(Principal p){
+
+        List<CarsDetailsDTO> dtos = new ArrayList<>();
+
+        try {
+            List<Cars> c = carsService.findAll();
+            User user = userService.findByEmail(p.getName());
+
+            for(Cars a : c) {
+                if (a.getOwner().equals(user)) {
+                    CarsDetailsDTO dto = new CarsDetailsDTO(a);
+                    dto.setCommentsNumber(carsService.calculateCommentsNumber(a.getId()));
+                    dtos.add(dto);
+                }
+            }
+
+            Collections.sort(dtos, new Comparator<CarsDetailsDTO>() {
+                @Override
+                public int compare(CarsDetailsDTO dto1, CarsDetailsDTO dto2) {
+                    return dto2.getCommentsNumber().compareTo(dto1.getCommentsNumber());
+                }
+            });
+
+            LOGGER.info("action=get most commented cars, user={}, result=success", p.getName());
+        } catch (Exception e) {
+            LOGGER.info("action=get most commented cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+
+        }
+
+        return dtos;
+    }
+
+
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
+    @GetMapping(value="/cars/highest-mileage")
+    public List<CarsDetailsDTO> getHighestMileageCars(Principal p){
+
+        List<CarsDetailsDTO> dtos = new ArrayList<>();
+
+        try {
+            List<Cars> c = carsService.findAll();
+            User user = userService.findByEmail(p.getName());
+
+            for(Cars a : c) {
+                if (a.getOwner().equals(user)) {
+                    CarsDetailsDTO dto = new CarsDetailsDTO(a);
+                    dto.setMileageNumber(carsService.calculateMileageNumber(a.getId()));
+                    dtos.add(dto);
+                }
+            }
+
+            dtos.sort(new Comparator<CarsDetailsDTO>() {
+                @Override
+                public int compare(CarsDetailsDTO dto1, CarsDetailsDTO dto2) {
+                    return Double.compare(dto2.getMileageNumber(), dto1.getMileageNumber());                }
+            });
+
+            LOGGER.info("action=get highest mileage cars, user={}, result=success", p.getName());
+        } catch (Exception e) {
+            LOGGER.info("action=get highest mileage cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+
+        }
+
+        return dtos;
+    }
 
 }

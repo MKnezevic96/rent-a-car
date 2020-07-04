@@ -1,22 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { AdvertisementService } from 'src/app/services/advertisement.service';
-import { CarModels } from 'src/app/models/CarModels';
 import { Car } from 'src/app/models/Car';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarDetails } from 'src/app/models/CarDetails';
-import { first } from 'rxjs/operators';
 import { Review } from 'src/app/models/Review';
-import { UserService } from 'src/app/services/UserService';
-import { RegisterService } from 'src/app/services/register.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { UserService } from 'src/app/security/user.service';
 import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-advertisement-list',
   template: `
   <ng-container *ngIf="ads" >
- 
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" >Home <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 0 !important;" (click)="logout()">Log out</button>
+            </nav>
+
    
   <div class="row">
   <div class="col-sm-4" *ngFor="let car of cars">
@@ -58,8 +64,12 @@ import { User } from 'src/app/models/User';
 <p> Discount days: {{ discoundDays }}</p>
 <p> Collision damage: {{ collisionDamage }}</p>
 <p> Town: {{ town }}</p>
-<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
 <p> Owner email: {{ carOwnerEmail }}</p>
+<p> Average rating: {{ averageRating }}</p>
+
 
 </div>
 
@@ -82,7 +92,7 @@ import { User } from 'src/app/models/User';
          <tr>
          <th> User </th>
          <th> Rating </th>
-         <th> Review </th>           
+         <th> Comment </th>           
            
          </tr>
        </thead>
@@ -136,11 +146,12 @@ export class AdvertisementListComponent implements OnInit {
   pricingPlan:string;
   town:string;
   carOwnerEmail:string;
+  averageRating:string;
 
   rating:number;
   comment:string;
 
-  constructor(private advertisementService:AdvertisementService, private route: ActivatedRoute,
+  constructor(private advertisementService:AdvertisementService, private userService: UserService, private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -171,7 +182,7 @@ export class AdvertisementListComponent implements OnInit {
       this.carName=this.myData.carName;
       this.collisionDamage=this.myData.collisionDamage;
       this.carOwnerEmail=this.myData.carOwnerEmail;
-
+      this.averageRating=this.myData.averageRating;
     });
 
 
@@ -198,5 +209,10 @@ export class AdvertisementListComponent implements OnInit {
 
         })
       }
+
+  logout(){
+    this.userService.logout().subscribe(data =>{
+    });
+  }
 
 }

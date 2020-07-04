@@ -18,5 +18,7 @@ export class CarDetails {
     pricingPlan:string;
     town:string;
     carOwnerEmail:string;
-
+    averageRating:string;
+    mileageNumber:number;
+    commentsNumber:string;
 }

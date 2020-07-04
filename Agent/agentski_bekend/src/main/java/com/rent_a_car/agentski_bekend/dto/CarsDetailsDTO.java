@@ -23,6 +23,9 @@ public class CarsDetailsDTO {
     private Double milage;
     private String town;
     private String carOwnerEmail;
+    private String averageRating;
+    private double mileageNumber;
+    private String commentsNumber;
 
     public CarsDetailsDTO (Cars car) {
         this.carId = car.getId();
@@ -44,6 +47,7 @@ public class CarsDetailsDTO {
         this.milage = car.getMilage();
         this.town = car.getTown();
         this.carOwnerEmail = car.getOwner().getEmail();
+        this.averageRating = car.getAverageRating();
 
     }
 
@@ -198,5 +202,29 @@ public class CarsDetailsDTO {
 
     public void setCarOwnerEmail(String carOwnerEmail) {
         this.carOwnerEmail = carOwnerEmail;
+    }
+
+    public String getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(String averageRating) {
+        this.averageRating = averageRating;
+    }
+
+    public double getMileageNumber() {
+        return mileageNumber;
+    }
+
+    public void setMileageNumber(double mileageNumber) {
+        this.mileageNumber = mileageNumber;
+    }
+
+    public String getCommentsNumber() {
+        return commentsNumber;
+    }
+
+    public void setCommentsNumber(String commentsNumber) {
+        this.commentsNumber = commentsNumber;
     }
 }

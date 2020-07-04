@@ -2,11 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { RentingReportService } from 'src/app/services/renting-report.service';
 import { RentRequest } from 'src/app/models/RentRequest';
 import { first } from 'rxjs/internal/operators/first';
-import { RentingReport } from 'src/app/models/RentingReport';
+import { UserService } from 'src/app/security/user.service';
 
 @Component({
   selector: 'app-renting-report',
   template: `
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+          <li class="nav-item active">
+              <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+          </li>
+      </ul>
+  </div>
+  <button class="btn btn-primary" style="margin-top: 0 !important;" (click)="logout()">Log out</button>
+</nav>
+
+<div class="container fluid">
   <div class="form-row">
      <div class="col-md-6 mb-3">
       <form id="reportForm">
@@ -24,6 +37,7 @@ import { RentingReport } from 'src/app/models/RentingReport';
       </form>
        </div> 
       </div>
+      </div>
   `,
   styles: [
   ]
@@ -36,7 +50,9 @@ export class RentingReportComponent implements OnInit {
   rentingRequests:RentRequest[];
   selectedLevel;
 
-  constructor(private rentingReportService: RentingReportService) { }
+  constructor(private rentingReportService: RentingReportService,   
+      private userService: UserService
+    ) { }
 
   ngOnInit(): void {
     this.rentingReportService.getRentingRequests().subscribe(data => {
@@ -53,9 +69,13 @@ export class RentingReportComponent implements OnInit {
     this.rentingReportService.addNewRentingReport(this.mileage,this.report, this.request.id).pipe(first())
     .subscribe(
         data => {
+          console.log(data)
         })
     }  
     
-  
+    logout(){
+      this.userService.logout().subscribe(data =>{
+      });
+    }
 
 }

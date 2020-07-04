@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pricing } from 'src/app/models/Pricing';
 import { AdvertisementService } from 'src/app/services/advertisement.service';
-import { User } from 'src/app/models/User';
+import { UserService } from 'src/app/security/user.service';
 import { AdminService } from 'src/app/services/admin.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -28,6 +28,7 @@ export class PricingPageComponent implements OnInit {
     private advertisementService: AdvertisementService,
     private adminService: AdminService,
     private router: Router,
+    private userService : UserService
   ) { }
 
   // selectedUser(name:User){
@@ -53,14 +54,12 @@ export class PricingPageComponent implements OnInit {
         })
 
         this.router.navigateByUrl('index');
-
-
-
-
-        
-        
   }
 
 
+  logout(){
+    this.userService.logout().subscribe(data =>{
+    });
+  }
 
 }

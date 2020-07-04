@@ -62,6 +62,9 @@ export class AdminService {
   url26:string = 'http://localhost:8282/admin/carReviews';
   url28:string = 'http://localhost:8282/admin/deleteAcc';
 
+  denyReviewUrl:string = 'http://localhost:8282/admin/reviews/deny';
+
+
   carClass:CarClass;
   manufact:Manufacturer;
   transmission:TransmissionType;
@@ -109,6 +112,12 @@ export class AdminService {
 
   approve(id:number): Observable<number>{
     return this.http.post<number>(this.url26, id, httpOptions);
+
+  }
+
+
+  denyReview(id:number): Observable<number>{
+    return this.http.post<number>(this.denyReviewUrl, id, httpOptions);
 
   }
 

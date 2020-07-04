@@ -33,6 +33,9 @@ import java.util.*;
 public class AdminController {
 
     @Autowired
+    private CarsService carsService;
+
+    @Autowired
     private CarClassServiceInterface carClassService;
 
     @Autowired
@@ -126,18 +129,57 @@ public class AdminController {
                    carReviewService.save(cr);
                    Cars car = carService.getCar(cr.getCar().getId());
                    car.getReviews().add(cr);
+                   car.setAverageRating(carsService.calculateAverageRating(car.getId()));
                    carService.save(car);
+
+                   String text = "Dear sir/madam, " + '\n';
+                   text += "Your car review for" + cr.getCar().getName() + "has been approved by our administrator staff. \n ";
+                   text += "\n\n\n" + "Sincerely, Rent a car support team.";
+                   mailService.sendEmail(cr.getReviewer().getEmail(), text, "Car review has been approved");
+
                }
            }
 
-           LOGGER.info("Action approve car review id:{} by user: {} successful", id.toString(), user.getEmail());
+           LOGGER.info("action=approve car review, user={}, result=success", user.getEmail());
            return ResponseEntity.ok().build();
 
        } catch (Exception e) {
-           LOGGER.error("Action approve car review id:{} by user: {} failed. Cause: {}", id.toString(), user.getEmail(), e.getMessage());
+           LOGGER.info("action=approve car review, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
        }
 
        return ResponseEntity.status(400).build();
+    }
+
+    @PreAuthorize("hasAuthority('review_menagement_write')")
+    @PostMapping(value="/admin/reviews/deny")
+    public ResponseEntity<?> denyReview(@RequestBody @Min(1) @Max(100000)Integer id){
+
+        List<CarReview> crList = carReviewService.findAll();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        try {
+
+            for(CarReview cr : crList){
+                if(cr.getId() == id){
+                    cr.setDeleted(true);
+                    carReviewService.save(cr);
+
+                    String text = "Dear sir/madam, " + '\n';
+                    text += "Your car review for" + cr.getCar().getName() + "has been denied by our administrator staff. \n ";
+                    text += "\n\n\n" + "Sincerely, Rent a car support team.";
+                    mailService.sendEmail(cr.getReviewer().getEmail(), text, "Car review has been denied");
+
+                }
+            }
+
+            LOGGER.info("action=deny car review, user={}, result=success", user.getEmail());
+            return ResponseEntity.ok().build();
+
+        } catch (Exception e) {
+            LOGGER.info("action=deny car review, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
+        }
+
+        return ResponseEntity.status(400).build();
     }
 
 //-----------------------------------------------------------------
@@ -180,7 +222,6 @@ public class AdminController {
         String text = "Dear sir/madam, " + '\n';
         text += "your account request has been reviewed and accepted by our administrator staff. \n Please follow the link below to activate your account.";
         text += uri + "/activateAcc/" + u.getEmail() + "\n\n\n" + "Sincerely, Rent a car support team.";
-//        text += "http://localhost:4200/activateAcc/" + sendTo + "\n\n\n" + "Sincerely, Rent a car support team.";
 
         try {
 
@@ -200,6 +241,7 @@ public class AdminController {
         return ResponseEntity.status(400).build();
 
     }
+    
 
 
     @RequestMapping(method = RequestMethod.GET, path = "/activateAcc/{mail:.+}")
@@ -285,11 +327,16 @@ public class AdminController {
             u.setDeleted(true);
             userService.save(u);
 
-            LOGGER.info("User: {} deleted the account email: {} successfully.", user.getEmail(), email);
+            String text = "Dear sir/madam, " + '\n';
+            text += "Your account has been deleted pernamently by our administrator staff. \n This action cannot be undone.";
+            text += "\n\n\n" + "Sincerely, Rent a car support team.";
+            mailService.sendEmail(email, text, "Your account has been deleted pernamently");
+
+            LOGGER.info("action=delete account, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to delete the account email: {}. Cause: {}", user.getEmail(), email, e.getMessage());
+            LOGGER.info("action=delete account, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();

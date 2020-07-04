@@ -22,6 +22,7 @@ import java.util.List;
         "name",
         "androidGps",
         "town",
+        "averageRating",
         "reviews",
         "deleted"
 }, namespace = "nekiUri/cars")
@@ -74,6 +75,10 @@ public class Cars {
     @Column(name="town")
     @XmlElement
     private String town;
+
+    @Column(name="average_rating")
+    @XmlElement
+    private String averageRating;
 
     @OneToMany(mappedBy="car", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     @XmlElement
@@ -172,4 +177,11 @@ public class Cars {
         this.reviews = reviews;
     }
 
+    public String getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(String averageRating) {
+        this.averageRating = averageRating;
+    }
 }

@@ -31,6 +31,10 @@ import { PasswordChangeComponent } from './components/password-change/password-c
 import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RequestHistoryComponent } from './components/request-history/request-history.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { StatisticsTopRatedComponent } from './components/statistics-top-rated/statistics-top-rated.component';
+import { StatisticsMostCommentedComponent } from './components/statistics-most-commented/statistics-most-commented.component';
+import { StatisticsHighestMileageComponent } from './components/statistics-highest-mileage/statistics-highest-mileage.component';
 
 
 
@@ -75,6 +79,14 @@ const routes: Routes = [
     { path: 'index',
       component: IndexComponent,
       children: [
+        { path: 'statistics', 
+          component: StatisticsComponent, 
+          children: [
+            { path: 'topRated', component: StatisticsTopRatedComponent},
+            { path: 'highestMileage', component: StatisticsHighestMileageComponent},
+            { path: 'mostCommented', component: StatisticsMostCommentedComponent},
+
+        ]},
         { path: 'advertisement', component: AdvertisementComponent},
         { path: 'rentingReport', component: RentingReportComponent},
         { path: 'advertisements', component: AdvertisementListComponent},

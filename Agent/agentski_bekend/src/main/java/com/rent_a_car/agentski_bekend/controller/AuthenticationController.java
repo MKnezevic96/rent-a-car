@@ -132,7 +132,7 @@ public class AuthenticationController {
         User user = (User)customUserDetailsService.loadUserByUsername(authenticationRequest.getEmail());
         role = user.getRole().iterator().next().getName();
 
-        if(!user.isActivated()){
+        if(!user.isActivated() || user.isDeleted()){
             LOGGER.warn("Action create authentication token failed. User account: {} is not activated.", user.getEmail());
             return ResponseEntity.status(403).build();
         }
