@@ -16,6 +16,8 @@ services:
     container_name: zuul
     ports:
       - "8083:8083"
+    expose: 
+      - "8282"
     environment:
       - REGISTRY_HOST=eureka
     tty: true
@@ -168,6 +170,60 @@ services:
     image: mysql:8
     volumes:
       - my-datavolume:/var/lib/docker/mainDb
+
+  # agentski-bekend1:
+  #    image: agentski_bekend
+  #    networks: 
+  #     - first-network
+  #    build:
+  #      context: ./Agent/agentski_bekend
+  #      dockerfile: Dockerfile
+  #    tty: true
+  #    ports:
+  #     - "127.0.0.1:8282:8282"
+  #    environment:
+  #      DATABASE_USERNAME: 'root'
+  #      DATABASE_PASSWORD: 'admin'
+  #      DATABASE_DOMAIN: 'agentska-baza'
+  #      DATABASE_PORT: "3306"
+  #    depends_on:
+  #      - agentska-baza1
+  #    volumes:
+  #      - ./logs:/logs
+
+
+#  agentski-frontend:
+#     image: agentski-frontend
+#     build:
+#       context: ./agentski-frontend
+#       dockerfile: Dockerfile
+#     tty: true
+#     ports:
+#       - "4200:80"
+#     networks:
+#       - second-network
+#     depends_on:
+#       - agentski-bekend
+
+
+  # agentska-baza1:
+  #   restart: always
+  #   networks: 
+  #    - first-network
+  #   container_name: agentska-baza1
+  #   ports:
+  #   - "3307:3306"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 'admin'
+  #     MYSQL_DATABASE: 'agentska-baza'
+  #     MYSQL_USER: 'root'
+  #     MYSQL_PASSWORD: 'admin'
+  #   image: mysql:8
+  #   volumes:
+  #     - my-datavolume:/var/lib/docker/agent
+
+
+
 
 networks:
   first-network:
