@@ -38,6 +38,7 @@ export class FilterCarsComponent implements OnInit {
   selectedStartDate:Date;
   selectedEndDate: Date;
   id:number;
+  city:string;
 
   constructor(
     private adminService: AdminService,
@@ -66,7 +67,8 @@ export class FilterCarsComponent implements OnInit {
     });
     this.selectedStartDate = this.advertisementService.getSelectedStartDate();
     this.selectedEndDate = this.advertisementService.getSelectedEndDate();
-    this.carsAvailable = this.advertisementService.getAvailable();
+    this.city = this.advertisementService.getCity();
+    //this.carsAvailable = this.advertisementService.getAvailable();
     console.log(this.carsAvailable);
 
     if(typeof this.selectedStartDate == 'undefined' || typeof this.selectedEndDate == 'undefined'){
@@ -114,31 +116,34 @@ export class FilterCarsComponent implements OnInit {
     this.advertisementService.getFilteredCars(fuel, tran, manu, clas, model).subscribe(data =>{
       this.carsFiltered = data;
       console.log(this.carsFiltered);
-      // this.getAvailableCars();
-      this.setCars();
+      this.getAvailableCars();
+      //this.setCars();
       this.filterCars = !this.filterCars;
     });
   }
-  // getAvailableCars(){
-  //   this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate).subscribe(data =>{
-  //     this.carsAvailable = data;
-  //     this.setCars();
-  //   });
-  // }
+  getAvailableCars(){
+    this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate, this.city).subscribe(data =>{
+      this.carsAvailable = data;
+      this.setCars();
+    });
+  }
 
   setCars(){
     var i;
     var j;
+    var kola:Car[];
     for(i = 0 ; i < this.carsFiltered.length ; i++){
       console.log(this.carsFiltered[i]);
       for(j = 0 ; j < this.carsAvailable.length ; j++){
         console.log(this.carsAvailable[j]);
         if(this.carsFiltered[i].id == this.carsAvailable[j].id){
-          this.cars.push(this.carsFiltered[i]);
+          kola = kola || [];
+          kola.push(this.carsFiltered[i]);
           console.log(this.cars);
         }
       }
     }
+    this.cars = kola;
     // this.carsFiltered.forEach(el => {
     //   console.log(el.name);
     //   this.carsAvailable.forEach(e =>{

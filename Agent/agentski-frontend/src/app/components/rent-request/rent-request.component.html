@@ -27,9 +27,25 @@
     </div> -->
 
     <div id="formContent">
-        
-        <input type="date" [(ngModel)]="selectedStartDate" > 
-        <input type="date" [(ngModel)]="selectedEndDate" (ngModelChange)="selectEndDate()">
+
+
+        <div class="col-md-4 mb-3">
+          <label>Select place of departure</label>
+          <select [(ngModel)]="city" class="form-control">
+              <option [ngValue]="city" *ngFor="let city of citys">
+                  {{city}}
+              </option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>Select start date of departure</label>
+          <input type="date" [(ngModel)]="selectedStartDate" > 
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>Select end date of departure</label>  
+          <input type="date" [(ngModel)]="selectedEndDate" (ngModelChange)="selectEndDate()">
+        </div>
+
         <button class="btn btn-primary fadeIn fourth" (click)="getAvailableCars()">See available cars</button>
         <button class="btn btn-primary fadeIn fourth" (click)="filterCars()">Filter cars</button>
 

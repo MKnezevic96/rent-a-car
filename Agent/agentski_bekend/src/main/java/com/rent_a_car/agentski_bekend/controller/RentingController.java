@@ -89,15 +89,15 @@ public class RentingController {
 
     @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value = "mycars")
-    public ResponseEntity<List<CarsListingDTO>> getMyCars(Principal p) {
+    public ResponseEntity<List<CarsListingDTO>> getMyCars (Principal p) {
 
         ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
 
-        try {
+        try{
             User user = userService.findByEmail(p.getName());
             for (Cars c : carsService.findAll()) {
                 if (c.getId() != null) {
-                    if (c.getOwner().getEmail().equals(user.getEmail())) {
+                    if(c.getOwner().getEmail().equals(user.getEmail())) {
                         retVal.add(new CarsListingDTO(c));
                     }
                 }
@@ -163,8 +163,8 @@ public class RentingController {
 //
 //    }
     @PreAuthorize("hasAuthority('ad_menagement_read')")
-    @GetMapping(value = "availableCars/{d1}/{d2}")
-    public List<CarsListingDTO> getAvailableCars(@PathVariable("d1") String d1, @PathVariable("d2") String d2, Principal p) throws ParseException {
+    @GetMapping(value = "availableCars/{d1}/{d2}/{town}")
+    public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, @PathVariable("town") String town,  Principal p) throws ParseException {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = format.parse(d1);
         Date endDate = format.parse(d2);
@@ -176,31 +176,33 @@ public class RentingController {
 
         try {
             for (Cars c : cList) {
-                for (RentRequest rr : rrList) {
-                    if (rr.getStatus().equals(RequestStatus.RESERVED)) {
-                        if (rr.getCarId().equals(c)) {
-                            if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
-                                CarsListingDTO dt = new CarsListingDTO(c);
-                                carsForRemoval.add(dt);
-                            }
-                            if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
-                                CarsListingDTO dt = new CarsListingDTO(c);
-                                carsForRemoval.add(dt);
-                            }
-                            if (startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())) {
-                                CarsListingDTO dt = new CarsListingDTO(c);
-                                carsForRemoval.add(dt);
+                if(c.getTown().equals(town)) {
+                    for (RentRequest rr : rrList) {
+                        if (rr.getStatus().equals(RequestStatus.RESERVED)) {
+                            if (rr.getCarId().equals(c)) {
+                                if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
+                                if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
+                                if (startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
                             }
                         }
                     }
-                }
 
-                CarsListingDTO dt = new CarsListingDTO(c);
-                dto.add(dt);
+                    CarsListingDTO dt = new CarsListingDTO(c);
+                    dto.add(dt);
+                }
             }
-            for (int i = 0; i < dto.size(); i++) {
-                for (CarsListingDTO ddd : carsForRemoval) {
-                    if (dto.get(i).getId().equals(ddd.getId())) {
+            for(int i = 0 ; i < dto.size() ; i++){
+                for(CarsListingDTO ddd : carsForRemoval){
+                    if(dto.get(i).getId().equals(ddd.getId())){
                         dto.remove(i);
                     }
                 }
@@ -208,7 +210,7 @@ public class RentingController {
 
             LOGGER.info("Action get all avaliable cars by user: {} successful ", p.getName());
             return dto;
-        } catch (Exception e) {
+        } catch (Exception e){
             LOGGER.error("Action get all avaliable cars by user: {} failed. Cause: {} ", p.getName(), e.getMessage());
         }
 
@@ -216,9 +218,12 @@ public class RentingController {
     }
 
 
+
+
+
     @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value = "filterCars/{fuelType}/{transType}/{manufac}/{carClass}/{carModel}")
-    public List<CarsListingDTO> getFilteredCars(@PathVariable("fuelType") String fuelType, @PathVariable("transType") String transType, @PathVariable("manufac") String manufac, @PathVariable("carClass") String carClass, @PathVariable("carModel") String carModel, Principal p) throws ParseException {
+    public List<CarsListingDTO> getFilteredCars (@PathVariable("fuelType") String fuelType, @PathVariable("transType") String transType, @PathVariable("manufac") String manufac, @PathVariable("carClass") String carClass, @PathVariable("carModel") String carModel, Principal p) throws ParseException {
 
         List<RentRequest> rrList = rentRequestService.findAll();
         List<Cars> cList = carsService.findAll();
@@ -299,28 +304,28 @@ public class RentingController {
 //            }
 
 
-            for (Cars car : cList) {
+            for(Cars car:cList){
                 boolean uslov1 = false;
                 boolean uslov2 = false;
                 boolean uslov3 = false;
                 boolean uslov4 = false;
                 boolean uslov5 = false;
-                if (!cm || car.getModel().getName().equals(carModel)) {
+                if(!cm || car.getModel().getName().equals(carModel)){
                     uslov1 = true;
                 }
-                if (!cc || car.getModel().getCarClass().getName().equals(carClass)) {
+                if(!cc || car.getModel().getCarClass().getName().equals(carClass)){
                     uslov2 = true;
                 }
-                if (!tt || car.getModel().getTransmission().getName().equals(transType)) {
+                if(!tt || car.getModel().getTransmission().getName().equals(transType)){
                     uslov3 = true;
                 }
-                if (!ma || car.getModel().getManufacturer().getName().equals(manufac)) {
+                if(!ma || car.getModel().getManufacturer().getName().equals(manufac)){
                     uslov4 = true;
                 }
-                if (!ft || car.getFuelType().getName().equals(fuelType)) {
+                if(!ft || car.getFuelType().getName().equals(fuelType)){
                     uslov5 = true;
                 }
-                if (uslov1 && uslov2 && uslov3 && uslov4 && uslov5) {
+                if(uslov1 && uslov2 && uslov3 && uslov4 && uslov5){
                     CarsListingDTO dsa = new CarsListingDTO(car);
                     dto.add(dsa);
                 }
@@ -336,7 +341,7 @@ public class RentingController {
 
             LOGGER.info("Action get all avaliable cars by user: {} successful ", p.getName());
             return dto;
-        } catch (Exception e) {
+        } catch (Exception e){
             LOGGER.error("Action get all avaliable cars by user: {} failed. Cause: {} ", p.getName(), e.getMessage());
         }
 
@@ -344,9 +349,13 @@ public class RentingController {
     }
 
 
+
+
+
+
     @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value = "get/{t}")
-    public ResponseEntity<List<CarsListingDTO>> filterCarsByTown(@PathVariable("t") String t) {
+    public ResponseEntity<List<CarsListingDTO>> filterCarsByTown (@PathVariable("t") String t) {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
@@ -454,35 +463,35 @@ public class RentingController {
                 }
                 LOGGER.info("Action get all rent requests by user: {} successful", user.getEmail());
 
-            } else if (status.equals("paid")) {
-                for (RentRequest rr : rentRequestService.findAll()) {
-                    if (rr.getStatus().equals(RequestStatus.PAID) && rr.getCarId().getOwner().getEmail().equals(user.getEmail()))
-                        retVal.add(new RentRequestDTO(rr));
-                }
-                LOGGER.info("Action get paid rent requests by user: {} successful", user.getEmail());
-            }
+           } else if (status.equals("paid")){
+               for(RentRequest rr : rentRequestService.findAll()){
+                   if(rr.getStatus().equals(RequestStatus.PAID) && rr.getCarId().getOwner().getEmail().equals(user.getEmail()))
+                       retVal.add(new RentRequestDTO(rr));
+               }
+               LOGGER.info("Action get paid rent requests by user: {} successful", user.getEmail());
+           }
 
-            return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
+           return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
 
-        } catch (Exception e) {
-            LOGGER.error("Action get paid rent requests by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
-        }
+       } catch (Exception e) {
+           LOGGER.error("Action get paid rent requests by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
+       }
 
-        return ResponseEntity.status(400).build();
+       return ResponseEntity.status(400).build();
 
     }
 
 
     @PreAuthorize("hasAuthority('rent_menagement_read')")
     @GetMapping(value = "payRequests")
-    public List<RentRequestDTO> getRequestsForPayment(Principal p) {
+    public List<RentRequestDTO> getRequestsForPayment (Principal p) {
 
         List<RentRequestDTO> dto = new ArrayList<>();
         List<RentRequest> rrl = rentRequestService.findAll();
         User user = userService.findByEmail(p.getName());
 
         try {
-            for (RentRequest rr : rrl) {
+            for(RentRequest rr : rrl){
                 if (rr.getStatus().equals(RequestStatus.RESERVED)) {
                     if (rr.getOwningUser().getEmail().equals(user.getEmail())) {
                         RentRequestDTO rrdto = new RentRequestDTO();
@@ -508,21 +517,21 @@ public class RentingController {
 
     @PreAuthorize("hasAuthority('rent_menagement_write')")
     @PostMapping(value = "payRequests")
-    public ResponseEntity<?> payRent(@RequestBody @Min(1) @Max(100000) Integer id) {
+    public ResponseEntity<?> payRent (@RequestBody @Min(1) @Max(100000) Integer id) {
 
         RentRequest rrl = rentRequestService.findById(id);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         try {
-            rrl.setStatus(RequestStatus.PAID);
-            rentRequestService.save(rrl);
+           rrl.setStatus(RequestStatus.PAID);
+           rentRequestService.save(rrl);
 
-            LOGGER.info("Action pay renting car: {} by user: {} successful", user.getEmail(), rrl.getCarId().getName());
-            return ResponseEntity.ok().build();
+           LOGGER.info("Action pay renting car: {} by user: {} successful", user.getEmail(), rrl.getCarId().getName());
+           return ResponseEntity.ok().build();
 
-        } catch (Exception e) {
-            LOGGER.info("Action pay renting car: {} by user: {} failed. Cause: {}", user.getEmail(), rrl.getCarId().getName(), e.getMessage());
-        }
+       } catch (Exception e) {
+           LOGGER.info("Action pay renting car: {} by user: {} failed. Cause: {}", user.getEmail(), rrl.getCarId().getName(), e.getMessage());
+       }
 
         return ResponseEntity.status(400).build();
     }
@@ -608,7 +617,7 @@ public class RentingController {
             LOGGER.info("Action add renting report for request id:{} by user: {} successful", dto.getRentingInstanceId(), user.getEmail());
             return ResponseEntity.status(200).build();
 
-        } catch (Exception e) {
+        } catch(Exception e) {
 
             LOGGER.error("Action add renting report for request id:{} by user: {} failed. Cause: {}", dto.getRentingInstanceId(), user.getEmail(), e.getMessage());
 
@@ -620,7 +629,7 @@ public class RentingController {
 
     @PreAuthorize("hasAuthority('rent_menagement_read')")
     @GetMapping(value = "rentRequests")
-    public List<RentRequestDTO> getRentRequests(Principal p) {
+    public List<RentRequestDTO> getRentRequests (Principal p) {
 
         List<RentRequest> retVal = rentRequestService.findAll();
         List<RentRequestDTO> dto = new ArrayList<>();
@@ -685,7 +694,7 @@ public class RentingController {
             LOGGER.warn("User: {} is not allowed to post a review for car id:{} ", p.getName(), dto.getCarId());
             return ResponseEntity.status(403).build();
 
-        } catch (Exception e) {
+        }catch (Exception e){
             LOGGER.error("Action add car review for car id:{} by user: {} failed. Cause: {}", dto.getCarId(), p.getName(), e.getMessage());
         }
         return ResponseEntity.status(400).build();
@@ -694,7 +703,7 @@ public class RentingController {
 
     @PreAuthorize("hasAuthority('review_menagement_read')")
     @GetMapping(value = "reviews/cars/{id}")
-    public ResponseEntity<List<CarReviewDTO>> getAllCarReviews(@PathVariable("id") Integer carId) {
+    public ResponseEntity<List<CarReviewDTO>> getAllCarReviews (@PathVariable("id") Integer carId) {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<CarReviewDTO> retVal = new ArrayList<CarReviewDTO>();
@@ -702,8 +711,8 @@ public class RentingController {
 
         try {
 
-            for (CarReview cr : car.getReviews()) {
-                if (cr.isApproved())
+            for(CarReview cr : car.getReviews()){
+                if(cr.isApproved())
                     retVal.add(new CarReviewDTO(cr));
             }
 
@@ -720,8 +729,8 @@ public class RentingController {
 
 
     @PreAuthorize("hasAuthority('rent_menagement_write')")
-    @PostMapping(value = "approveRentRequest")
-    public ResponseEntity<?> approveRentRequest(@RequestBody Integer id) {
+    @PostMapping(value="approveRentRequest")
+    public ResponseEntity<?> approveRentRequest(@RequestBody Integer id){
 
         RentRequest u = rentRequestService.findById(id);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -736,16 +745,16 @@ public class RentingController {
             LOGGER.info("Action approve rent request id: {} by user: {} successful", id.toString(), user.getEmail());
             return ResponseEntity.ok().build();
 
-        } catch (Exception e) {
-            LOGGER.error("Action approve rent request id: {} by user: {} failed. Cause: {}", id.toString(), user.getEmail(), e.getMessage());
+         } catch (Exception e) {
+             LOGGER.error("Action approve rent request id: {} by user: {} failed. Cause: {}", id.toString(), user.getEmail(),e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
     }
 
     @PreAuthorize("hasAuthority('rent_menagement_write')")
-    @PostMapping(value = "rejectRentRequest")
-    public ResponseEntity<?> rejectRentRequest(@RequestBody Integer id) {
+    @PostMapping(value="rejectRentRequest")
+    public ResponseEntity<?> rejectRentRequest(@RequestBody Integer id){
 
         RentRequest u = rentRequestService.findById(id);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

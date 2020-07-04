@@ -18,6 +18,10 @@ export class RentRequestComponent implements OnInit {
   rentrequest: RentRequest;
   availableCars:boolean = false;
   moreFilters:boolean = false;
+  citys:string[];
+  city:string;
+
+
   constructor(
     private advertisementService: AdvertisementService,
     private route: ActivatedRoute,
@@ -33,7 +37,24 @@ export class RentRequestComponent implements OnInit {
   ngOnInit(): void {
     this.advertisementService.getCar().subscribe(data =>{
       this.cars = data;
+      console.log(this.cars);
+      var i:number;
+      var j:number;
+      for(i = 0 ; i < this.cars.length ; i++){
+        var flag:boolean = false;
+        this.citys = this.citys || [];
+        for(j = 0 ; j < this.citys.length ; j++){
+          if(this.citys[j] == this.cars[i].town){
+            flag = true;
+          }
+        }
+        if(!flag){
+          this.citys.push(this.cars[i].town);
+        }
+      }
+      console.log(this.citys);
     });
+    // this.cars = this.cars || [];
   }
   onSubmit() {
     //this.rentrequest={carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: false, deleted: false, id:this.id };
@@ -55,10 +76,14 @@ export class RentRequestComponent implements OnInit {
   }
 
   getAvailableCars(){
-    this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate).subscribe(data =>{
-      this.cars = data;
-    });
-    this.availableCars = !this.availableCars;
+    if(typeof this.selectedStartDate == 'undefined' || typeof this.selectedEndDate == 'undefined' || typeof this.city == 'undefined'){
+      alert('You have not selected a date or place for request')
+    }else{
+      this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate, this.city).subscribe(data =>{
+        this.cars = data;
+      });
+      this.availableCars = !this.availableCars;
+    }
   }
 
   filterCars(){
@@ -69,13 +94,16 @@ export class RentRequestComponent implements OnInit {
     }else{
       this.advertisementService.setSelectedStartDate(this.selectedStartDate);
       this.advertisementService.setSelectedEndDate(this.selectedEndDate);
-      this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate).subscribe(data =>{
+      this.advertisementService.getAvailableCars(this.selectedStartDate, this.selectedEndDate, this.city).subscribe(data =>{
         this.cars = data;
       });
       this.advertisementService.setAvailableCars(this.cars);
+      this.advertisementService.setCity(this.city);
       this.router.navigate(['filterCars'], {relativeTo:this.route.parent});
     }
   }
+
+
 
   getSelectedStartDate(){
     return this.selectedStartDate;
