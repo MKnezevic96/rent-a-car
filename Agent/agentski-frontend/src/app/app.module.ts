@@ -50,6 +50,7 @@ import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
 import { FilterCarsComponent } from './components/filter-cars/filter-cars.component';
+import { KorpaComponent } from './components/korpa/korpa.component';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { FilterCarsComponent } from './components/filter-cars/filter-cars.compon
     ForgotPasswordComponent,
     RegisterAdminComponent,
     FilterCarsComponent,
+    KorpaComponent,
    // AuthGuard
   ],
   imports: [

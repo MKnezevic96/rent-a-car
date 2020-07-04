@@ -22,6 +22,10 @@ export class IndexComponent implements OnInit {
     });
   }
 
+  korpa(){
+    this.router.navigate(['korpa'], {relativeTo: this.route});
+  }
+
   showCreateReportForm() {
     this.router.navigate(['rentingReport'], {relativeTo: this.route});
   }

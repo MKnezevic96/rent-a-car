@@ -38,14 +38,14 @@ export class RentRequestComponent implements OnInit {
   onSubmit() {
     //this.rentrequest={carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: false, deleted: false, id:this.id };
     this.rentrequest={id:1, carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false };
-    this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
-    .subscribe(
-        data => {
-        })
+    // this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
+    // .subscribe(
+    //     data => {
+    //     })
   }
   naKlik(carName:string) {
     this.rentrequest={carName:carName, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false, id:this.id };
-    this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
+    this.advertisementService.addCart(this.rentrequest).pipe(first())
     .subscribe(
         data => {
           console.log('request sent');

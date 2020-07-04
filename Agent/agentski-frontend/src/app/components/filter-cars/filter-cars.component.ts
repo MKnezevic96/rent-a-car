@@ -153,12 +153,12 @@ export class FilterCarsComponent implements OnInit {
 
   naKlik(carName:string) {
     this.rentrequest={carName:carName, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false, id:this.id };
-    this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
+    this.advertisementService.addCart(this.rentrequest).pipe(first())
     .subscribe(
         data => {
-          console.log('request sent');
-          alert('Request sent');
-          this.router.navigateByUrl('index');
+          console.log('added to cart');
+          alert('Added to cart ');
+         // this.router.navigateByUrl('index');
         })
   }
 

@@ -47,6 +47,8 @@ export class AdvertisementService {
   url7:string = 'http://localhost:8282/api/renting/rejectRentRequest';
   url8:string = 'http://localhost:8282/api/renting/availableCars/';
   url9:string = 'http://localhost:8282/api/renting/filterCars/';
+   url10:string = 'http://localhost:8282/api/renting/cart/';
+
 
 
   selectedStartDate:Date;
@@ -156,7 +158,7 @@ export class AdvertisementService {
 
   return this.http.get<Pricing[]>(this.url1, httpOptions );  }
 
-  addRentRequest(rentRequest:RentRequest):Observable<RentRequest>{
+  addCart(rentRequest:RentRequest):Observable<RentRequest>{
     let token = localStorage.getItem('accessToken');     // iz browsera
     let httpOptions = {
       headers: new HttpHeaders({
@@ -166,7 +168,7 @@ export class AdvertisementService {
         'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
       })
     }
-    return this.http.post<RentRequest>(this.url4, rentRequest, httpOptions);
+    return this.http.post<RentRequest>(this.url10, rentRequest, httpOptions);
 
   }
   getRentRequests():Observable<RentRequest[]>{
