@@ -16,10 +16,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class AdvertisementController {
@@ -235,6 +237,119 @@ public class AdvertisementController {
 
         return dtos;
     }
+
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
+    @PostMapping(value="/cars")
+    public List<CarsDetailsDTO> sortCarsByRating(@RequestParam(value = "sort_by") String sort_by, @RequestBody List<CarsDetailsDTO> cars, Principal p) {
+
+        try {
+
+            if(sort_by.equals("asc(rating)")) {
+
+                Collections.sort(cars, new Comparator<CarsDetailsDTO>() {
+                    @Override
+                    public int compare(CarsDetailsDTO dto1, CarsDetailsDTO dto2) {
+                        return dto1.getAverageRating().compareTo(dto2.getAverageRating());
+                    }
+                });
+
+            } else if (sort_by.equals("desc(rating)")) {
+
+                Collections.sort(cars, new Comparator<CarsDetailsDTO>() {
+                    @Override
+                    public int compare(CarsDetailsDTO dto1, CarsDetailsDTO dto2) {
+                        return dto2.getAverageRating().compareTo(dto1.getAverageRating());
+                    }
+                });
+
+            } else if (sort_by.equals("asc(mileage)")) {
+
+                Collections.sort(cars, new Comparator<CarsDetailsDTO>() {
+                    @Override
+                    public int compare(CarsDetailsDTO dto1, CarsDetailsDTO dto2) {
+                        return dto1.getMilage().compareTo(dto2.getMilage());
+                    }
+                });
+
+            } else if (sort_by.equals("desc(mileage)")) {
+
+                Collections.sort(cars, new Comparator<CarsDetailsDTO>() {
+                    @Override
+                    public int compare(CarsDetailsDTO dto1, CarsDetailsDTO dto2) {
+                        return dto2.getMilage().compareTo(dto1.getMilage());
+                    }
+                });
+
+            } else if (sort_by.equals("asc(price)")) {
+
+                Collections.sort(cars, new Comparator<CarsDetailsDTO>() {
+                    @Override
+                    public int compare(CarsDetailsDTO dto1, CarsDetailsDTO dto2) {
+                        return dto1.getPricePerDay().compareTo(dto2.getPricePerDay());
+                    }
+                });
+
+            }  else if (sort_by.equals("desc(price)")) {
+
+                Collections.sort(cars, new Comparator<CarsDetailsDTO>() {
+                    @Override
+                    public int compare(CarsDetailsDTO dto1, CarsDetailsDTO dto2) {
+                        return dto2.getPricePerDay().compareTo(dto1.getPricePerDay());
+                    }
+                });
+
+            }
+
+            LOGGER.info("action=sort cars, user={}, result=success", p.getName());
+        } catch (Exception e) {
+            LOGGER.info("action=sort cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+
+        }
+
+        return cars;
+    }
+
+
+
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
+    @GetMapping(value = "cars/filter")
+    public List<CarsDetailsDTO> getFilteredCars (@RequestParam(value = "fuelType") String fuelType, @RequestParam(value = "transType") String transType, @RequestParam(value = "manufac") String manufac, @RequestParam(value = "carClass") String carClass, @RequestParam(value = "carModel") String carModel,
+                                                 @RequestParam(value = "minPrice") String minPrice, @RequestParam(value = "maxPrice") String maxPrice, @RequestParam(value = "minMileage") String minMileage, @RequestParam(value = "maxMileage") String maxMileage, @RequestParam(value = "childSeats") String childSeats,
+                                                 @RequestParam(value = "mileageLimit") String mileageLimit, @RequestParam(value = "waiver") String waiver, Principal p) throws ParseException {
+
+        try {
+            List<Cars> cars = carsService.findAll();
+            List<Cars> filtered =
+                    cars.stream()
+                            .filter(t ->(fuelType.equals("i") || t.getFuelType().getName().equals(fuelType))  &&
+                                    (carModel.equals("i") || t.getModel().getName().equals(carModel) ) &&
+                                    (manufac.equals("i") || t.getModel().getManufacturer().getName().equals(manufac))  &&
+                                    (carClass.equals("i") || t.getModel().getCarClass().getName().equals(carClass))  &&
+                                    (minPrice.equals("i") || t.getPricing().getRegularPrice() >= Integer.parseInt(minPrice))  &&
+                                    (maxPrice.equals("i") || t.getPricing().getRegularPrice() <= Integer.parseInt(maxPrice)) &&
+                                    (minMileage.equals("i") || t.getMilage() >= Integer.parseInt(minMileage))  &&
+                                    (maxMileage.equals("i") || t.getMilage() <= Integer.parseInt(maxMileage))  &&
+                                    (childSeats.equals("i") || t.getChildSeats().equals(childSeats)) &&
+                                    ((waiver.equals("true") && t.getPricing().getCollisionDamage() != 0) || (waiver.equals("false") && t.getPricing().getCollisionDamage() == 0)) &&
+                                    (mileageLimit.equals("i") || (t.getPricing().getDistanceLimit() != 0 && t.getPricing().getDistanceLimit() <= Integer.parseInt(mileageLimit)))  &&
+                                    (transType.equals("i") || t.getModel().getTransmission().getName().equals(transType)))
+                            .collect(Collectors.toList());
+
+            List<CarsDetailsDTO> filteredDTO = new ArrayList<>();
+            for(Cars c: filtered){
+                filteredDTO.add(new CarsDetailsDTO(c));
+            }
+
+            LOGGER.info("action=filter cars, user={}, result=successful ", p.getName());
+            return filteredDTO;
+        } catch (Exception e){
+            LOGGER.error("action=filter cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+        }
+
+        return null;
+    }
+
+
 
 
     @PreAuthorize("hasAuthority('ad_menagement_read')")

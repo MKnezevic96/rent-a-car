@@ -12,6 +12,7 @@ import { RentRequest } from 'src/app/models/RentRequest';
 import { first } from 'rxjs/operators';
 import { Car } from 'src/app/models/Car';
 import { RentRequestComponent } from '../rent-request/rent-request.component';
+import { CarDetails } from 'src/app/models/CarDetails';
 
 @Component({
   selector: 'app-filter-cars',
@@ -20,9 +21,9 @@ import { RentRequestComponent } from '../rent-request/rent-request.component';
 })
 export class FilterCarsComponent implements OnInit {
 
-  cars: Car[];
+  cars: CarDetails[];
   carsAvailable: Car[];
-  carsFiltered: Car[];
+  carsFiltered: CarDetails[];
   fuelTypes: FuelType[];
   carModels:CarModels[];
   carClasses:CarClass[];
@@ -39,6 +40,13 @@ export class FilterCarsComponent implements OnInit {
   selectedEndDate: Date;
   id:number;
   city:string;
+  minPrice:string;
+  maxPrice:string;
+  minMileage:string;
+  maxMileage:string;
+  childSeats:string;
+  mileageLimit:string;
+  waiver:boolean = false;
 
   constructor(
     private adminService: AdminService,
@@ -53,18 +61,23 @@ export class FilterCarsComponent implements OnInit {
     this.adminService.getFuelT().subscribe(data =>{
       this.fuelTypes = data;
     });
+
     this.adminService.getCarModels().subscribe(data =>{
       this.carModels = data;
     });
+
     this.adminService.getCarC().subscribe(data =>{
       this.carClasses = data;
     });
+
     this.adminService.getTransmis().subscribe(data =>{
       this.tTypes = data;
     });
+
     this.adminService.getManufac().subscribe(data =>{
       this.manufacs = data;
     });
+    
     this.selectedStartDate = this.advertisementService.getSelectedStartDate();
     this.selectedEndDate = this.advertisementService.getSelectedEndDate();
     this.city = this.advertisementService.getCity();
@@ -79,46 +92,43 @@ export class FilterCarsComponent implements OnInit {
 
   selectedCarModel(name:CarModels){
     this.cm = name;
-    console.log(this.carModels);
+  }
+
+  selectedFuelType(name:FuelType){
+    this.ft = name;
+  }
+
+  selectedTransmissionType(name:TransmissionType){
+    this.tt = name;
+  }
+
+  selectedCarClass(name:CarClass){
+    this.cc = name;
+  }
+
+  selectedManufacturer(name:Manufacturer){
+    this.ma = name;
   }
 
   filter(){
-    var fuel;
-    var tran;
-    var manu;
-    var clas;
-    var model;
-    if(typeof this.ft == 'undefined'){
-      fuel = 'i';
-    }else{
-      fuel = this.ft.name;
-    }
-    if(typeof this.tt == 'undefined'){
-      tran = 'i';
-    }else{
-      tran = this.tt.name;
-    }
-    if(typeof this.ma == 'undefined'){
-      manu = 'i';
-    }else{
-      manu = this.ma.name;
-    }
-    if(typeof this.cc == 'undefined'){
-      clas = 'i';
-    }else{
-      clas = this.cc.name;
-    }
-    if(typeof this.cm == 'undefined'){
-      model = 'i';
-    }else{
-      model = this.cm.name;
-    }
-    this.advertisementService.getFilteredCars(fuel, tran, manu, clas, model).subscribe(data =>{
+   
+    var fuel:string = (typeof this.ft == 'undefined') ? 'i' : this.ft.name;
+    var tran:string = (typeof this.tt == 'undefined') ? 'i' : this.tt.name;
+    var manu:string = (typeof this.ma == 'undefined') ? 'i' : this.ma.name;
+    var clas:string = (typeof this.cc == 'undefined') ? 'i' : this.cc.name;
+    var model:string = (typeof this.cm == 'undefined') ? 'i' : this.cm.name;
+    this.minPrice = (typeof this.minPrice == 'undefined') ? 'i' : this.minPrice;
+    this.maxPrice = (typeof this.maxPrice == 'undefined') ? 'i' : this.maxPrice;
+    this.minMileage = (typeof this.minMileage == 'undefined') ? 'i' : this.minMileage;
+    this.maxMileage = (typeof this.maxMileage == 'undefined') ? 'i' : this.maxMileage;
+    this.childSeats = (typeof this.childSeats == 'undefined') ? 'i' : this.childSeats;
+    this.mileageLimit = (typeof this.mileageLimit == 'undefined') ? 'i' : this.mileageLimit;
+
+   this.filterCars = true;
+   
+   this.advertisementService.getFilteredCars(fuel, tran, manu, clas, model, this.minPrice, this.maxPrice, this.minMileage, this.maxMileage, this.childSeats, this.mileageLimit, this.waiver).subscribe(data =>{
       this.carsFiltered = data;
-      console.log(this.carsFiltered);
       this.getAvailableCars();
-      //this.setCars();
-      this.filterCars = !this.filterCars;
     });
   }
   getAvailableCars(){
@@ -131,40 +141,63 @@ export class FilterCarsComponent implements OnInit {
   setCars(){
     var i;
     var j;
-    var kola:Car[];
+    var kola:CarDetails[];
     for(i = 0 ; i < this.carsFiltered.length ; i++){
-      console.log(this.carsFiltered[i]);
       for(j = 0 ; j < this.carsAvailable.length ; j++){
-        console.log(this.carsAvailable[j]);
-        if(this.carsFiltered[i].id == this.carsAvailable[j].id){
+        if(this.carsFiltered[i].carId == this.carsAvailable[j].id){
           kola = kola || [];
           kola.push(this.carsFiltered[i]);
-          console.log(this.cars);
         }
       }
     }
     this.cars = kola;
-    // this.carsFiltered.forEach(el => {
-    //   console.log(el.name);
-    //   this.carsAvailable.forEach(e =>{
-    //     console.log(el.name);
-    //     if(el.id == e.id){
-    //       this.cars.push(el);
-    //     }
-    //   });
-    // });
+  
   }
 
 
   naKlik(carName:string) {
-    this.rentrequest={carName:carName, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false, id:this.id };
+    this.rentrequest={carName:carName, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false, id:this.id, startDateString:null, endDateString:null};
     this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
     .subscribe(
         data => {
-          console.log('request sent');
           alert('Request sent');
           this.router.navigateByUrl('index');
         })
   }
 
+  sortByPriceAsc(){
+    this.advertisementService.sortFilteredCars(this.cars, "asc", "price").subscribe(data =>{
+      this.cars=data;
+    });
+  }
+
+  sortByPriceDesc(){
+    this.advertisementService.sortFilteredCars(this.cars, "desc", "price").subscribe(data =>{
+      this.cars=data;
+    });
+  }
+
+  sortByRatingAsc(){
+    this.advertisementService.sortFilteredCars(this.cars, "asc", "rating").subscribe(data =>{
+      this.cars=data;
+    });
+  }
+
+  sortByRatingDesc(){
+    this.advertisementService.sortFilteredCars(this.cars, "desc", "rating").subscribe(data =>{
+      this.cars=data;
+    });
+  }
+
+  sortByMileageAsc(){
+    this.advertisementService.sortFilteredCars(this.cars, "asc", "mileage").subscribe(data =>{
+      this.cars=data;
+    });
+  }
+
+  sortByMileageDesc(){
+    this.advertisementService.sortFilteredCars(this.cars, "desc", "mileage").subscribe(data =>{
+      this.cars=data;
+    });
+  }
 }

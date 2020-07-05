@@ -80,6 +80,10 @@ public class Cars {
     @XmlElement
     private String averageRating;
 
+    @Column(name="child_seats")
+    @XmlElement
+    private String childSeats;
+
     @OneToMany(mappedBy="car", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     @XmlElement
     private List<CarReview> reviews = new ArrayList<CarReview>();
@@ -179,6 +183,14 @@ public class Cars {
 
     public String getAverageRating() {
         return averageRating;
+    }
+
+    public String getChildSeats() {
+        return childSeats;
+    }
+
+    public void setChildSeats(String childSeats) {
+        this.childSeats = childSeats;
     }
 
     public void setAverageRating(String averageRating) {

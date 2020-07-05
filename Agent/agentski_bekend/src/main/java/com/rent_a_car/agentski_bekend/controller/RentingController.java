@@ -31,9 +31,8 @@ import javax.ws.rs.core.MediaType;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @Validated
@@ -41,22 +40,22 @@ import java.util.List;
 public class RentingController {
 
     @Autowired
-    private CarsService carsService;
+    CarsService carsService;
 
     @Autowired
-    private UserServiceInterface userService;
+    UserServiceInterface userService;
 
     @Autowired
-    private RentRequestServiceInterface rentRequestService;
+    RentRequestServiceInterface rentRequestService;
 
     @Autowired
-    private RentingReportService rentingReportService;
+    RentingReportService rentingReportService;
 
     @Autowired
-    private CarReviewService carReviewService;
+    CarReviewService carReviewService;
 
     @Autowired
-    private MailService mailService;
+    MailService mailService;
 
 
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
@@ -114,57 +113,7 @@ public class RentingController {
         return ResponseEntity.status(400).build();
     }
 
-//    @GetMapping(value = "availableCars/{d1}/{d2}")
-//    public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, Principal p) throws ParseException {
-//
-//        DateFormat format = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
-//
-//        Date startDate = format.parse(d1);
-//        Date endDate = format.parse(d2);
-//
-//
-////        Date startDate = d1;
-////        Date endDate = d2;
-//
-//        List<RentRequest> rrList = rentRequestService.findAll();
-//        List<Cars> cList = carsService.findAll();
-//        List<CarsListingDTO> dto = new ArrayList<>();
-//        List<CarsListingDTO> carsForRemoval = new ArrayList<>();
-//        User u = userService.findByEmail(p.getName());
-//        for (Cars c : cList) {
-//            for (RentRequest rr : rrList) {
-//                if (rr.getCarId().equals(c)) {
-//                    if (startDate.before(rr.getStartDate())) {
-//                        if(endDate.before(rr.getEndDate())) {
-//                            //ubaci u dto
-//                            CarsListingDTO dt = new CarsListingDTO(c);
-//                            dto.add(dt);
-//                        }
-//                    }
-//                    else if (startDate.after(rr.getStartDate())) {
-//                        if (endDate.after(rr.getEndDate())){
-//                            //ubaci u dto
-//                            CarsListingDTO dt = new CarsListingDTO(c);
-//                            dto.add(dt);
-//                        }
-//                    }
-//                    else{
-//                        CarsListingDTO dt = new CarsListingDTO(c);
-//                        carsForRemoval.add(dt);
-//                    }
-//                }
-//            }
-//            //ubaci u dto
-//            CarsListingDTO dt = new CarsListingDTO(c);
-//            dto.add(dt);
-//        }
-//        for(CarsListingDTO ddd : carsForRemoval){
-//            dto.remove(ddd);
-//        }
-//
-//        return dto;
-//
-//    }
+
     @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value = "availableCars/{d1}/{d2}/{town}")
     public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, @PathVariable("town") String town,  Principal p) throws ParseException {
@@ -224,135 +173,6 @@ public class RentingController {
 
 
 
-    @PreAuthorize("hasAuthority('ad_menagement_read')")
-    @GetMapping(value = "filterCars/{fuelType}/{transType}/{manufac}/{carClass}/{carModel}")
-    public List<CarsListingDTO> getFilteredCars (@PathVariable("fuelType") String fuelType, @PathVariable("transType") String transType, @PathVariable("manufac") String manufac, @PathVariable("carClass") String carClass, @PathVariable("carModel") String carModel, Principal p) throws ParseException {
-
-        List<RentRequest> rrList = rentRequestService.findAll();
-        List<Cars> cList = carsService.findAll();
-        List<Cars> ftList = new ArrayList<>();
-        List<Cars> ttList = new ArrayList<>();
-        List<Cars> maList = new ArrayList<>();
-        List<Cars> ccList = new ArrayList<>();
-        List<Cars> cmList = new ArrayList<>();
-
-        List<CarsListingDTO> dto = new ArrayList<>();
-        List<CarsListingDTO> carsForRemoval = new ArrayList<>();
-        User u = userService.findByEmail(p.getName());
-        boolean ft;
-        boolean tt;
-        boolean ma;
-        boolean cc;
-        boolean cm;
-        if(fuelType.equals("i")){
-            ft = false;
-        }else{
-            ft = true;
-        }
-        if(transType.equals("i")){
-            tt = false;
-        }else{
-            tt = true;
-        }
-        if(manufac.equals("i")){
-            ma = false;
-        }else{
-            ma = true;
-        }
-        if(carClass.equals("i")){
-            cc = false;
-        }else{
-            cc = true;
-        }
-        if(carModel.equals("i")){
-            cm = false;
-        }else{
-            cm = true;
-        }
-
-
-        try {
-
-//            for(Cars car:cList){
-//                if(car.getModel().getName().equals(carModel)){
-//                    cmList.add(car);
-//                }
-//                if(car.getModel().getCarClass().getName().equals(carClass)){
-//                    ccList.add(car);
-//                }
-//                if(car.getModel().getTransmission().getName().equals(transType)){
-//                    ttList.add(car);
-//                }
-//                if(car.getModel().getManufacturer().getName().equals(manufac)){
-//                    maList.add(car);
-//                }
-//                if(car.getFuelType().getName().equals(fuelType)){
-//                    ftList.add(car);
-//                }
-//            }
-//
-//            for(Cars cmc:cmList){
-//                for(Cars ccc:ccList){
-//                    for(Cars ttc:ttList){
-//                        for(Cars mac:maList){
-//                            for(Cars ftc:ftList){
-//                                if(cmc.getId().equals(ccc.getId().equals(ttc.getId().equals(mac.getId().equals(ftc.getId()))))){
-//                                    CarsListingDTO dsa = new CarsListingDTO(cmc);
-//                                    dto.add(dsa);
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-
-
-            for(Cars car:cList){
-                boolean uslov1 = false;
-                boolean uslov2 = false;
-                boolean uslov3 = false;
-                boolean uslov4 = false;
-                boolean uslov5 = false;
-                if(!cm || car.getModel().getName().equals(carModel)){
-                    uslov1 = true;
-                }
-                if(!cc || car.getModel().getCarClass().getName().equals(carClass)){
-                    uslov2 = true;
-                }
-                if(!tt || car.getModel().getTransmission().getName().equals(transType)){
-                    uslov3 = true;
-                }
-                if(!ma || car.getModel().getManufacturer().getName().equals(manufac)){
-                    uslov4 = true;
-                }
-                if(!ft || car.getFuelType().getName().equals(fuelType)){
-                    uslov5 = true;
-                }
-                if(uslov1 && uslov2 && uslov3 && uslov4 && uslov5){
-                    CarsListingDTO dsa = new CarsListingDTO(car);
-                    dto.add(dsa);
-                }
-
-            }
-
-//            for(Cars car:cList){
-//                if(car.getModel().getName().equals(carModel) && car.getModel().getCarClass().getName().equals(carClass) && car.getModel().getTransmission().getName().equals(transType) && car.getModel().getManufacturer().getName().equals(manufac) && car.getFuelType().getName().equals(fuelType)){
-//                    CarsListingDTO dsa = new CarsListingDTO(car);
-//                    dto.add(dsa);
-//                }
-//            }
-
-            LOGGER.info("Action get all avaliable cars by user: {} successful ", p.getName());
-            return dto;
-        } catch (Exception e){
-            LOGGER.error("Action get all avaliable cars by user: {} failed. Cause: {} ", p.getName(), e.getMessage());
-        }
-
-        return null;
-    }
-
-
-
 
 
 
@@ -397,6 +217,20 @@ public class RentingController {
             rr.setOwningUser(user);
             rentRequestService.save(rr);
 
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            if(rr.getStatus().equals(RequestStatus.PENDING)) {
+                                rr.setStatus(RequestStatus.CANCELED);
+                                rentRequestService.save(rr);
+                            }
+
+                        }
+                    },
+                    24 * 3600 * 1000
+            );
+
             LOGGER.info("Action rent a car by user: {} successful", p.getName());
             return ResponseEntity.ok().build();
 
@@ -440,20 +274,29 @@ public class RentingController {
                for(RentRequest rr : rentRequestService.findAll()){
                    retVal.add(new RentRequestDTO(rr));
                }
-               LOGGER.info("Action get all rent requests by user: {} successful", user.getEmail());
 
            } else if (status.equals("paid")){
                for(RentRequest rr : rentRequestService.findAll()){
                    if(rr.getStatus().equals(RequestStatus.PAID) && rr.getCarId().getOwner().getEmail().equals(user.getEmail()))
                        retVal.add(new RentRequestDTO(rr));
                }
-               LOGGER.info("Action get paid rent requests by user: {} successful", user.getEmail());
+           } else if (status.equals("pending")){
+               for(RentRequest rr : rentRequestService.findAll()){
+                   if(rr.getStatus().equals(RequestStatus.PENDING) && rr.getCarId().getOwner().getEmail().equals(user.getEmail()))
+                       retVal.add(new RentRequestDTO(rr));
+               }
+           } else if (status.equals("reserved")){
+               for(RentRequest rr : rentRequestService.findAll()){
+                   if(rr.getStatus().equals(RequestStatus.RESERVED) && rr.getCarId().getOwner().getEmail().equals(user.getEmail()))
+                       retVal.add(new RentRequestDTO(rr));
+               }
            }
 
+           LOGGER.info("action=get rent requests, user={}, result=success", user.getEmail());
            return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
 
        } catch (Exception e) {
-           LOGGER.error("Action get paid rent requests by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
+           LOGGER.error("action=get rent requests, user={}, result=failure,  cause={}", user.getEmail(), e.getMessage());
        }
 
        return ResponseEntity.status(400).build();
@@ -725,13 +568,44 @@ public class RentingController {
 
         RentRequest u = rentRequestService.findById(id);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<RentRequest> autoCanceled = new ArrayList<>();
 
         try {
 
             u.setStatus(RequestStatus.RESERVED);
             rentRequestService.save(u);
-            // todo odbiti koji se preklapaju
-            //  carsService.autoReject(u);
+
+            List<RentRequest> requests = rentRequestService.findAll();
+            for(RentRequest rr : requests) {
+                if(rr.getCarId().getId() == u.getCarId().getId() && rr.getStatus().equals(RequestStatus.PENDING)) {
+                    rr.setStatus(RequestStatus.CANCELED);
+                    rentRequestService.save(rr);
+                    autoCanceled.add(rr);
+                }
+            }
+
+
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            if(!u.getStatus().equals(RequestStatus.PAID)) {
+                                u.setStatus(RequestStatus.CANCELED);
+                                rentRequestService.save(u);
+
+                                for(RentRequest rr : autoCanceled) {
+                                    rr.setStatus(RequestStatus.PENDING);
+                                    rentRequestService.save(rr);
+                                }
+
+                                //TODO uraditi isto za bundle odbijanje
+
+                            }
+
+                        }
+                    },
+                    12 * 3600 * 1000
+            );
 
             LOGGER.info("Action approve rent request id: {} by user: {} successful", id.toString(), user.getEmail());
             return ResponseEntity.ok().build();

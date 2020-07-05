@@ -44,7 +44,7 @@ export class AdvertisementService {
   url33:string = 'http://localhost:8282/api/renting/mycars';
   responseStatus: number;
   url5:string = 'http://localhost:8282/api/renting/payRequests';
-  url55:string = 'http://localhost:8282/api/renting/rentRequests';
+  url55:string = 'http://localhost:8282/api/renting/requests?status=pending';
   url6:string = 'http://localhost:8282/api/renting/approveRentRequest';
   url7:string = 'http://localhost:8282/api/renting/rejectRentRequest';
   url8:string = 'http://localhost:8282/api/renting/availableCars/'
@@ -54,8 +54,8 @@ export class AdvertisementService {
   getMostCommentedCarsUrl:string = 'http://localhost:8282/cars/most-commented'
   getHighestMileageCarsUrl:string = 'http://localhost:8282/cars/highest-mileage'
 
-  url8:string = 'http://localhost:8282/api/renting/availableCars/';
-  url9:string = 'http://localhost:8282/api/renting/filterCars/';
+  url9:string = 'http://localhost:8282/cars/filter?fuelType=';
+  sortUrl:string = 'http://localhost:8282/cars?sort_by='
 
 
   selectedStartDate:Date;
@@ -291,7 +291,7 @@ export class AdvertisementService {
   }
 
   getAvailableCars(startDate:Date, endDate:Date, town:string):Observable<Car[]>{
-    let token = localStorage.getItem('accessToken');     // iz browsera
+    let token = localStorage.getItem('accessToken');    
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -305,8 +305,8 @@ export class AdvertisementService {
   }
 
 
-  getFilteredCars(fuelType:string, transType:string, manufac:string, carClass:string, carModel:string):Observable<Car[]>{
-    let token = localStorage.getItem('accessToken');     // iz browsera
+  getFilteredCars(fuelType:string, transType:string, manufac:string, carClass:string, carModel:string, minPrice:string, maxPrice:string, minMileage:string, maxMileage:string, childSeats:string, mileageLimit:string, waiver:boolean):Observable<CarDetails[]>{
+    let token = localStorage.getItem('accessToken');     
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -314,22 +314,24 @@ export class AdvertisementService {
         'Authorization': 'Bearer ' + token,
       })
     }
-    // if(fuelType==''){
-    //   fuelType = 'i';
-    // }
-    // if(transType==''){
-    //   fuelType = 'i';
-    // }
-    // if(manufac==''){
-    //   fuelType = 'i';
-    // }
-    // if(carClass==''){
-    //   fuelType = 'i';
-    // }
-    // if(carModel==''){
-    //   fuelType = 'i';
-    // }
-    return this.http.get<Car[]>(this.url9+fuelType+'/'+transType+'/'+manufac+'/'+carClass+'/'+carModel, httpOptions);
+    
+    return this.http.get<CarDetails[]>(this.url9+fuelType+'&transType='+transType+'&manufac='+manufac+'&carClass='+carClass+'&carModel='+carModel+'&minPrice='
+    +minPrice+'&maxPrice='+maxPrice+'&minMileage='+minMileage+'&maxMileage='+maxMileage+'&childSeats='+childSeats+'&mileageLimit='+mileageLimit+'&waiver='
+    +waiver, httpOptions);
+  }
+
+
+
+  sortFilteredCars(cars:CarDetails[], type:string, entity:string):Observable<CarDetails[]>{
+    let token = localStorage.getItem('accessToken');    
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    return this.http.post<CarDetails[]>(this.sortUrl+type+'('+entity+')', cars, httpOptions);
   }
 
   getCurrentUser():Observable<User> {

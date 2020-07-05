@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/User';
 import { RegisterService } from '../../services/register.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { first } from 'rxjs/operators';
-import { AlertService } from 'src/app/services/alert.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserRequest } from '../../models/UserRequest';
-import { UserService } from 'src/app/services/UserService';
+import { UserService } from 'src/app/security/user.service';
 
 @Component({
   selector: 'app-register-admin',
@@ -21,7 +17,7 @@ export class RegisterAdminComponent implements OnInit {
    userRequest: UserRequest;
  
    constructor( private registrationService: RegisterService,
-               private formBuilder: FormBuilder, private router: Router) {
+               private formBuilder: FormBuilder, private router: Router, private userService:UserService) {
      //this.notifier = notifierService;
    }
  
@@ -35,7 +31,9 @@ export class RegisterAdminComponent implements OnInit {
          lastname: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
          name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
          adress: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
-         number: ['', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.minLength(9), Validators.maxLength(10)]]
+         number: ['', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.minLength(9), Validators.maxLength(10)]],
+         pib: ['', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.minLength(8), Validators.maxLength(8)]]
+
          
        },
        {validator: this.checkPasswords});
@@ -75,13 +73,17 @@ export class RegisterAdminComponent implements OnInit {
      const registration = new UserRequest( this.userData.value.firstname,
        this.userData.value.lastname, this.userData.value.email, this.userData.value.password,
        'isCompany', this.userData.value.name, 
-       this.userData.value.adress, this.userData.value.number);
-       console.log(registration);
+       this.userData.value.adress, this.userData.value.number, this.userData.value.pib);
  
      this.registrationService.onRegister(registration).subscribe(data => {
        this.router.navigate(['/adminPage'])
        //this.showNotification('success', 'You successfully sent a registration request.');
      });
    }
+
+   logout(){
+    this.userService.logout().subscribe(data =>{
+    });
+  }
 
 }

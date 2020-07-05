@@ -13,14 +13,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -203,7 +200,7 @@ public class AdminController {
             Company com = new Company();
             com.setName(us.getName());
             com.setAddress(us.getAddress());
-            com.setBussinessNumber(us.getNumber());
+            com.setBussinessNumber(us.getPib());
             com.setDeleted(false);
             com.setOwner(u);
             companyService.save(com);
@@ -241,7 +238,7 @@ public class AdminController {
         return ResponseEntity.status(400).build();
 
     }
-    
+
 
 
     @RequestMapping(method = RequestMethod.GET, path = "/activateAcc/{mail:.+}")

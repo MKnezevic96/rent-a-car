@@ -22,8 +22,8 @@ import { AdvertisementService } from 'src/app/services/advertisement.service';
               <tbody>
                 <tr *ngFor="let rr of requests">           
                   <td>{{ rr.carName }}</td>
-                  <td>{{ rr.startDate }}</td>
-                  <td>{{ rr.endDate }}</td>
+                  <td>{{ rr.startDateString }}</td>
+                  <td>{{ rr.endDateString }}</td>
                   <td>{{ rr.status }}</td>
                   <td><button class="btn btn-primary" (click)="approve(rr.id)">Approve rent request</button></td>
                   <td><button class="btn btn-primary" (click)="reject(rr.id)">Reject rent request</button></td>
@@ -46,6 +46,7 @@ export class RentingApproveComponent implements OnInit {
   ngOnInit(): void {
     this.advertisementService.getRentRequests().subscribe(data =>{
       this.requests = data;
+
     });
   }
      approve(id:number){

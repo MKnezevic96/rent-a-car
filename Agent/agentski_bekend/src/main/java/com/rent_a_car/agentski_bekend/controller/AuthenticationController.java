@@ -80,11 +80,12 @@ public class AuthenticationController {
 
         if (dto.getIsSelected().equals("isCompany")) {
             user.setCompany(true);
+            user.setPib(dto.getPib());
+            user.setName(dto.getName());
         } else if (dto.getIsSelected().equals("isUser")) {
             user.setUser(true);
         }
 
-        user.setName(dto.getName());
         user.setAddress(dto.getAdress());
         user.setNumber(dto.getNumber());
 

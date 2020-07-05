@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Rent Request</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- <link rel="stylesheet" href="css/register.css"> -->
-    <!-- <script src="js/Register.js"></script> -->
+    
 </head>
 <body>
-<div class="wrapper fadeInDown">
+<div class="container fluid">
     <div class="row">
     <div class="col-md-4 mb-3">
         <label>Car model</label>
@@ -22,7 +19,7 @@
     <div class="col-md-4 mb-3">
         <label>Car class</label>
         <select [(ngModel)]="cc" class="form-control">
-            <option [ngValue]="cc" *ngFor="let cc of carClasses" (click)="selectedCarModel(cc)">
+            <option [ngValue]="cc" *ngFor="let cc of carClasses" (click)="selectedCarClass(cc)">
                 {{cc.name}}
             </option>
         </select>
@@ -30,7 +27,7 @@
     <div class="col-md-4 mb-3">
         <label>Transmission type</label>
         <select [(ngModel)]="tt" class="form-control">
-            <option [ngValue]="tt" *ngFor="let tt of tTypes" (click)="selectedCarModel(tt)">
+            <option [ngValue]="tt" *ngFor="let tt of tTypes" (click)="selectedTransmissionType(tt)">
                 {{tt.name}}
             </option>
         </select>
@@ -38,7 +35,7 @@
     <div class="col-md-4 mb-3">
         <label>Fuel type</label>
         <select [(ngModel)]="ft" class="form-control">
-            <option [ngValue]="ft" *ngFor="let ft of fuelTypes" (click)="selectedCarModel(ft)">
+            <option [ngValue]="ft" *ngFor="let ft of fuelTypes" (click)="selectedFuelType(ft)">
                 {{ft.name}}
             </option>
         </select>
@@ -46,32 +43,120 @@
     <div class="col-md-4 mb-3">
         <label>Manufacturer</label>
         <select [(ngModel)]="ma" class="form-control">
-            <option [ngValue]="ma" *ngFor="let ma of manufacs" (click)="selectedCarModel(ma)">
+            <option [ngValue]="ma" *ngFor="let ma of manufacs" (click)="selectedManufacturer(ma)">
                 {{ma.name}}
             </option>
         </select>
     </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Min price</label>
+        <input type="number" min="0" id="minPrice" class="form-control" name="minPrice" [(ngModel)]="minPrice" />
+
+    </div>
+    <div class="col-md-4 mb-3">
+        <label>Max price</label>
+        <input type="number" min="0" id="maxPrice" class="form-control" name="maxPrice" [(ngModel)]="maxPrice" />
+
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Min mileage</label>
+        <input type="number" min="0" id="minMileage" class="form-control" name="minMileage" [(ngModel)]="minMileage" />
+
+    </div>
+    <div class="col-md-4 mb-3">
+        <label>Max mileage</label>
+        <input type="number" min="0" id="maxMileage" class="form-control" name="maxMileage" [(ngModel)]="maxMileage" />
+
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Mileage limit</label>
+        <input type="number" min="0" id="mileageLimit" class="form-control" name="mileageLimit" [(ngModel)]="mileageLimit" />
+
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Child seats</label>
+        <input type="number" min="0" id="childSeats" class="form-control" name="childSeats" [(ngModel)]="childSeats" />
+
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Collision Damage Waiver</label>
+        <input type="checkbox" id="waiver" name="waiver" [(ngModel)]="waiver">
+
+    </div>
+
     <div>
         <button class="btn btn-primary" (click)="filter()">Filter</button>
     </div>
 </div>
+</div>
+
+
+
 
 <ng-container *ngIf="filterCars">
+
+    <div class="row">
+        <div>
+            <button style="margin-top: 50px; margin-left: 10px; background-color:white" class="btn btn-primary btn-sm" (click)="sortByPriceAsc()">Sort by price asc</button>
+        </div>
+        <div>
+            <button style="margin-top: 50px; margin-left: 10px; background-color:white" class="btn btn-primary btn-sm" (click)="sortByPriceDesc()">Sort by price desc</button>
+        </div>
+    
+        <div>
+            <button style="margin-top: 50px; margin-left: 10px; background-color:white" class="btn btn-primary btn-sm" (click)="sortByRatingAsc()">Sort by rating asc</button>
+        </div>
+        <div>
+            <button style="margin-top: 50px; margin-left: 10px; background-color:white" class="btn btn-primary btn-sm" (click)="sortByRatingDesc()">Sort by rating desc</button>
+        </div>
+    
+        <div>
+            <button style="margin-top: 50px; margin-left: 10px; background-color:white" class="btn btn-primary btn-sm" (click)="sortByMileageAsc()">Sort by mileage asc</button>
+        </div>
+        <div>
+            <button style="margin-top: 50px; margin-left: 10px; background-color:white" class="btn btn-primary btn-sm" (click)="sortByMileageDesc()">Sort by mileage desc</button>
+        </div>
+    </div>
+
     <table class="table table-borderless">
         <thead>
           <tr>           
             <th>Car name</th>
             <th>Town</th>
             <th>Model</th>
+            <th>Class</th>
+            <th>Transmission</th>
             <th>Fuel</th>
+            <th>Manufacturer</th>
+            <th>Price per day</th>
+            <th>Mileage</th>
+            <th>Mileage limit</th>
+            <th>Collision damage price</th>
+            <th>Child seats</th>
+            <th>Average rating</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let user of cars">           
             <td>{{ user.carName }}</td>
             <td>{{ user.town }}</td>
-            <td>{{ user.model }}</td>
-            <td>{{ user.fuel }}</td>
+            <td>{{ user.carModelName }}</td>
+            <td>{{ user.carClass }}</td>
+            <td>{{ user.carTransmission }}</td>
+            <td>{{ user.fuelType }}</td>
+            <td>{{ user.carManufacturer }}</td>
+            <td>{{ user.pricePerDay }}</td>
+            <td>{{ user.milage }}</td>
+            <td>{{ user.distanceLimit }}</td>
+            <td>{{ user.collisionDamage }}</td>
+            <td>{{ user.averageRating }}</td>
+            <td>{{ user.childSeats }}</td>
+
 
             <td><button class="btn btn-primary "(click)="naKlik(user.carName)">Reserve</button></td>
           </tr>
@@ -80,6 +165,6 @@
 </ng-container> 
         <div id="formFooter">
         </div>
-</div>
+
 </body>
 </html>

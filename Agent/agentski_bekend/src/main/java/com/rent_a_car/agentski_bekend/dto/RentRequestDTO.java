@@ -47,7 +47,6 @@ public class RentRequestDTO {
 //        this.requestGroupId=req.getRequestGroupId();
         this.id=req.getId();
         this.carName = req.getCarId().getName();
-
     }
 
 

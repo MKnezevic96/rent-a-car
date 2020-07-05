@@ -75,7 +75,7 @@ export class RegisterComponent implements OnInit {
 
     const registration = new UserRequest( this.userData.value.firstname,
       this.userData.value.lastname, this.userData.value.email, this.userData.value.password,
-      'isUser', '', '', '');
+      'isUser', '', '', '', '');
 
     this.registrationService.onRegister(registration).subscribe(data => {
       this.router.navigate(['/login'])

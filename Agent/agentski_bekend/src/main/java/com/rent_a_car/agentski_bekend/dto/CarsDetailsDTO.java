@@ -26,6 +26,7 @@ public class CarsDetailsDTO {
     private String averageRating;
     private double mileageNumber;
     private String commentsNumber;
+    private String childSeats;
 
     public CarsDetailsDTO (Cars car) {
         this.carId = car.getId();
@@ -48,7 +49,38 @@ public class CarsDetailsDTO {
         this.town = car.getTown();
         this.carOwnerEmail = car.getOwner().getEmail();
         this.averageRating = car.getAverageRating();
+        this.childSeats = car.getChildSeats();
 
+    }
+
+    public CarsDetailsDTO() {
+
+    }
+
+    public CarsDetailsDTO(Integer carId, Integer ownerId, String carName, String carModelName, String carManufacturer, String carClass, String carTransmission, String fuelType, String pricingPlan, Integer pricingId, Double distanceLimit, Double distancePenalty, Double collisionDamage, Integer discoundDays, Double doscountPercent, Double pricePerDay, Double milage, String town, String carOwnerEmail, String averageRating, double mileageNumber, String commentsNumber, String childSeats) {
+        this.carId = carId;
+        this.ownerId = ownerId;
+        this.carName = carName;
+        this.carModelName = carModelName;
+        this.carManufacturer = carManufacturer;
+        this.carClass = carClass;
+        this.carTransmission = carTransmission;
+        this.fuelType = fuelType;
+        this.pricingPlan = pricingPlan;
+        this.pricingId = pricingId;
+        this.distanceLimit = distanceLimit;
+        this.distancePenalty = distancePenalty;
+        this.collisionDamage = collisionDamage;
+        this.discoundDays = discoundDays;
+        this.doscountPercent = doscountPercent;
+        this.pricePerDay = pricePerDay;
+        this.milage = milage;
+        this.town = town;
+        this.carOwnerEmail = carOwnerEmail;
+        this.averageRating = averageRating;
+        this.mileageNumber = mileageNumber;
+        this.commentsNumber = commentsNumber;
+        this.childSeats = childSeats;
     }
 
     public Integer getCarId() {
@@ -222,6 +254,14 @@ public class CarsDetailsDTO {
 
     public String getCommentsNumber() {
         return commentsNumber;
+    }
+
+    public String getChildSeats() {
+        return childSeats;
+    }
+
+    public void setChildSeats(String childSeats) {
+        this.childSeats = childSeats;
     }
 
     public void setCommentsNumber(String commentsNumber) {

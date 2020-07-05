@@ -102,13 +102,7 @@ const routes: Routes = [
           path: 'rentingMenagement',
           component: RentingMenagementComponent,
           children: [
-            { path: 'rentPayment', component: RentPaymentComponent},
-            // { path: 'advertisement',
-            //   component: AdvertisementComponent,
-            //   children: [
-            //     { path: 'pricing', component: PricingPageComponent},
-            //   ]
-            // },
+            { path: 'rentPayment', component: RentPaymentComponent},                        
             { path: 'rentRequest', component: RentRequestComponent},
             { path: 'advertisement', component: AdvertisementComponent},
             { path: 'pricing', component: PricingPageComponent},
