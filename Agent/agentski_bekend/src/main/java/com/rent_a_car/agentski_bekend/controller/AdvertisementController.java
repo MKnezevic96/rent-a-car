@@ -24,29 +24,28 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+//@RequestMapping(value = "api/cars/")
+
 public class AdvertisementController {
 
 
     @Autowired
-    private PricingServicecInterface pricingService;
+    PricingServicecInterface pricingService;
 
     @Autowired
-    private CarClassServiceInterface carClassService;
+    CarModelsServiceInterface carModelsService;
 
     @Autowired
-    private CarModelsServiceInterface carModelsService;
+    FuelTypeServiceInterface fuelTypeService;
 
     @Autowired
-    private FuelTypeServiceInterface fuelTypeService;
+    CarsService carsService;
 
     @Autowired
-    private CarsService carsService;
+    RentRequestServiceInterface rentRequestService;
 
     @Autowired
-    private RentRequestServiceInterface rentRequestService;
-
-    @Autowired
-    private UserServiceInterface userService;
+    UserServiceInterface userService;
 
 
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
@@ -73,10 +72,10 @@ public class AdvertisementController {
            // c.setOwner(dto.getOwner());
 
             pricingService.save(c);
-            LOGGER.info("Action create pricing: {}] by user: {} successful", dto.getName(), p.getName());
+            LOGGER.info("action=create pricing, user={}, result=success", p.getName());
             return ResponseEntity.ok().build();
         }catch (Exception e){
-            LOGGER.error("Action create pricing: {}] by user: {} failed. Cause: {}", dto.getName(), p.getName(), e.getMessage());
+            LOGGER.error("action=create pricing, user={}, result=failure, cause={}", p.getName(), e.getMessage());
         }
         return ResponseEntity.status(400).build();
     }
@@ -107,10 +106,10 @@ public class AdvertisementController {
                 }
             }
 
-            LOGGER.info("Action get pricing by user: {} successful", p.getName());
+            LOGGER.info("action=get pricing, user={}, result=success", p.getName());
 
         } catch (Exception e) {
-            LOGGER.info("Action get pricing by user: {} failed. Cause: {}", p.getName(), e.getMessage());
+            LOGGER.error("action=get pricing, user={}, result=failure, cause={}", p.getName(), e.getMessage());
         }
 
         return dto;
@@ -123,6 +122,7 @@ public class AdvertisementController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         try{
+
             Cars c = new Cars();
             CarModels cm = carModelsService.findByName(dto.getCarModel());
             c.setModel(cm);
@@ -138,11 +138,11 @@ public class AdvertisementController {
             c.setAndroidGps(null);
 
             carsService.save(c);
-            LOGGER.info("Action add car: {} advertisement by user: {} successful", dto.getName(), user.getEmail());
+            LOGGER.info("action=add car, user={}, result=success", user.getEmail());
 
             return ResponseEntity.ok().build();
         }catch (Exception e){
-            LOGGER.error("Action add car: {} advertisement by user: {} failed. Cause: {}", dto.getName(), user.getEmail(), e.getMessage());
+            LOGGER.error("action=add car, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
         return ResponseEntity.status(400).build();
     }
@@ -171,10 +171,10 @@ public class AdvertisementController {
                }
            }
 
-           LOGGER.info("Action get cars by user: {} successful", p.getName());
+           LOGGER.info("action=get cars, user={}, result=success", p.getName());
 
        } catch (Exception e) {
-           LOGGER.error("Action get cars by user: {} failed. Cause: {}", p.getName(), e.getMessage());
+           LOGGER.error("action=get cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
 
        }
 
@@ -183,7 +183,7 @@ public class AdvertisementController {
 
     @PreAuthorize("hasAuthority('rent_menagement_write')")
     @PostMapping(value="/rentCar")
-    public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto){
+    public ResponseEntity<?> rentACar(@RequestBody RentRequestDTO dto){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -197,10 +197,10 @@ public class AdvertisementController {
             rr.setDeleted(false);
             rentRequestService.save(rr);
 
-            LOGGER.info("Action rent a car: {} by user: {} successful", dto.getCarName(), user.getEmail());
+            LOGGER.info("action=rent a car, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
         }catch (Exception e){
-            LOGGER.error("Action rent a car: {} by user: {} failed. Cause: {}", dto.getCarName(), user.getEmail(), e.getMessage());
+            LOGGER.error("action=rent a car, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
         return ResponseEntity.status(400).build();
     }
@@ -231,7 +231,7 @@ public class AdvertisementController {
 
             LOGGER.info("action=get top rated cars, user={}, result=success", p.getName());
         } catch (Exception e) {
-            LOGGER.info("action=get top rated cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+            LOGGER.error("action=get top rated cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
 
         }
 
@@ -302,7 +302,7 @@ public class AdvertisementController {
 
             LOGGER.info("action=sort cars, user={}, result=success", p.getName());
         } catch (Exception e) {
-            LOGGER.info("action=sort cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+            LOGGER.error("action=sort cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
 
         }
 
@@ -379,7 +379,7 @@ public class AdvertisementController {
 
             LOGGER.info("action=get most commented cars, user={}, result=success", p.getName());
         } catch (Exception e) {
-            LOGGER.info("action=get most commented cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+            LOGGER.error("action=get most commented cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
 
         }
 
@@ -413,7 +413,7 @@ public class AdvertisementController {
 
             LOGGER.info("action=get highest mileage cars, user={}, result=success", p.getName());
         } catch (Exception e) {
-            LOGGER.info("action=get highest mileage cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+            LOGGER.error("action=get highest mileage cars, user={}, result=failure, cause={}", p.getName(), e.getMessage());
 
         }
 

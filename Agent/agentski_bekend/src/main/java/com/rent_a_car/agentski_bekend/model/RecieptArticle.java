@@ -51,7 +51,12 @@ public class RecieptArticle {
     @XmlElement(required=true)
     private boolean deleted = false;
 
+
     public RecieptArticle () {}
+
+
+
+
 
     public Integer getId() {
         return id;

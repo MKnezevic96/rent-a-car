@@ -43,9 +43,14 @@ public class Reciept {
     @Column(name="deleted", nullable=false)
     private boolean deleted = false;
 
+
     public Reciept() {
         this.deleted = false;
     }
+
+
+
+
 
     public boolean isDeleted() {
         return deleted;
@@ -54,8 +59,6 @@ public class Reciept {
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
-
-
 
     public Integer getId() {
         return id;

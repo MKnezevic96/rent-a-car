@@ -30,21 +30,20 @@ public class MessageController {
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
 
     @Autowired
-    private MessageService messageService;
+    MessageService messageService;
 
     @Autowired
-    private UserService userService;
+    UserService userService;
 
     @Autowired
-    private MailService mailService;
-
+    MailService mailService;
 
 
 
     @PreAuthorize("hasAuthority('msg_menagement_read')")
     @GetMapping(value = "users")
     public ResponseEntity<List<UserDTO>> getAllUsers (@RequestParam(value = "param", required = false) String param, Principal p) {
-        List<UserDTO> retVal = new ArrayList<UserDTO>();
+        List<UserDTO> retVal = new ArrayList<>();
         List<String> emails = new ArrayList<>();
         User currentUser = userService.findByEmail(p.getName());
         try {
@@ -78,39 +77,49 @@ public class MessageController {
                 retVal.add(new UserDTO(userService.findByEmail(email)));
             }
 
-            LOGGER.info("action=get all users, user={}, result=success", p.getName());
-            return new ResponseEntity<List<UserDTO>>(retVal, HttpStatus.OK);
+            LOGGER.info("action=get users, user={}, result=success", p.getName());
+            return new ResponseEntity<>(retVal, HttpStatus.OK);
 
         } catch(Exception e){
-            LOGGER.info("action=get all users, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+            LOGGER.error("action=get users, user={}, result=failure, cause={}", p.getName(), e.getMessage());
         }
 
-        return new ResponseEntity<List<UserDTO>>(retVal, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(retVal, HttpStatus.BAD_REQUEST);
     }
 
 
     @PreAuthorize("hasAuthority('msg_menagement_read')")
     @GetMapping(value = "history")
     public ResponseEntity<List<MessageDTO>> getMessageHistory (@RequestParam(value = "email", required = false) String email,  Principal p) {
-        List<MessageDTO> retVal = new ArrayList<MessageDTO>();
-        User user = userService.findByEmail(p.getName());
 
-        for(Message m : user.getSentMessages()){
-            if(m.getTo().getEmail().equals(email)){
-                retVal.add(new MessageDTO(m));
+        List<MessageDTO> retVal = new ArrayList<>();
+
+        try{
+
+            User user = userService.findByEmail(p.getName());
+
+            for(Message m : user.getSentMessages()){
+                if(m.getTo().getEmail().equals(email)){
+                    retVal.add(new MessageDTO(m));
+                }
             }
-        }
 
-        for(Message m : user.getRecieved()){
-            if(m.getFrom().getEmail().equals(email)){
-                retVal.add(new MessageDTO(m));
+            for(Message m : user.getRecieved()){
+                if(m.getFrom().getEmail().equals(email)){
+                    retVal.add(new MessageDTO(m));
+                }
             }
+
+            retVal.sort(Comparator.comparing(MessageDTO::getDate));
+
+            LOGGER.info("action=get message history, user={}, result=success", p.getName());
+            return new ResponseEntity<>(retVal, HttpStatus.OK);
+
+        } catch (Exception e){
+            LOGGER.error("action=get message history, user={}, result=failure, cause={}", p.getName(), e.getMessage());
         }
+        return ResponseEntity.status(400).build();
 
-        retVal.sort(Comparator.comparing(MessageDTO::getDate));
-
-        LOGGER.info("action=get message history, user={}, result=success", p.getName());
-        return new ResponseEntity<List<MessageDTO>>(retVal, HttpStatus.OK);
     }
 
 
@@ -146,7 +155,7 @@ public class MessageController {
             return ResponseEntity.status(200).build();
 
         }catch (Exception e){
-            LOGGER.info("action=send message, user={}, result=failure, cause={}", p.getName(), e.getMessage());
+            LOGGER.error("action=send message, user={}, result=failure, cause={}", p.getName(), e.getMessage());
         }
         return ResponseEntity.status(400).build();
     }

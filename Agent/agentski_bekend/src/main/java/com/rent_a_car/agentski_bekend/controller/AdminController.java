@@ -27,46 +27,48 @@ import java.util.*;
 
 @RestController
 @Validated
+//@RequestMapping(value = "api/admin/")
+
 public class AdminController {
 
     @Autowired
-    private CarsService carsService;
+    CarsService carsService;
 
     @Autowired
-    private CarClassServiceInterface carClassService;
+    CarClassServiceInterface carClassService;
 
     @Autowired
-    private ManufacturerServiceInterface manufacturerService;
+    ManufacturerServiceInterface manufacturerService;
 
     @Autowired
-    private TransmissionTypeServiceInterface transmissionTypeService;
+    TransmissionTypeServiceInterface transmissionTypeService;
 
     @Autowired
-    private FuelTypeServiceInterface fuelTypeService;
+    FuelTypeServiceInterface fuelTypeService;
 
     @Autowired
-    private CarModelsServiceInterface carModelsService;
+    CarModelsServiceInterface carModelsService;
 
     @Autowired
-    private UserRequestServiceInterface userRequestService;
+    UserRequestServiceInterface userRequestService;
 
     @Autowired
-    private UserServiceInterface userService;
+    UserServiceInterface userService;
 
     @Autowired
-    private CarReviewServiceInterface carReviewService;
+    CarReviewServiceInterface carReviewService;
 
     @Autowired
-    private CompanyServiceInterface companyService;
+    CompanyServiceInterface companyService;
 
     @Autowired
-    private RoleServiceInterface roleService;
+    RoleServiceInterface roleService;
 
     @Autowired
-    private CarsService carService;
+    CarsService carService;
 
     @Autowired
-    private MailService mailService;
+    MailService mailService;
 
     @Value("${back-uri}")
     private String uri;
@@ -100,11 +102,11 @@ public class AdminController {
                 }
             }
 
-            LOGGER.info("Action get all car reviews by user: {} successful", user.getEmail());
+            LOGGER.info("action=get car reviews, user={}, result=success", user.getEmail());
             return dto;
 
         } catch (Exception e) {
-            LOGGER.error("Action get all car reviews by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=get car reviews, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return null;
@@ -141,7 +143,7 @@ public class AdminController {
            return ResponseEntity.ok().build();
 
        } catch (Exception e) {
-           LOGGER.info("action=approve car review, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
+           LOGGER.error("action=approve car review, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
        }
 
        return ResponseEntity.status(400).build();
@@ -173,13 +175,13 @@ public class AdminController {
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.info("action=deny car review, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=deny car review, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
     }
 
-//-----------------------------------------------------------------
+
     @PreAuthorize("hasAuthority('user_menagement_write')")
     @PostMapping(value="/admin/activateAcc")
     public ResponseEntity<?> activateAcc(@RequestBody String email){
@@ -226,12 +228,12 @@ public class AdminController {
             userService.save(u);
             userRequestService.delete(us);
 
-            LOGGER.error("Validation email has been sent to user: {} by administrator: {}.", u.getEmail(), user.getEmail());
+            LOGGER.info("action=activate account, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (MessagingException | IOException | javax.mail.MessagingException e) {
 
-            LOGGER.error("Validation email has NOT been sent to user: {} by administrator: {}. Cause: {}", u.getEmail(), user.getEmail(), e.getMessage());
+            LOGGER.error("action=activate account, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
 
         }
 
@@ -250,10 +252,10 @@ public class AdminController {
             user.setActivated(true);
             userService.save(user);
 
-            LOGGER.info("User account {} has been activated", mail);
+            LOGGER.info("action=activate account, user={}, result=success", user.getEmail());
 
         } catch (Exception e) {
-            LOGGER.error("User account {} has NOT been activated Cause: {}", mail, e.getMessage());
+            LOGGER.error("action=activate account, user={}, result=failure, cause={}", mail, e.getMessage());
         }
 
 
@@ -277,11 +279,11 @@ public class AdminController {
             u.setBlocked(false);
             userService.save(u);
 
-            LOGGER.info("User: {} reactivated the account email: {} successfully.", user.getEmail(), email);
+            LOGGER.info("action=reactivate account, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to reactivate the account email: {}. Cause: {}", user.getEmail(), email, e.getMessage());
+            LOGGER.error("action=reactivate account, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -300,11 +302,11 @@ public class AdminController {
             u.setBlocked(true);
             userService.save(u);
 
-            LOGGER.info("User: {} blocked the account email: {} successfully.", user.getEmail(), email);
+            LOGGER.info("action=block account, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to block the account email: {}. Cause: {}", user.getEmail(), email, e.getMessage());
+            LOGGER.error("action=block account, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -333,7 +335,7 @@ public class AdminController {
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.info("action=delete account, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=delete account, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -354,11 +356,11 @@ public class AdminController {
             cc.setDeleted(false);
             carClassService.save(cc);
 
-            LOGGER.info("User: {} added new car class: {} successfully.", user.getEmail(), name);
+            LOGGER.info("action=add car class, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to add new class: {}. Cause: {}", user.getEmail(), name, e.getMessage());
+            LOGGER.error("action=add car class, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -385,11 +387,11 @@ public class AdminController {
             cm.setDeleted(false);
             carModelsService.save(cm);
 
-            LOGGER.info("User: {} added new car model: {} successfully.", user.getEmail(), dto.getName());
+            LOGGER.info("action=add car model, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to add new car model: {}. Cause: {}", user.getEmail(), dto.getName(), e.getMessage());
+            LOGGER.error("action=add car model, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -410,11 +412,11 @@ public class AdminController {
             cc.setDeleted(false);
             fuelTypeService.save(cc);
 
-            LOGGER.info("User: {} added new fuel type: {} successfully.", user.getEmail(), name);
+            LOGGER.info("action=add fuel type, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to add new fuel type: {}. Cause: {}", user.getEmail(), name, e.getMessage());
+            LOGGER.error("action=add fuel type, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -435,11 +437,11 @@ public class AdminController {
             m.setDeleted(false);
             manufacturerService.save(m);
 
-            LOGGER.info("User: {} added new nanufacturer: {} successfully.", user.getEmail(), name);
+            LOGGER.info("action=add manufacturer, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to add new manufacturer: {}. Cause: {}", user.getEmail(), name, e.getMessage());
+            LOGGER.error("action=add manufacturer, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -460,11 +462,11 @@ public class AdminController {
             tt.setDeleted(false);
             transmissionTypeService.save(tt);
 
-            LOGGER.info("User: {} added new transmission type: {} successfully.", user.getEmail(), name);
+            LOGGER.info("action=add transmission type, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to add new transmission type: {}. Cause: {}", user.getEmail(), name, e.getMessage());
+            LOGGER.error("action=add transmission type, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -491,11 +493,11 @@ public class AdminController {
                 dto.add(d);
             }
 
-            LOGGER.info("Action get all manufactures by user: {} successful", user.getEmail());
+            LOGGER.info("action=get manufacturers, user={}, result=success", user.getEmail());
             return dto;
 
         } catch (Exception e) {
-            LOGGER.error("Action get all manufactures by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=get manufacturers, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return null;
@@ -523,11 +525,11 @@ public class AdminController {
                 dto.add(m);
             }
 
-            LOGGER.info("Action get all car models by user: {} successful", user.getEmail());
+            LOGGER.info("action=get car models, user={}, result=success", user.getEmail());
             return dto;
 
         } catch (Exception e) {
-            LOGGER.error("Action get all car models by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=get car models, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return null;
@@ -554,11 +556,11 @@ public class AdminController {
                 dto.add(m);
             }
 
-            LOGGER.info("Action get user requests by user: {} successful", user.getEmail());
+            LOGGER.info("action=get user requests, user={}, result=success", user.getEmail());
             return dto;
 
         } catch (Exception e) {
-            LOGGER.error("Action get user requests by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=get user requests, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return null;
@@ -589,11 +591,11 @@ public class AdminController {
             }
 
 
-            LOGGER.info("Action get users by user: {} successful", user.getEmail());
+            LOGGER.info("action=get users, user={}, result=success", user.getEmail());
             return dto;
 
         } catch (Exception e) {
-            LOGGER.error("Action get users by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=get users, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return null;
@@ -622,11 +624,11 @@ public class AdminController {
                 }
             }
 
-            LOGGER.info("Action get blocked users by user: {} successful", user.getEmail());
+            LOGGER.info("action=get blocked users, user={}, result=success", user.getEmail());
             return dto;
 
         } catch (Exception e) {
-            LOGGER.error("Action get blocked users by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=get blocked users, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return null;
@@ -651,11 +653,11 @@ public class AdminController {
                 dto.add(d);
             }
 
-            LOGGER.info("Action get all fuel types by user: {} successful", user.getEmail());
+            LOGGER.info("action=get fuel types, user={}, result=success", user.getEmail());
             return dto;
 
         } catch (Exception e) {
-            LOGGER.error("Action get all fuel types by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=get fuel types, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return null;
@@ -680,11 +682,11 @@ public class AdminController {
                 dto.add(d);
             }
 
-            LOGGER.info("Action get all car classes by user: {} successful", user.getEmail());
+            LOGGER.info("action=get car classes, user={}, result=success", user.getEmail());
             return dto;
 
         } catch (Exception e) {
-            LOGGER.error("Action get all car classes by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=get car classes, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return null;
@@ -709,11 +711,11 @@ public class AdminController {
                 dto.add(d);
             }
 
-            LOGGER.info("Action get all transmission types by user: {} successful", user.getEmail());
+            LOGGER.info("action=get transmission types, user={}, result=success", user.getEmail());
             return dto;
 
         } catch (Exception e) {
-            LOGGER.error("Action get all transmission types by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=get transmission types, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return null;
@@ -732,11 +734,11 @@ public class AdminController {
             man.setDeleted(true);
             manufacturerService.save(man);
 
-            LOGGER.info("User: {} successfully deleted manufacturer: {}", user.getEmail(), name);
+            LOGGER.info("action=delete manufacturer, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to delete manufacturer: {}. Cause: {}", user.getEmail(), name, e.getMessage());
+            LOGGER.error("action=delete manufacturer, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -756,11 +758,11 @@ public class AdminController {
             man.setDeleted(true);
             carModelsService.save(man);
 
-            LOGGER.info("User: {} successfully deleted car model: {}", user.getEmail(), name);
+            LOGGER.info("action=delete car model, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to delete car model: {}. Cause: {}", user.getEmail(), name, e.getMessage());
+            LOGGER.error("action=delete car model, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -780,11 +782,11 @@ public class AdminController {
             man.setDeleted(true);
             fuelTypeService.save(man);
 
-            LOGGER.info("User: {} successfully deleted fuel type: {}", user.getEmail(), name);
+            LOGGER.info("action=delete fuel type, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to delete fuel type: {}. Cause: {}", user.getEmail(), name, e.getMessage());
+            LOGGER.error("action=delete fuel type, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -803,11 +805,11 @@ public class AdminController {
             man.setDeleted(true);
             transmissionTypeService.save(man);
 
-            LOGGER.info("User: {} successfully deleted transmission type: {}", user.getEmail(), name);
+            LOGGER.info("action=delete transmission type, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to delete transmission type: {}. Cause: {}", user.getEmail(), name, e.getMessage());
+            LOGGER.error("action=delete transmission type, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -826,11 +828,11 @@ public class AdminController {
             man.setDeleted(true);
             carClassService.save(man);
 
-            LOGGER.info("User: {} successfully deleted car class: {}", user.getEmail(), name);
+            LOGGER.info("action=delete car class, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to delete car class: {}. Cause: {}", user.getEmail(), name, e.getMessage());
+            LOGGER.error("action=delete car class, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -852,11 +854,11 @@ public class AdminController {
 
             manufacturerService.save(man);
 
-            LOGGER.info("User: {} updated manufacturer: {} successfully.", user.getEmail(), old);
+            LOGGER.info("action=update manufacturer, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to update manufacturer: {}. Cause: {}", user.getEmail(), old, e.getMessage());
+            LOGGER.error("action=update manufacturer, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -878,11 +880,11 @@ public class AdminController {
 
             carModelsService.save(man);
 
-            LOGGER.info("User: {} updated car model: {} successfully.", user.getEmail(), old);
+            LOGGER.info("action=update car model, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to update car model: {}. Cause: {}", user.getEmail(), old, e.getMessage());
+            LOGGER.error("action=update car model, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -905,11 +907,11 @@ public class AdminController {
 
             fuelTypeService.save(man);
 
-            LOGGER.info("User: {} updated fuel type: {} successfully.", user.getEmail(), old);
+            LOGGER.info("action=update fuel type, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to update fuel type: {}. Cause: {}", user.getEmail(), old, e.getMessage());
+            LOGGER.error("action=update fuel type, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -932,11 +934,11 @@ public class AdminController {
 
             carClassService.save(man);
 
-            LOGGER.info("User: {} updated car class: {} successfully.", user.getEmail(), old);
+            LOGGER.info("action=update car class, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to update car class: {}. Cause: {}", user.getEmail(), old, e.getMessage());
+            LOGGER.error("action=update car class, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
@@ -958,33 +960,15 @@ public class AdminController {
 
             transmissionTypeService.save(man);
 
-            LOGGER.info("User: {} updated transmission type: {} successfully.", user.getEmail(), old);
+            LOGGER.info("action=update transmission type, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to update transmission type: {}. Cause: {}", user.getEmail(), old, e.getMessage());
+            LOGGER.error("action=update transmission type, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
     }
-
-
-
-//    void sendDeclineEmail(String sendTo, String description, String firstName, String lastName) {
-//
-//        SimpleMailMessage msg = new SimpleMailMessage();
-//        msg.setTo(sendTo);
-//
-//        msg.setSubject("Centro Clinico account registration");
-//        String text = "Dear sir/madam, " + '\n';
-//        text += "your account request has been reviewed. Unfortunately, it has been declined, with an administrator message attached:";
-//        text += "\n\n\n" + "Sincerely, Centro Clinico support team.";
-//        msg.setText(text);
-//
-//        javaMailSender.send(msg);
-//
-//    }
-
 
 
 }
