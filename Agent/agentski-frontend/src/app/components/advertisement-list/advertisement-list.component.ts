@@ -6,20 +6,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CarDetails } from 'src/app/models/CarDetails';
 import { first } from 'rxjs/operators';
 import { Review } from 'src/app/models/Review';
+// <img *ngFor="let item of base64textString"  src={{item}} alt="" id="img">
+// <img class="card-img-top" src="..." alt="Card image cap">
 
 @Component({
   selector: 'app-advertisement-list',
   template: `
   <ng-container *ngIf="ads" >
- 
+  
    
   <div class="row">
   <div class="col-sm-4" *ngFor="let car of cars">
   <div class="card" style="width: 18rem;    margin-bottom: 10px;
   margin-top: 10px;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  <img class="card-img-top" src={{car.image}} alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{car.carName}}</h5>
+  <h5 class="card-title">{{car.carName}}</h5>
     <p>Model: {{car.model}}</p>
     <p>Town: {{car.town}} </p>
     <button class="btn btn-primary" (click)="viewDetails(car)">View details</button>
@@ -37,7 +39,10 @@ import { Review } from 'src/app/models/Review';
    <div class="card" style="margin: 30px 0px 30px 0px;" >
 
 <div class="card-header" id="addNew"> Car details </div>
-      <div class="card-body">
+<img *ngFor="let item of base64textString"  src={{item}} alt="" id="img">
+
+<div class="card-body">
+
 
 <p> Car name: {{ carName }} </p>
 <p> Car class: {{ carClass }}</p>
@@ -104,12 +109,13 @@ export class AdvertisementListComponent implements OnInit {
   details:boolean = false;
   
   myData:CarDetails;
-
+  base64textString = [];
   carClass:string;
   carId:number;
   carManufacturer:string;
   carModelName:string;
   carName:string;
+  carImage;
   carTransmission:string;
   collisionDamage:number;
   discoundDays:number;
@@ -133,6 +139,7 @@ export class AdvertisementListComponent implements OnInit {
   ngOnInit(): void {
     this.advertisementService.getCar().subscribe(data => {
       this.cars = data;
+      this.base64textString.push()
     });
     
   }
@@ -157,7 +164,9 @@ export class AdvertisementListComponent implements OnInit {
       this.distancePenalty=this.myData.distancePenalty;
       this.carName=this.myData.carName;
       this.collisionDamage=this.myData.collisionDamage;
-
+      this.carImage=this.myData.image;
+      this.base64textString.push(this.myData.image);
+      console.log(this.myData);
     });
 
 

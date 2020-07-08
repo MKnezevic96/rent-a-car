@@ -15,10 +15,22 @@
                 <td>{{ user.town }}</td>
                 <td>{{ user.model }}</td>
                 <td>{{ user.fuel }}</td>
-                <!-- <td><button class="btn btn-primary "(click)="seeReview(user.carName)">See reviews</button></td> -->
+                <td><button class="btn btn-primary "(click)="selectDate(user.carName)">Select date</button></td>
               </tr>
             </tbody>
         </table>
+
+        <ng-container *ngIf="date">
+        <div class="col-md-4 mb-3">
+          <label>Select start date of departure</label>
+          <input type="date" [(ngModel)]="selectedStartDate" > 
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>Select end date of departure</label>  
+          <input type="date" [(ngModel)]="selectedEndDate" >
+        </div>
+        <button class="btn btn-primary "(click)="reserve()">Reserve</button>
+      </ng-container>
         <div id="formFooter">
         </div>
     </div>

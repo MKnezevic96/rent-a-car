@@ -20,14 +20,16 @@ export class AdvertisementComponent implements OnInit {
   nameAdvertisement: string;
   milage: number;
   town: string;
-
+  slika:string;
+  image;
   ft:FuelType;
 
   carModels:CarModels[];
   cm:CarModels;
   pricings:Pricing[];
   pr:Pricing;
-
+  base64textString = [];
+  // base64textString:string;
   //minDate = moment(new Date()).format('YYYY-MM-DD');  //current
   constructor(
     private adminService: AdminService,
@@ -65,11 +67,13 @@ export class AdvertisementComponent implements OnInit {
   }
   onSubmit() {
   
-
-    this.advertisementService.addCar(this.pr.name, this.cm.name, this.ft.name, this.milage, this.nameAdvertisement, this.town).pipe(first())
+    var slika : string = this.base64textString.toString();
+    this.advertisementService.addCar(this.pr.name, this.cm.name, this.ft.name, this.milage, this.nameAdvertisement, this.town, this.base64textString.toString()).pipe(first())
     .subscribe(
         data => {
 
+        },error =>{
+          alert('You already user maximum amount of advertisements');
         })
         this.router.navigateByUrl('index');
 
@@ -79,5 +83,22 @@ export class AdvertisementComponent implements OnInit {
     // this.router.navigateByUrl('pricing');
     this.router.navigate(['pricing'], {relativeTo:this.route.parent});
 
+  }
+
+  onUploadChange(evt: any) {
+    const file = evt.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = this.handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(file);
+    }
+  }
+
+  handleReaderLoaded(e) {
+    this.base64textString.push('data:image/png;base64,' + btoa(e.target.result));
+    // this.base64textString = 'data:image/png;base64,' + btoa(e.target.result);
+    console.log(this.base64textString);
   }
 }

@@ -17,5 +17,5 @@ export class CarDetails {
     pricingId:number;
     pricingPlan:string;
     town:string;
-
+    image:string;
 }

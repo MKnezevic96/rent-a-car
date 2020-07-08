@@ -32,6 +32,8 @@ import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
 import { FilterCarsComponent } from './components/filter-cars/filter-cars.component';
+import { RentVehicleComponent } from './components/rent-vehicle/rent-vehicle.component';
+import { ManageUsersComponent } from './components/manage-users/manage-users.component';
 
 
 
@@ -58,7 +60,8 @@ const routes: Routes = [
           children: [
             {path: 'blockedUsers', component: BlockedUsersListComponent},
             {path: 'users', component: UsersListComponent},
-            {path: 'requests', component: RegistrationRequestsComponent}
+            {path: 'requests', component: RegistrationRequestsComponent},
+            {path: 'manageUsers', component: ManageUsersComponent}
           ]
         },
         { path: 'commentsMenagement',
@@ -104,6 +107,7 @@ const routes: Routes = [
             { path: 'filterCars', component: FilterCarsComponent},
           ]
         },
+        { path: 'rentVehicle', component: RentVehicleComponent},
 
       ]
     },

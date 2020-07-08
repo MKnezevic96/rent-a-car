@@ -11,6 +11,7 @@ public class CarDTO {
     private String pricing;
     private String fuelType;
     private String carModel;
+    private String image;
 
     @Min(0)
     private double milage;
@@ -29,6 +30,14 @@ public class CarDTO {
 
 
     public CarDTO() {
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getTown() {

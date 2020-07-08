@@ -70,6 +70,9 @@ public class AdminController {
     private RoleServiceInterface roleService;
 
     @Autowired
+    private PrivilegeServiceInterface privilegeService;
+
+    @Autowired
     private CarsService carService;
 
     @Autowired
@@ -81,6 +84,35 @@ public class AdminController {
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
 
 
+    @PostMapping(value="/admin/privilege/{id}")
+    public ResponseEntity<?> privilege(@RequestBody String email, @PathVariable("id") Integer id) {
+
+        User user = userService.findByEmail(email);
+        try {
+
+
+            if(id == 1){
+//                List<Privilege> rList = privilegeService.findByName("ad_menagement_write");
+//                user.setBlocked_privileges(rList);
+                user.getBlocked_privileges().add("ad_menagement_write");
+            }
+
+            if(id == 2){
+//                List<Privilege> rList = privilegeService.findByName("rent_menagement_write");
+//                user.setBlocked_privileges(rList);
+                user.getBlocked_privileges().add("rent_menagement_write");
+            }
+
+            userService.save(user);
+            LOGGER.info("Action approve car review id:{} by user: {} successful", id.toString(), user.getEmail());
+            return ResponseEntity.ok().build();
+
+        } catch (Exception e) {
+            LOGGER.error("Action approve car review id:{} by user: {} failed. Cause: {}", id.toString(), user.getEmail(), e.getMessage());
+        }
+        return ResponseEntity.status(400).build();
+
+    }
 
     @PreAuthorize("hasAuthority('review_menagement_read')")
     @GetMapping(value="/admin/carReviews")

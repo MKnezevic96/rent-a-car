@@ -115,6 +115,25 @@ public class AdvertisementController {
     public ResponseEntity<?> addCar(@RequestBody CarDTO dto){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        if(!user.getBlocked_privileges().isEmpty()){
+//            if(user.getBlocked_privileges().contains("ad_menagement_write")){
+//                return ResponseEntity.status(403).build();
+//            }
+//        }
+        //List<String> list = user.getBlocked_privileges();
+
+        List<Cars> cars = carsService.findAll();
+        if(user.getCompany() == null) {
+            int i = 0;
+            for (Cars car : cars) {
+                if(car.getOwner().getEmail().equals(user.getEmail())){
+                    i = i + 1;
+                }
+            }
+            if(i >= 3){
+                return ResponseEntity.status(400).build();
+            }
+        }
 
         try{
             Cars c = new Cars();
@@ -122,6 +141,7 @@ public class AdvertisementController {
             c.setModel(cm);
             Pricing p = pricingService.findByName(dto.getPricing());
             c.setPricing(p);
+            c.setImage(dto.getImage());
             c.setOwner(p.getOwner());
             FuelType ft = fuelTypeService.findByName(dto.getFuelType());
             c.setFuelType(ft);
@@ -160,7 +180,7 @@ public class AdvertisementController {
                    d.setFuelType(a.getFuelType().getName());
                    d.setMilage(a.getMilage());
                    d.setPricing(a.getPricing().getName());
-
+                   d.setImage(a.getImage());
                    dto.add(d);
                }
            }

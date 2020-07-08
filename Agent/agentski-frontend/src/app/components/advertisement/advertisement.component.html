@@ -92,6 +92,16 @@
                         </div>
                     </div>
 
+                    <!-- <div class="boxed">
+                        <div class="input-group">
+                            <input id="spFile" class="form-control" name="spFile">
+                          <input type="file" (change)="onChange($event)" [(ngModel)]="image">
+                        </div>
+                    </div> -->
+
+                    <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf" />
+                    <img *ngFor="let item of base64textString"  src={{item}} alt="" id="img">
+
                     <div class="form-row">
                         <label> </label>
                         <button class="btn btn-primary btn-lg"

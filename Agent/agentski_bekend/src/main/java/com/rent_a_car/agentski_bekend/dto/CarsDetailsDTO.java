@@ -22,6 +22,7 @@ public class CarsDetailsDTO {
     private Double pricePerDay;
     private Double milage;
     private String town;
+    private String image;
 
     public CarsDetailsDTO (Cars car) {
         this.carId = car.getId();
@@ -42,7 +43,16 @@ public class CarsDetailsDTO {
         this.pricePerDay = car.getPricing().getRegularPrice();
         this.milage = car.getMilage();
         this.town = car.getTown();
+        this.image = car.getImage();
 
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Integer getCarId() {

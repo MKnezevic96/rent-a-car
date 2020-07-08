@@ -162,6 +162,28 @@ public class RentingController {
 //        return dto;
 //
 //    }
+
+    private void canclePendingReservations(Date startDate, Date endDate, Integer id) {
+
+        List<RentRequest> rrList = rentRequestService.findAll();
+
+        for (RentRequest rr : rrList) {
+            if (rr.getCarId().getId().equals(id)) {
+                if (rr.getStatus().equals(RequestStatus.PENDING)) {
+                    if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
+                        rr.setStatus(RequestStatus.CANCELED);
+                    }
+                    if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
+                        rr.setStatus(RequestStatus.CANCELED);
+                    }
+                    if (startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())) {
+                        rr.setStatus(RequestStatus.CANCELED);
+                    }
+                    rentRequestService.save(rr);
+                }
+            }
+        }
+    }
     @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value = "availableCars/{d1}/{d2}/{town}")
     public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, @PathVariable("town") String town,  Principal p) throws ParseException {
@@ -394,6 +416,34 @@ public class RentingController {
             rr.setOwningUser(user);
             rentRequestService.save(rr);
 
+            LOGGER.info("Action rent a car by user: {} successful", p.getName());
+            return ResponseEntity.ok().build();
+
+        }catch (Exception e){
+            LOGGER.info("Action rent a car by user: {} failed. Cause: {}", p.getName(), e.getMessage());
+        }
+
+        return ResponseEntity.status(400).build();
+    }
+
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
+    @PostMapping(value="/makeReservation")
+    public ResponseEntity<?> makeReservation(@RequestBody RentRequestDTO dto, Principal p){
+
+        User user = userService.findByEmail(p.getName());
+
+        try{
+
+            RentRequest rr = new RentRequest();
+            Cars c = carsService.findByName(dto.getCarName());
+            rr.setCarId(c);
+            rr.setStartDate(dto.getStartDate());
+            rr.setEndDate(dto.getEndDate());
+            rr.setStatus(RequestStatus.RESERVED);
+            rr.setDeleted(false);
+            rr.setOwningUser(null);
+            rentRequestService.save(rr);
+            canclePendingReservations(dto.getStartDate(), dto.getEndDate(), rr.getCarId().getId());
             LOGGER.info("Action rent a car by user: {} successful", p.getName());
             return ResponseEntity.ok().build();
 
@@ -717,7 +767,7 @@ public class RentingController {
             rentRequestService.save(u);
             // todo odbiti koji se preklapaju
             //  carsService.autoReject(u);
-
+            canclePendingReservations(u.getStartDate(), u.getEndDate(), u.getCarId().getId());
             LOGGER.info("Action approve rent request id: {} by user: {} successful", id.toString(), user.getEmail());
             return ResponseEntity.ok().build();
 
@@ -748,4 +798,6 @@ public class RentingController {
 
         return ResponseEntity.status(400).build();
     }
+
+
 }

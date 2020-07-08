@@ -79,9 +79,20 @@ public class Cars {
     @XmlElement
     private List<CarReview> reviews = new ArrayList<CarReview>();
 
+    @Column(name="image")
+    @XmlElement
+    private String image;
 
     public Cars() {
 
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setTown(String town) {

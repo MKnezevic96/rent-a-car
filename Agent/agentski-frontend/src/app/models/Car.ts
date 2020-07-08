@@ -9,4 +9,5 @@ export class Car {
     //startDate:Date;
     //endDate:Date;
     id:number;
+    image:string;
 }

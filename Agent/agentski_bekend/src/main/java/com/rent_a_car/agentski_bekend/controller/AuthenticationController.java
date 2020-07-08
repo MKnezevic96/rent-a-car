@@ -1,10 +1,12 @@
 package com.rent_a_car.agentski_bekend.controller;
 
 import com.rent_a_car.agentski_bekend.dto.UserDTO;
+import com.rent_a_car.agentski_bekend.model.Privilege;
 import com.rent_a_car.agentski_bekend.model.UserRequest;
 import com.rent_a_car.agentski_bekend.model.UserTokenState;
 import com.rent_a_car.agentski_bekend.security.TokenUtils;
 import com.rent_a_car.agentski_bekend.service.UserService;
+import com.rent_a_car.agentski_bekend.service.interfaces.PrivilegeServiceInterface;
 import com.rent_a_car.agentski_bekend.service.interfaces.UserRequestServiceInterface;
 import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -13,6 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -61,6 +64,9 @@ public class AuthenticationController {
 
     @Autowired
     private TokenUtils tokenUtils;
+
+    @Autowired
+    private PrivilegeServiceInterface privilegeService;
 
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
 
@@ -123,7 +129,7 @@ public class AuthenticationController {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String role = new String();//
+        String role;//
         //role = authentication.getAuthorities().iterator().next().getAuthority();
         User user = (User)customUserDetailsService.loadUserByUsername(authenticationRequest.getEmail());
         role = user.getRole().iterator().next().getName();
@@ -133,7 +139,7 @@ public class AuthenticationController {
             return ResponseEntity.status(403).build();
         }
 
-        String jwt = tokenUtils.generateToken(user.getEmail());
+        String jwt = tokenUtils.generateToken(user.getEmail()/*, user.getBlocked_privileges()*/);
         int expiresIn = tokenUtils.getExpiredId();
 
         LOGGER.info("Action create authentication token successful for user account: {}. User logged in.", user.getEmail());
@@ -160,10 +166,10 @@ public class AuthenticationController {
     @RequestMapping(value = "/izadji", method = RequestMethod.GET)
     public ResponseEntity<?> logout(HttpServletRequest request) throws ServletException {
 
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        //User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         request.logout();
 
-        LOGGER.info("User: {} logged out successfully", user.getEmail());
+        //LOGGER.info("User: {} logged out successfully", user.getEmail());
         return ResponseEntity.ok().build();
     }
 

@@ -36,6 +36,7 @@ export class AdvertisementService {
   url2:string = 'http://localhost:8282/addCar';
   url3:string = 'http://localhost:8282/api/renting/cars'
   url4:string = 'http://localhost:8282/api/renting/rentCar';
+  url44:string = 'http://localhost:8282/api/renting/makeReservation';
   getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/'
   addCarReviewUrl:string='http://localhost:8282/api/renting/review'
   checkUrl:string= 'http://localhost:8282/api/renting/requests/'
@@ -118,8 +119,9 @@ export class AdvertisementService {
   }
 
 
-  addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string):Observable<Car>{
-    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null, id:0 };
+  addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string, slika:string):Observable<Car>{
+    // var image = slika[0];
+    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null, id:0, image:slika};
     return this.http.post<Car>(this.url2, this.car, this.httpOptions);
   }
 
@@ -178,6 +180,21 @@ export class AdvertisementService {
     return this.http.post<RentRequest>(this.url4, rentRequest, httpOptions);
 
   }
+
+  makeReservation(rentRequest:RentRequest):Observable<RentRequest>{
+    let token = localStorage.getItem('accessToken');     // iz browsera
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        // 'Authorization': 'Bearer ' + JSON.parse(this.localStorage.getItem('accessToken')),
+        'Authorization': 'Bearer ' + token, //JSON.parse(this.localStorage.getItem('accessToken')),
+      })
+    }
+    return this.http.post<RentRequest>(this.url44, rentRequest, httpOptions);
+
+  }
+
   getRentRequests():Observable<RentRequest[]>{
     let token = localStorage.getItem('accessToken');     // iz browsera
     let httpOptions = {

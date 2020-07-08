@@ -35,6 +35,11 @@ export class UserMenagementComponent implements OnInit {
     this.router.navigate(['blockedUsers'], {relativeTo: this.route});
   }
 
+  manageUsers(){
+    console.log('..');
+    this.router.navigate(['manageUsers'], {relativeTo: this.route});
+  }
+
   logout(){
     this.userService.logout().subscribe(data =>{
     });
