@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
 import { UserService } from '../security/user.service';
 import { Review } from '../models/Review';
 import { User } from '../models/User';
+import { Receipt } from '../models/Receipt';
 
   const httpOptions = {
     headers: new HttpHeaders({
@@ -54,8 +55,12 @@ export class AdvertisementService {
   getMostCommentedCarsUrl:string = 'http://localhost:8282/cars/most-commented'
   getHighestMileageCarsUrl:string = 'http://localhost:8282/cars/highest-mileage'
 
-  url9:string = 'http://localhost:8282/cars/filter?fuelType=';
+  filterUrl:string = 'http://localhost:8282/cars/filter?fuelType=';
   sortUrl:string = 'http://localhost:8282/cars?sort_by='
+  getReceiptsUrl:string = 'http://localhost:8282/api/renting/receipts'
+  payRentUrl:string = 'http://localhost:8282/api/renting/requests/'
+
+
 
 
   selectedStartDate:Date;
@@ -89,7 +94,7 @@ export class AdvertisementService {
   }
 
   payRent(id:number):Observable<number>{
-    return this.http.post<number>(this.url5, id, this.httpOptions);
+    return this.http.put<number>(this.payRentUrl+id, this.httpOptions);
 
   }
 
@@ -315,7 +320,7 @@ export class AdvertisementService {
       })
     }
     
-    return this.http.get<CarDetails[]>(this.url9+fuelType+'&transType='+transType+'&manufac='+manufac+'&carClass='+carClass+'&carModel='+carModel+'&minPrice='
+    return this.http.get<CarDetails[]>(this.filterUrl+fuelType+'&transType='+transType+'&manufac='+manufac+'&carClass='+carClass+'&carModel='+carModel+'&minPrice='
     +minPrice+'&maxPrice='+maxPrice+'&minMileage='+minMileage+'&maxMileage='+maxMileage+'&childSeats='+childSeats+'&mileageLimit='+mileageLimit+'&waiver='
     +waiver, httpOptions);
   }
@@ -354,8 +359,8 @@ cancelRentRequest(id: number):Observable<number>{
 }
 
 getRequestHistory():Observable<RentRequest[]>{
-  let token = localStorage.getItem('accessToken');     // iz browsera
-  let httpOptions = {
+  let token = localStorage.getItem('accessToken');    
+   let httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'mode': 'cors',
@@ -364,6 +369,19 @@ getRequestHistory():Observable<RentRequest[]>{
   }
 
   return this.http.get<RentRequest[]>(this.requestHistoryUrl, httpOptions);
+}
+
+getReceipts():Observable<Receipt[]>{
+  let token = localStorage.getItem('accessToken');    
+   let httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'mode': 'cors',
+      'Authorization': 'Bearer ' + token,
+    })
+  }
+
+  return this.http.get<Receipt[]>(this.getReceiptsUrl, httpOptions);
 }
 
 }

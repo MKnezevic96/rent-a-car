@@ -3,6 +3,7 @@ package com.rent_a_car.agentski_bekend.model;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +29,10 @@ public class Reciept {
     @Column(name="reciept_id", nullable = false, unique = true)
     private Integer id;
 
-    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER)
     private User customer;
 
-    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER)
     private User owner;
 
     @Column(name="sum")
@@ -42,6 +43,10 @@ public class Reciept {
 
     @Column(name="deleted", nullable=false)
     private boolean deleted = false;
+
+    @OneToOne
+    @JoinColumn(name="rr_id", referencedColumnName="rr_id")
+    private RentRequest rentRequest;
 
 
     public Reciept() {
@@ -98,5 +103,13 @@ public class Reciept {
 
     public void setRecieptArticles(List<RecieptArticle> recieptArticles) {
         this.recieptArticles = recieptArticles;
+    }
+
+    public RentRequest getRentRequest() {
+        return rentRequest;
+    }
+
+    public void setRentRequest(RentRequest rentRequest) {
+        this.rentRequest = rentRequest;
     }
 }

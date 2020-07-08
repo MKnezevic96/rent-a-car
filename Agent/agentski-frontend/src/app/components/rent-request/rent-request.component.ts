@@ -76,11 +76,15 @@ export class RentRequestComponent implements OnInit {
   naKlik(carName:string) {
     this.rentrequest={carName:carName, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false, id:this.id , startDateString:null, endDateString:null};
     this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
-    .subscribe(
-        data => {
-          alert('Request sent');
-          this.router.navigateByUrl('index');
-        })
+    .subscribe(res => alert('Request sent'),
+     err => {
+      if(err.status == 403) {
+        alert("You don't have permission for this action.")
+    }
+    
+    this.router.navigateByUrl('index')
+
+    })
   }
 
   getAvailableCars(){

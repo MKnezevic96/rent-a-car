@@ -125,7 +125,7 @@ public class CarsService implements CarsServiceInterface {
 
         for(RentingReport rr : reports) {
             if(rr.getRentingInstance().getCarId().getId().equals(carId)) {
-                sum = sum + rr.getAddedMileage();
+                sum = sum + rr.getRentingInstance().getCarId().getMilage();
             }
         }
 

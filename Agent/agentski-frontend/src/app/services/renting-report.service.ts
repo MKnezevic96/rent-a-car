@@ -20,7 +20,7 @@ const httpOptions = {
 export class RentingReportService {
 
 
-  requestsUrl:string = 'http://localhost:8282/api/renting/requests?status=paid'
+  requestsUrl:string = 'http://localhost:8282/api/renting/requests?status=reserved'
   addReportUrl:string= 'http://localhost:8282/api/renting/report'
 
   rentingReport:RentingReport;

@@ -43,7 +43,7 @@ public class RecieptArticle {
     @XmlElement
     private Reciept reciept;
 
-    @Column (name="times", nullable=false)
+    @Column (name="times")
     @XmlElement(required=true)
     private Integer times;
 

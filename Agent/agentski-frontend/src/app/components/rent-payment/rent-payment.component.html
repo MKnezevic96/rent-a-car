@@ -3,17 +3,28 @@
           <table class="table table-borderless">
               <thead>
                 <tr>           
-                  <th>carName</th>
-                  <th>Start date</th>
-                  <th>End date</th>
+                  <th>Car</th>
+                  <th>Owner email</th>
+                  <th>Daily rent </th>
+                  <th>Collision Damage Waiver </th>
+                  <th>Additional mileage</th>
+                  <th>Discount percentage</th>
+                  <th>Total amount</th>
+
+
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let user of rentRequests">           
-                  <td>{{ user.carName }}</td>
-                  <td>{{ user.startDate }}</td>
-                  <td>{{ user.endDate }}</td>
-                  <td><button class="btn btn-primary "(click)="payRent(user.id)">Pay</button></td>
+                <tr *ngFor="let receipt of receipts">           
+                  <td>{{ receipt.carName }}</td>
+                  <td>{{ receipt.owner }}</td>
+                  <td>{{ receipt.dailyRentPrice }}</td>
+                  <td>{{ receipt.waiverPrice }}</td>
+                  <td>{{ receipt.overusedPrice }}</td>
+                  <td>{{ receipt.discount }}</td>
+                  <td>{{ receipt.sum }}</td>
+
+                  <td><button class="btn btn-primary "(click)="payRent(receipt.carId)">Pay</button></td>
                 </tr>
               </tbody>
             </table>

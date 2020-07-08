@@ -3,9 +3,11 @@ package com.rent_a_car.agentski_bekend.controller;
 import com.rent_a_car.agentski_bekend.dto.*;
 import com.rent_a_car.agentski_bekend.model.*;
 import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
+import com.rent_a_car.agentski_bekend.repository.ReceiptArticleRepository;
 import com.rent_a_car.agentski_bekend.service.*;
 
 import com.rent_a_car.agentski_bekend.service.interfaces.RentRequestServiceInterface;
+import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.rent_a_car.agentski_bekend.dto.CarsDetailsDTO;
@@ -26,6 +28,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.io.IOException;
 import java.security.Principal;
 import javax.ws.rs.core.MediaType;
 import java.text.DateFormat;
@@ -55,6 +58,12 @@ public class RentingController {
 
     @Autowired
     MailService mailService;
+
+    @Autowired
+    ReceiptService receiptService;
+
+    @Autowired
+    ReceiptArticleRepository receiptArticleRepository;
 
 
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
@@ -174,37 +183,16 @@ public class RentingController {
 
 
 
-
-
-
-//    @PreAuthorize("hasAuthority('ad_menagement_read')")
-//    @GetMapping(value = "get/{t}")
-//    public ResponseEntity<List<CarsListingDTO>> filterCarsByTown (@PathVariable("t") String t) {
-//
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        ArrayList<CarsListingDTO> retVal = new ArrayList<CarsListingDTO>();
-//
-//        try {
-//            for (Cars c : carsService.filterByCity((ArrayList<Cars>) carsService.findAll(), t.replaceAll("_", " "))) {
-//                retVal.add(new CarsListingDTO(c));
-//            }
-//
-//            LOGGER.info("Action filter cars by town by user: {} successful", user.getEmail());
-//            return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
-//        } catch (Exception e) {
-//            LOGGER.error("Action filter cars by town by user: {} failed. Cause: {}", user.getEmail(), e.getMessage());
-//        }
-//
-//        return new ResponseEntity<>(retVal, HttpStatus.BAD_REQUEST);
-//
-//    }
-
-
     @PreAuthorize("hasAuthority('rent_menagement_write')")
     @PostMapping(value="/rentCar")
     public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto, Principal p){
 
         User user = userService.findByEmail(p.getName());
+
+        for(RentRequest rr : user.getRentRequests()){
+            if(rr.getStatus().equals(RequestStatus.RETURNED))
+                return ResponseEntity.status(403).build();
+        }
 
         try{
 
@@ -306,54 +294,54 @@ public class RentingController {
 
 
     @PreAuthorize("hasAuthority('rent_menagement_read')")
-    @GetMapping(value = "payRequests")
-    public List<RentRequestDTO> getRequestsForPayment (Principal p) {
+    @GetMapping(value = "receipts")
+    public List<ReceiptDTO> getReceipts (Principal p) {
 
-        List<RentRequestDTO> dto = new ArrayList<>();
-        List<RentRequest> rrl = rentRequestService.findAll();
+        List<ReceiptDTO> dtos = new ArrayList<>();
         User user = userService.findByEmail(p.getName());
 
+        List<RentRequest> reqs = user.getRentRequests();
+
         try {
-            for(RentRequest rr : rrl){
-                if (rr.getStatus().equals(RequestStatus.RESERVED)) {
-                    if (rr.getOwningUser().getEmail().equals(user.getEmail())) {
-                        RentRequestDTO rrdto = new RentRequestDTO();
-                        rrdto.setCarName(rr.getCarId().getName());
-                        rrdto.setStartDate(rr.getStartDate());
-                        rrdto.setEndDate(rr.getEndDate());
-                        rrdto.setStatus("RESERVED");
-                        rrdto.setId(rr.getId());
-                        dto.add(rrdto);
-                    }
+
+            for(RentRequest rr : reqs){
+                if(rr.getStatus().equals(RequestStatus.RETURNED)){
+
+                    ReceiptDTO dto = new ReceiptDTO(rr.getReceipt());
+                    dto.setCarName(rr.getCarId().getName());
+                    dto.setDiscount(rr.getCarId().getPricing().getDiscountPercent());
+                    dto.setCarId(rr.getCarId().getId());
+                    dtos.add(dto);
+
                 }
             }
 
-            LOGGER.info("action=get rent requests, user={}, result=success", user.getEmail());
-            return dto;
-
+            LOGGER.info("action=get receipts, user={}, result=success", user.getEmail());
         } catch (Exception e) {
-            LOGGER.error("action=get rent requests, user={}, result=failure,  cause={}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=get receipts, user={}, result=failure,  cause={}", user.getEmail(), e.getMessage());
         }
-        return null;
+
+        return dtos;
     }
 
 
     @PreAuthorize("hasAuthority('rent_menagement_write')")
-    @PostMapping(value = "payRequests")
-    public ResponseEntity<?> payRent (@RequestBody @Min(1) @Max(100000) Integer id) {
+    @PutMapping(value = "requests/{id}")
+    public ResponseEntity<?> payRent (@PathVariable @Min(1) @Max(100000) Integer id) {
 
         RentRequest rrl = rentRequestService.findById(id);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         try {
+
            rrl.setStatus(RequestStatus.PAID);
            rentRequestService.save(rrl);
 
-            LOGGER.info("action=pay rent request, user={}, result=success", user.getEmail());
+           LOGGER.info("action=pay rent request, user={}, result=success", user.getEmail());
            return ResponseEntity.ok().build();
 
        } catch (Exception e) {
-            LOGGER.error("action=pay rent requests, user={}, result=failure,  cause={}", user.getEmail(), e.getMessage());
+            LOGGER.error("action=pay rent request, user={}, result=failure,  cause={}", user.getEmail(), e.getMessage());
        }
 
         return ResponseEntity.status(400).build();
@@ -391,7 +379,7 @@ public class RentingController {
 
     @PreAuthorize("hasAuthority('review_menagement_write')")
     @PostMapping(value ="report", consumes = MediaType.APPLICATION_JSON)
-    public ResponseEntity<?> addRentingReport(@RequestBody RentingReportDTO dto) {
+    public ResponseEntity<?> addRentingReport(@RequestBody RentingReportDTO dto) throws MessagingException, IOException, javax.mail.MessagingException {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -409,7 +397,33 @@ public class RentingController {
 
             req.setStatus(RequestStatus.RETURNED);
             req.setRentingReport(report);
+
+            Cars car = carsService.getCar(req.getCarId().getId());
+            car.setMilage(car.getMilage() + report.getAddedMileage());
+            carsService.save(car);
+
+            Reciept reciept = new Reciept();
+            reciept.setCustomer(req.getOwningUser());
+            reciept.setDeleted(false);
+            reciept.setOwner(user);
+            reciept.setRecieptArticles(receiptService.generateReceiptArticles(req));
+            reciept.setSum(receiptService.calculateSum(reciept.getRecieptArticles()));
+
+            for(RecieptArticle ra: reciept.getRecieptArticles()) {
+                ra.setReciept(reciept);
+                receiptArticleRepository.save(ra);
+            }
+
+            receiptService.save(reciept);
+
+            req.setReceipt(reciept);
             rentRequestService.save(req);
+
+            String text = "Dear sir/madam, " + '\n';
+            text += "The renting receipt for car " + car.getName() + " has been added to your account. Total ammount is " + reciept.getSum() +". " + '\n';
+            text += "You won't be able to rent cars until the sum has been paid.";
+            text +=  "\n\n\n" + "Sincerely, Rent a car support team.";
+            mailService.sendEmail(req.getOwningUser().getEmail(), "Receipt has been added to your account", text);
 
             LOGGER.info("action=add renting report, user={}, result=success", user.getEmail());
             return ResponseEntity.status(200).build();
@@ -459,6 +473,9 @@ public class RentingController {
 
         return null;
     }
+
+
+
 
 
     @PreAuthorize("hasAuthority('review_menagement_write')")
@@ -573,6 +590,7 @@ public class RentingController {
                                 }
 
                                 //TODO uraditi isto za bundle odbijanje
+                                //TODO odbiti preklapajuce sa datumom
 
                             }
 
@@ -580,6 +598,7 @@ public class RentingController {
                     },
                     12 * 3600 * 1000
             );
+
 
             LOGGER.info("action=approve rent requests, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
