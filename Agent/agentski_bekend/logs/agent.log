@@ -1850,3 +1850,6 @@
 2020-07-09 16:53:00 [http-nio-8282-exec-10] INFO  RentingController:483  - Action get all manufactures by user: prvi@gmail.com successful
 2020-07-09 16:53:03 [http-nio-8282-exec-4] INFO  RentingController:364  - Action get all avaliable cars by user: prvi@gmail.com successful 
 2020-07-09 16:53:03 [http-nio-8282-exec-4] INFO  RentingController:233  - Action get all avaliable cars by user: prvi@gmail.com successful 
+2020-07-09 19:28:17 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication on student-VirtualBox with PID 8152 (/home/student/Desktop/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/Desktop/rent-a-car/Agent/agentski_bekend)
+2020-07-09 19:28:17 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-07-09 19:29:15 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 62.416 seconds (JVM running for 74.932)

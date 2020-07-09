@@ -39,7 +39,7 @@ export class MyCarsComponent implements OnInit {
   }
 
   reserve(){
-    this.rentrequest={carName:this.carName, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false, id:0 };
+    this.rentrequest={carName:this.carName, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false, id:0, startDateString:"", endDateString:"" };
     this.advertisementService.makeReservation(this.rentrequest).pipe(first())
     .subscribe(
         data => {

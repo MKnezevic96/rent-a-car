@@ -132,10 +132,7 @@ export class AdvertisementService {
   }
 
 
-  addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string):Observable<Car>{
-    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null, id:0};
   addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string, slika:string):Observable<Car>{
-    // var image = slika[0];
     this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null, id:0, image:slika};
     return this.http.post<Car>(this.url2, this.car, this.httpOptions);
   }

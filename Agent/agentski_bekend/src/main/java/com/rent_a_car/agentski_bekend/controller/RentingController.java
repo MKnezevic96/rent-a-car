@@ -624,10 +624,7 @@ public class RentingController {
 
 
             LOGGER.info("action=approve rent requests, user={}, result=success", user.getEmail());
-            // todo odbiti koji se preklapaju
-            //  carsService.autoReject(u);
             canclePendingReservations(u.getStartDate(), u.getEndDate(), u.getCarId().getId());
-            LOGGER.info("Action approve rent request id: {} by user: {} successful", id.toString(), user.getEmail());
             return ResponseEntity.ok().build();
 
          } catch (Exception e) {
