@@ -8,6 +8,7 @@ import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
 import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class RentRequestDTO {
@@ -19,6 +20,9 @@ public class RentRequestDTO {
 
     @Future
     private Date endDate;
+
+    private String startDateString;
+    private String endDateString;
 
     private String status;
     private boolean deleted;
@@ -32,13 +36,17 @@ public class RentRequestDTO {
         this.carId=req.getCarId().getId();
         this.startDate=req.getStartDate();
         this.endDate=req.getEndDate();
+
+        SimpleDateFormat newFormat = new SimpleDateFormat("MM-dd-yyyy");
+        this.startDateString = newFormat.format(this.startDate);
+        this.endDateString = newFormat.format(this.endDate);
+
         this.status=req.getStatus().toString();
         this.deleted=req.isDeleted();
         this.owningUserId=req.getOwningUser().getId();
 //        this.requestGroupId=req.getRequestGroupId();
         this.id=req.getId();
         this.carName = req.getCarId().getName();
-
     }
 
 
@@ -123,5 +131,25 @@ public class RentRequestDTO {
 
     public void setUser(String user) {
         this.user = user;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getStartDateString() {
+        return startDateString;
+    }
+
+    public void setStartDateString(String startDateString) {
+        this.startDateString = startDateString;
+    }
+
+    public String getEndDateString() {
+        return endDateString;
+    }
+
+    public void setEndDateString(String endDateString) {
+        this.endDateString = endDateString;
     }
 }

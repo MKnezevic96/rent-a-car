@@ -50,4 +50,11 @@ export class IndexComponent implements OnInit {
     this.router.navigate(['rentVehicle'], {relativeTo:this.route});
   }
   
+  showRequestHistory(){
+    this.router.navigate(['requestHistory'], {relativeTo: this.route});
+  }
+
+  showStatistics(){
+    this.router.navigate(['statistics'], {relativeTo: this.route});
+  }
 }

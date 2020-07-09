@@ -27,17 +27,24 @@ export class RentRequestComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
     ) { }
+
+
     selectedCar(name:Car){
       this.car = name;
     }
+
+
     selectStartDate() {
     }
+
+
     selectEndDate() {
     }
+
+
   ngOnInit(): void {
     this.advertisementService.getCar().subscribe(data =>{
       this.cars = data;
-      console.log(this.cars);
       var i:number;
       var j:number;
       for(i = 0 ; i < this.cars.length ; i++){
@@ -52,31 +59,32 @@ export class RentRequestComponent implements OnInit {
           this.citys.push(this.cars[i].town);
         }
       }
-      console.log(this.citys);
     });
     // this.cars = this.cars || [];
   }
+
+
   onSubmit() {
-    //this.rentrequest={carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: false, deleted: false, id:this.id };
-    this.rentrequest={id:1, carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false };
+    this.rentrequest={id:1, carName:this.car.name, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false , startDateString:null, endDateString:null};
     this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
     .subscribe(
         data => {
         })
   }
+
+
   naKlik(carName:string) {
-    this.rentrequest={carName:carName, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false, id:this.id };
+    this.rentrequest={carName:carName, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false, id:this.id , startDateString:null, endDateString:null};
     this.advertisementService.addRentRequest(this.rentrequest).pipe(first())
-    .subscribe(
-        data => {
-          console.log('request sent');
-          alert('Request sent');
-          this.router.navigateByUrl('index');
-        }, error =>{
-          if(error.status == 403){
-            alert('This action has been blocked by admin');
-          }
-        })
+    .subscribe(res => alert('Request sent'),
+     err => {
+      if(err.status == 403) {
+        alert("You don't have permission for this action.")
+    }
+
+    this.router.navigateByUrl('index')
+
+    })
   }
 
   getAvailableCars(){
@@ -92,7 +100,7 @@ export class RentRequestComponent implements OnInit {
 
   filterCars(){
 
-    
+
     if(typeof this.selectedStartDate == 'undefined' || typeof this.selectedEndDate == 'undefined'){
       alert('You have not selected a date for request')
     }else{

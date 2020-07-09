@@ -21,11 +21,11 @@ public class UserRequest implements Serializable, UserDetails {
     private Integer id;
 
     @NotNull
-    @Column(name="firstname", nullable = false, unique = true)
+    @Column(name="firstname", nullable = false)
     private String firstname;
 
     @NotNull
-    @Column(name="lastname", nullable = false, unique = true)
+    @Column(name="lastname", nullable = false)
     private String lastname;
 
     @NotNull
@@ -36,7 +36,7 @@ public class UserRequest implements Serializable, UserDetails {
     //@Size(min = 10, max = 16)
     @NotNull
     //@ValidPassword   // custom hybernate validator
-    @Column(name="password", nullable = false, unique = true)
+    @Column(name="password", nullable = false)
     private String password;
 
     @NotNull
@@ -55,6 +55,9 @@ public class UserRequest implements Serializable, UserDetails {
 
     @Column(name="number")
     private String number;
+
+    @Column(name="pib", unique=true)
+    private String pib;
 
     public String getName() {
         return name;
@@ -133,6 +136,14 @@ public class UserRequest implements Serializable, UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPib() {
+        return pib;
+    }
+
+    public void setPib(String pib) {
+        this.pib = pib;
     }
 
     @Override

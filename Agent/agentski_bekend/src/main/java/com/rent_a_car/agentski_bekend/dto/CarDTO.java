@@ -11,6 +11,7 @@ public class CarDTO {
     private String pricing;
     private String fuelType;
     private String carModel;
+    private String averageRating;
     private String image;
 
     @Min(0)
@@ -88,5 +89,11 @@ public class CarDTO {
         this.name = name;
     }
 
+    public String getAverageRating() {
+        return averageRating;
+    }
 
+    public void setAverageRating(String averageRating) {
+        this.averageRating = averageRating;
+    }
 }

@@ -10,6 +10,8 @@ import { map } from 'rxjs/operators';
 //import { JwtHelperService } from '@auth0/angular-jwt';
 import { UserService } from '../security/user.service';
 import { Review } from '../models/Review';
+import { User } from '../models/User';
+import { Receipt } from '../models/Receipt';
 
   const httpOptions = {
     headers: new HttpHeaders({
@@ -44,11 +46,22 @@ export class AdvertisementService {
   url33:string = 'http://localhost:8282/api/renting/mycars';
   responseStatus: number;
   url5:string = 'http://localhost:8282/api/renting/payRequests';
-  url55:string = 'http://localhost:8282/api/renting/rentRequests';
+  url55:string = 'http://localhost:8282/api/renting/requests?status=pending';
   url6:string = 'http://localhost:8282/api/renting/approveRentRequest';
   url7:string = 'http://localhost:8282/api/renting/rejectRentRequest';
-  url8:string = 'http://localhost:8282/api/renting/availableCars/';
-  url9:string = 'http://localhost:8282/api/renting/filterCars/';
+  url8:string = 'http://localhost:8282/api/renting/availableCars/'
+  requestHistoryUrl:string = 'http://localhost:8282/api/renting/requests/history'
+  cancelRequestUrl:string = 'http://localhost:8282/api/renting/requests/'
+  getTopRatedCarsUrl:string = 'http://localhost:8282/cars/top-rated'
+  getMostCommentedCarsUrl:string = 'http://localhost:8282/cars/most-commented'
+  getHighestMileageCarsUrl:string = 'http://localhost:8282/cars/highest-mileage'
+
+  filterUrl:string = 'http://localhost:8282/cars/filter?fuelType=';
+  sortUrl:string = 'http://localhost:8282/cars?sort_by='
+  getReceiptsUrl:string = 'http://localhost:8282/api/renting/receipts'
+  payRentUrl:string = 'http://localhost:8282/api/renting/requests/'
+
+
 
 
   selectedStartDate:Date;
@@ -82,7 +95,7 @@ export class AdvertisementService {
   }
 
   payRent(id:number):Observable<number>{
-    return this.http.post<number>(this.url5, id, this.httpOptions);
+    return this.http.put<number>(this.payRentUrl+id, this.httpOptions);
 
   }
 
@@ -119,6 +132,8 @@ export class AdvertisementService {
   }
 
 
+  addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string):Observable<Car>{
+    this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null, id:0};
   addCar(namePricing:string, carModel:string, fuelType:string, milage:number, nameAdvertisement:string, town:string, slika:string):Observable<Car>{
     // var image = slika[0];
     this.car={pricing:namePricing, fuelType:fuelType, carModel:carModel, milage:milage, name:nameAdvertisement, town: town, user:null, id:0, image:slika};
@@ -149,6 +164,44 @@ export class AdvertisementService {
     }
     return this.http.get<Car[]>(this.url33, httpOptions);
   }
+
+
+  getTopRatedCars():Observable<CarDetails[]>{
+    let token = localStorage.getItem('accessToken');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    return this.http.get<CarDetails[]>(this.getTopRatedCarsUrl, httpOptions);
+  }
+
+  getMostCommentedCars():Observable<CarDetails[]>{
+    let token = localStorage.getItem('accessToken');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    return this.http.get<CarDetails[]>(this.getMostCommentedCarsUrl, httpOptions);
+  }
+
+  getHighestMileageCars():Observable<CarDetails[]>{
+    let token = localStorage.getItem('accessToken');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    return this.http.get<CarDetails[]>(this.getHighestMileageCarsUrl, httpOptions);
+  }
+
 
   getCarReviews(id:number):Observable<Review[]>{
     return this.http.get<Review[]>(this.getCarReviewsUrl+id);
@@ -262,7 +315,7 @@ export class AdvertisementService {
   }
 
   getAvailableCars(startDate:Date, endDate:Date, town:string):Observable<Car[]>{
-    let token = localStorage.getItem('accessToken');     // iz browsera
+    let token = localStorage.getItem('accessToken');
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -276,8 +329,8 @@ export class AdvertisementService {
   }
 
 
-  getFilteredCars(fuelType:string, transType:string, manufac:string, carClass:string, carModel:string):Observable<Car[]>{
-    let token = localStorage.getItem('accessToken');     // iz browsera
+  getFilteredCars(fuelType:string, transType:string, manufac:string, carClass:string, carModel:string, minPrice:string, maxPrice:string, minMileage:string, maxMileage:string, childSeats:string, mileageLimit:string, waiver:boolean):Observable<CarDetails[]>{
+    let token = localStorage.getItem('accessToken');
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -285,22 +338,69 @@ export class AdvertisementService {
         'Authorization': 'Bearer ' + token,
       })
     }
-    // if(fuelType==''){
-    //   fuelType = 'i';
-    // }
-    // if(transType==''){
-    //   fuelType = 'i';
-    // }
-    // if(manufac==''){
-    //   fuelType = 'i';
-    // }
-    // if(carClass==''){
-    //   fuelType = 'i';
-    // }
-    // if(carModel==''){
-    //   fuelType = 'i';
-    // }
-    console.log(this.url9+fuelType+'/'+transType+'/'+manufac+'/'+carClass+'/'+carModel);
-    return this.http.get<Car[]>(this.url9+fuelType+'/'+transType+'/'+manufac+'/'+carClass+'/'+carModel, httpOptions);
+
+    return this.http.get<CarDetails[]>(this.filterUrl+fuelType+'&transType='+transType+'&manufac='+manufac+'&carClass='+carClass+'&carModel='+carModel+'&minPrice='
+    +minPrice+'&maxPrice='+maxPrice+'&minMileage='+minMileage+'&maxMileage='+maxMileage+'&childSeats='+childSeats+'&mileageLimit='+mileageLimit+'&waiver='
+    +waiver, httpOptions);
   }
+
+
+
+  sortFilteredCars(cars:CarDetails[], type:string, entity:string):Observable<CarDetails[]>{
+    let token = localStorage.getItem('accessToken');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+    return this.http.post<CarDetails[]>(this.sortUrl+type+'('+entity+')', cars, httpOptions);
+  }
+
+  getCurrentUser():Observable<User> {
+
+    let token = localStorage.getItem('accessToken');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'mode': 'cors',
+        'Authorization': 'Bearer ' + token,
+      })
+    }
+
+    return this.http.get<User>('http://localhost:8282/user/current', httpOptions)
+}
+
+
+cancelRentRequest(id: number):Observable<number>{
+  return this.http.post<number>(this.cancelRequestUrl+id+'/cancel', this.httpOptions);
+}
+
+getRequestHistory():Observable<RentRequest[]>{
+  let token = localStorage.getItem('accessToken');
+   let httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'mode': 'cors',
+      'Authorization': 'Bearer ' + token,
+    })
+  }
+
+  return this.http.get<RentRequest[]>(this.requestHistoryUrl, httpOptions);
+}
+
+getReceipts():Observable<Receipt[]>{
+  let token = localStorage.getItem('accessToken');
+   let httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'mode': 'cors',
+      'Authorization': 'Bearer ' + token,
+    })
+  }
+
+  return this.http.get<Receipt[]>(this.getReceiptsUrl, httpOptions);
+}
+
 }

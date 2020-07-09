@@ -5,6 +5,7 @@ import com.rent_a_car.agentski_bekend.model.Privilege;
 import com.rent_a_car.agentski_bekend.model.UserRequest;
 import com.rent_a_car.agentski_bekend.model.UserTokenState;
 import com.rent_a_car.agentski_bekend.security.TokenUtils;
+import com.rent_a_car.agentski_bekend.service.MailService;
 import com.rent_a_car.agentski_bekend.service.UserService;
 import com.rent_a_car.agentski_bekend.service.interfaces.PrivilegeServiceInterface;
 import com.rent_a_car.agentski_bekend.service.interfaces.UserRequestServiceInterface;
@@ -42,31 +43,32 @@ import java.util.Random;
 //import com.webencyclop.demo.model.User; TODO import user
 
 @RestController
+//@RequestMapping(value = "api/auth/")
 public class AuthenticationController {
 
     @Autowired
-    private UserService userService;
+    UserService userService;
 
     @Autowired
-    private UserRequestServiceInterface userRequestService;
+    UserRequestServiceInterface userRequestService;
 
     @Autowired
-    private JavaMailSender javaMailSender;
+    AuthenticationManager authenticationManager;
 
     @Autowired
-    private AuthenticationManager authenticationManager;
+    CustomUserDetailsService customUserDetailsService;
 
     @Autowired
-    private CustomUserDetailsService customUserDetailsService;
+    PasswordEncoder passwordEncoder;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    TokenUtils tokenUtils;
 
     @Autowired
-    private TokenUtils tokenUtils;
+    MailService mailService;
 
     @Autowired
-    private PrivilegeServiceInterface privilegeService;
+    PrivilegeServiceInterface privilegeService;
 
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
 
@@ -74,6 +76,7 @@ public class AuthenticationController {
 
     @PostMapping(value = "/api/register")
     public ResponseEntity<?> register( @Valid @RequestBody UserDTO dto) {    // pokrece constraint iz dto klaase
+
         UserRequest user = new UserRequest();
         user.setFirstname(dto.getFirstname());
         user.setLastname(dto.getLastname());
@@ -82,24 +85,22 @@ public class AuthenticationController {
 
         if (dto.getIsSelected().equals("isCompany")) {
             user.setCompany(true);
+            user.setPib(dto.getPib());
+            user.setName(dto.getName());
         } else if (dto.getIsSelected().equals("isUser")) {
             user.setUser(true);
         }
 
-        user.setName(dto.getName());
         user.setAddress(dto.getAdress());
         user.setNumber(dto.getNumber());
 
-//        if (!dto.getEmail().matches("[a-zA-Z0-9.']+@(gmail.com)|(yahoo.com)|(uns.ac.rs)")) {
-//            LOGGER.warn("User registration failed. Cause: invalid email characters");
-//            return ResponseEntity.status(400).build();
-//        }
+
 
         try {
             userRequestService.save(user);
-            LOGGER.info("User: {} registered successfuly.", dto.getEmail());
+            LOGGER.info("action=register, user={}, result=success", dto.getEmail());
         } catch (Exception e) {
-            LOGGER.warn("User registration failed. Cause: invalid password input");
+            LOGGER.warn("action=register, user={}, result=failure, cause={}", user.getEmail(), e.getMessage());
             return new ResponseEntity<>("Invalid pass", HttpStatus.BAD_REQUEST);
 
         }
@@ -117,10 +118,6 @@ public class AuthenticationController {
     @PostMapping(value = "/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest){
 
-//        final Authentication authentication = authenticationManager
-//                .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
-//                        authenticationRequest.getPassword()));
-
         UsernamePasswordAuthenticationToken upat = new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
                         authenticationRequest.getPassword());
 
@@ -129,23 +126,23 @@ public class AuthenticationController {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String role;//
-        //role = authentication.getAuthorities().iterator().next().getAuthority();
+        String role;
         User user = (User)customUserDetailsService.loadUserByUsername(authenticationRequest.getEmail());
         role = user.getRole().iterator().next().getName();
 
-        if(!user.isActivated()){
-            LOGGER.warn("Action create authentication token failed. User account: {} is not activated.", user.getEmail());
+        if(!user.isActivated() || user.isDeleted()){
+            LOGGER.warn("action=create authentication token, user={}, result=failure, cause=account is not activated or deleted", user.getEmail());
             return ResponseEntity.status(403).build();
         }
 
         String jwt = tokenUtils.generateToken(user.getEmail()/*, user.getBlocked_privileges()*/);
         int expiresIn = tokenUtils.getExpiredId();
 
-        LOGGER.info("Action create authentication token successful for user account: {}. User logged in.", user.getEmail());
+        LOGGER.info("action=create authentication token, user={}, result=success", user.getEmail());
         return ResponseEntity.ok(new UserTokenState(jwt, expiresIn, role));
 
     }
+
 
     @RequestMapping(value = "/role", method = RequestMethod.GET)
     public ResponseEntity<?> getRole(Principal p){
@@ -155,23 +152,25 @@ public class AuthenticationController {
         Collection<?> auth = user.getAuthorities();
 
         if(auth.size() == 0){
-            LOGGER.warn("User: {} has no authorities", p.getName());
+            LOGGER.warn("action=get role, user={}, result=failure, cause=user has no authorities", p.getName());
             return ResponseEntity.status(500).build();
         }
 
-        LOGGER.info("Action get role by user: {} successful", p.getName());
+        LOGGER.info("action=get role, user={}, result=success", p.getName());
         return ResponseEntity.ok(auth);
     }
+
 
     @RequestMapping(value = "/izadji", method = RequestMethod.GET)
     public ResponseEntity<?> logout(HttpServletRequest request) throws ServletException {
 
-        //User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         request.logout();
 
-        //LOGGER.info("User: {} logged out successfully", user.getEmail());
+        LOGGER.info("action=log out, user={}, result=success", user.getEmail());
         return ResponseEntity.ok().build();
     }
+
 
     @PreAuthorize("hasAuthority('acc_menagement')")
     @PostMapping("/changePassword")
@@ -185,38 +184,39 @@ public class AuthenticationController {
 
             userService.save(user);
 
-            LOGGER.info("User: {} changed password successfully", p.getName());
+            LOGGER.info("action=change password, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
 
         } catch (Exception e) {
-            LOGGER.error("User: {} failed to change password. Cause:{}", p.getName(), e.getMessage());
+            LOGGER.error("action=change password, user={}, result=failure, cause={}", p.getName(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
 
     }
+
+
     @PreAuthorize("hasAuthority('acc_menagement')")
     @PostMapping("/checkPassword")
     public ResponseEntity<?> checkPassword(@RequestBody String oldPassword, Principal p){
 
         User user = userService.findByEmail(p.getName());
 
-//        String pass = user.getPassword();
-//        String ppass = passwordEncoder.encode(oldPassword);
 
         if( user.getPassword().equals(passwordEncoder.encode(oldPassword))) {
-            LOGGER.info("Password check by user: {} successful", p.getName());
+            LOGGER.info("action=check password, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
         }
 
         if( passwordEncoder.matches(oldPassword, user.getPassword())) {
-            LOGGER.info("Password check by user: {} successful", p.getName());
+            LOGGER.info("action=check password, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();
         }
 
-        LOGGER.warn("Password check by user: {} failed", p.getName());
+        LOGGER.warn("action=check password, user={}, result=failure, cause=password doesnt match", p.getName());
         return ResponseEntity.status(402).build();
     }
+
 
     @PostMapping("/recoverEmail")
     public ResponseEntity<?> forgotPassword(@RequestBody String email){
@@ -224,38 +224,26 @@ public class AuthenticationController {
         User user = userService.findByEmail(email);
         String newPassword = generatePassword();
         user.setPassword(passwordEncoder.encode(newPassword));
+
+        String text = "Dear sir/madam, " + '\n';
+        text += "we have been informed about your request for account recovery. \n Please use your new password "+ newPassword + " " +
+                "for your next login and dont forget to set new password of your liking";
+
         try {
-            sendAcceptEmail(user.getEmail(), newPassword);
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (javax.mail.MessagingException e) {
-            e.printStackTrace();
+
+            mailService.sendEmail(user.getEmail(), text, "Account recovery");
+            LOGGER.error("action=recover email, user={}, result=success", email);
+
+        } catch (Exception e) {
+            LOGGER.error("action=recover email, user={}, result=failure, cause={}", email, e.getMessage());
         }
-        System.out.println("Successfully sent email.");
+
         userService.save(user);
 
         return ResponseEntity.ok().build();
     }
 
-    void sendAcceptEmail(String sendTo, String password) throws MessagingException, IOException, javax.mail.MessagingException {
 
-        MimeMessage msg = javaMailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(msg, true);
-        helper.setTo(sendTo);
-
-        helper.setSubject("Account recovery");
-        String text = "Dear sir/madam, " + '\n';
-        text += "we have been informed about your request for account recovery. \n Please use your new password "+ password+ " " +
-                "for your next login and dont forget to set new password of your liking";
-
-        helper.setText(text);
-
-
-        javaMailSender.send(msg);
-
-    }
 
     public String generatePassword(){
         int leftLimit = 97; // letter 'a'
@@ -271,7 +259,7 @@ public class AuthenticationController {
         int lengthSpec = 1;
 
         Random random = new Random();
-        //mala slova
+
         StringBuilder buffer = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
             int randomLimitedInt = leftLimit + (int)
@@ -280,7 +268,7 @@ public class AuthenticationController {
         }
         String generatedString1 = buffer.toString();
 
-        //velika
+
         StringBuilder bufferr = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
             int randomLimitedInt = leftLimitCapital + (int)
@@ -289,7 +277,6 @@ public class AuthenticationController {
         }
         String generatedString2 = bufferr.toString();
 
-        //broj
         StringBuilder bufferrr = new StringBuilder(lengthNumber);
         for (int i = 0; i < lengthNumber; i++) {
             int randomLimitedInt = leftLimitNumber + (int)
@@ -298,7 +285,6 @@ public class AuthenticationController {
         }
         String generatedString3 = bufferrr.toString();
 
-        //spec
         StringBuilder bufferrrr = new StringBuilder(lengthSpec);
         for (int i = 0; i < lengthSpec; i++) {
             int randomLimitedInt = leftLimitSpec + (int)

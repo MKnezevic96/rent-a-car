@@ -1,5 +1,5 @@
 export class RentingReport {
-    mileAge:number;
+    addedMileage:number;
     report:String;
     rentingInstanceId:number;
 }

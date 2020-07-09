@@ -7,6 +7,8 @@ import { first } from 'rxjs/operators';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Pricing } from 'src/app/models/Pricing';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/security/user.service';
+
 //import * as moment from 'moment';
 // import {ModalDismissReasons, NgbDatepickerConfig, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 // import {faCalendar, faWindowClose, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
@@ -35,7 +37,8 @@ export class AdvertisementComponent implements OnInit {
     private adminService: AdminService,
     private advertisementService: AdvertisementService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
   }
   selectedFuelType(name:FuelType){
@@ -66,7 +69,7 @@ export class AdvertisementComponent implements OnInit {
     });
   }
   onSubmit() {
-  
+
     var slika : string = this.base64textString.toString();
     this.advertisementService.addCar(this.pr.name, this.cm.name, this.ft.name, this.milage, this.nameAdvertisement, this.town, this.base64textString.toString()).pipe(first())
     .subscribe(
@@ -88,6 +91,13 @@ export class AdvertisementComponent implements OnInit {
     // this.router.navigateByUrl('pricing');
     this.router.navigate(['pricing'], {relativeTo:this.route.parent});
 
+  }
+
+
+
+  logout(){
+    this.userService.logout().subscribe(data =>{
+    });
   }
 
   onUploadChange(evt: any) {

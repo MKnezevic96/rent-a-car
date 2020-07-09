@@ -12,6 +12,8 @@ public class CarsListingDTO {
     private Integer id;
     private String image;
 
+    public CarsListingDTO () {};
+
     public CarsListingDTO(Cars car) {
         this.carName = car.getName();
         this.town = car.getTown();

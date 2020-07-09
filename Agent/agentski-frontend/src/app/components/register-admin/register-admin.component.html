@@ -4,28 +4,24 @@
     <meta charset="UTF-8">
     <title>Registration</title>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- <link rel="stylesheet" href="css/register.css"> -->
-    <script src="js/Register.js"></script>
-   
-
 </head>
 <body>
-
-<div class="wrapper fadeInDown">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-primary" style="margin-top: 0 !important;" (click)="logout()">Log out</button>
+  </nav>
+  
+  <div class="container fluid">
+   
     <div id="formContent">
-        <!-- Tabs Titles -->
-
-        <!-- Icon -->
-        <div class="fadeIn first">
-            <img src="" id="icon" />
-        </div>
-       
-            
-          <div class="note col-lg-6 offset-3 text-center">
-            <h2>Register here</h2>
-          </div>
+      
+         
 
           <form (ngSubmit)="register()" [formGroup]="userData">
 
@@ -76,19 +72,29 @@
 
 
             <div class="form-group col-lg-6">
-              <label for="inputName">Name</label>
+              <label for="inputName">Firm name</label>
               <input
                 [ngClass]="{'is-invalid': f.name.touched && f.name.errors, 'is-valid': f.name.touched && f.name.valid}"
                 class="form-control"
                 id="inputName"
                 name="name" formControlName="name"
-                placeholder="Enter the city You live in"
+                placeholder="Enter the name of firm"
                 required>
               <span style="color: red" *ngIf="f.name.invalid && f.name.touched">Name must contain only letters</span>
             </div>
 
 
-
+            <div class="form-group col-lg-6 w-75">
+              <label for="InputPIB">PIB</label>
+              <input
+                [ngClass]="{'is-invalid': f.pib.touched && f.pib.errors, 'is-valid': f.pib.touched && f.pib.valid}"
+                class="form-control"
+                id="inputPIB"
+                name="pib" formControlName="pib"
+                placeholder="Enter PIB"
+                required>
+              <span style="color: red" *ngIf="f.pib.invalid && f.pib.touched">PIB must contain 8 digits</span>
+            </div>
 
 
 

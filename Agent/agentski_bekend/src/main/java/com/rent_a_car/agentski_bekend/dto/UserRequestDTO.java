@@ -33,6 +33,7 @@ public class UserRequestDTO {
     @Size(min = 10, max = 500)
     public String password;
 
+
     public UserRequestDTO() {
     }
 
