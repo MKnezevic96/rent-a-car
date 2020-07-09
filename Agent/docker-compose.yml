@@ -12,7 +12,7 @@ services:
        dockerfile: Dockerfile
      tty: true
      ports:
-      - "127.0.0.1:8282:8282"
+      - "8282:8282"
      environment:
        DATABASE_USERNAME: 'root'
        DATABASE_PASSWORD: 'admin'
@@ -24,18 +24,18 @@ services:
        - ./logs:/logs
 
 
-#  agentski-frontend:
-#     image: agentski-frontend
-#     build:
-#       context: ./agentski-frontend
-#       dockerfile: Dockerfile
-#     tty: true
-#     ports:
-#       - "4200:80"
-#     networks:
-#       - second-network
-#     depends_on:
-#       - agentski-bekend
+  agentski-frontend:
+    image: agentski-frontend
+    build:
+      context: ./agentski-frontend
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - "4200:80"
+    networks:
+      - second-network
+    depends_on:
+      - agentski-bekend
 
 
   agentska-baza:

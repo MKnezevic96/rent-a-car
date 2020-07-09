@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:sch="http://spring.io/guides/gs-producing-web-service"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+                  targetNamespace="http://spring.io/guides/gs-producing-web-service"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://schemas.xmlsoap.org/wsdl/ ">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+                   targetNamespace="http://spring.io/guides/gs-producing-web-service">
+
+            <xs:element name="getCarsRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="carId" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getCarsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="cars" type="tns:carsSoap"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:complexType name="carsSoap">
+                <xs:sequence>
+                    <xs:element name="carName" type="xs:string"/>
+                    <xs:element name="model" type="xs:string"/>
+                    <xs:element name="manufacturer" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getCarsRequest">
+        <wsdl:part element="tns:getCarsRequest" name="getCarsRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getCarsResponse">
+        <wsdl:part element="tns:getCarsResponse" name="getCarsResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="CarsPort">
+        <wsdl:operation name="getCars">
+            <wsdl:input message="tns:getCarsRequest" name="getCarsRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:getCarsResponse" name="getCarsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CarsPortSoap11" type="tns:CarsPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getCars">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="getCarsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getCarsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CarsPortService">
+        <wsdl:port binding="tns:CarsPortSoap11" name="CarsPortSoap11">
+            <soap:address location="http://localhost:8282/ws"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

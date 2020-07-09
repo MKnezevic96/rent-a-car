@@ -12,7 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.NoSuchAlgorithmException;
 
 @SpringBootApplication(scanBasePackages={
-		"com.admin_service.service"})
+		"com.admin_service.service",
+		"com.admin_service.security",
+		"com.admin_service.config",
+		"com.admin_service.service.interfaces",
+		"com.admin_service.helper"
+})
+
 @RestController
 @EnableEurekaClient
 public class AdmnServiceApplication {

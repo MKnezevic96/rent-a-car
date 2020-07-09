@@ -1,5 +1,6 @@
 package com.admin_service.config;
 
+
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -17,10 +18,6 @@ import org.springframework.xml.xsd.XsdSchema;
 public class WebServiceConfig extends WsConfigurerAdapter {
     @Bean
     public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {
-
-        System.out.println("Podigao se servletRegistrationBean");
-
-
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
@@ -28,18 +25,18 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     }
 
     @Bean(name = "cars")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema carsSchema) {
+    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("CarsPort");
         wsdl11Definition.setLocationUri("/ws");
         wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
-        wsdl11Definition.setSchema(carsSchema);
+        wsdl11Definition.setSchema(countriesSchema);
         return wsdl11Definition;
     }
 
     @Bean
-    public XsdSchema carsSchema() {
-
+    public XsdSchema carsSchema () {
         return new SimpleXsdSchema(new ClassPathResource("cars.xsd"));
     }
+
 }

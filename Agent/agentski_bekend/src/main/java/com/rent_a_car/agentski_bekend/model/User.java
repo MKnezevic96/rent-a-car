@@ -31,6 +31,7 @@ import java.util.*;
         "rentBan",
         "messageBan",
         "deleted",
+        "blocked",
         "company",
         "recieptsIMade",
         "recieptsImOwed",
@@ -38,10 +39,15 @@ import java.util.*;
         "sentMessages",
         "recieved",
         "pricings",
+
         "activated",
         "rentRBan",
         "messageRBan",
         "adBan"
+
+        "rentRequests",
+        "activated"
+
 }, namespace = "nekiUri/user")
 @Table(name = "user_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

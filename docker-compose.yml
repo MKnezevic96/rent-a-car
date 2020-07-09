@@ -16,6 +16,8 @@ services:
     container_name: zuul
     ports:
       - "8083:8083"
+    expose: 
+      - "8282"
     environment:
       - REGISTRY_HOST=eureka
     tty: true
@@ -168,6 +170,22 @@ services:
     image: mysql:8
     volumes:
       - my-datavolume:/var/lib/docker/mainDb
+
+  front-end:
+    image: front-end
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - "4201:80"
+    networks:
+      - first-network
+    depends_on:
+      - eureka
+      - zuul
+
+
 
 networks:
   first-network:

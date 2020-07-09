@@ -3,6 +3,7 @@ package com.admin_service.controller;
 
 import com.admin_service.dto.*;
 import com.admin_service.model.*;
+import com.admin_service.service.CarsService;
 import com.admin_service.service.UserRequestService;
 import com.admin_service.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -234,7 +235,7 @@ public class AdminController {
 
         for(UserRequest c : cm){
             UserRequestDTO m = new UserRequestDTO();
-            m.setFirsname(c.getFirstname());
+            m.setFirstname(c.getFirstname());
             m.setLastname(c.getLastname());
             m.setEmail(c.getEmail());
             m.setPassword(c.getPassword());
@@ -254,7 +255,7 @@ public class AdminController {
         for(User c : cm){
             if(!c.isDeleted() && !c.isBlocked()) {
                 UserRequestDTO m = new UserRequestDTO();
-                m.setFirsname(c.getFirstname());
+                m.setFirstname(c.getFirstname());
                 m.setLastname(c.getLastname());
                 m.setEmail(c.getEmail());
                 m.setPassword(c.getPassword());
@@ -275,7 +276,7 @@ public class AdminController {
         for(User c : cm){
             if(c.isBlocked()==true) {
                 UserRequestDTO m = new UserRequestDTO();
-                m.setFirsname(c.getFirstname());
+                m.setFirstname(c.getFirstname());
                 m.setLastname(c.getLastname());
                 m.setEmail(c.getEmail());
                 m.setPassword(c.getPassword());

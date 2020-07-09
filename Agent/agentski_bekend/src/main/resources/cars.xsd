@@ -4,7 +4,7 @@
   <xs:element name="getCarsRequest">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="name" type="xs:integer"/>
+        <xs:element name="carId" type="xs:int"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -19,7 +19,7 @@
 
   <xs:complexType name="carsSoap">
     <xs:sequence>
-      <xs:element name="name" type="xs:string"/>
+      <xs:element name="carName" type="xs:string"/>
       <xs:element name="model" type="xs:string"/>
       <xs:element name="manufacturer" type="xs:string"/>
     </xs:sequence>
