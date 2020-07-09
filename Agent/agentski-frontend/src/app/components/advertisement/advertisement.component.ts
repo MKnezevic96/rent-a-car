@@ -73,7 +73,12 @@ export class AdvertisementComponent implements OnInit {
         data => {
 
         },error =>{
-          alert('You already user maximum amount of advertisements');
+          if(error.status == 400){
+            alert('You already user maximum amount of advertisements');
+          }
+          if(error.status == 403){
+            alert('This action has been blocked by admin');
+          }
         })
         this.router.navigateByUrl('index');
 

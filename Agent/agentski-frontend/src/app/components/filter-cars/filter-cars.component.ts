@@ -164,6 +164,10 @@ export class FilterCarsComponent implements OnInit {
           console.log('request sent');
           alert('Request sent');
           this.router.navigateByUrl('index');
+        }, error=>{
+          if(error.status == 403){
+            alert('This action has been blocked by admin');
+          }
         })
   }
 

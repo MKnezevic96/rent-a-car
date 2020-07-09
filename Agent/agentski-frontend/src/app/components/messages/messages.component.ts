@@ -102,6 +102,10 @@ export class MessagesComponent implements OnInit {
           this.messageService.getMessageHistory(this.userTo).subscribe(data =>{
             this.messages = data;
             this.content="";
+          }, error=>{
+            if(error.status == 403){
+              alert('This action has been blocked by admin');
+            }
           })
         })
   }
