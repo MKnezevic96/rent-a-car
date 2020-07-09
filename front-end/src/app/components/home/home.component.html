@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
+    <script src="js/login.js"></script>
+
+</head>
+<body>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <div class="fadeIn first">
+            <img src="" id="icon" />
+        </div>
+        <p>Find user by username</p>
+            <input type="text" id="username" class="fadeIn second" name="username" placeholder="username" [(ngModel)]="username">
+            <button class="btn btn-primary fadeIn fourth" (click)="onSubmit()">Find</button>
+        
+        <div id="formFooter">
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
