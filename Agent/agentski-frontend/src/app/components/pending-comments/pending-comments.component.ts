@@ -28,6 +28,7 @@ import { Review } from 'src/app/models/Review';
                     <td>{{ com.rating }}</td>
                     <td>{{ com.review }}</td>
                     <td><button class="btn btn-primary" (click)="approveReview(com.id)">Approve</button></td>
+                    <td><button class="btn btn-primary" (click)="denyReview(com.id)">Deny</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -50,6 +51,14 @@ export class PendingCommentsComponent implements OnInit {
 
   approveReview(id:number){
     this.adminService.approve(id).subscribe((data)=>{
+      this.adminService.getPendingComments().subscribe(data =>{
+        this.pendingComments = data;
+      });
+    });
+  }
+
+  denyReview(id:number){
+    this.adminService.denyReview(id).subscribe((data)=>{
       this.adminService.getPendingComments().subscribe(data =>{
         this.pendingComments = data;
       });

@@ -41,7 +41,7 @@ public class CarReview {
     @XmlElement
     private Cars car;
 
-    @Column(name="rating", nullable=false)
+    @Column(name="rating")
     @XmlElement
     private Integer rating;
 

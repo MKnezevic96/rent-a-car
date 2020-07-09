@@ -34,9 +34,9 @@ export class RegisterComponent implements OnInit {
         passwordRepeat: ['', [Validators.required, Validators.minLength(10)]],
         firstname: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
         lastname: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
-        name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
-        adress: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
-        number: ['', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.minLength(9), Validators.maxLength(10)]]
+        //name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+        //adress: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+        //number: ['', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.minLength(9), Validators.maxLength(10)]]
         
       },
       {validator: this.checkPasswords});
@@ -74,8 +74,8 @@ export class RegisterComponent implements OnInit {
   register() {
 
     const registration = new UserRequest( this.userData.value.firstname,
-      this.userData.value.lastname, this.userData.value.email, this.userData.value.password, this.userData.value.name, 
-      this.userData.value.adress, this.userData.value.number);
+      this.userData.value.lastname, this.userData.value.email, this.userData.value.password,
+      'isUser', '', '', '', '');
 
     this.registrationService.onRegister(registration).subscribe(data => {
       this.router.navigate(['/login'])

@@ -154,6 +154,9 @@ export class CarModelsComponent implements OnInit {
 
   addCM(){
     this.adminService.addCM(this.nameCM, this.caarc.name, this.trrans.name, this.maanu.name).subscribe((data:CarModels)=>{
+      this.adminService.getCarModels().subscribe(data => {
+        this.carModels = data;
+      });
     });
     this.adminService.getCarModels().subscribe(data => {
       this.carModels = data;

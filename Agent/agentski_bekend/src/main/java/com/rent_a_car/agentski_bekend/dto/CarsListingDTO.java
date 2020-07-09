@@ -10,6 +10,9 @@ public class CarsListingDTO {
     private String transmission;
     private String fuel;
     private Integer id;
+    private String image;
+
+    public CarsListingDTO () {};
 
     public CarsListingDTO(Cars car) {
         this.carName = car.getName();
@@ -18,6 +21,15 @@ public class CarsListingDTO {
         this.transmission = car.getModel().getTransmission().getName();
         this.fuel = car.getFuelType().getName();
         this.id = car.getId();
+        this.image = car.getImage();
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getCarName() {

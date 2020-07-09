@@ -22,4 +22,5 @@ public interface UserServiceInterface {
     User findUserById(Integer id);
 
     List<RentRequest> findUsersRentRequests(String email);
+
 }

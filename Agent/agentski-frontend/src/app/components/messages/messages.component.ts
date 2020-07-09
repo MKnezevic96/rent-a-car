@@ -6,11 +6,26 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { first } from 'rxjs/operators';
-import { Review } from 'src/app/models/Review';
+import { UserService } from 'src/app/security/user.service';
 
 @Component({
   selector: 'app-messages',
   template: `
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+          <li class="nav-item active">
+              <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+          </li>
+      </ul>
+  </div>
+  <button class="btn btn-primary" style="margin-top: 0 !important;" (click)="logout()">Log out</button>
+</nav>
+
+<div class="container fluid">
+ 
+
   <ng-container *ngIf="msglist">
   <table class="table">
        <thead>
@@ -75,7 +90,7 @@ export class MessagesComponent implements OnInit {
   content:string;
   
 
-  constructor(private messageService: MessageService, private route: ActivatedRoute, private router: Router, private http:HttpClient) { }
+  constructor(private messageService: MessageService, private route: ActivatedRoute, private router: Router, private http:HttpClient, private userService:UserService) { }
 
   ngOnInit(): void {
     this.messageService.getUsersList().subscribe(data =>{
@@ -102,9 +117,16 @@ export class MessagesComponent implements OnInit {
           this.messageService.getMessageHistory(this.userTo).subscribe(data =>{
             this.messages = data;
             this.content="";
+          }, error=>{
+            if(error.status == 403){
+              alert('This action has been blocked by admin');
+            }
           })
         })
   }
   
-
+  logout(){
+    this.userService.logout().subscribe(data =>{
+    });
+  }
 }

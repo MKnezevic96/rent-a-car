@@ -20,7 +20,7 @@ const httpOptions = {
 export class RentingReportService {
 
 
-  requestsUrl:string = 'http://localhost:8282/api/renting/requests?status=paid'
+  requestsUrl:string = 'http://localhost:8282/api/renting/requests?status=reserved'
   addReportUrl:string= 'http://localhost:8282/api/renting/report'
 
   rentingReport:RentingReport;
@@ -36,7 +36,7 @@ export class RentingReportService {
 
 
   addNewRentingReport(mileage:number, report:string, rentingInstanceId:number):Observable<RentingReport>{
-    this.rentingReport={mileAge:mileage, report:report, rentingInstanceId:rentingInstanceId};
+    this.rentingReport={addedMileage:mileage, report:report, rentingInstanceId:rentingInstanceId};
     return this.http.post<RentingReport>(this.addReportUrl, this.rentingReport, httpOptions);
   }
 }

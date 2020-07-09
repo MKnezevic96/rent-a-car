@@ -18,11 +18,13 @@
                 <a class="list-group-item list-group-item-action bg-light" (click)="showAddAdvertisementForm()">Add advertisement</a>
                 <a class="list-group-item list-group-item-action bg-light">Search</a>
                 <a class="list-group-item list-group-item-action bg-light" (click)="showCreateReportForm()">New renting report</a>
-                <a class="list-group-item list-group-item-action bg-light">Sent requests history</a>
+                <a class="list-group-item list-group-item-action bg-light" (click)="showRequestHistory()">Sent requests history</a>
                 <a class="list-group-item list-group-item-action bg-light" (click)="showMessages()">Messages</a>
                 <a class="list-group-item list-group-item-action bg-light">Vehicle tracking</a>
                 <a class="list-group-item list-group-item-action bg-light" (click)='changePassword()'>Change password</a>
                 <a class="list-group-item list-group-item-action bg-light" (click)=rentingMenagement()>Car menagement</a>
+                <a class="list-group-item list-group-item-action bg-light" (click)="showStatistics()">Statistics</a>
+
 
 
             </div>
@@ -30,23 +32,7 @@
 
         <!-- /#sidebar-wrapper -->
         <div id="page-content-wrapper">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" >Home <span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <button class="btn btn-primary" style="margin-top: 0 !important;" (click)="logout()">Log out</button>
-            </nav>
-
-            <div class="container fluid">
              <router-outlet></router-outlet>
-
-
-            </div>
         </div><!-- Page Content Wrapper -->
     </div><!-- Wrapper -->
 </body>

@@ -48,6 +48,15 @@ import { PasswordChangeComponent } from './components/password-change/password-c
 import { TokenInterceptor } from './security/tokenInterceptor';
 import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { RequestHistoryComponent } from './components/request-history/request-history.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { StatisticsTopRatedComponent } from './components/statistics-top-rated/statistics-top-rated.component';
+import { StatisticsHighestMileageComponent } from './components/statistics-highest-mileage/statistics-highest-mileage.component';
+import { StatisticsMostCommentedComponent } from './components/statistics-most-commented/statistics-most-commented.component';
+import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
+import { FilterCarsComponent } from './components/filter-cars/filter-cars.component';
+import { RentVehicleComponent } from './components/rent-vehicle/rent-vehicle.component';
+import { ManageUsersComponent } from './components/manage-users/manage-users.component';
 
 
 @NgModule({
@@ -85,6 +94,15 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     PasswordChangeComponent,
     ActivateComponent,
     ForgotPasswordComponent,
+    RequestHistoryComponent,
+    StatisticsComponent,
+    StatisticsTopRatedComponent,
+    StatisticsHighestMileageComponent,
+    StatisticsMostCommentedComponent,
+    RegisterAdminComponent,
+    FilterCarsComponent,
+    RentVehicleComponent,
+    ManageUsersComponent,
    // AuthGuard
   ],
   imports: [

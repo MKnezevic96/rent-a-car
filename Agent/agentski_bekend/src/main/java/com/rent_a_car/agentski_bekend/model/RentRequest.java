@@ -63,6 +63,10 @@ public class RentRequest implements Serializable {
     @JoinColumn(name="renting_report_id", referencedColumnName = "renting_report_id")
     private RentingReport rentingReport;
 
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="reciept_id", referencedColumnName = "reciept_id")
+    private Reciept receipt;
+
 
 
     public RentRequest() {
@@ -127,5 +131,13 @@ public class RentRequest implements Serializable {
 
     public void setRentingReport(RentingReport rentingReport) {
         this.rentingReport = rentingReport;
+    }
+
+    public Reciept getReceipt() {
+        return receipt;
+    }
+
+    public void setReceipt(Reciept receipt) {
+        this.receipt = receipt;
     }
 }

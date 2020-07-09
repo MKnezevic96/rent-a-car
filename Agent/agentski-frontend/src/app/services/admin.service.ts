@@ -61,6 +61,10 @@ export class AdminService {
 
   url26:string = 'http://localhost:8282/admin/carReviews';
   url28:string = 'http://localhost:8282/admin/deleteAcc';
+  privilege:string = 'http://localHost:8282/admin/privilege/'
+
+  denyReviewUrl:string = 'http://localhost:8282/admin/reviews/deny';
+
 
   carClass:CarClass;
   manufact:Manufacturer;
@@ -70,6 +74,21 @@ export class AdminService {
 
 
   constructor(private http:HttpClient) { }
+
+  advertisementPrivilege(email:string):Observable<string>{
+    return this.http.post<string>(this.privilege+'1', email, httpOptions);
+
+  }
+
+  rentRequestPrivilege(email:string):Observable<string>{
+    return this.http.post<string>(this.privilege+'2', email, httpOptions);
+
+  }
+
+  messagePrivilege(email:string):Observable<string>{
+    return this.http.post<string>(this.privilege+'3', email, httpOptions);
+
+  }
 
   activate(email:string):Observable<string>{
     return this.http.post<string>(this.url23, email, httpOptions);
@@ -109,6 +128,12 @@ export class AdminService {
 
   approve(id:number): Observable<number>{
     return this.http.post<number>(this.url26, id, httpOptions);
+
+  }
+
+
+  denyReview(id:number): Observable<number>{
+    return this.http.post<number>(this.denyReviewUrl, id, httpOptions);
 
   }
 
