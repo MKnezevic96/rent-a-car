@@ -403,6 +403,9 @@ public class RentingController {
     public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto, Principal p){
 
         User user = userService.findByEmail(p.getName());
+        if(user.isRentRBan()){
+            return ResponseEntity.status(403).build();
+        }
 
         try{
 

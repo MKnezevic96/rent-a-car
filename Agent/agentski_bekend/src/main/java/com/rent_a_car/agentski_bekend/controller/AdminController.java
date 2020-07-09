@@ -92,17 +92,16 @@ public class AdminController {
 
 
             if(id == 1){
-//                List<Privilege> rList = privilegeService.findByName("ad_menagement_write");
-//                user.setBlocked_privileges(rList);
-                user.getBlocked_privileges().add("ad_menagement_write");
+                user.setAdBan(!user.isAdBan());
             }
 
             if(id == 2){
-//                List<Privilege> rList = privilegeService.findByName("rent_menagement_write");
-//                user.setBlocked_privileges(rList);
-                user.getBlocked_privileges().add("rent_menagement_write");
+                user.setRentRBan(!user.isRentRBan());
             }
 
+            if(id == 3){
+                user.setMessageRBan(!user.isMessageRBan());
+            }
             userService.save(user);
             LOGGER.info("Action approve car review id:{} by user: {} successful", id.toString(), user.getEmail());
             return ResponseEntity.ok().build();

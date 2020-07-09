@@ -38,7 +38,10 @@ import java.util.*;
         "sentMessages",
         "recieved",
         "pricings",
-        "activated"
+        "activated",
+        "rentRBan",
+        "messageRBan",
+        "adBan"
 }, namespace = "nekiUri/user")
 @Table(name = "user_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -86,16 +89,6 @@ public class User implements Serializable, UserDetails {
                     name = "role_id", referencedColumnName = "id"))
     @XmlElement
     private Collection<Role> role;
-
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "blocked_privileges",
-//            joinColumns = @JoinColumn(
-//                    name = "user_id", referencedColumnName = "user_id"),
-//            inverseJoinColumns = @JoinColumn(
-//                    name = "privilege_id", referencedColumnName = "id"))
-//    @XmlElement
-//    private Collection<Privilege> blocked_privileges;
 
     @ElementCollection(fetch = FetchType.LAZY)
     private List<String> blocked_privileges = new ArrayList<>();
@@ -155,17 +148,41 @@ public class User implements Serializable, UserDetails {
     @Column (name="activated", nullable=false)
     private boolean activated = false;
 
+    @Column (name="rent_r_ban", nullable=false)
+    private boolean rentRBan = false;
+
+    @Column (name="message_r_ban", nullable=false)
+    private boolean messageRBan = false;
+
+    @Column (name="ad_ban", nullable=false)
+    private boolean adBan = false;
+
     public User() {
     }
 
-//    public Collection<Privilege> getBlocked_privileges() {
-//        return blocked_privileges;
-//    }
-//
-//    public void setBlocked_privileges(Collection<Privilege> blocked_privileges) {
-//        this.blocked_privileges = blocked_privileges;
-//    }
+    public boolean isRentRBan() {
+        return rentRBan;
+    }
 
+    public void setRentRBan(boolean rentRBan) {
+        this.rentRBan = rentRBan;
+    }
+
+    public boolean isMessageRBan() {
+        return messageRBan;
+    }
+
+    public void setMessageRBan(boolean messageRBan) {
+        this.messageRBan = messageRBan;
+    }
+
+    public boolean isAdBan() {
+        return adBan;
+    }
+
+    public void setAdBan(boolean adBan) {
+        this.adBan = adBan;
+    }
 
     public List<String> getBlocked_privileges() {
         return blocked_privileges;

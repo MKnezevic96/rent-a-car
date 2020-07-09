@@ -115,12 +115,9 @@ public class AdvertisementController {
     public ResponseEntity<?> addCar(@RequestBody CarDTO dto){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        if(!user.getBlocked_privileges().isEmpty()){
-//            if(user.getBlocked_privileges().contains("ad_menagement_write")){
-//                return ResponseEntity.status(403).build();
-//            }
-//        }
-        //List<String> list = user.getBlocked_privileges();
+        if(user.isAdBan()){
+            return ResponseEntity.status(403).build();
+        }
 
         List<Cars> cars = carsService.findAll();
         if(user.getCompany() == null) {

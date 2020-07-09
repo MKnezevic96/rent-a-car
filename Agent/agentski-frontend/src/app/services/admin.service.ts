@@ -82,6 +82,11 @@ export class AdminService {
 
   }
 
+  messagePrivilege(email:string):Observable<string>{
+    return this.http.post<string>(this.privilege+'3', email, httpOptions);
+
+  }
+
   activate(email:string):Observable<string>{
     return this.http.post<string>(this.url23, email, httpOptions);
 

@@ -115,6 +115,12 @@ public class MessageController {
     @PostMapping(value="message", consumes = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> sendMessage(@RequestBody MessageDTO dto, Principal p){
 
+
+        User user = userService.findByEmail(p.getName());
+        if(user.isAdBan()){
+            return ResponseEntity.status(403).build();
+        }
+
         try{
 
             Message message = new Message();
