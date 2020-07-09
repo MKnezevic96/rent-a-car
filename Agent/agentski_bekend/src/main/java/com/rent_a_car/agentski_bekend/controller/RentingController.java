@@ -90,7 +90,7 @@ public class RentingController {
             }
 
             LOGGER.info("action=get cars, user={}, result=success", user.getEmail());
-            return new ResponseEntity<List<CarsListingDTO>>(retVal, HttpStatus.OK);
+            return new ResponseEntity<>(retVal, HttpStatus.OK);
 
         } catch (Exception e) {
             LOGGER.error("action=get cars, user={}, result=failure,  cause={}", user.getEmail(), e.getMessage());
@@ -123,27 +123,8 @@ public class RentingController {
         return ResponseEntity.status(400).build();
     }
 
-    private void canclePendingReservations(Date startDate, Date endDate, Integer id) {
 
-        List<RentRequest> rrList = rentRequestService.findAll();
 
-        for (RentRequest rr : rrList) {
-            if (rr.getCarId().getId().equals(id)) {
-                if (rr.getStatus().equals(RequestStatus.PENDING)) {
-                    if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
-                        rr.setStatus(RequestStatus.CANCELED);
-                    }
-                    if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
-                        rr.setStatus(RequestStatus.CANCELED);
-                    }
-                    if (startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())) {
-                        rr.setStatus(RequestStatus.CANCELED);
-                    }
-                    rentRequestService.save(rr);
-                }
-            }
-        }
-    }
     @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value = "availableCars/{d1}/{d2}/{town}")
     public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, @PathVariable("town") String town,  Principal p) throws ParseException {
@@ -608,12 +589,13 @@ public class RentingController {
                                 rentRequestService.save(u);
 
                                 for(RentRequest rr : autoCanceled) {
-                                    rr.setStatus(RequestStatus.PENDING);
-                                    rentRequestService.save(rr);
+                                    if (rr.getStartDate().before(u.getEndDate()) && u.getEndDate().after(rr.getStartDate())) {
+                                        rr.setStatus(RequestStatus.PENDING);
+                                        rentRequestService.save(rr);                                    }
+
                                 }
 
                                 //TODO uraditi isto za bundle odbijanje
-                                //TODO odbiti preklapajuce sa datumom
 
                             }
 
@@ -623,8 +605,9 @@ public class RentingController {
             );
 
 
+//            rentRequestService.canclePendingReservations(u.getStartDate(), u.getEndDate(), u.getCarId().getId());
+
             LOGGER.info("action=approve rent requests, user={}, result=success", user.getEmail());
-            canclePendingReservations(u.getStartDate(), u.getEndDate(), u.getCarId().getId());
             return ResponseEntity.ok().build();
 
          } catch (Exception e) {
