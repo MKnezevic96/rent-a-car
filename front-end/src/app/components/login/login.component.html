@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
+    <script src="js/login.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <!-- <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ -->
+
+</head>
+<body>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="" id="icon" />
+        </div>
+        <!-- <div>
+            <input type="text" [(ngModel)]="myInput">
+            <button class="btn" (click)="onSubmit()">Add</button>
+        </div> -->
+        <!-- Login Form -->
+        <!-- <form> -->
+           <input type="text" id="email" class="fadeIn second" name="email" placeholder="email" [(ngModel)]="email">
+           <input type="password" id="password" class="fadeIn third" nmae="password" placeholder="password" [(ngModel)]="password">
+          <!-- <input type="submit" class="fadeIn fourth" value="Log In" id="submitLogin"> -->
+            <button class="btn btn-primary fadeIn fourth" (click)="onSubmit()">Log in</button>
+        <!-- </form> -->
+        <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors } " />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors?.email">
+                        Primary Email not valid.
+                   </div> 
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
+
+            </div>
+        </form> -->
+        <button class="btn btn-primary" (click)="gotoRegister()">Register</button><p></p>
+        <a href="forgotPassword">Forgot password</a>
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+
+        </div>
+
+    </div>
+</div>
+
+<!-- <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-12 bg-dark text-white py-2 d-flex align-items-center justify-content-center" id="left">
+            <h5>I'm Fixed</h5>
+
+
+        </div>
+        <div class="col-sm-6 col-12 offset-0 offset-sm-6 py-2">
+            <h4>I Scroll</h4>
+
+        </div>
+    </div>
+</div> -->
+
+</body>
+</html>
