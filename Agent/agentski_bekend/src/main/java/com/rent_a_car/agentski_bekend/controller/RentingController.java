@@ -413,9 +413,11 @@ public class RentingController {
             reciept.setRecieptArticles(receiptService.generateReceiptArticles(req));
             reciept.setSum(receiptService.calculateSum(reciept.getRecieptArticles()));
 
-            for(RecieptArticle ra: reciept.getRecieptArticles()) {
-                ra.setReciept(reciept);
-                receiptArticleRepository.save(ra);
+
+            List<RecieptArticle> articles = reciept.getRecieptArticles();
+            for(int i = 0; i < articles.size(); i++) {
+                articles.get(i).setReciept(reciept);
+                receiptArticleRepository.save(articles.get(i));
             }
 
             receiptService.save(reciept);
@@ -573,11 +575,15 @@ public class RentingController {
             List<RentRequest> requests = rentRequestService.findAll();
             for(RentRequest rr : requests) {
                 if(rr.getCarId().getId() == u.getCarId().getId() && rr.getStatus().equals(RequestStatus.PENDING)) {
-                    rr.setStatus(RequestStatus.CANCELED);
-                    rentRequestService.save(rr);
-                    autoCanceled.add(rr);
+                    if (rr.getStartDate().before(u.getEndDate()) && u.getEndDate().after(rr.getStartDate())) {
+                        rr.setStatus(RequestStatus.CANCELED);
+                        rentRequestService.save(rr);
+                        autoCanceled.add(rr);
+                    }
                 }
             }
+
+
 
 
             new java.util.Timer().schedule(
@@ -605,7 +611,7 @@ public class RentingController {
             );
 
 
-//            rentRequestService.canclePendingReservations(u.getStartDate(), u.getEndDate(), u.getCarId().getId());
+          //  rentRequestService.canclePendingReservations(u.getStartDate(), u.getEndDate(), u.getCarId().getId());
 
             LOGGER.info("action=approve rent requests, user={}, result=success", user.getEmail());
             return ResponseEntity.ok().build();

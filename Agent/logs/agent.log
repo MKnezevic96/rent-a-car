@@ -48,3 +48,116 @@
 2020-07-09 19:19:05 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 6e22808b066c with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
 2020-07-09 19:19:05 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
 2020-07-09 19:19:35 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 30.553 seconds (JVM running for 35.586)
+2020-07-10 13:26:25 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 2c8397708b52 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-07-10 13:26:25 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-07-10 13:27:57 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 95.466 seconds (JVM running for 104.742)
+2020-07-10 13:43:15 [http-nio-8282-exec-9] INFO  RentingController:141  - action=create authentication token, user=drugi@gmail.com, result=success
+2020-07-10 13:43:25 [http-nio-8282-exec-1] INFO  RentingController:92  - action=get cars, user=drugi@gmail.com, result=success
+2020-07-10 13:43:27 [http-nio-8282-exec-3] INFO  RentingController:687  - action=get fuel types, user=drugi@gmail.com, result=success
+2020-07-10 13:43:27 [http-nio-8282-exec-7] INFO  RentingController:559  - action=get car models, user=drugi@gmail.com, result=success
+2020-07-10 13:43:28 [http-nio-8282-exec-6] INFO  RentingController:109  - action=get pricing, user=drugi@gmail.com, result=success
+2020-07-10 13:44:19 [http-nio-8282-exec-8] INFO  RentingController:75  - action=create pricing, user=drugi@gmail.com, result=success
+2020-07-10 13:44:21 [http-nio-8282-exec-9] INFO  RentingController:687  - action=get fuel types, user=drugi@gmail.com, result=success
+2020-07-10 13:44:21 [http-nio-8282-exec-10] INFO  RentingController:559  - action=get car models, user=drugi@gmail.com, result=success
+2020-07-10 13:44:22 [http-nio-8282-exec-1] INFO  RentingController:109  - action=get pricing, user=drugi@gmail.com, result=success
+2020-07-10 13:44:40 [http-nio-8282-exec-3] INFO  RentingController:158  - action=add car, user=drugi@gmail.com, result=success
+2020-07-10 13:44:43 [http-nio-8282-exec-4] INFO  RentingController:92  - action=get cars, user=drugi@gmail.com, result=success
+2020-07-10 13:44:45 [http-nio-8282-exec-7] INFO  RentingController:248  - action=get car, user=drugi@gmail.com, result=success
+2020-07-10 13:44:45 [http-nio-8282-exec-9] INFO  RentingController:79  - action=get current user, user=drugi@gmail.com, result=success
+2020-07-10 13:44:45 [http-nio-8282-exec-10] INFO  RentingController:548  - action=get car reviews, user=drugi@gmail.com, result=success
+2020-07-10 13:45:00 [http-nio-8282-exec-1] INFO  RentingController:92  - action=get cars, user=drugi@gmail.com, result=success
+2020-07-10 13:45:14 [http-nio-8282-exec-3] INFO  RentingController:174  - action=get available cars, user=drugi@gmail.com, result=success
+2020-07-10 13:45:16 [http-nio-8282-exec-5] INFO  RentingController:227  - action=rent a car, user=drugi@gmail.com, result=success
+2020-07-10 13:45:27 [http-nio-8282-exec-8] INFO  RentingController:227  - action=rent a car, user=drugi@gmail.com, result=success
+2020-07-10 13:45:31 [http-nio-8282-exec-6] INFO  RentingController:227  - action=rent a car, user=drugi@gmail.com, result=success
+2020-07-10 13:45:47 [http-nio-8282-exec-1] INFO  RentingController:141  - action=create authentication token, user=prvi@gmail.com, result=success
+2020-07-10 13:45:50 [http-nio-8282-exec-3] INFO  RentingController:660  - action=get rent request history, user=prvi@gmail.com, result=success
+2020-07-10 13:45:52 [http-nio-8282-exec-4] INFO  RentingController:687  - action=get fuel types, user=prvi@gmail.com, result=success
+2020-07-10 13:45:52 [http-nio-8282-exec-8] INFO  RentingController:109  - action=get pricing, user=prvi@gmail.com, result=success
+2020-07-10 13:45:52 [http-nio-8282-exec-5] INFO  RentingController:559  - action=get car models, user=prvi@gmail.com, result=success
+2020-07-10 13:45:55 [http-nio-8282-exec-7] INFO  RentingController:288  - action=get rent requests, user=prvi@gmail.com, result=success
+2020-07-10 13:45:59 [http-nio-8282-exec-9] INFO  RentingController:92  - action=get cars, user=prvi@gmail.com, result=success
+2020-07-10 13:46:01 [http-nio-8282-exec-10] INFO  RentingController:687  - action=get fuel types, user=prvi@gmail.com, result=success
+2020-07-10 13:46:01 [http-nio-8282-exec-1] INFO  RentingController:559  - action=get car models, user=prvi@gmail.com, result=success
+2020-07-10 13:46:02 [http-nio-8282-exec-2] INFO  RentingController:109  - action=get pricing, user=prvi@gmail.com, result=success
+2020-07-10 13:46:11 [http-nio-8282-exec-3] INFO  RentingController:660  - action=get rent request history, user=prvi@gmail.com, result=success
+2020-07-10 13:46:20 [http-nio-8282-exec-8] INFO  RentingController:141  - action=create authentication token, user=drugi@gmail.com, result=success
+2020-07-10 13:46:22 [http-nio-8282-exec-5] INFO  RentingController:660  - action=get rent request history, user=drugi@gmail.com, result=success
+2020-07-10 13:46:29 [http-nio-8282-exec-6] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 13:46:40 [http-nio-8282-exec-9] INFO  RentingController:614  - action=approve rent requests, user=drugi@gmail.com, result=success
+2020-07-10 13:46:41 [http-nio-8282-exec-10] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 13:46:45 [http-nio-8282-exec-1] INFO  RentingController:660  - action=get rent request history, user=drugi@gmail.com, result=success
+2020-07-10 13:47:02 [http-nio-8282-exec-3] INFO  RentingController:687  - action=get fuel types, user=drugi@gmail.com, result=success
+2020-07-10 13:47:02 [http-nio-8282-exec-8] INFO  RentingController:109  - action=get pricing, user=drugi@gmail.com, result=success
+2020-07-10 13:47:02 [http-nio-8282-exec-4] INFO  RentingController:559  - action=get car models, user=drugi@gmail.com, result=success
+2020-07-10 13:47:04 [http-nio-8282-exec-5] INFO  RentingController:92  - action=get cars, user=drugi@gmail.com, result=success
+2020-07-10 13:47:17 [http-nio-8282-exec-7] INFO  RentingController:174  - action=get available cars, user=drugi@gmail.com, result=success
+2020-07-10 13:49:13 [http-nio-8282-exec-3] INFO  RentingController:80  - action=get users, user=drugi@gmail.com, result=success
+2020-07-10 13:49:17 [http-nio-8282-exec-8] INFO  RentingController:660  - action=get rent request history, user=drugi@gmail.com, result=success
+2020-07-10 13:49:27 [http-nio-8282-exec-5] INFO  RentingController:323  - action=get receipts, user=drugi@gmail.com, result=success
+2020-07-10 13:49:34 [http-nio-8282-exec-6] INFO  RentingController:660  - action=get rent request history, user=drugi@gmail.com, result=success
+2020-07-10 13:49:41 [http-nio-8282-exec-7] INFO  RentingController:323  - action=get receipts, user=drugi@gmail.com, result=success
+2020-07-10 13:49:51 [http-nio-8282-exec-10] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 13:50:01 [http-nio-8282-exec-2] ERROR RentingController:437  - action=add renting report, user=drugi@gmail.com, result=failure,  cause=null
+2020-07-10 13:50:06 [http-nio-8282-exec-3] ERROR RentingController:325  - action=get receipts, user=drugi@gmail.com, result=failure,  cause=null
+2020-07-10 13:52:07 [http-nio-8282-exec-4] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:01:35 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 0b37d15f3147 with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-07-10 14:01:35 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-07-10 14:02:22 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 48.748 seconds (JVM running for 55.034)
+2020-07-10 14:04:07 [http-nio-8282-exec-1] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:04:08 [http-nio-8282-exec-2] INFO  RentingController:92  - action=get cars, user=drugi@gmail.com, result=success
+2020-07-10 14:04:18 [http-nio-8282-exec-3] INFO  RentingController:174  - action=get available cars, user=drugi@gmail.com, result=success
+2020-07-10 14:04:27 [http-nio-8282-exec-5] ERROR RentingController:325  - action=get receipts, user=drugi@gmail.com, result=failure,  cause=null
+2020-07-10 14:04:36 [http-nio-8282-exec-8] INFO  RentingController:141  - action=create authentication token, user=prvi@gmail.com, result=success
+2020-07-10 14:04:40 [http-nio-8282-exec-9] INFO  RentingController:92  - action=get cars, user=prvi@gmail.com, result=success
+2020-07-10 14:04:48 [http-nio-8282-exec-1] INFO  RentingController:174  - action=get available cars, user=prvi@gmail.com, result=success
+2020-07-10 14:04:51 [http-nio-8282-exec-2] INFO  RentingController:227  - action=rent a car, user=prvi@gmail.com, result=success
+2020-07-10 14:04:54 [http-nio-8282-exec-3] INFO  RentingController:288  - action=get rent requests, user=prvi@gmail.com, result=success
+2020-07-10 14:05:03 [http-nio-8282-exec-5] INFO  RentingController:141  - action=create authentication token, user=drugi@gmail.com, result=success
+2020-07-10 14:05:07 [http-nio-8282-exec-6] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:05:09 [http-nio-8282-exec-7] INFO  RentingController:614  - action=approve rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:05:09 [http-nio-8282-exec-8] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:05:14 [http-nio-8282-exec-9] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:14:57 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 933f82bbbe2c with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-07-10 14:14:57 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-07-10 14:15:36 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 40.874 seconds (JVM running for 45.564)
+2020-07-10 14:16:16 [http-nio-8282-exec-4] INFO  RentingController:687  - action=get fuel types, user=drugi@gmail.com, result=success
+2020-07-10 14:16:16 [http-nio-8282-exec-5] INFO  RentingController:559  - action=get car models, user=drugi@gmail.com, result=success
+2020-07-10 14:16:16 [http-nio-8282-exec-6] INFO  RentingController:109  - action=get pricing, user=drugi@gmail.com, result=success
+2020-07-10 14:16:20 [http-nio-8282-exec-8] INFO  RentingController:92  - action=get cars, user=drugi@gmail.com, result=success
+2020-07-10 14:16:31 [http-nio-8282-exec-2] INFO  RentingController:141  - action=create authentication token, user=drugi@gmail.com, result=success
+2020-07-10 14:16:35 [http-nio-8282-exec-1] INFO  RentingController:92  - action=get cars, user=drugi@gmail.com, result=success
+2020-07-10 14:16:43 [http-nio-8282-exec-5] INFO  RentingController:174  - action=get available cars, user=drugi@gmail.com, result=success
+2020-07-10 14:17:01 [http-nio-8282-exec-8] INFO  RentingController:141  - action=create authentication token, user=prvi@gmail.com, result=success
+2020-07-10 14:17:05 [http-nio-8282-exec-9] INFO  RentingController:687  - action=get fuel types, user=prvi@gmail.com, result=success
+2020-07-10 14:17:05 [http-nio-8282-exec-10] INFO  RentingController:559  - action=get car models, user=prvi@gmail.com, result=success
+2020-07-10 14:17:05 [http-nio-8282-exec-2] INFO  RentingController:109  - action=get pricing, user=prvi@gmail.com, result=success
+2020-07-10 14:17:06 [http-nio-8282-exec-1] INFO  RentingController:92  - action=get cars, user=prvi@gmail.com, result=success
+2020-07-10 14:17:18 [http-nio-8282-exec-3] INFO  RentingController:174  - action=get available cars, user=prvi@gmail.com, result=success
+2020-07-10 14:19:13 [http-nio-8282-exec-7] INFO  RentingController:92  - action=get cars, user=prvi@gmail.com, result=success
+2020-07-10 14:20:29 [http-nio-8282-exec-2] INFO  RentingController:92  - action=get cars, user=prvi@gmail.com, result=success
+2020-07-10 14:20:40 [http-nio-8282-exec-3] INFO  RentingController:174  - action=get available cars, user=prvi@gmail.com, result=success
+2020-07-10 14:20:42 [http-nio-8282-exec-5] INFO  RentingController:227  - action=rent a car, user=prvi@gmail.com, result=success
+2020-07-10 14:20:57 [http-nio-8282-exec-6] INFO  RentingController:174  - action=get available cars, user=prvi@gmail.com, result=success
+2020-07-10 14:20:58 [http-nio-8282-exec-7] INFO  RentingController:174  - action=get available cars, user=prvi@gmail.com, result=success
+2020-07-10 14:21:00 [http-nio-8282-exec-8] INFO  RentingController:227  - action=rent a car, user=prvi@gmail.com, result=success
+2020-07-10 14:21:05 [http-nio-8282-exec-10] INFO  RentingController:288  - action=get rent requests, user=prvi@gmail.com, result=success
+2020-07-10 14:21:17 [http-nio-8282-exec-1] INFO  RentingController:141  - action=create authentication token, user=drugi@gmail.com, result=success
+2020-07-10 14:21:20 [http-nio-8282-exec-3] INFO  RentingController:92  - action=get cars, user=drugi@gmail.com, result=success
+2020-07-10 14:21:22 [http-nio-8282-exec-5] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:21:25 [http-nio-8282-exec-6] INFO  RentingController:616  - action=approve rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:21:26 [http-nio-8282-exec-7] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:21:28 [http-nio-8282-exec-8] INFO  RentingController:616  - action=approve rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:21:28 [http-nio-8282-exec-9] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:21:31 [http-nio-8282-exec-10] INFO  RentingController:687  - action=get fuel types, user=drugi@gmail.com, result=success
+2020-07-10 14:21:31 [http-nio-8282-exec-2] INFO  RentingController:559  - action=get car models, user=drugi@gmail.com, result=success
+2020-07-10 14:21:31 [http-nio-8282-exec-1] INFO  RentingController:109  - action=get pricing, user=drugi@gmail.com, result=success
+2020-07-10 14:21:35 [http-nio-8282-exec-5] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:26:30 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on c0c068dbc8cd with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-07-10 14:26:30 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-07-10 14:27:54 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 87.52 seconds (JVM running for 99.742)
+2020-07-10 14:28:51 [http-nio-8282-exec-1] INFO  RentingController:288  - action=get rent requests, user=drugi@gmail.com, result=success
+2020-07-10 14:43:36 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication v0.0.1-SNAPSHOT on 9590b53f125e with PID 6 (/agentski_bekend-0.0.1-SNAPSHOT.jar started by root in /)
+2020-07-10 14:43:36 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-07-10 14:44:15 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 40.227 seconds (JVM running for 45.397)
+2020-07-10 15:01:12 [http-nio-8282-exec-1] INFO  RentingController:434  - action=add renting report, user=drugi@gmail.com, result=success

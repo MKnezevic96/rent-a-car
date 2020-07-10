@@ -239,9 +239,11 @@ public class RentingController {
             reciept.setRecieptArticles(receiptService.generateReceiptArticles(req));
             reciept.setSum(receiptService.calculateSum(reciept.getRecieptArticles()));
 
-            for(RecieptArticle ra: reciept.getRecieptArticles()) {
-                ra.setReciept(reciept);
-                receiptArticleRepository.save(ra);
+
+            List<RecieptArticle> articles = reciept.getRecieptArticles();
+            for(int i = 0; i < articles.size(); i++) {
+                articles.get(i).setReciept(reciept);
+                receiptArticleRepository.save(articles.get(i));
             }
 
             receiptService.save(reciept);
@@ -266,6 +268,7 @@ public class RentingController {
         return ResponseEntity.status(400).build();
 
     }
+
 
 
     @PreAuthorize("hasAuthority('review_menagement_write')")

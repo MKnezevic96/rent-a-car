@@ -74,7 +74,7 @@ public class User implements Serializable, UserDetails {
 
     //@Size(min = 5)
     @Column(name="password", nullable = false)
-    @ValidPassword   // custom hybernate validator
+    //@300ValidPassword   // custom hybernate validator
     @XmlElement(required=true)
     private String password;
 
