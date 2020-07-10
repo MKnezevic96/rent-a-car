@@ -25,19 +25,19 @@ export class ManageUsersComponent implements OnInit {
 
   advs(email:string){
     this.adminService.advertisementPrivilege(email).subscribe((data:string)=>{
-      this.router.navigate(['/index'])
+      this.router.navigate(['/adminPage'])
     });
   }
 
   rrqvs(email:string){
     this.adminService.rentRequestPrivilege(email).subscribe((data:string)=>{
-      this.router.navigate(['/index'])
+      this.router.navigate(['/adminPage'])
     });
   }
 
   mssg(email:string){
     this.adminService.messagePrivilege(email).subscribe((data:string)=>{
-      this.router.navigate(['/index'])
+      this.router.navigate(['/adminPage'])
     });
   }
 
