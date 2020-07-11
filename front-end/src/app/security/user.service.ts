@@ -33,7 +33,7 @@ export class UserService {
   }
 
   login(loginRequest: LoginUser) {
-    return this.httpClient.post('http://localhost:8282/login', loginRequest).pipe(map((response: UserTokenState) => {
+    return this.httpClient.post('http://localhost:8083/authentication/login', loginRequest).pipe(map((response: UserTokenState) => {
       this.accessToken = response.accessToken;
       this.role = response.role;
       localStorage.setItem('user', JSON.stringify(response));
@@ -59,7 +59,7 @@ export class UserService {
         'Authorization': 'Bearer ' + token,
       })
     }
-    let url = 'http://localhost:8282/checkPassword';
+    let url = 'http://localhost:8083/authentication/checkPassword';
     return this.httpClient.post<string>(url, oldPassword, httpOptions);
 
   }
@@ -73,7 +73,7 @@ export class UserService {
         'Authorization': 'Bearer ' + token,
       })
     }
-    let url = 'http://localhost:8282/changePassword';
+    let url = 'http://localhost:8083/authentication/changePassword';
     return this.httpClient.post<string>(url, newPassword, httpOptions);
 
   }
@@ -109,7 +109,7 @@ export class UserService {
 
     this.accessToken = null;
     this.router.navigate(['/']);
-    let url = 'http://localhost:8282/izadji';
+    let url = 'http://localhost:8083/authentication/izadji';
     return this.httpClient.get<string>(url, httpOptions);
     
   }
@@ -121,7 +121,7 @@ export class UserService {
         'mode': 'cors',
       })
     }
-    let url = 'http://localhost:8282/recoverEmail';
+    let url = 'http://localhost:8083/authentication/recoverEmail';
     return this.httpClient.post<string>(url, email, httpOptions);
   }
 
