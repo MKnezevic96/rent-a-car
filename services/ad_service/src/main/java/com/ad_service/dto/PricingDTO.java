@@ -1,21 +1,38 @@
 package com.ad_service.dto;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class PricingDTO {
 
+    @NotNull(message = "Name is mandatory")
+    @Size(min = 2, max = 30,
+            message = "Name must be between 2 and 30 characters long")
+    @Pattern(regexp="^$|[a-zA-Z ]+$", message="Name must not include special characters.")
     private String name;
+
+    @Min(0)
     private double distanceLimit;
+
+    @Min(0)
     private double regularPrice;
+
+    @Min(0)
     private double overusePrice;
     private double collisionDamage;
     private Integer discountDays;
-    private double discountPercent;
-    private UserRequestDTO owner;
 
-    public UserRequestDTO getOwner() {
+    //    @Pattern(regexp = "^[1-9]{1}[0-9]?(?:\\.\\d{1,2})?$|^0\\.\\d{1,2}?$|100")   // percentage two decimals, except 0
+    private double discountPercent;
+    private String owner;
+
+    public String getOwner() {
         return owner;
     }
 
-    public void setOwner(UserRequestDTO owner) {
+    public void setOwner(String owner) {
         this.owner = owner;
     }
 

@@ -22,6 +22,7 @@ import java.util.List;
         "name",
         "androidGps",
         "town",
+        "averageRating",
         "reviews",
         "deleted"
 }, namespace = "nekiUri/cars")
@@ -38,7 +39,7 @@ public class Cars {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id",  referencedColumnName = "user_id")
     @XmlElement
-    private String owner;
+    private User owner;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="car_models_id",  referencedColumnName = "car_models_id",  nullable=false)
@@ -75,13 +76,32 @@ public class Cars {
     @XmlElement
     private String town;
 
+    @Column(name="average_rating")
+    @XmlElement
+    private String averageRating;
+
+    @Column(name="child_seats")
+    @XmlElement
+    private String childSeats;
+
     @OneToMany(mappedBy="car", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     @XmlElement
     private List<CarReview> reviews = new ArrayList<CarReview>();
 
+    @Column(name="image")
+    @XmlElement
+    private String image;
 
     public Cars() {
 
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setTown(String town) {
@@ -108,11 +128,11 @@ public class Cars {
         this.id = id;
     }
 
-    public String getOwner() {
+    public User getOwner() {
         return owner;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
     }
 
@@ -172,4 +192,19 @@ public class Cars {
         this.reviews = reviews;
     }
 
+    public String getAverageRating() {
+        return averageRating;
+    }
+
+    public String getChildSeats() {
+        return childSeats;
+    }
+
+    public void setChildSeats(String childSeats) {
+        this.childSeats = childSeats;
+    }
+
+    public void setAverageRating(String averageRating) {
+        this.averageRating = averageRating;
+    }
 }

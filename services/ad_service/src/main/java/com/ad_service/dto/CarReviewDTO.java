@@ -1,30 +1,46 @@
 package com.ad_service.dto;
 
 
+import com.ad_service.model.CarReview;
+
 import java.util.Date;
 
 public class CarReviewDTO {
-//TODO resiti duplikate
+
     private Integer id;
-    private String reviewer;
-    private Integer car;
+    private Integer reviewerId;
+    private Integer carId;
     private Integer rating;
     private String review;
     private Date approvedDate;
     private boolean deleted;
     private boolean approved;
+    private String userEmail;
 
     public CarReviewDTO () {}
 
-    public CarReviewDTO(Integer id, String reviewer, Integer car, Integer rating, String review, Date approvedDate, boolean deleted, boolean approved) {
+    public CarReviewDTO(Integer id, Integer reviewer, Integer car, Integer rating, String review, Date approvedDate, boolean deleted, boolean approved, String userEmail) {
         this.id = id;
-        this.reviewer = reviewer;
-        this.car = car;
+        this.reviewerId = reviewer;
+        this.carId = car;
         this.rating = rating;
         this.review = review;
         this.approvedDate = approvedDate;
         this.deleted = deleted;
         this.approved = approved;
+        this.userEmail = userEmail;
+    }
+
+    public CarReviewDTO(CarReview carReview) {
+        this.id = carReview.getId();
+        this.reviewerId = carReview.getReviewer().getId();
+        this.carId = carReview.getCar().getId();
+        this.rating = carReview.getRating();
+        this.review = carReview.getReview();
+        this.approvedDate = carReview.getApprovedDate();
+        this.deleted = carReview.isDeleted();
+        this.approved = carReview.isApproved();
+        this.userEmail = carReview.getReviewer().getEmail();
     }
 
 
@@ -36,20 +52,20 @@ public class CarReviewDTO {
         this.id = id;
     }
 
-    public String getReviewer() {
-        return reviewer;
+    public Integer getReviewerId() {
+        return reviewerId;
     }
 
-    public void setReviewer(String reviewer) {
-        this.reviewer = reviewer;
+    public void setReviewerId(Integer reviewer) {
+        this.reviewerId = reviewer;
     }
 
-    public Integer getCar() {
-        return car;
+    public Integer getCarId() {
+        return carId;
     }
 
-    public void setCar(Integer car) {
-        this.car = car;
+    public void setCarId(Integer car) {
+        this.carId = car;
     }
 
     public Integer getRating() {
@@ -90,5 +106,13 @@ public class CarReviewDTO {
 
     public void setApproved(boolean approved) {
         this.approved = approved;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

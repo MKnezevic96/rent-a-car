@@ -43,7 +43,7 @@ public class RecieptArticle {
     @XmlElement
     private Reciept reciept;
 
-    @Column (name="times", nullable=false)
+    @Column (name="times")
     @XmlElement(required=true)
     private Integer times;
 
@@ -51,7 +51,12 @@ public class RecieptArticle {
     @XmlElement(required=true)
     private boolean deleted = false;
 
+
     public RecieptArticle () {}
+
+
+
+
 
     public Integer getId() {
         return id;

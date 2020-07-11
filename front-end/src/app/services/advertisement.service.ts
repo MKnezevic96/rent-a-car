@@ -31,8 +31,8 @@ export class AdvertisementService {
   carReview:CarReview;
   d1:string;
   d2:string;
-  url1:string = 'http://localhost:8282/pricing';
-  url2:string = 'http://localhost:8282/addCar';
+  url1:string = 'http://localhost:8083/ad/pricing';
+  url2:string = 'http://localhost:8083/addCar';
   url3:string = 'http://localhost:8282/api/renting/cars'
   url4:string = 'http://localhost:8282/api/renting/rentCar';
   getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/'
