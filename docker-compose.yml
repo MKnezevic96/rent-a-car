@@ -169,6 +169,20 @@ services:
     volumes:
       - my-datavolume:/var/lib/docker/mainDb
 
+  front-end:
+    image: front-end
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - "4201:80"
+    networks:
+      - first-network
+    depends_on:
+      - eureka
+      - zuul
+
 networks:
   first-network:
     ipam:
