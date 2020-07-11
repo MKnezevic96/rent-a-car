@@ -1,9 +1,5 @@
-package com.auth_service.config;
+package com.zuul.config;
 
-import com.auth_service.security.TokenUtils;
-import com.auth_service.security.auth.RestAuthenticationEntryPoint;
-import com.auth_service.security.auth.TokenAuthenticationFilter;
-import com.auth_service.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,17 +13,18 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.visola.spring.security.tokenfilter.TokenAuthenticationFilter;
 
 @EnableWebMvc
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class WebConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
+public class Config extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
-    @Autowired
-    private CustomUserDetailsService jwtUserDetailsService;
-
-    @Autowired
-    private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+//    @Autowired
+//    private CustomUserDetailsService jwtUserDetailsService;
+//
+//    @Autowired
+//    private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
 
     @Bean
@@ -42,13 +39,10 @@ public class WebConfig extends WebSecurityConfigurerAdapter implements WebMvcCon
     }
 
     // Definisemo nacin autentifikacije
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(jwtUserDetailsService);
-    }
-
-    @Autowired
-    TokenUtils tokenUtils;
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(jwtUserDetailsService);
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -57,7 +51,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter implements WebMvcCon
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 
                 // za neautorizovane zahteve posalji 401 gresku
-                .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()
+//                .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()
 
                 // svim korisnicima dopusti da pristupe putanjama /auth/login, /auth/register, /activate
                 .authorizeRequests().antMatchers("/**").permitAll()
@@ -68,8 +62,9 @@ public class WebConfig extends WebSecurityConfigurerAdapter implements WebMvcCon
                 .cors().and()
 
                 // presretni svaki zahtev filterom
-                .addFilterBefore(new TokenAuthenticationFilter(tokenUtils, jwtUserDetailsService),
-                        BasicAuthenticationFilter.class);
+//                .addFilterBefore(new TokenAuthenticationFilter(tokenUtils, jwtUserDetailsService),
+//                        BasicAuthenticationFilter.class)
+        ;
 
         http.csrf().disable();
     }

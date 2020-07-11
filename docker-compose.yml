@@ -29,6 +29,7 @@ services:
       - gps-service
       - security-service
       - renting-service
+   
 
   #  nginx:
   #    image: nginx:latest
@@ -112,7 +113,10 @@ services:
       dockerfile: Dockerfile
     tty: true
     environment:
-      - REGISTRY_HOST=eureka
+      DATABASE_USERNAME: 'sa'
+      DATABASE_PASSWORD: 'admin	'
+      DATABASE_DOMAIN: 'db'
+      REGISTRY_HOST: eureka
     ports:
       - "8285:445"
     networks:
@@ -192,3 +196,8 @@ networks:
 
 volumes:
   my-datavolume:
+
+
+
+
+    

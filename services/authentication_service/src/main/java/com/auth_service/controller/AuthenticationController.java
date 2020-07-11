@@ -105,6 +105,11 @@ public class AuthenticationController {
     @PostMapping(value = "/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest){
 
+        System.out.println("   > Pokusaj logovanja");
+        System.out.println("   > Username: " + authenticationRequest.getEmail());
+        System.out.println("   > Password: " + authenticationRequest.getPassword());
+
+
         UsernamePasswordAuthenticationToken upat = new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
                 authenticationRequest.getPassword());
 

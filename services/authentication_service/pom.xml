@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -77,22 +77,11 @@
 			<artifactId>spring-session-core</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!--		<dependency>-->
-		<!--			<groupId>org.springframework.amqp</groupId>-->
-		<!--			<artifactId>spring-rabbit-test</artifactId>-->
-		<!--			<scope>test</scope>-->
-		<!--		</dependency>-->
+				<dependency>
+					<groupId>org.springframework.amqp</groupId>
+					<artifactId>spring-rabbit-test</artifactId>
+					<scope>test</scope>
+				</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
@@ -151,6 +140,8 @@
 			<version>2.9.4</version>
 		</dependency>
 
+
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
@@ -198,135 +189,53 @@
 			<version>1.10.1</version>
 		</dependency>
 
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-devtools</artifactId>
+					<scope>runtime</scope>
+					<optional>true</optional>
+				</dependency>
 
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-configuration-processor</artifactId>
+					<optional>true</optional>
+				</dependency>
 
+				<dependency>
+					<groupId>org.projectlombok</groupId>
+					<artifactId>lombok</artifactId>
+					<optional>true</optional>
+				</dependency>
 
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-test</artifactId>
+					<scope>test</scope>
+					<exclusions>
+						<exclusion>
+							<groupId>org.junit.vintage</groupId>
+							<artifactId>junit-vintage-engine</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
 
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+					<version>2.2.2.RELEASE</version>
+				</dependency>
 
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter-openfeign</artifactId>
+					<version>2.2.2.RELEASE</version>
+				</dependency>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter</artifactId>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-web</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-web-services</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-websocket</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-devtools</artifactId>-->
-<!--			<scope>runtime</scope>-->
-<!--			<optional>true</optional>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-configuration-processor</artifactId>-->
-<!--			<optional>true</optional>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.projectlombok</groupId>-->
-<!--			<artifactId>lombok</artifactId>-->
-<!--			<optional>true</optional>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-test</artifactId>-->
-<!--			<scope>test</scope>-->
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<groupId>org.junit.vintage</groupId>-->
-<!--					<artifactId>junit-vintage-engine</artifactId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-<!--			<version>2.2.2.RELEASE</version>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-openfeign</artifactId>-->
-<!--			<version>2.2.2.RELEASE</version>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-actuator</artifactId>-->
-<!--		</dependency>-->
-
-
-
-
-
-<!--	<dependency>-->
-<!--		<groupId>org.owasp.encoder</groupId>-->
-<!--		<artifactId>encoder</artifactId>-->
-<!--		<version>1.2.2</version>-->
-<!--	</dependency>-->
-<!--	<dependency>-->
-<!--		<groupId>io.jsonwebtoken</groupId>-->
-<!--		<artifactId>jjwt</artifactId>-->
-<!--		<version>0.6.0</version>-->
-<!--	</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework</groupId>-->
-<!--			<artifactId>spring-webmvc</artifactId>-->
-<!--			&lt;!&ndash;<version>4.3.7.RELEASE</version> &ndash;&gt;-->
-<!--		</dependency>-->
-<!--	<dependency>-->
-<!--		<groupId>org.springframework.session</groupId>-->
-<!--		<artifactId>spring-session-core</artifactId>-->
-<!--	</dependency>-->
-<!--	<dependency>-->
-<!--		<groupId>org.hibernate</groupId>-->
-<!--		<artifactId>hibernate-core</artifactId>-->
-<!--	</dependency>-->
-<!--	<dependency>-->
-<!--		<groupId>com.fasterxml.jackson.core</groupId>-->
-<!--		<artifactId>jackson-databind</artifactId>-->
-<!--		<version>2.9.9.3</version>-->
-<!--	</dependency>-->
-<!--	<dependency>-->
-<!--		<groupId>com.fasterxml.jackson.core</groupId>-->
-<!--		<artifactId>jackson-annotations</artifactId>-->
-<!--		<version>2.9.4</version>-->
-<!--	</dependency>-->
-<!--	<dependency>-->
-<!--		<groupId>com.fasterxml.jackson.core</groupId>-->
-<!--		<artifactId>jackson-core</artifactId>-->
-<!--		<version>2.9.4</version>-->
-<!--	</dependency>-->
-
-
-
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-actuator</artifactId>
+				</dependency>
 
 	</dependencies>
 	<build>
@@ -353,7 +262,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.19.1</version>
 				<configuration>
-<!--					<testFailureIgnore>true</testFailureIgnore>-->
+					<!--					<testFailureIgnore>true</testFailureIgnore>-->
 				</configuration>
 			</plugin>
 		</plugins>

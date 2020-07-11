@@ -69,10 +69,30 @@
 			<version>2.2.2.RELEASE</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.visola.spring.security/spring-security-token-filter -->
+		<dependency>
+			<groupId>org.visola.spring.security</groupId>
+			<artifactId>spring-security-token-filter</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
 
 	</dependencies>
 
