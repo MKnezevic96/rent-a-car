@@ -29,3 +29,4 @@ public class CarClassService implements CarClassServiceInterface {
         return carClassRepository.findAll();
     }
 }
+

@@ -10,24 +10,23 @@ import java.util.List;
 
 @Service
 public class RentRequestService implements RentRequestServiceInterface {
+
     @Autowired
     private RentRequestRepository userRequestRepository;
 
 
-//    @Autowired
-//    private CarsService carsService;
 
-//    @Autowired
-//    private RentRequest rentRequest;
 
     @Override
     public RentRequest findById(Integer id) {
         return userRequestRepository.findById(id).orElse(null);
     }
+
     @Override
     public RentRequest save(RentRequest request) {
         return userRequestRepository.save(request);
     }
+
     @Override
     public List<RentRequest> findAll() {
         List<RentRequest> result = userRequestRepository.findAll();

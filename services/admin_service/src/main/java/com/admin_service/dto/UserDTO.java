@@ -1,5 +1,7 @@
 package com.admin_service.dto;
 
+import com.admin_service.model.User;
+
 public class UserDTO {
     private String firstname;
     private String lastname;
@@ -9,11 +11,12 @@ public class UserDTO {
     private String name;
     private String adress;
     private String number;
+    private String pib;
 
     public UserDTO() {
     }
 
-    public UserDTO(String firstname, String lastname, String email, String password, String isSelected, String name, String adress, String number) {
+    public UserDTO(String firstname, String lastname, String email, String password, String isSelected, String name, String adress, String number, String pib) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -22,8 +25,17 @@ public class UserDTO {
         this.name = name;
         this.adress = adress;
         this.number = number;
+        this.pib = pib;
 
     }
+
+    public UserDTO(User user){
+        this.firstname = user.getFirstname();
+        this.lastname = user.getLastname();
+        this.email = user.getEmail();
+
+    }
+
 
     public String getName() {
         return name;
@@ -91,5 +103,13 @@ public class UserDTO {
 
     public void setUsername(String email) {
         this.email = email;
+    }
+
+    public String getPib() {
+        return pib;
+    }
+
+    public void setPib(String pib) {
+        this.pib = pib;
     }
 }

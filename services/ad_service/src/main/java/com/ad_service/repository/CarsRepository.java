@@ -14,5 +14,6 @@ public interface CarsRepository extends JpaRepository<Cars, Integer> {
 
     Cars findByName(String name);
     Cars getOne(Integer id);
+    List<Cars> findByOwnerEmail(String email);
 
 }

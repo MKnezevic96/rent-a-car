@@ -9,3 +9,4 @@ import java.util.Optional;
 public interface CarReviewRepository extends JpaRepository<CarReview, Integer> {
     Optional<CarReview> findById(Integer id);
 }
+

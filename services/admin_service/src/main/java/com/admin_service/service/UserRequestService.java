@@ -1,7 +1,11 @@
 package com.admin_service.service;
 
+import com.admin_service.model.UserRequest;
 import com.admin_service.repository.UserRequestRepository;
+import com.admin_service.security.constraint.PasswordConstraintValidator;
+import com.admin_service.service.interfaces.UserRequestServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +13,11 @@ import java.util.List;
 public class UserRequestService  implements UserRequestServiceInterface {
     @Autowired
     private UserRequestRepository userRequestRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    private PasswordConstraintValidator passwordConstraintValidator=new PasswordConstraintValidator();
 
 
     @Override
@@ -22,8 +31,16 @@ public class UserRequestService  implements UserRequestServiceInterface {
     }
 
     @Override
-    public UserRequest save(UserRequest user) {
-        return userRequestRepository.save(user);
+    public UserRequest save(UserRequest user) throws Exception {
+
+        if(passwordConstraintValidator.isValid(user.getPassword(), null)) {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            return userRequestRepository.save(user);
+        } else {
+            throw new Exception("");
+        }
+
+
     }
 
     @Override

@@ -1,19 +1,18 @@
 package com.admin_service.model;
 
-import com.sun.istack.NotNull;
+import org.hibernate.validator.constraints.Email;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -25,6 +24,7 @@ import java.util.List;
         "email",
         "password",
         "role",
+        "blocked_privileges",
         "loginBan",
         "rentBan",
         "messageBan",
@@ -35,7 +35,11 @@ import java.util.List;
         "reviews",
         "sentMessages",
         "recieved",
-        "pricings"
+        "pricings",
+        "activated",
+        "rentRBan",
+        "messageRBan",
+        "adBan"
 }, namespace = "nekiUri/user")
 @Table(name = "user_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -47,16 +51,23 @@ public class User implements Serializable, UserDetails {
     @XmlElement(required=true)
     private Integer id;
 
-    @NotNull
+    @javax.validation.constraints.NotNull(message = "Name is mandatory")
+    @Size(min = 2, max = 30,
+            message = "Name must be between 2 and 30 characters long")
     @Column(name="firstname")
     private String firstname;
 
-    @NotNull
+    @javax.validation.constraints.NotNull(message = "Last name is mandatory")
+    @Size(min = 2, max = 32,
+            message = "Last Name must be between 2 and 32 characters long")
     @Column(name="lastname")
     @XmlElement(required=true)
     private String lastname;
-    @NotNull
+
+    @NotNull(message = "Email is mandatory")
     @Email    // hybernate validator
+//    @Pattern(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@↵\n" +
+//            "(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$")
     @Column(name="email", nullable = false, unique = true)
     @XmlElement(required=true)
     private String email;
@@ -75,6 +86,10 @@ public class User implements Serializable, UserDetails {
                     name = "role_id", referencedColumnName = "id"))
     @XmlElement
     private Collection<Role> role;
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    private List<String> blocked_privileges = new ArrayList<>();
+
 
     @Column(name="login_ban")
     @XmlElement
@@ -97,7 +112,7 @@ public class User implements Serializable, UserDetails {
 
     @OneToOne (fetch=FetchType.LAZY)
     @XmlElement
-    private Company company;
+    private Company company=null;
 
     @OneToMany(mappedBy="customer", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     @XmlElement
@@ -127,7 +142,59 @@ public class User implements Serializable, UserDetails {
     @XmlElement
     private List<RentRequest> rentRequests = new ArrayList<RentRequest> ();
 
+    @Column (name="activated", nullable=false)
+    private boolean activated = false;
+
+    @Column (name="rent_r_ban", nullable=false)
+    private boolean rentRBan = false;
+
+    @Column (name="message_r_ban", nullable=false)
+    private boolean messageRBan = false;
+
+    @Column (name="ad_ban", nullable=false)
+    private boolean adBan = false;
+
     public User() {
+    }
+
+    public boolean isRentRBan() {
+        return rentRBan;
+    }
+
+    public void setRentRBan(boolean rentRBan) {
+        this.rentRBan = rentRBan;
+    }
+
+    public boolean isMessageRBan() {
+        return messageRBan;
+    }
+
+    public void setMessageRBan(boolean messageRBan) {
+        this.messageRBan = messageRBan;
+    }
+
+    public boolean isAdBan() {
+        return adBan;
+    }
+
+    public void setAdBan(boolean adBan) {
+        this.adBan = adBan;
+    }
+
+    public List<String> getBlocked_privileges() {
+        return blocked_privileges;
+    }
+
+    public void setBlocked_privileges(List<String> blocked_privileges) {
+        this.blocked_privileges = blocked_privileges;
+    }
+
+    public boolean isActivated() {
+        return activated;
+    }
+
+    public void setActivated(boolean activated) {
+        this.activated = activated;
     }
 
     public boolean isBlocked() {
@@ -296,7 +363,15 @@ public class User implements Serializable, UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.role;
+
+        Set<Privilege> allPermissions = new HashSet<>();
+        for (Role a : role) {
+            allPermissions.addAll(a.getPrivileges());
+        }
+
+
+        return allPermissions;
+
     }
 
     @Override

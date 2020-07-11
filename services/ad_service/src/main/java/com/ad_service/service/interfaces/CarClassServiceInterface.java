@@ -10,3 +10,4 @@ public interface CarClassServiceInterface {
     CarClass save(CarClass carClass);
     List<CarClass> findAll();
 }
+

@@ -26,41 +26,41 @@ export class AdminService {
     throw new Error("Method not implemented.");
   }
 
-  url1:string = 'http://localhost:8282/admin/addManufac';
-  url2:string = 'http://localhost:8282/admin/addCarC';
-  url3:string = 'http://localhost:8282/admin/addTrans';
-  url14:string = 'http://localhost:8282/admin/addFuelType';
+  url1:string = 'http://localhost:8083/admin/addManufac';
+  url2:string = 'http://localhost:8083/admin/addCarC';
+  url3:string = 'http://localhost:8083/admin/addTrans';
+  url14:string = 'http://localhost:8083/admin/addFuelType';
 
-  url4:string = 'http://localhost:8282/admin/getManufacturers';
-  url5:string = 'http://localhost:8282/admin/getCarClasses';
-  url6:string = 'http://localhost:8282/admin/getTransmissions';
-  url13:string = 'http://localhost:8282/admin/getFuelTypes';
+  url4:string = 'http://localhost:8083/admin/getManufacturers';
+  url5:string = 'http://localhost:8083/admin/getCarClasses';
+  url6:string = 'http://localhost:8083/admin/getTransmissions';
+  url13:string = 'http://localhost:8083/admin/getFuelTypes';
 
-  url7:string = 'http://localhost:8282/admin/deleteManufacturer';
-  url8:string = 'http://localhost:8282/admin/deleteCarClass';
-  url9:string = 'http://localhost:8282/admin/deleteTransmissionType';
-  url16:string = 'http://localhost:8282/admin/deleteFuelType';
+  url7:string = 'http://localhost:8083/admin/deleteManufacturer';
+  url8:string = 'http://localhost:8083/admin/deleteCarClass';
+  url9:string = 'http://localhost:8083/admin/deleteTransmissionType';
+  url16:string = 'http://localhost:8083/admin/deleteFuelType';
 
-  url10:string = 'http://localhost:8282/admin/updateManufacturer';
-  url11:string = 'http://localhost:8282/admin/updateCarClass';
-  url12:string = 'http://localhost:8282/admin/updateTransmissionType';
-  url15:string = 'http://localhost:8282/admin/updateFuelType'
+  url10:string = 'http://localhost:8083/admin/updateManufacturer';
+  url11:string = 'http://localhost:8083/admin/updateCarClass';
+  url12:string = 'http://localhost:8083/admin/updateTransmissionType';
+  url15:string = 'http://localhost:8083/admin/updateFuelType'
 
-  url17:string = 'http://localhost:8282/admin/addCarModel';
-  url18:string = 'http://localhost:8282/admin/getCarModels';
-  url19:string = 'http://localhost:8282/admin/deleteCarModel';
-  url20:string = 'http://localhost:8282/admin/updateCarModel';
+  url17:string = 'http://localhost:8083/admin/addCarModel';
+  url18:string = 'http://localhost:8083/admin/getCarModels';
+  url19:string = 'http://localhost:8083/admin/deleteCarModel';
+  url20:string = 'http://localhost:8083/admin/updateCarModel';
 
-  url21:string = 'http://localhost:8282/admin/getUserRequests';
-  url22:string = 'http://localhost:8282/admin/getUsers';
-  url23:string = 'http://localhost:8282/admin/activateAcc';
-  url27:string = 'http://localhost:8282/admin/ractivateAcc';
+  url21:string = 'http://localhost:8083/admin/getUserRequests';
+  url22:string = 'http://localhost:8083/admin/getUsers';
+  url23:string = 'http://localhost:8083/admin/activateAcc';
+  url27:string = 'http://localhost:8083/admin/ractivateAcc';
 
-  url24:string = 'http://localhost:8282/admin/blockAcc';
-  url25:string = 'http://localhost:8282/admin/getBlockedUsers';
+  url24:string = 'http://localhost:8083/admin/blockAcc';
+  url25:string = 'http://localhost:8083/admin/getBlockedUsers';
 
-  url26:string = 'http://localhost:8282/admin/carReviews';
-  url28:string = 'http://localhost:8282/admin/deleteAcc';
+  url26:string = 'http://localhost:8083/admin/carReviews';
+  url28:string = 'http://localhost:8083/admin/deleteAcc';
 
   carClass:CarClass;
   manufact:Manufacturer;

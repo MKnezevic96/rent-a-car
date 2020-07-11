@@ -33,14 +33,14 @@ public class CarReview {
     @ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="user_id", referencedColumnName = "user_id", nullable=false)
     @XmlElement
-    private String reviewer;
+    private User reviewer;
 
     @ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="cars_id", referencedColumnName="cars_id", nullable = false)
     @XmlElement
     private Cars car;
 
-    @Column(name="rating", nullable=false)
+    @Column(name="rating")
     @XmlElement
     private Integer rating;
 
@@ -77,11 +77,11 @@ public class CarReview {
         this.id = id;
     }
 
-    public String getReviewer() {
+    public User getReviewer() {
         return reviewer;
     }
 
-    public void setReviewer(String reviewer) {
+    public void setReviewer(User reviewer) {
         this.reviewer = reviewer;
     }
 

@@ -9,3 +9,4 @@ public interface TransmissionTypeServiceInterface {
     TransmissionType save(TransmissionType transmissionType);
     List<TransmissionType> findAll();
 }
+

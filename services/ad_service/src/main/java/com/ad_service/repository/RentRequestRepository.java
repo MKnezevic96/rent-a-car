@@ -9,3 +9,4 @@ public interface RentRequestRepository extends JpaRepository<RentRequest, Intege
 
 
 }
+

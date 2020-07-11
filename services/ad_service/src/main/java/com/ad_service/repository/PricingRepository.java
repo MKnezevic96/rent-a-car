@@ -9,3 +9,4 @@ public interface PricingRepository extends JpaRepository<Pricing, Integer> {
 
 
 }
+

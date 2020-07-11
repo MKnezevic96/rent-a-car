@@ -3,8 +3,8 @@ package com.admin_service.service;
 import com.admin_service.model.FuelType;
 import com.admin_service.repository.FuelTypeRepository;
 import com.admin_service.service.interfaces.FuelTypeServiceInterface;
-import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
