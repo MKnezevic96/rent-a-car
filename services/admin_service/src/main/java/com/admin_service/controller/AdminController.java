@@ -83,7 +83,7 @@ public class AdminController {
     private static final Logger LOGGER = LogManager.getLogger(AdminController.class.getName());
 
 
-    @PostMapping(value="/admin/privilege/{id}")
+    @PostMapping(value="/privilege/{id}")
     public ResponseEntity<?> privilege(@RequestBody String email, @PathVariable("id") Integer id) {
 
         User user = userService.findByEmail(email);
@@ -113,7 +113,7 @@ public class AdminController {
     }
 
     @PreAuthorize("hasAuthority('review_menagement_read')")
-    @GetMapping(value="/admin/carReviews")
+    @GetMapping(value="/carReviews")
     public List<CarReviewDTO> getCarReviews(){
 
         List<CarReview> cr = carReviewService.findAll();
@@ -148,7 +148,7 @@ public class AdminController {
     }
 
     @PreAuthorize("hasAuthority('review_menagement_write')")
-    @PostMapping(value="/admin/carReviews")
+    @PostMapping(value="/carReviews")
     public ResponseEntity<?> approveReview(@RequestBody @Min(1) @Max(100000)Integer id){
 
         List<CarReview> crList = carReviewService.findAll();
@@ -185,7 +185,7 @@ public class AdminController {
     }
 
     @PreAuthorize("hasAuthority('review_menagement_write')")
-    @PostMapping(value="/admin/reviews/deny")
+    @PostMapping(value="/reviews/deny")
     public ResponseEntity<?> denyReview(@RequestBody @Min(1) @Max(100000)Integer id){
 
         List<CarReview> crList = carReviewService.findAll();
@@ -218,7 +218,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('user_menagement_write')")
-    @PostMapping(value="/admin/activateAcc")
+    @PostMapping(value="/activateAcc")
     public ResponseEntity<?> activateAcc(@RequestBody String email){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -303,7 +303,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('user_menagement_write')")
-    @PostMapping(value="/admin/ractivateAcc")
+    @PostMapping(value="/ractivateAcc")
     public ResponseEntity<?> ractivateAcc(@RequestBody @NotBlank String email){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -326,7 +326,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('user_menagement_write')")
-    @PostMapping(value="/admin/blockAcc")
+    @PostMapping(value="/blockAcc")
     public ResponseEntity<?> blocAcc(@RequestBody @NotBlank String email){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -350,7 +350,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('user_menagement_delete')")
-    @PostMapping(value="/admin/deleteAcc")
+    @PostMapping(value="/deleteAcc")
     public ResponseEntity<?> deleteAcc(@RequestBody@NotBlank String email){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -379,7 +379,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_write')")
-    @PostMapping(value="/admin/addCarC")
+    @PostMapping(value="/addCarC")
     public ResponseEntity<?> addCarClass(@RequestBody @NotBlank String name){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -404,7 +404,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_write')")
-    @PostMapping(value="/admin/addCarModel")
+    @PostMapping(value="/addCarModel")
     public ResponseEntity<?> addCarModels(@RequestBody CarModelsDTO dto){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -435,7 +435,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_write')")
-    @PostMapping(value="/admin/addFuelType")
+    @PostMapping(value="/addFuelType")
     public ResponseEntity<?> addFuelType(@RequestBody String name){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -460,7 +460,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_write')")
-    @PostMapping(value="/admin/addManufac")
+    @PostMapping(value="/addManufac")
     public ResponseEntity<?> addManufacturer(@RequestBody @NotBlank String name){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -485,7 +485,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_write')")
-    @PostMapping(value="/admin/addTrans")
+    @PostMapping(value="/addTrans")
     public ResponseEntity<?> addTransmissionType(@RequestBody @NotBlank String name){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -510,7 +510,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_read')")
-    @GetMapping(value="/admin/getManufacturers")
+    @GetMapping(value="/getManufacturers")
     public List<ManufacturerDTO> getAllManufacturers(){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -540,7 +540,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_read')")
-    @GetMapping(value="/admin/getCarModels")
+    @GetMapping(value="/getCarModels")
     public List<CarModelsDTO> getCarModels(){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -572,7 +572,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('user_menagement_read')")
-    @GetMapping(value="/admin/getUserRequests")
+    @GetMapping(value="/getUserRequests")
     public List<UserRequestDTO> getUserRequest(){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -604,7 +604,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('user_menagement_read')")
-    @GetMapping(value="/admin/getUsers")
+    @GetMapping(value="/getUsers")
     public List<UserRequestDTO> getUsers(){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -638,7 +638,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('user_menagement_read')")
-    @GetMapping(value="/admin/getBlockedUsers")
+    @GetMapping(value="/getBlockedUsers")
     public List<UserRequestDTO> getBlockedUsers(){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -671,7 +671,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_read')")
-    @GetMapping(value="/admin/getFuelTypes")
+    @GetMapping(value="/getFuelTypes")
     public List<FuelTypeDTO> getAllFuelTypes(){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -700,7 +700,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_read')")
-    @GetMapping(value="/admin/getCarClasses")
+    @GetMapping(value="/getCarClasses")
     public List<CarClassDTO> getAllCarClasses(){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -729,7 +729,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_read')")
-    @GetMapping(value="/admin/getTransmissions")
+    @GetMapping(value="/getTransmissions")
     public List<TransmissionDTO> getAllTransmissions(){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -758,7 +758,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_delete')")
-    @PostMapping(value="/admin/deleteManufacturer")
+    @PostMapping(value="/deleteManufacturer")
     public ResponseEntity<?> deleteManufacturer(@RequestBody String name){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -782,7 +782,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_delete')")
-    @PostMapping(value="/admin/deleteCarModel")
+    @PostMapping(value="/deleteCarModel")
     public ResponseEntity<?> deleteCarModel(@RequestBody String name){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -806,7 +806,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_delete')")
-    @PostMapping(value="/admin/deleteFuelType")
+    @PostMapping(value="/deleteFuelType")
     public ResponseEntity<?> deleteFuelType(@RequestBody String name){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -829,7 +829,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_delete')")
-    @PostMapping(value="/admin/deleteTransmissionType")
+    @PostMapping(value="/deleteTransmissionType")
     public ResponseEntity<?> deleteTransmissionType(@RequestBody String name){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -852,7 +852,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_delete')")
-    @PostMapping(value="/admin/deleteCarClass")
+    @PostMapping(value="/deleteCarClass")
     public ResponseEntity<?> deleteCarClass(@RequestBody String name){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -875,7 +875,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_update')")
-    @PostMapping(value="/admin/updateManufacturer/{old}")
+    @PostMapping(value="/updateManufacturer/{old}")
     public ResponseEntity<?> updateManufacturer(@PathVariable("old") String old, @RequestBody ManufacturerDTO dto){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -901,7 +901,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_update')")
-    @PostMapping(value="/admin/updateCarModel/{old}")
+    @PostMapping(value="/updateCarModel/{old}")
     public ResponseEntity<?> updateCarModel(@PathVariable("old") String old, @RequestBody CarModelsDTO dto){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -928,7 +928,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_update')")
-    @PostMapping(value="/admin/updateFuelType/{old}")
+    @PostMapping(value="/updateFuelType/{old}")
     public ResponseEntity<?> updateFuelType(@PathVariable("old") String old, @RequestBody FuelTypeDTO dto){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -955,7 +955,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_update')")
-    @PostMapping(value="/admin/updateCarClass/{old}")
+    @PostMapping(value="/updateCarClass/{old}")
     public ResponseEntity<?> updateCarClass(@PathVariable("old") String old, @RequestBody CarClassDTO dto){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -981,7 +981,7 @@ public class AdminController {
 
 
     @PreAuthorize("hasAuthority('codebook_menagement_update')")
-    @PostMapping(value="/admin/updateTransmissionType/{old}")
+    @PostMapping(value="/updateTransmissionType/{old}")
     public ResponseEntity<?> updateTransmissionType(@PathVariable("old") String old, @RequestBody TransmissionDTO dto){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
