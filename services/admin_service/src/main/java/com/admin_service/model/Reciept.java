@@ -28,10 +28,10 @@ public class Reciept {
     @Column(name="reciept_id", nullable = false, unique = true)
     private Integer id;
 
-    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER)
     private User customer;
 
-    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER)
     private User owner;
 
     @Column(name="sum")
@@ -43,9 +43,18 @@ public class Reciept {
     @Column(name="deleted", nullable=false)
     private boolean deleted = false;
 
+    @OneToOne
+    @JoinColumn(name="rr_id", referencedColumnName="rr_id")
+    private RentRequest rentRequest;
+
+
     public Reciept() {
         this.deleted = false;
     }
+
+
+
+
 
     public boolean isDeleted() {
         return deleted;
@@ -54,8 +63,6 @@ public class Reciept {
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
-
-
 
     public Integer getId() {
         return id;
@@ -95,5 +102,13 @@ public class Reciept {
 
     public void setRecieptArticles(List<RecieptArticle> recieptArticles) {
         this.recieptArticles = recieptArticles;
+    }
+
+    public RentRequest getRentRequest() {
+        return rentRequest;
+    }
+
+    public void setRentRequest(RentRequest rentRequest) {
+        this.rentRequest = rentRequest;
     }
 }

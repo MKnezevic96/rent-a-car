@@ -1,6 +1,7 @@
 package com.admin_service.model;
 
-import com.rent_a_car.agentski_bekend.model.enums.ServicesEnum;
+
+import com.admin_service.model.enums.ServicesEnum;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -43,7 +44,7 @@ public class RecieptArticle {
     @XmlElement
     private Reciept reciept;
 
-    @Column (name="times", nullable=false)
+    @Column (name="times")
     @XmlElement(required=true)
     private Integer times;
 
@@ -51,7 +52,12 @@ public class RecieptArticle {
     @XmlElement(required=true)
     private boolean deleted = false;
 
+
     public RecieptArticle () {}
+
+
+
+
 
     public Integer getId() {
         return id;

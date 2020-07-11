@@ -3,8 +3,8 @@ package com.admin_service.service;
 import com.admin_service.model.CarModels;
 import com.admin_service.repository.CarModelsRepository;
 import com.admin_service.service.interfaces.CarModelsServiceInterface;
-import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

@@ -1,5 +1,7 @@
 package com.admin_service.service;
 
+import com.admin_service.model.RentRequest;
+import com.admin_service.model.User;
 import com.admin_service.repository.UserRepository;
 import com.admin_service.service.interfaces.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +41,25 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
+    public List<RentRequest> findUsersRentRequests(String email){
+        User user = userRepository.findByEmail(email);
+        List<RentRequest> result = user.getRentRequests();
+        return result;
+    }
+
+    @Override
     public void delete(User user) {
         userRepository.delete(user);
     }
+
+    @Override
+    public User findUserById(Integer id) {
+        List<User> users = userRepository.findAll();
+        for(User u : users){
+            if(u.getId().equals(id))
+                return u;
+        }
+        return null;
+    }
 }
+

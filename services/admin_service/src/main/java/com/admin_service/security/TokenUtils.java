@@ -2,15 +2,20 @@ package com.admin_service.security;
 
 
 import com.admin_service.helper.TimeProvider;
+import com.admin_service.model.Privilege;
+import com.admin_service.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collection;
 import java.util.Date;
 
 @Component
@@ -25,7 +30,7 @@ public class TokenUtils {
     @Value("30000000")
     private int EXPIRES_IN;
 
-    @Value("authorization")
+    @Value("Authorization")
     private String AUTH_HEADER;
 
     static final String AUDIENCE_WEB = "web";
@@ -45,6 +50,29 @@ public class TokenUtils {
                 .setIssuedAt(timeProvider.now())
                 .setExpiration(generateExpirationDate())
                 .signWith(SIGNATURE_ALGORITHM, SECRET).compact();
+    }
+
+//    public String generateToken(String email, Collection<? extends GrantedAuthority> permissions){
+//        return Jwts.builder()
+//                .setIssuer(APP_NAME)
+//                .setSubject(email)
+//                .setAudience(generateAudience())
+//                .setIssuedAt(timeProvider.now())
+//                .setExpiration(generateExpirationDate())
+//                .claim("permissions", generateClaims(permissions))
+//                .signWith(SIGNATURE_ALGORITHM, SECRET).compact();
+//    }
+
+    private String generateClaims(Collection<? extends GrantedAuthority> permissions){
+        String payload = "";
+
+        for(int i = 0; i < permissions.toArray().length; i++){
+            payload += ((Privilege)permissions.toArray()[i]).getAuthority();
+            if(i != permissions.toArray().length - 1)
+                payload += ',';
+        }
+
+        return payload;
     }
 
     private String generateAudience() {
@@ -122,15 +150,15 @@ public class TokenUtils {
         return claims;
     }
 
-//    public boolean validateToken(String token, UserDetails userDetails) {
-//        User user = (User) userDetails;
-//        final String username = getEmailFromToken(token);
-//        final Date created = getIssuedAtDateFromToken(token);
-//
-//        return (username != null && username.equals(user.getUsername()) && true);
-//        //&& !isCreatedBeforeLastPasswordReset(created, user.getLastPasswordResetDate());
-//
-//    }
+    public boolean validateToken(String token, UserDetails userDetails) {
+        User user = (User) userDetails;
+        final String username = getEmailFromToken(token);
+        final Date created = getIssuedAtDateFromToken(token);
+
+        return (username != null && username.equals(user.getUsername()) && true);
+        //&& !isCreatedBeforeLastPasswordReset(created, user.getLastPasswordResetDate());
+
+    }
 
     public Date getIssuedAtDateFromToken(String token) {
         Date issueAt;
@@ -174,5 +202,4 @@ public class TokenUtils {
         final Date expiration = this.getExpirationDateFromToken(token);
         return expiration.before(timeProvider.now());
     }
-
 }

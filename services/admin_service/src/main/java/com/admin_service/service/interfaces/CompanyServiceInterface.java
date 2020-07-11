@@ -10,3 +10,4 @@ public interface CompanyServiceInterface {
     Company save(Company company);
     List<Company> findAll();
 }
+

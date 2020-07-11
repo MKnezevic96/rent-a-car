@@ -21,7 +21,7 @@ import java.util.Collection;
 }, namespace = "nekiUri/role")
 @Table(name = "role_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Role implements GrantedAuthority {
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -94,9 +94,4 @@ public class Role implements GrantedAuthority {
         this.privileges = privileges;
     }
 
-
-    @Override
-    public String getAuthority() {
-        return name;
-    }
 }
