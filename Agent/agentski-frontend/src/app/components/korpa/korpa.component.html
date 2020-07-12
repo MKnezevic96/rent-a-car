@@ -1,0 +1,27 @@
+<div class="container fluid">
+    <ng-container>
+           <table class="table table-borderless">
+               <thead>
+                 <tr>           
+                   <th>Car</th>
+                   <th>Start date</th>
+                   <th>End date</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let rr of korpa">           
+                   <td>{{ rr.carName }}</td>
+                   <td>{{ rr.startDate }}</td>
+                   <td>{{ rr.endDate }}</td>
+                   <td><button class="btn btn-primary" (click)="deleteCart(rr.id)">Delete from cart</button></td>
+ 
+               </tr>
+               </tbody>
+             </table>
+hhhh
+             <td><input type="checkbox"  id="cek">Rent as bundle</td>   
+             <!-- *ngIf="imadva" -->
+ fghjk            <td><button class="btn btn-primary" (click)="rent(rr.id)">Make rent request</button></td>
+
+       </ng-container>
+    </div>
