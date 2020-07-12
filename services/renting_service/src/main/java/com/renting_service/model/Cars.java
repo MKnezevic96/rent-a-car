@@ -1,8 +1,30 @@
 package com.renting_service.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(
+        name = "Cars", propOrder = {
+        "id",
+        "owner",
+        "model",
+        "fuelType",
+        "pricing",
+        "milage",
+        "name",
+        "androidGps",
+        "town",
+        "averageRating",
+        "reviews",
+        "deleted"
+}, namespace = "nekiUri/cars")
 @Table(name="cars_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Cars {
@@ -10,60 +32,90 @@ public class Cars {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="cars_id", nullable=false, unique=true)
+    @XmlElement(required=true)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id",  referencedColumnName = "user_id")
+    @XmlElement
     private User owner;
-
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name="company_id",  referencedColumnName = "company_id")
-    private Company company;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="car_models_id",  referencedColumnName = "car_models_id",  nullable=false)
+    @XmlElement(required=true)
     private CarModels model;
 
-    @ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="fuel_type", referencedColumnName = "id",  nullable=false)
+    @XmlElement(required=true)
     private FuelType fuelType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="pricing_id", referencedColumnName = "pricing_id", nullable=false)
+    @XmlElement(required=true)
     private Pricing pricing;
 
     @Column(name="cars_milage", nullable=false)
+    @XmlElement(required=true)
     private double milage;
 
     @Column(name="name", nullable=false)
+    @XmlElement(required=true)
     private String name;
 
-//    @JoinTable(
-//            name = "confirmed_req",
-//            joinColumns = @JoinColumn(
-//                    name = "cars_id", referencedColumnName = "cars_id"),
-//            inverseJoinColumns = @JoinColumn(
-//                    name = "role_id", referencedColumnName = "id"))
-//    private Collection<Role> role;
+    @Column(name="deleted", nullable=false)
+    @XmlElement(required=true)
+    private boolean deleted = false;
 
-    @Column
-    private boolean deleted;
+    @OneToOne(fetch=FetchType.LAZY)
+    @XmlElement
+    private AndroidGPS androidGps;
 
-    @Column
-    private boolean hasAndroid = false;
-
-    @Column
+    @Column(name="town")
+    @XmlElement
     private String town;
 
-    public String getTown() {
-        return town;
+    @Column(name="average_rating")
+    @XmlElement
+    private String averageRating;
+
+    @Column(name="child_seats")
+    @XmlElement
+    private String childSeats;
+
+    @OneToMany(mappedBy="car", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @XmlElement
+    private List<CarReview> reviews = new ArrayList<CarReview>();
+
+    @Column(name="image")
+    @XmlElement
+    private String image;
+
+    public Cars() {
+
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setTown(String town) {
         this.town = town;
     }
 
-    public Cars(String name) {
+    public String getTown () {
+        return town;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -83,12 +135,12 @@ public class Cars {
         this.owner = owner;
     }
 
-    public Company getCompany() {
-        return company;
+    public AndroidGPS getAndroidGps() {
+        return androidGps;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setAndroidGps(AndroidGPS androidGps) {
+        this.androidGps = androidGps;
     }
 
     public CarModels getModel() {
@@ -131,16 +183,27 @@ public class Cars {
         this.deleted = deleted;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public List<CarReview> getReviews() {
+        return reviews;
     }
 
-    public String getName () {
-        return name;
+    public void setReviews(List<CarReview> reviews) {
+        this.reviews = reviews;
     }
 
-    public Cars() {
-
+    public String getAverageRating() {
+        return averageRating;
     }
 
+    public String getChildSeats() {
+        return childSeats;
+    }
+
+    public void setChildSeats(String childSeats) {
+        this.childSeats = childSeats;
+    }
+
+    public void setAverageRating(String averageRating) {
+        this.averageRating = averageRating;
+    }
 }

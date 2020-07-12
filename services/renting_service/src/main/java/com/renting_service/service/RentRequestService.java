@@ -1,21 +1,14 @@
-package com.rent_a_car.agentski_bekend.service;
-import com.rent_a_car.agentski_bekend.model.RentRequest;
-import com.rent_a_car.agentski_bekend.model.UserRequest;
-import com.rent_a_car.agentski_bekend.model.enums.RequestStatus;
-import com.rent_a_car.agentski_bekend.repository.RentRequestRepository;
-import com.rent_a_car.agentski_bekend.repository.UserRequestRepository;
-import com.rent_a_car.agentski_bekend.service.interfaces.RentRequestServiceInterface;
-import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
+package com.renting_service.service;
+
+import com.renting_service.model.RentRequest;
+import com.renting_service.model.enums.RequestStatus;
+import com.renting_service.repository.RentRequestRepository;
+import com.renting_service.service.interfaces.RentRequestServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import javax.mail.internet.MimeMessage;
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
-
 
 @Service
 public class RentRequestService implements RentRequestServiceInterface {
