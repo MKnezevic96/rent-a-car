@@ -14,7 +14,7 @@ import { Review } from '../models/Review';
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'mode': 'cors'
+      'mode': 'cors' 
     })
   }
 
@@ -31,21 +31,21 @@ export class AdvertisementService {
   carReview:CarReview;
   d1:string;
   d2:string;
-  url1:string = 'http://localhost:8282/pricing';
-  url2:string = 'http://localhost:8282/addCar';
-  url3:string = 'http://localhost:8282/api/renting/cars'
-  url4:string = 'http://localhost:8282/api/renting/rentCar';
-  getCarDetailsUrl:string = 'http://localhost:8282/api/renting/cars/'
-  addCarReviewUrl:string='http://localhost:8282/api/renting/review'
-  checkUrl:string= 'http://localhost:8282/api/renting/requests/'
-  getCarReviewsUrl:string = 'http://localhost:8282/api/renting/reviews/cars/'
-  url33:string = 'http://localhost:8282/api/renting/mycars';
+  url1:string = 'http://localhost:8083/ad/pricing';
+  url2:string = 'http://localhost:8083/addCar';
+  url3:string = 'http://localhost:8083/renting/cars'
+  url4:string = 'http://localhost:8083/renting/rentCar';
+  getCarDetailsUrl:string = 'http://localhost:8083/renting/cars/'
+  addCarReviewUrl:string='http://localhost:8083/renting/review'
+  checkUrl:string= 'http://localhost:8083/renting/requests/'
+  getCarReviewsUrl:string = 'http://localhost:8083/renting/reviews/cars/'
+  url33:string = 'http://localhost:8083/renting/mycars';
   responseStatus: number;
-  url5:string = 'http://localhost:8282/api/renting/payRequests';
-  url55:string = 'http://localhost:8282/api/renting/rentRequests';
-  url6:string = 'http://localhost:8282/api/renting/approveRentRequest';
-  url7:string = 'http://localhost:8282/api/renting/rejectRentRequest';
-  url8:string = 'http://localhost:8282/api/renting/availableCars/'
+  url5:string = 'http://localhost:8083/renting/payRequests';
+  url55:string = 'http://localhost:8083/renting/rentRequests';
+  url6:string = 'http://localhost:8083/renting/approveRentRequest';
+  url7:string = 'http://localhost:8083/renting/rejectRentRequest';
+  url8:string = 'http://localhost:8083/renting/availableCars/'
 
 
   constructor(private http:HttpClient, private userService: UserService) { }

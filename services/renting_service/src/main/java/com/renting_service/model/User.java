@@ -370,57 +370,6 @@ public class User implements Serializable, UserDetails {
             allPermissions.addAll(a.getPrivileges());
         }
 
-//        Collection<Privilege> pr;
-//        if(!blocked_privileges.isEmpty()) {
-//            for(String p:blocked_privileges){
-//                for(Privilege pri:role)
-//            }
-//        }
-//        Set<Privilege> allPermissions = new HashSet<>();
-//        for (Role a : role) {
-//            if(!blocked_privileges.isEmpty()) {
-//                for (String p : blocked_privileges) {
-//                    if(a.getName().equals(p)) {
-//                        continue;
-//                    }
-//                    allPermissions.addAll(a.getPrivileges());
-//                }
-//            }else{
-//                allPermissions.addAll(a.getPrivileges());
-//            }
-//        }
-//        Set<Privilege> allPermissions = new HashSet<>();
-//        for (Role a : role) {
-//            if(!blocked_privileges.isEmpty()) {
-//                for(Privilege p : a.getPrivileges()){
-//                    if(!blocked_privileges.contains(p.getName())){
-//                        allPermissions.add(p);
-//                    }
-//                }
-//            }else{
-//                allPermissions.addAll(a.getPrivileges());
-//            }
-//        }
-//        if(!blocked_privileges.isEmpty()) {
-//            for (Privilege pr : allPermissions) {
-//                for (String p : blocked_privileges) {
-//                    if (pr.getName().equals(p)) {
-//                        allPermissions.remove(pr);
-//                    }
-//                }
-//            }
-//        }
-//        if(!blocked_privileges.isEmpty()) {
-//            Iterator<Privilege> iter = allPermissions.iterator();
-//            while (iter.hasNext()) {
-//                Privilege pr = iter.next();
-//                for (String p : blocked_privileges) {
-//                    if (pr.getName().equals(p)) {
-//                        allPermissions.remove(pr);
-//                    }
-//                }
-//            }
-//        }
 
         return allPermissions;
 

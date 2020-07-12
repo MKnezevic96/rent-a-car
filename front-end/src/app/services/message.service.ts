@@ -11,9 +11,9 @@ import { UserService } from '../security/user.service';
 export class MessageService {
   message:Message;
 
-  sendMessageUrl:string= 'http://localhost:8282/api/messages/message'
-  getUsersUrl:string= 'http://localhost:8282/api/messages/users'
-  getMessageHistoryUrl:string = 'http://localhost:8282/api/messages/history'
+  sendMessageUrl:string= 'http://localhost:8083/renting/message'
+  getUsersUrl:string= 'http://localhost:8083/renting/users'
+  getMessageHistoryUrl:string = 'http://localhost:8083/renting/history'
 
   constructor(private http:HttpClient, private userService:UserService ) { }
 

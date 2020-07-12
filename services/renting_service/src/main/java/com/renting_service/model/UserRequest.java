@@ -11,22 +11,22 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Collection;
 
+
 @Entity
 @Table(name = "user_request_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class UserRequest implements Serializable, UserDetails {
-
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="user_id", nullable=false, unique=true)
     private Integer id;
 
     @NotNull
-    @Column(name="firstname", nullable = false, unique = true)
+    @Column(name="firstname", nullable = false)
     private String firstname;
 
     @NotNull
-    @Column(name="lastname", nullable = false, unique = true)
+    @Column(name="lastname", nullable = false)
     private String lastname;
 
     @NotNull
@@ -34,9 +34,10 @@ public class UserRequest implements Serializable, UserDetails {
     @Column(name="email", nullable = false, unique = true)
     private String email;
 
+    //@Size(min = 10, max = 16)
     @NotNull
-    @Size(min = 10, max = 16)
-    @Column(name="password", nullable = false, unique = true)
+    //@ValidPassword   // custom hybernate validator
+    @Column(name="password", nullable = false)
     private String password;
 
     @NotNull
@@ -44,12 +45,44 @@ public class UserRequest implements Serializable, UserDetails {
     private boolean isCompany ;
 
     @NotNull
-    @Column(name="isAgent")
-    private boolean isAgent;
+    @Column(name="isUser")
+    private boolean isUser;
 
-    @NotNull
-    @Column(name="isCustomer")
-    private boolean isCustomer ;
+    @Column(name="name")
+    private String name;
+
+    @Column(name="address")
+    private String address;
+
+    @Column(name="number")
+    private String number;
+
+    @Column(name="pib", unique=true)
+    private String pib;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
     public String getFirstname() {
         return firstname;
@@ -75,26 +108,13 @@ public class UserRequest implements Serializable, UserDetails {
         isCompany = company;
     }
 
-    public boolean isAgent() {
-        return isAgent;
+    public boolean isUser() {
+        return isUser;
     }
 
-    public void setAgent(boolean agent) {
-        isAgent = agent;
+    public void setUser(boolean user) {
+        isUser = user;
     }
-
-    public boolean isCustomer() {
-        return isCustomer;
-    }
-
-    public void setCustomer(boolean customer) {
-        isCustomer = customer;
-    }
-
-
-
-
-
 
     public UserRequest() {
     }
@@ -119,6 +139,14 @@ public class UserRequest implements Serializable, UserDetails {
         this.password = password;
     }
 
+    public String getPib() {
+        return pib;
+    }
+
+    public void setPib(String pib) {
+        this.pib = pib;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -126,7 +154,7 @@ public class UserRequest implements Serializable, UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
@@ -153,5 +181,4 @@ public class UserRequest implements Serializable, UserDetails {
     public boolean isEnabled() {
         return false;
     }
-
 }

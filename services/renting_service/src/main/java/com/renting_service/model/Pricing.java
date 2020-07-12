@@ -2,8 +2,25 @@ package com.renting_service.model;
 
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
 @Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(
+        name = "Pricing", propOrder = {
+        "id",
+        "distanceLimit",
+        "regularPrice",
+        "overusePrice",
+        "collisionDamage",
+        "discountDays",
+        "discountPercent",
+        "name",
+        "deleted",
+        "owningUser"
+}, namespace = "nekiUri/pricing")
 @Table(name = "pricing_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Pricing {
@@ -34,18 +51,15 @@ public class Pricing {
     @Column(name="pricing_name", nullable =false)
     private String name;
 
-    @Column
-    private boolean deleted;
+    @Column(name="deleted", nullable=false)
+    private boolean deleted = false;
 
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "user_id")
     private User owningUser;
 
-    @ManyToOne
-    @JoinColumn(name="company_id", referencedColumnName = "company_id")
-    private Company owningCompany;
-
     public Pricing() {
+        deleted = false;
     }
 
     public Integer getId() {
@@ -120,20 +134,11 @@ public class Pricing {
         this.deleted = deleted;
     }
 
-    public User getOwningUser() {
+    public User getOwner() {
         return owningUser;
     }
 
-    public void setOwningUser(User owningUser) {
+    public void setOwner(User owningUser) {
         this.owningUser = owningUser;
     }
-
-    public Company getOwningCompany() {
-        return owningCompany;
-    }
-
-    public void setOwningCompany(Company owningCompany) {
-        this.owningCompany = owningCompany;
-    }
-
 }

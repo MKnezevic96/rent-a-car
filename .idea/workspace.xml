@@ -2,15 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fcce3a5-143c-4b0c-833d-c7556aa7fc18" name="Default Changelist" comment="renting service update">
-      <change afterPath="$PROJECT_DIR$/services/renting_service/src/main/resources/log4j2.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/logs/agent.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/java/com/rent_a_car/agentski_bekend/controller/RentingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/agentski_bekend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agent/logs/agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/Agent/logs/agent.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/security/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/security/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/admin.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/admin.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/advertisement.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/advertisement.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/message.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/message.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/register.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/register.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/renting-report.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/renting-report.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rent-a-car" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/controller/MessageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/controller/RentingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/controller/RentingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/Advertisement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/CarClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/CarClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/CarModels.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/CarModels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/FuelType.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/FuelType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/Manufacturer.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/Manufacturer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/Pricing.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/Pricing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/Privilege.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/Privilege.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/TransmissionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/TransmissionType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/UserTokenState.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/renting_service/src/main/java/com/renting_service/model/UserTokenState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +50,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="rent_request_history" />
+        <entry key="$PROJECT_DIR$" value="renting_service_update" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -333,10 +351,10 @@
       <screen x="65" y="24" width="1295" height="744" />
     </state>
     <state x="450" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/65.24.1295.744@65.24.1295.744" timestamp="1592845856741" />
-    <state x="264" y="70" width="1331" height="910" key="CommitChangelistDialog2" timestamp="1594393487971">
+    <state x="264" y="70" width="1331" height="910" key="CommitChangelistDialog2" timestamp="1594393683768">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="264" y="70" width="1331" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1594393487971" />
+    <state x="264" y="70" width="1331" height="910" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1594393683768" />
     <state x="250" y="102" key="DiffContextDialog" timestamp="1593552879578">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -345,26 +363,26 @@
       <screen x="65" y="24" width="1295" height="744" />
     </state>
     <state x="500" y="141" key="FileChooserDialogImpl/65.24.1295.744@65.24.1295.744" timestamp="1592906880487" />
-    <state width="1809" height="239" key="GridCell.Tab.0.bottom" timestamp="1594392138480">
+    <state width="1809" height="239" key="GridCell.Tab.0.bottom" timestamp="1594556610225">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.bottom/65.24.1295.744@65.24.1295.744" timestamp="1592906887832" />
-    <state width="1809" height="239" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1594392138480" />
-    <state width="1809" height="239" key="GridCell.Tab.0.center" timestamp="1594392138479">
+    <state width="1809" height="239" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1594556610225" />
+    <state width="1809" height="239" key="GridCell.Tab.0.center" timestamp="1594556610219">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.center/65.24.1295.744@65.24.1295.744" timestamp="1592906887831" />
-    <state width="1809" height="239" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1594392138479" />
-    <state width="1809" height="239" key="GridCell.Tab.0.left" timestamp="1594392138477">
+    <state width="1809" height="239" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1594556610219" />
+    <state width="1809" height="239" key="GridCell.Tab.0.left" timestamp="1594556610212">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.left/65.24.1295.744@65.24.1295.744" timestamp="1592906887831" />
-    <state width="1809" height="239" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1594392138477" />
-    <state width="1809" height="239" key="GridCell.Tab.0.right" timestamp="1594392138480">
+    <state width="1809" height="239" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1594556610212" />
+    <state width="1809" height="239" key="GridCell.Tab.0.right" timestamp="1594556610224">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1249" height="193" key="GridCell.Tab.0.right/65.24.1295.744@65.24.1295.744" timestamp="1592906887832" />
-    <state width="1809" height="239" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1594392138480" />
+    <state width="1809" height="239" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1594556610224" />
     <state x="65" y="24" width="1855" height="1056" key="MergeDialog" timestamp="1593832692645">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -381,10 +399,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="692" y="300" key="Vcs.Multiple.Commit.Info.Dialog.Key/65.24.1855.1056@65.24.1855.1056" timestamp="1592419444665" />
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1594334597140">
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1594393781515">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1594334597140" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1594393781515" />
     <state x="164" y="96" width="1657" height="885" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592471919604">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -405,10 +423,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="660" y="129" width="663" height="614" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1594334474995" />
-    <state x="655" y="246" width="672" height="677" key="run.anything.popup" timestamp="1594330334983">
+    <state x="655" y="246" width="672" height="677" key="run.anything.popup" timestamp="1594555377781">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="655" y="246" width="672" height="677" key="run.anything.popup/65.24.1855.1056@65.24.1855.1056" timestamp="1594330334983" />
+    <state x="655" y="246" width="672" height="677" key="run.anything.popup/65.24.1855.1056@65.24.1855.1056" timestamp="1594555377781" />
     <state x="655" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1593891990191">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>

@@ -22,7 +22,6 @@ import java.security.Principal;
 import java.util.*;
 
 @RestController
-@RequestMapping(value = "api/messages/")
 public class MessageController {
 
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());

@@ -2,8 +2,23 @@ package com.renting_service.model;
 
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
 
 @Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(
+        name = "CarModels", propOrder = {
+        "id",
+        "name",
+        "manufacturer",
+        "carClass",
+        "transmission",
+        "deleted"
+}, namespace = "nekiUri/car_models")
 @Table(name="car_models_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class CarModels {
@@ -11,25 +26,31 @@ public class CarModels {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="car_models_id", nullable=false, unique=true)
+    @XmlElement(required=true)
     private Integer id;
 
     @Column(name="car_models_name", nullable=false)
+    @XmlElement(required=true)
     private String name;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="manufacturer_id", referencedColumnName = "manufacturer_id", nullable = false)
+    @XmlElement(required=true)
     private Manufacturer manufacturer;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="car_class_id", referencedColumnName = "car_class_id", nullable = false)
+    @XmlElement(required=true)
     private CarClass carClass;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="transmission_type_id", referencedColumnName = "transmission_type_id",nullable = false)
+    @XmlElement(required=true)
     private TransmissionType transmission;
 
-    @Column
-    private boolean deleted;
+    @Column (name="deleted", nullable=false)
+    @XmlElement(required=true)
+    private boolean deleted = false;
 
     public CarModels() {
     }
@@ -81,7 +102,5 @@ public class CarModels {
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
-
-
 
 }

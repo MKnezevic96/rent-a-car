@@ -23,12 +23,14 @@ import javax.validation.constraints.Min;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.security.Principal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "api/renting/")
 public class RentingController {
 
     @Autowired
@@ -396,6 +398,236 @@ public class RentingController {
         return ResponseEntity.status(400).build();
     }
 
+
+    @PreAuthorize("hasAuthority('ad_menagement_read')")
+    @GetMapping(value = "availableCars/{d1}/{d2}/{town}")
+    public List<CarsListingDTO> getAvailableCars (@PathVariable("d1") String d1, @PathVariable("d2") String d2, @PathVariable("town") String town,  Principal p) throws ParseException {
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date startDate = format.parse(d1);
+        Date endDate = format.parse(d2);
+        List<RentRequest> rrList = rentRequestService.findAll();
+        List<Cars> cList = carsService.findAll();
+        List<CarsListingDTO> dto = new ArrayList<>();
+        List<CarsListingDTO> carsForRemoval = new ArrayList<>();
+        User u = userService.findByEmail(p.getName());
+
+        try {
+            for (Cars c : cList) {
+                if(c.getTown().equals(town)) {
+                    for (RentRequest rr : rrList) {
+                        if (rr.getStatus().equals(RequestStatus.RESERVED)) {
+                            if (rr.getCarId().equals(c)) {
+                                if (startDate.before(rr.getStartDate()) && endDate.after(rr.getStartDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
+                                if (startDate.after(rr.getStartDate()) && endDate.before(rr.getEndDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
+                                if (startDate.before(rr.getEndDate()) && endDate.after(rr.getEndDate())) {
+                                    CarsListingDTO dt = new CarsListingDTO(c);
+                                    carsForRemoval.add(dt);
+                                }
+                            }
+                        }
+                    }
+
+                    CarsListingDTO dt = new CarsListingDTO(c);
+                    dto.add(dt);
+                }
+            }
+            for(int i = 0 ; i < dto.size() ; i++){
+                for(CarsListingDTO ddd : carsForRemoval){
+                    if(dto.get(i).getId().equals(ddd.getId())){
+                        dto.remove(i);
+                    }
+                }
+            }
+
+            LOGGER.info("action=get available cars, user={}, result=success", p.getName());
+            return dto;
+        } catch (Exception e){
+            LOGGER.error("action=get available cars, user={}, result=failure,  cause={}", p.getName(), e.getMessage());
+        }
+
+        return null;
+    }
+
+
+
+
+
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
+    @PostMapping(value="/rentCar")
+    public ResponseEntity<?> rentCar(@RequestBody RentRequestDTO dto, Principal p){
+
+        User user = userService.findByEmail(p.getName());
+        if(user.isRentRBan()){
+            return ResponseEntity.status(403).build();
+        }
+
+        for(RentRequest rr : user.getRentRequests()){
+            if(rr.getStatus().equals(RequestStatus.RETURNED))
+                return ResponseEntity.status(403).build();
+        }
+
+        try{
+
+            RentRequest rr = new RentRequest();
+            Cars c = carsService.findByName(dto.getCarName());
+            rr.setCarId(c);
+            rr.setStartDate(dto.getStartDate());
+            rr.setEndDate(dto.getEndDate());
+            rr.setStatus(RequestStatus.PENDING);
+            rr.setDeleted(false);
+            rr.setOwningUser(user);
+            rentRequestService.save(rr);
+
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            if(rr.getStatus().equals(RequestStatus.PENDING)) {
+                                rr.setStatus(RequestStatus.CANCELED);
+                                rentRequestService.save(rr);
+                            }
+
+                        }
+                    },
+                    24 * 3600 * 1000
+            );
+
+            LOGGER.info("action=rent a car, user={}, result=success", user.getEmail());
+            return ResponseEntity.ok().build();
+
+        }catch (Exception e){
+            LOGGER.error("action=rent a car, user={}, result=failure,  cause={}", user.getEmail(), e.getMessage());
+        }
+
+        return ResponseEntity.status(400).build();
+    }
+
+    @PreAuthorize("hasAuthority('rent_menagement_read')")
+    @GetMapping(value = "rentRequests")
+    public List<RentRequestDTO> getRentRequests (Principal p) {
+
+        List<RentRequest> retVal = rentRequestService.findAll();
+        List<RentRequestDTO> dto = new ArrayList<>();
+        User user = userService.findByEmail(p.getName());
+
+        try {
+
+            for (RentRequest c : retVal) {
+                if (c.getCarId().getOwner().equals(user)) {
+
+                    if (c.getStatus().equals(RequestStatus.PENDING)) {
+                        RentRequestDTO dto1 = new RentRequestDTO();
+                        dto1.setId(c.getId());
+                        dto1.setStartDate(c.getStartDate());
+                        dto1.setEndDate(c.getEndDate());
+                        dto1.setCarName(c.getCarId().getName());
+                        dto1.setStatus("PENDING");
+                        dto.add(dto1);
+                    }
+                    //dto.add(dto1);
+                }
+            }
+
+            LOGGER.info("action=get rent requests, user={}, result=success", user.getEmail());
+            return dto;
+
+        } catch (Exception e) {
+            LOGGER.error("action=get rent requests, user={}, result=failure,  cause={}", user.getEmail(), e.getMessage());
+        }
+
+        return null;
+    }
+
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
+    @PostMapping(value="approveRentRequest")
+    public ResponseEntity<?> approveRentRequest(@RequestBody Integer id){
+
+        RentRequest u = rentRequestService.findById(id);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<RentRequest> autoCanceled = new ArrayList<>();
+
+        try {
+
+            u.setStatus(RequestStatus.RESERVED);
+            rentRequestService.save(u);
+
+            List<RentRequest> requests = rentRequestService.findAll();
+            for(RentRequest rr : requests) {
+                if(rr.getCarId().getId() == u.getCarId().getId() && rr.getStatus().equals(RequestStatus.PENDING)) {
+                    if (rr.getStartDate().before(u.getEndDate()) && u.getEndDate().after(rr.getStartDate())) {
+                        rr.setStatus(RequestStatus.CANCELED);
+                        rentRequestService.save(rr);
+                        autoCanceled.add(rr);
+                    }
+                }
+            }
+
+
+
+
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            if(!u.getStatus().equals(RequestStatus.PAID)) {
+                                u.setStatus(RequestStatus.CANCELED);
+                                rentRequestService.save(u);
+
+                                for(RentRequest rr : autoCanceled) {
+                                    if (rr.getStartDate().before(u.getEndDate()) && u.getEndDate().after(rr.getStartDate())) {
+                                        rr.setStatus(RequestStatus.PENDING);
+                                        rentRequestService.save(rr);                                    }
+
+                                }
+
+                                //TODO uraditi isto za bundle odbijanje
+
+                            }
+
+                        }
+                    },
+                    12 * 3600 * 1000
+            );
+
+
+            //  rentRequestService.canclePendingReservations(u.getStartDate(), u.getEndDate(), u.getCarId().getId());
+
+            LOGGER.info("action=approve rent requests, user={}, result=success", user.getEmail());
+            return ResponseEntity.ok().build();
+
+        } catch (Exception e) {
+            LOGGER.error("action=approve rent requests, user={}, result=failure,  cause={}", user.getEmail(), e.getMessage());
+        }
+
+        return ResponseEntity.status(400).build();
+    }
+
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
+    @PostMapping(value="rejectRentRequest")
+    public ResponseEntity<?> rejectRentRequest(@RequestBody Integer id){
+
+        RentRequest u = rentRequestService.findById(id);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        try {
+            u.setStatus(RequestStatus.CANCELED);
+            rentRequestService.save(u);
+
+            LOGGER.info("action=reject rent requests, user={}, result=success", user.getEmail());
+            return ResponseEntity.ok().build();
+
+        } catch (Exception e) {
+            LOGGER.error("action=reject rent requests, user={}, result=failure,  cause={}", user.getEmail(), e.getMessage());
+        }
+
+        return ResponseEntity.status(400).build();
+    }
 
 
 
