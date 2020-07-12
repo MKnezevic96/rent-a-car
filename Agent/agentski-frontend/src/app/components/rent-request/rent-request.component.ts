@@ -64,17 +64,21 @@ export class RentRequestComponent implements OnInit {
     //     data => {
     //     })
   }
+ 
+
+
   naKlik(carName:string) {
     this.rentrequest={carName:carName, startDate: this.selectedStartDate, endDate:this.selectedEndDate, status: '', deleted: false, id:this.id };
     this.advertisementService.addCart(this.rentrequest).pipe(first())
     .subscribe(
         data => {
-          console.log('request sent');
-          alert('Request sent');
-          this.router.navigateByUrl('index');
+          console.log('added to cart');
+          alert('Added to cart ');
+         // this.router.navigateByUrl('index');
         })
   }
 
+  
   getAvailableCars(){
     if(typeof this.selectedStartDate == 'undefined' || typeof this.selectedEndDate == 'undefined' || typeof this.city == 'undefined'){
       alert('You have not selected a date or place for request')

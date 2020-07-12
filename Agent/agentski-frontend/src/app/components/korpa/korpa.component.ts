@@ -22,7 +22,7 @@ import { AdvertisementService } from 'src/app/services/advertisement.service';
                   <td>{{ rr.startDate }}</td>
                   <td>{{ rr.endDate }}</td>
                   <td><button class="btn btn-primary" (click)="deleteCart(rr.id)">Delete from cart</button></td>
-                  <td><input type="checkbox"  id="cek">Rent as bundle</td>   
+                 
 
                   <td><button class="btn btn-primary" (click)="rent(rr.id)">Make rent request</button></td>
 
@@ -51,21 +51,21 @@ export class KorpaComponent implements OnInit {
 
   deleteCart(id:number){
     this.advertisementService.deleteCart(id).subscribe((data:number)=>{
-    this.advertisementService.getRentRequests().subscribe(data =>{
+     this.advertisementService.getRentRequests().subscribe(data =>{
       this.korpa = data;
     });
-});
+ });
   }
 
 rent(id:number){
-  if((<HTMLInputElement>document.getElementById("cek")).checked){
-  this.advertisementService.rentBundle(id).subscribe((data:number)=>{
-  this.advertisementService.getRentRequests().subscribe(data =>{
-    this.korpa = data;
-  });
-});
-  }
-  else {
+//   if((<HTMLInputElement>document.getElementById("cek")).checked){
+//   this.advertisementService.rentBundle(id).subscribe((data:number)=>{
+//   this.advertisementService.getRentRequests().subscribe(data =>{
+//     this.korpa = data;
+//   });
+// });
+//   }
+//   else {
     this.advertisementService.rent(id).subscribe((data:number)=>{
       this.advertisementService.getRentRequests().subscribe(data =>{
         this.korpa = data;
@@ -74,4 +74,4 @@ rent(id:number){
   }
 
   }
-}
+//}

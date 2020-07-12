@@ -11,6 +11,7 @@ public class CarDTO {
     private String pricing;
     private String fuelType;
     private String carModel;
+    private boolean inCart;
 
     @Min(0)
     private double milage;
@@ -29,6 +30,14 @@ public class CarDTO {
 
 
     public CarDTO() {
+    }
+
+    public boolean isInCart() {
+        return inCart;
+    }
+
+    public void setInCart(boolean inCart) {
+        this.inCart = inCart;
     }
 
     public String getTown() {

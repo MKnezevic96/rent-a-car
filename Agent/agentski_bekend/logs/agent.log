@@ -1540,3 +1540,46 @@
 2020-07-11 13:59:30 [http-nio-8282-exec-8] INFO  RentingController:435  - Action get all user's cars by user: drugi@gmail.com successful
 2020-07-11 14:00:13 [http-nio-8282-exec-4] INFO  RentingController:745  - Action get all rent requests by user: drugi@gmail.com successful
 2020-07-11 14:00:25 [http-nio-8282-exec-3] INFO  RentingController:435  - Action get all user's cars by user: drugi@gmail.com successful
+2020-07-12 11:13:36 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication on student-VirtualBox with PID 5961 (/home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend)
+2020-07-12 11:13:36 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-07-12 11:14:12 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 37.832 seconds (JVM running for 44.947)
+2020-07-12 11:23:58 [http-nio-8282-exec-2] INFO  RentingController:139  - Action create authentication token successful for user account: drugi@gmail.com. User logged in.
+2020-07-12 11:24:00 [http-nio-8282-exec-3] INFO  RentingController:435  - Action get all user's cars by user: drugi@gmail.com successful
+2020-07-12 11:24:08 [http-nio-8282-exec-4] INFO  RentingController:83  - Action get all cars by user: drugi@gmail.com successful
+2020-07-12 11:24:37 [http-nio-8282-exec-5] INFO  RentingController:214  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-12 11:24:54 [http-nio-8282-exec-6] INFO  RentingController:214  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-12 11:24:55 [http-nio-8282-exec-7] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-12 11:24:55 [http-nio-8282-exec-3] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-12 11:24:55 [http-nio-8282-exec-9] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-12 11:24:55 [http-nio-8282-exec-1] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-12 11:24:55 [http-nio-8282-exec-10] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-12 11:24:58 [http-nio-8282-exec-4] INFO  RentingController:345  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-12 11:24:58 [http-nio-8282-exec-4] INFO  RentingController:214  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-12 11:26:40 [http-nio-8282-exec-5] INFO  RentingController:670  - Action get all transmission types by user: drugi@gmail.com successful
+2020-07-12 11:26:41 [http-nio-8282-exec-1] INFO  RentingController:612  - Action get all fuel types by user: drugi@gmail.com successful
+2020-07-12 11:26:41 [http-nio-8282-exec-8] INFO  RentingController:641  - Action get all car classes by user: drugi@gmail.com successful
+2020-07-12 11:26:41 [http-nio-8282-exec-4] INFO  RentingController:452  - Action get all manufactures by user: drugi@gmail.com successful
+2020-07-12 11:26:41 [http-nio-8282-exec-10] INFO  RentingController:484  - Action get all car models by user: drugi@gmail.com successful
+2020-07-12 11:26:41 [http-nio-8282-exec-9] INFO  RentingController:435  - Action get all user's cars by user: drugi@gmail.com successful
+2020-07-12 11:28:33 [http-nio-8282-exec-8] INFO  RentingController:435  - Action get all user's cars by user: drugi@gmail.com successful
+2020-07-12 11:30:52 [http-nio-8282-exec-10] INFO  RentingController:435  - Action get all user's cars by user: drugi@gmail.com successful
+2020-07-12 11:30:57 [http-nio-8282-exec-9] INFO  RentingController:83  - Action get all cars by user: drugi@gmail.com successful
+2020-07-12 11:31:07 [http-nio-8282-exec-1] INFO  RentingController:214  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-12 11:31:50 [http-nio-8282-exec-10] INFO  RentingController:139  - Action create authentication token successful for user account: prvi@gmail.com. User logged in.
+2020-07-12 11:31:50 [http-nio-8282-exec-9] INFO  RentingController:435  - Action get all user's cars by user: prvi@gmail.com successful
+2020-07-12 11:32:17 [http-nio-8282-exec-1] INFO  RentingController:612  - Action get all fuel types by user: prvi@gmail.com successful
+2020-07-12 11:32:17 [http-nio-8282-exec-2] INFO  RentingController:484  - Action get all car models by user: prvi@gmail.com successful
+2020-07-12 11:32:17 [http-nio-8282-exec-5] INFO  RentingController:104  - Action get pricing by user: prvi@gmail.com successful
+2020-07-12 11:32:32 [http-nio-8282-exec-6] INFO  RentingController:135  - Action add car: corona advertisement by user: prvi@gmail.com successful
+2020-07-12 11:37:38 [http-nio-8282-exec-10] INFO  RentingController:139  - Action create authentication token successful for user account: drugi@gmail.com. User logged in.
+2020-07-12 11:37:38 [http-nio-8282-exec-9] INFO  RentingController:435  - Action get all user's cars by user: drugi@gmail.com successful
+2020-07-12 11:37:44 [http-nio-8282-exec-3] INFO  RentingController:83  - Action get all cars by user: drugi@gmail.com successful
+2020-07-12 11:37:56 [http-nio-8282-exec-1] INFO  RentingController:214  - Action get all avaliable cars by user: drugi@gmail.com successful 
+2020-07-12 11:38:00 [http-nio-8282-exec-2] INFO  RentingController:404  - Action add to cart by user: drugi@gmail.com successful
+2020-07-12 11:38:05 [http-nio-8282-exec-5] INFO  RentingController:435  - Action get all user's cars by user: drugi@gmail.com successful
+2020-07-12 11:39:11 [http-nio-8282-exec-8] INFO  RentingController:435  - Action get all user's cars by user: drugi@gmail.com successful
+2020-07-12 11:50:11 [main] INFO  AgentskiBekendApplication:55  - Starting AgentskiBekendApplication on student-VirtualBox with PID 7024 (/home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend/target/classes started by student in /home/student/IdeaProjects/rent-a-car/Agent/agentski_bekend)
+2020-07-12 11:50:11 [main] INFO  AgentskiBekendApplication:651  - No active profile set, falling back to default profiles: default
+2020-07-12 11:50:54 [main] INFO  AgentskiBekendApplication:61  - Started AgentskiBekendApplication in 46.526 seconds (JVM running for 65.813)
+2020-07-12 11:51:20 [http-nio-8282-exec-2] INFO  RentingController:435  - Action get all user's cars by user: drugi@gmail.com successful
+2020-07-12 11:54:51 [http-nio-8282-exec-4] INFO  RentingController:435  - Action get all user's cars by user: drugi@gmail.com successful

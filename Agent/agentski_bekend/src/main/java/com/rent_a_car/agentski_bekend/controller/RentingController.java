@@ -454,6 +454,7 @@ public class RentingController {
             c.setInCart(false);
             r.setDeleted(true);
             rentRequestService.save(r);
+            carsService.save(c);
 
             return ResponseEntity.ok().build();
 
