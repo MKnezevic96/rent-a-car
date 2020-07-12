@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/security/user.service';
+import { RentRequest } from 'src/app/models/RentRequest';
+import { AdvertisementService } from 'src/app/services/advertisement.service';
 
 @Component({
   selector: 'app-index',
@@ -9,12 +11,17 @@ import { UserService } from 'src/app/security/user.service';
   ]
 })
 export class IndexComponent implements OnInit {
+  cart: RentRequest[];
 
   constructor(private route: ActivatedRoute,
     private userService:UserService,
-    private router: Router) { }
+    private router: Router, 
+    private advertisementService: AdvertisementService) { }
 
   ngOnInit(): void {
+    this.advertisementService.getCart().subscribe(data =>{
+      this.cart = data;
+    });
   }
 
   logout(){
@@ -23,7 +30,12 @@ export class IndexComponent implements OnInit {
   }
 
   korpa(){
-    this.router.navigate(['korpa'], {relativeTo: this.route});
+    // let i=0;  //br oglasa jednog ownera
+    // for(let r in this.cart){
+    //   if(r){}
+    // }
+    this.router.navigateByUrl('korpa');
+
   }
 
   showCreateReportForm() {

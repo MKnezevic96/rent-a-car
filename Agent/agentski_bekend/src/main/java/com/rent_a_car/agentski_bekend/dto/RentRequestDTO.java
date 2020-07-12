@@ -124,4 +124,8 @@ public class RentRequestDTO {
     public void setUser(String user) {
         this.user = user;
     }
+
+    public String getStatus() {
+        return status;
+    }
 }

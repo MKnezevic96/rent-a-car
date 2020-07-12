@@ -23,7 +23,8 @@ import java.util.List;
         "androidGps",
         "town",
         "reviews",
-        "deleted"
+        "deleted",
+        "inCart"
 }, namespace = "nekiUri/cars")
 @Table(name="cars_table")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -75,9 +76,14 @@ public class Cars {
     @XmlElement
     private String town;
 
+    @Column(name="inCart")
+    @XmlElement
+    private boolean inCart;
+
     @OneToMany(mappedBy="car", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     @XmlElement
     private List<CarReview> reviews = new ArrayList<CarReview>();
+
 
 
     public Cars() {
@@ -130,6 +136,14 @@ public class Cars {
 
     public void setModel(CarModels model) {
         this.model = model;
+    }
+
+    public boolean isInCart() {
+        return inCart;
+    }
+
+    public void setInCart(boolean inCart) {
+        this.inCart = inCart;
     }
 
     public FuelType getFuelType() {

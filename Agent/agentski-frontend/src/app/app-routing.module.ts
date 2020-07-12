@@ -32,6 +32,7 @@ import { ActivateComponent } from './components/activate/activate.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
 import { FilterCarsComponent } from './components/filter-cars/filter-cars.component';
+import { KorpaComponent } from './components/korpa/korpa.component';
 
 
 
@@ -104,9 +105,10 @@ const routes: Routes = [
             { path: 'filterCars', component: FilterCarsComponent},
           ]
         },
-
+        
       ]
     },
+    { path: 'korpa', component: KorpaComponent},
     { path: 'activateAcc', component: ActivateComponent},
 
     { path: 'advertisement', component: AdvertisementComponent},

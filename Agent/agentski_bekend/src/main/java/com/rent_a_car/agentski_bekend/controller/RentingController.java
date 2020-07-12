@@ -16,6 +16,7 @@ import com.rent_a_car.agentski_bekend.model.RentRequest;
 import com.rent_a_car.agentski_bekend.model.User;
 import com.rent_a_car.agentski_bekend.service.CarsService;
 import com.rent_a_car.agentski_bekend.service.interfaces.UserServiceInterface;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.security.Principal;
@@ -34,6 +36,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @Validated
@@ -55,7 +58,7 @@ public class RentingController {
     @Autowired
     private CarReviewService carReviewService;
 
-
+    public static Integer groupid = 0;
     private static final Logger LOGGER = LogManager.getLogger(RentingController.class.getName());
 
     @GetMapping(value = "test")
@@ -377,33 +380,89 @@ public class RentingController {
 
 
     @PreAuthorize("hasAuthority('rent_menagement_write')")
-    @PostMapping(value = "/cart")
+    @PostMapping(value = "cart")
     public ResponseEntity<?> addCart(@RequestBody RentRequestDTO dto, Principal p) {
 
         User user = userService.findByEmail(p.getName());
+        Cars c = carsService.findByName(dto.getCarName());
 
-        try {
 
-            RentRequest rr = new RentRequest();
-            Cars c = carsService.findByName(dto.getCarName());
-            rr.setCarId(c);
-            rr.setStartDate(dto.getStartDate());
-            rr.setEndDate(dto.getEndDate());
-            rr.setStatus(RequestStatus.CART);   // dodao ga je u korpu
-            rr.setDeleted(false);
-            rr.setOwningUser(user);
-            rentRequestService.save(rr);
+        if(c.isInCart()==false) { // ako nije vec dodat
+            try {
 
-            LOGGER.info("Action add to cart by user: {} successful", p.getName());
-            return ResponseEntity.ok().build();
+                RentRequest rr = new RentRequest();
+                c.setInCart(true);
+                rr.setCarId(c);
+                rr.setStartDate(dto.getStartDate());
+                rr.setEndDate(dto.getEndDate());
+                rr.setStatus(RequestStatus.CART);   // dodao ga je u korpu
+                rr.setDeleted(false);
+                rr.setOwningUser(user);
+                rentRequestService.save(rr);
+                carsService.save(c);
 
+                LOGGER.info("Action add to cart by user: {} successful", p.getName());
+                return ResponseEntity.ok().build();
+
+            } catch (Exception e) {
+                LOGGER.info("Action add to cart by user: {} failed. Cause: {}", p.getName(), e.getMessage());
+            }
+        }
+//        else {
+//          //  JOptionPane.showMessageDialog( "Car already added to the cart.");
+//        }
+
+        return ResponseEntity.status(400).build();
+    }
+
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
+    @GetMapping(value = "cart")
+    public ResponseEntity<List<RentRequestDTO>> getCart (Principal p) {
+
+        ArrayList<RentRequestDTO> retVal = new ArrayList<RentRequestDTO>();
+
+        try{
+            User user = userService.findByEmail(p.getName());
+            for (RentRequest c : rentRequestService.findAll()) {
+                if (c.getId() != null) {
+                    if(c.getOwningUser().getEmail().equals(user.getEmail())) {
+                        if(c.isDeleted()==false && c.getStatus().equals(RequestStatus.CART)) {
+                            retVal.add(new RentRequestDTO(c));
+                        }
+                    }
+                }
+            }
+            LOGGER.info("Action get all user's cars by user: {} successful", p.getName());
+            return new ResponseEntity<List<RentRequestDTO>>(retVal, HttpStatus.OK);
         } catch (Exception e) {
-            LOGGER.info("Action add to cart by user: {} failed. Cause: {}", p.getName(), e.getMessage());
+            LOGGER.error("Action get all user's cars by user: {} failed. Cause: {}", p.getName(), e.getMessage());
         }
 
         return ResponseEntity.status(400).build();
     }
 
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
+    @PostMapping(value="deleteCart")
+    public ResponseEntity<?> deleteCart(Integer id, Principal p){
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        try {
+
+            RentRequest r = rentRequestService.findById(id);
+            Cars c = carsService.findByName(r.getCarId().getName());
+            c.setInCart(false);
+            r.setDeleted(true);
+            rentRequestService.save(r);
+
+            return ResponseEntity.ok().build();
+
+        } catch (Exception e) {
+        }
+
+        return ResponseEntity.status(400).build();
+
+    }
 
     @PreAuthorize("hasAuthority('rent_menagement_write')")
     @PostMapping(value = "/rentCar")
@@ -428,6 +487,36 @@ public class RentingController {
         return ResponseEntity.status(400).build();
     }
 
+    @PreAuthorize("hasAuthority('rent_menagement_write')")
+    @PostMapping(value = "/rentCarB")
+    public ResponseEntity<?> rentCarBundle(@RequestBody Integer id, Principal p) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        RentRequest rr = rentRequestService.findById(id);   // na koji je kliknuto
+        groupid++;
+
+        try {
+
+            for(RentRequest c : rentRequestService.findAll() ) {
+                if (c.getStatus().equals(RequestStatus.CART))   // ako se nalazi u nekoj korpi
+                    if(c.getOwningUser().equals(user))   // ako sam ga ja napravio - u mojoj je korpi
+                    if (c.getCarId().getOwner().equals(rr.getCarId().getOwner())) {   // ako je vlasnik isti kao vlasnik kliknutog
+                        c.setStatus(RequestStatus.PENDING);
+                        rr.setStatus(RequestStatus.PENDING);
+                        c.setRequestGroupId(groupid);
+                        rr.setRequestGroupId(groupid);
+                        rentRequestService.save(c);
+                        rentRequestService.save(rr);
+
+
+                        return ResponseEntity.ok().build();
+                    }
+            }
+        } catch (Exception e) {
+        }
+
+        return ResponseEntity.status(400).build();
+    }
 
     @PreAuthorize("hasAuthority('ad_menagement_read')")
     @GetMapping(value = "cars/{id}")
@@ -739,8 +828,7 @@ public class RentingController {
 
             u.setStatus(RequestStatus.RESERVED);
             rentRequestService.save(u);
-            // todo odbiti koji se preklapaju
-            //  carsService.autoReject(u);
+
 
             LOGGER.info("Action approve rent request id: {} by user: {} successful", id.toString(), user.getEmail());
             return ResponseEntity.ok().build();
