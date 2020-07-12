@@ -1,8 +1,7 @@
-package com.rent_a_car.agentski_bekend.controller;
+package com.ad_service.controller;
 
-import com.rent_a_car.agentski_bekend.model.User;
-import com.rent_a_car.agentski_bekend.service.UserService;
-import com.rent_a_car.agentski_bekend.service.interfaces.UserServiceInterface;
+import com.ad_service.model.User;
+import com.ad_service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

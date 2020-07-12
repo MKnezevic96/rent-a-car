@@ -1,4 +1,4 @@
-package com.rent_a_car.agentski_bekend.helper;
+package com.ad_service.helper;
 
 import org.springframework.stereotype.Component;
 

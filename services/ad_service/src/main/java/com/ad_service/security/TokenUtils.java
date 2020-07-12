@@ -1,5 +1,6 @@
 package com.ad_service.security;
 
+import com.ad_service.helper.TimeProvider;
 import com.ad_service.model.Privilege;
 import com.ad_service.model.User;
 import io.jsonwebtoken.Claims;
@@ -35,7 +36,7 @@ public class TokenUtils {
     static final String AUDIENCE_TABLET = "tablet";
 
     @Autowired
-    com.rent_a_car.agentski_bekend.helper.TimeProvider timeProvider;
+    TimeProvider timeProvider;
 
     private SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS512;
 

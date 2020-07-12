@@ -38,13 +38,13 @@ public class WebConfig extends WebSecurityConfigurerAdapter implements WebMvcCon
 
     @Bean
     @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
+    public AuthenticationManager authenticationManagerBean() throws Exception{
         return super.authenticationManagerBean();
     }
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedOrigins("http://localhost:4200").allowedMethods("PUT", "DELETE", "GET", "POST");
+        registry.addMapping("/**").allowedOrigins("http://localhost:4201").allowedMethods("PUT", "DELETE", "GET", "POST", "OPTIONS");
     }
 
     // Definisemo nacin autentifikacije

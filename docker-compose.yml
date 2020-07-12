@@ -71,9 +71,13 @@ services:
     image: ad_service
     container_name: ad-service
     environment:
-      - REGISTRY_HOST=eureka
+      DATABASE_USERNAME: 'sa'
+      DATABASE_PASSWORD: 'admin	'
+      DATABASE_DOMAIN: 'db'
+      REGISTRY_HOST: eureka
     depends_on:
       - eureka
+      - db
     build:
       context: ./services/ad_service
       dockerfile: Dockerfile

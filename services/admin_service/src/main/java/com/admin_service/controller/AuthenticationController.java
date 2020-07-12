@@ -2,8 +2,14 @@ package com.admin_service.controller;
 
 import com.admin_service.dto.UserDTO;
 import com.admin_service.dto.UserRequestDTO;
+import com.admin_service.model.User;
+import com.admin_service.model.UserRequest;
+import com.admin_service.model.UserTokenState;
+import com.admin_service.security.TokenUtils;
 import com.admin_service.security.auth.JwtAuthenticationRequest;
+import com.admin_service.service.CustomUserDetailsService;
 import com.admin_service.service.UserService;
+import com.admin_service.service.interfaces.UserRequestServiceInterface;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -47,7 +53,7 @@ public class AuthenticationController {
     }
 
     @PostMapping(value = "/api/register")
-    public ResponseEntity<?> register(@RequestBody UserDTO dto) {
+    public ResponseEntity<?> register(@RequestBody UserDTO dto) throws Exception {
         UserRequest user = new UserRequest();
         user.setFirstname(dto.getFirstname());
         user.setLastname(dto.getLastname());
